@@ -180,13 +180,8 @@ int main() {
 
 			case 4: {
 				
-				edad = 0; // el compilador detecta que edad tiene basura y por lo tanto no puede usarse en la funcion, no sabe que edad es una variable de retorno
-				DtJugador **jj = SistemaCentral.obtenerJugadores(edad);
-				imprimirDtJugador(jj,edad);
-				cout <<'\n'; cout <<'\n';
-				for (int i=0; i<SistemaCentral.getcantjugadores();i++)
-                                         delete jj[i];
-				delete []jj ;
+					cout << "CARGA DE DATOS DE PRUEBA";
+					cout <<'\n';
 				 }
 			break;
 
