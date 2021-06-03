@@ -4,10 +4,6 @@
 
 using namespace std;
 
-/*
- cambiar la manera en que se inicializa DtPartidaIndividual
- */
-
 int main() {
 
         InstanciaControladorUsuario;
