@@ -146,41 +146,11 @@ int main() {
 
 
 				}
-
-				cout << "ingrese nombre : "<<'\n';
-				cin.ignore();
-				getline(cin,nom);
-				cout <<'\n';
-				cout << "seleccione el genero :  1-Accion 2-Aventura 3-Deporte 4-otro"<<'\n';
-			
-				cin >> e;
-				cout <<'\n';
-				
-				switch(e){
-					case 1:
-						j = Accion;
-					break;
-					case 2:
-						j = Aventura;
-					break;
-					case 3:
-						j = Deporte;
-					break;
-					case 4:
-						j = Otro;
-					break;
-				}
-				SistemaCentral.agregarVideojuego(nom,j);
-				cout << "videojuego ingresado con exito "<<'\n';
-				cout <<'\n'; cout <<'\n';
-				}
+			}
 			break;
 
 			case 3: {
 
-                                /*
-                pedimos la fecha al momento de agregar una partida
-                */
                 int an,me,di,ho,mi;
                 
                 cout << "Es necesario ingresar la fecha y hora del sistema" <<'\n';
@@ -205,123 +175,7 @@ int main() {
                 cin >> mi;
                 cout <<'\n';
 
-                DtFechaHora fechaSis(di,me,an,ho,mi);
-                
-                /* Fin
-                pedimos la fecha al momento de agregar una partida
-                */
-
-                string nombreVideojuego;
-                cout << "Nombre del videojuego: "<<'\n';
-				cin.ignore();
-				getline(cin,nombreVideojuego);
-				cout <<'\n';
-                 
-                 
-                string nombreJugador;
-				cout << "Ingrese nickname del jugador que inicia la partida: "<<'\n';
-				getline(cin,nombreJugador);
-				cout <<'\n';
-
-				
-                int duracion=0;
-				cout << "Ingrese la duracion (en horas) "<<'\n';
-				cin >> duracion;
-				cout <<'\n';
-
-				int tipoPartida = 1;
-				cout << "como sera la partida: 1-individual  2-multijugador "<<'\n';
-				cin >> tipoPartida;
-				cout <<'\n';
-
-				//si es una partida individual
-				if (tipoPartida == 1) {
-					
-                    int esContinuacion = 1;
-                    bool esContinuacionBool;
-					cout << "es continuacion de una anterior? 1-si 2-no "<<'\n';
-					cin >> esContinuacion;
-					cout <<'\n';
-					
-					if (esContinuacion == 1) {
-						esContinuacionBool = true;
-					}
-					else {
-						esContinuacionBool = false;
-					}
-
-					DtPartida *infoPartida = new DtPartidaIndividual(fechaSis,duracion,esContinuacionBool);
-                                        
-                    try{
-                        //se llama a la funcion que cre la partida
-                        //void iniciarPartida(string nickname,string videojuego,DtPartida* datos);
-                        SistemaCentral.iniciarPartida(nombreJugador,nombreVideojuego,infoPartida);
-                        cout << "partida iniciada con exito "<<'\n';
-                        cout <<'\n'; cout <<'\n';
-                    }
-                    
-                    catch (invalid_argument& e) { 
-                        cout << e.what() <<endl;                         
-                    }
-                    
-                    
-                    delete infoPartida;
-
-				}
-				//si es una partida multijugador
-				else{
-
-                    int transmitidaEnVivo = 1;
-                    bool transmitidaEnVivoBool=0;
-					cout << "es transmitida en vivo? 1-si 2-no "<<'\n';
-					cin >> transmitidaEnVivo;
-					cout <<'\n';
-					if (transmitidaEnVivo == 1) {
-						transmitidaEnVivoBool = true;
-					} else {
-						transmitidaEnVivoBool = false;
-					}
-
-                    int cantidadJugadores;
-					cout << "cuantos jugadores se uniran? "<<'\n';
-					cin >> cantidadJugadores;
-					cout <<'\n';
-                                        
-
-					cout << "debe ingresar los nicknames de los jugadores que se uniran "<<'\n';
-					
-					string *nombres = new string[cantidadJugadores+1];
-                    
-                    cin.ignore();
-					for (int i = 0; i < cantidadJugadores; i++) {
-                        cout <<"Jugador "<<i+1<<": ";
-						getline(cin,nombres[i]);
-					}
-                                       
-					cout <<'\n';
-					nombres[cantidadJugadores]=nombreJugador;
-					cantidadJugadores=cantidadJugadores+1;
-
-					//se crea el datatype que pide la funcion iniciarPartida
-                                        
-					DtPartida *infoPartida = new DtPartidaMultijugador(fechaSis,duracion,transmitidaEnVivoBool, nombres, cantidadJugadores);
-                    delete []nombres;
-
-                    try{
-                        SistemaCentral.iniciarPartida(nombreJugador,nombreVideojuego,infoPartida);
-                        cout << "partida iniciada con exito "<<'\n';
-                        cout <<'\n'; cout <<'\n';
-                    }catch (invalid_argument& e) { 
-                        cout << e.what() <<endl; 
-                        
-                    }
-                    
-                    delete infoPartida;
-
-
-				}
-
-				}
+			}
 			break;
 
 			case 4: {
