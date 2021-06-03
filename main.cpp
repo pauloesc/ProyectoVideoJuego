@@ -30,20 +30,10 @@ int main() {
         
 		cout << "Eliga la operacion a realizar: "<<'\n';
 		cout << "1) Alta de usuario." <<'\n';
-		cout << "2) Publicar videojuego." <<'\n';
-		cout << "3) Suscribirse a videojuego." <<'\n';
-		cout << "4) Iniciar partida." <<'\n';
-		cout << "5) Finalizar partida." <<'\n';
-		cout << "6) Eliminar videojuego." <<'\n';
-		cout << "7) Consultar estadísticas" <<'\n';
-
-		cout << "8) Iniciar sesión." <<'\n';
-		cout << "9) Agregar categoría." <<'\n';
-		cout << "10) Asignar puntaje a videojuego." <<'\n';
-		cout << "11) Abandonar partida multijugador." <<'\n';
-
-		cout << "12) Ver información de videojuego." <<'\n';
-		cout << "13) Seleccionar estadísticas." <<'\n';
+		cout << "2) Iniciar sesión." <<'\n';
+		cout << "3) Modificar fecha del sistema." <<'\n';
+		cout << "4) Cargar datos de prueba." <<'\n';
+		cout << "5) Salir." <<'\n';
 
 		cin >> eleccion;
 		cout <<'\n';
