@@ -1,8 +1,3 @@
-#include "include/Sistema.h"
-#include "include/DtJugador.h"
-#include "include/DtVideojuego.h"
-#include "include/Videojuego.h"
-#include "include/DtFechaHora.h"
 #include <iostream>
 #include <string>
 using namespace std;
@@ -22,6 +17,9 @@ int main() {
 
 
 	Sistema SistemaCentral;
+
+
+	InstanciaControladorUsuario;
     
 
     while (!termina) {
@@ -40,20 +38,84 @@ int main() {
 
 
 		switch(eleccion) {
+
 			case 1: {
-				cout << "ingrese nickname:" <<'\n';
+
+				string vemail;
+				cout << "ingrese email:" <<'\n';
 				cin.ignore();
-				getline(cin,nick);
+				getline(cin,vemail);
 				cout <<'\n';
-				cout << "ingrese edad:" <<'\n';
-				cin >> edad;
+
+				string vpassword;
+				cout << "ingrese contrasenia:" <<'\n';
+				cin.ignore();
+				getline(cin,vpassword);
 				cout <<'\n';
-				cout << "ingrese contraseña: " <<'\n';
-				cin >> cont;
+
+				InstanciaControladorUsuario.IngresardatosUsuario(vemail,vpassword);
+
+				bool esDesarollador=0;
+				cout << "Es un usuario desarollador: 1 para si, 0 para no" <<'\n';
+				cin.ignore();
+				getline(cin,esDesarollador);
+				
+				if(esDesarollador) {
+					InstanciaControladorUsuario.IngresardatosDesarrollador(nomEmpresa:string)
+				}
+				else{
+
+					bool auxWhile=1;
+					while(auxWhile){
+
+						string vnickname;
+						cout << "ingrese nickname:" <<'\n';
+						cin.ignore();
+						getline(cin,vnickname);
+						cout <<'\n';
+
+						string vdescripcion;
+						cout << "ingrese descripcion:" <<'\n';
+						cin.ignore();
+						getline(cin,vdescripcion);
+						cout <<'\n';
+
+						bool verificacion;
+						verificacion:= InstanciaControladorUsuario.IngresardatosJugador(vnickname, vdescripcion)
+
+						//si puede registrarse con ese usuario
+						if(verificacion){
+							auxWhile = 0;
+						}
+						else{
+
+							bool vreintenarIngresoDatos;
+							cout << "No es posible registar dichs datos quiere volver a intentarlo: 0 para no, 1 para si" <<'\n';
+							cin.ignore();
+							getline(cin,vreintenarIngresoDatos);
+							cout <<'\n';
+
+							 auxWhile = vreintenarIngresoDatos;
+
+						}
+
+
+					}
+
+				}
+
+				bool vconfirmar;
+				cout << "Desea confirmar inscripcion 1 para si 0 para no:" <<'\n';
+				cin.ignore();
+				getline(cin,vconfirmar);
 				cout <<'\n';
-				SistemaCentral.agregarJugador(nick,edad,cont);
-				cout << "jugador ingresado con exito "<<'\n';
-				cout <<'\n'; cout <<'\n';
+
+				if(vconfirmar){
+					InstanciaControladorUsuario.cancelarAltaUsuario()
+				}
+				else{
+					InstanciaControladorUsuario.ConfirmarAltaUsuario()
+				}
 			}
 			break;
 
