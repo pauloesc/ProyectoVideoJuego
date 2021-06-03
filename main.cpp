@@ -10,15 +10,6 @@ using namespace std;
 
 int main() {
 
-	int e,eleccion,edad;
-	bool termina = false;
-	string nick, cont, nom;
-	TipoJuego j;
-
-
-	Sistema SistemaCentral;
-
-
 	InstanciaControladorUsuario;
     
 
@@ -119,7 +110,43 @@ int main() {
 			}
 			break;
 
+
 			case 2: {
+				
+				auxWhile=1;
+				while(auxWhile){
+
+					string vemail;
+					cout << "ingrese email : "<<'\n';
+					cin.ignore();
+					getline(cin,vemail);
+					cout <<'\n';
+
+					string passw;
+					cout << "ingrese contrasenia : "<<'\n';
+					cin.ignore();
+					getline(cin,passw);
+					cout <<'\n';
+					
+					bool ingreso = 0;
+					ingreso:= InstanciaControladorUsuario.IngresarDatos(vemail;passw);
+
+					//si no ingreso
+					if(!ingreso){				
+						bool reintentar;
+						cout << "Fallo el ingreso. Quiere reintentar ingresar?: 1 para si 0 para no"<<'\n';
+						cin.ignore();
+						getline(cin,reintentar);
+						cout <<'\n';
+
+						auxWhile = reintentar
+					}
+					//si ingreso
+					else{ auxWhile = 0;}
+
+
+				}
+
 				cout << "ingrese nombre : "<<'\n';
 				cin.ignore();
 				getline(cin,nom);
