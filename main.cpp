@@ -186,45 +186,11 @@ int main() {
 			break;
 
 			case 5: {
-
-				int juegos = 0;
-				DtVideojuego **vv = SistemaCentral.obtenerVideojuegos(juegos);
-				imprimirDtVideojuego(vv,juegos);
-				cout <<'\n'; cout <<'\n';
-                                for (int i=0; i<SistemaCentral.getcantvideojuegos();i++)
-                                         delete vv[i];
-				delete []vv;
+					cout << "Chau";
+					cout <<'\n';
+					termina = 1;
 				}
 
-			break;
-
-			case 6: {
-                cin.ignore();
-				cout << "de que videojuego desea ver las partidas? ingrese su nombre "<< endl;
-				getline(cin,nom);
-				cout <<'\n';
-				int partidas = 0;
-                DtPartida **pp = 0;
-                try{
-                    pp = SistemaCentral.obtenerPartidas(nom,partidas);
-                    imprimirDtPartida(pp,partidas,nom);
-                    cout <<'\n'; cout <<'\n';
-                    for (int i=0; i<partidas; i++)
-                        delete pp[i];
-                }
-                catch (invalid_argument& e) {
-                    cout << e.what() <<endl;
-                    
-                }
-
-				delete []pp;
-				}
-			break;
-
-			case 0: {
-                                
-				termina = true;
-			}
 			break;
 
 			default: {
@@ -233,18 +199,13 @@ int main() {
 				cout << "numero invalido, cerrando sistema..."<<'\n';
 				}
 			break;
-
-
 		}
        }
 	 
-	
 	catch (invalid_argument& e) {
             cout << e.what() <<endl;
         }
 	}
 
-
-	
 	return 0;
 }
