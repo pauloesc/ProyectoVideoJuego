@@ -29,13 +29,21 @@ int main() {
         try{
         
 		cout << "Eliga la operacion a realizar: "<<'\n';
-		cout << "1) agregar jugador al sistema" <<'\n';
-		cout << "2) agregar videojuego al sistema" <<'\n';
-		cout << "3) iniciar una partida" <<'\n';
-		cout << "4) mostrar jugadores" <<'\n';
-		cout << "5) mostrar videojuegos" <<'\n';
-		cout << "6) mostrar partidas" <<'\n';
-		cout << "0) salir del sistema" <<'\n';
+		cout << "1) Alta de usuario." <<'\n';
+		cout << "2) Publicar videojuego." <<'\n';
+		cout << "3) Suscribirse a videojuego." <<'\n';
+		cout << "4) Iniciar partida." <<'\n';
+		cout << "5) Finalizar partida." <<'\n';
+		cout << "6) Eliminar videojuego." <<'\n';
+		cout << "7) Consultar estadísticas" <<'\n';
+
+		cout << "8) Iniciar sesión." <<'\n';
+		cout << "9) Agregar categoría." <<'\n';
+		cout << "10) Asignar puntaje a videojuego." <<'\n';
+		cout << "11) Abandonar partida multijugador." <<'\n';
+
+		cout << "12) Ver información de videojuego." <<'\n';
+		cout << "13) Seleccionar estadísticas." <<'\n';
 
 		cin >> eleccion;
 		cout <<'\n';
