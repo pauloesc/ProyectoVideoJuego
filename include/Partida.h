@@ -6,19 +6,29 @@
 
 #include "Videojuego.h"
 
+#include <iostream>
+#include <set>
+
+
 
 
 class Videojuego;
 
 class Partida {
 private:
+	// es necesario llevar un set de codigos para no crear uno repetido
+	static set<int> setCodigos;
+
 	DtFecha fecha;
-	float duracion;
+	float duracion; //minutos
 	int codigo;
 	bool enCurso;
 
 	Videojuego* pertenece;
 public:
+	
+	int nuevoCodigo();
+	void quitarCodigo(int cod);
 
 	DtFechaHora getFecha();
 	float getduracion();
@@ -26,9 +36,8 @@ public:
 	int getcodigo();
 	Videojuego* getVideojuego();
 
-	bool esPartidaIndividualFinalizadaDelJuego(nombrevid:string);
+	bool esPartidaIndividualFinalizadaDelJuego(string nombrevid);
 	DtPartidaEnCurso* getDtPartida() ;
-
  	virtual finalizar() = 0;;
 	virtual eliminarPartida() = 0;
  	virtual tiempoTotal() = 0;
