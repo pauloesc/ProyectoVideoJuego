@@ -224,7 +224,47 @@ void menuParaDesarollador(){
                         }
                         break;
                         case 4: {
-                                
+                                vector<DataEstadistica> EstadisticasEnElSistema;
+                                EstadisticasEnElSistema = InstanciaControladorEstadistica.TiposDeEstadistica();
+
+                                for(int i=0; i< EstadisticasEnElSistema.size() ){
+                                        cout << EstadisticasEnElSistema[i] << endl;
+                                }
+
+                                vector<string> EstadisticasSeleccionadas;
+                                bool auxWhile = 1;
+                                while(auxWhile){
+
+                                        string estadisticaNombre;
+                                        cout << "Agrege una estadistica (nombre) :"<<'\n';
+                                        cin.ignore();
+                                        getline(cin,estadisticaNombre);
+                                        cout <<'\n';
+
+                                        EstadisticasSeleccionadas.push_back(estadisticaNombre);
+
+                                        cout << "Quiere seleccionar otra estadistica. 1 para si, 0 para no :"<<'\n';
+                                        cin.ignore();
+                                        getline(cin,auxWhile);
+                                        cout <<'\n';
+
+                                }
+
+                                InstanciaControladorEstadistica.SeleccionEstadisticas(EstadisticasSeleccionadas);
+
+                                bool confirmar;
+                                cout << "Confirmar. 1 para si 0 para no :"<<'\n';
+                                cin.ignore();
+                                getline(cin,confirmar);
+                                cout <<'\n';
+
+                                if(confirmar){
+                                        InstanciaControladorEstadistica.ConfirmarSeleccionEstaditicas();
+                                }
+                                else{
+                                       InstanciaControladorEstadistica.CancelarSeleccionEstaditicas();
+                                }
+
                         }
                 }
         }
