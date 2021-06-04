@@ -4,9 +4,50 @@
 
 using namespace std;
 
+
+void menuParaDesarollador(){
+
+        while (!termina){
+
+
+                cout << "Eliga la operacion a realizar: " << '\n';
+                cout << "1) Agregar categoria." << '\n';
+                cout << "2) Publicar videojuego." << '\n';
+                cout << "3) Eliminar videojuego." << '\n';
+                cout << "4) Seleccionar estadisticas." << '\n';
+                cout << "5) Ver iformacion del videojuego." << '\n';
+                cout << "7) Salir." << '\n';
+                int eleccion;
+                cin >> eleccion;
+                cout << '\n';
+
+                switch (eleccion) {
+
+                        case 1: {
+                                
+                        }
+                }
+
+
+        }
+}
+
+
 int main() {
 
+        //no cambiar el nombre de estas cosas
+        //no cambiar el nombre de estas cosas
+        //no cambiar el nombre de estas cosas
+        //no cambiar el nombre de estas cosas
         InstanciaControladorUsuario;
+        InstanciaControladorEstadistica;
+        InstanciaControladorPartida;
+        InstanciaControladorVideojuego;
+        InstanciaControladorSuscripcion;
+        //no cambiar el nombre de estas cosas
+        //no cambiar el nombre de estas cosas
+        //no cambiar el nombre de estas cosas
+        //no cambiar el nombre de estas cosas
 
         while (!termina) {
 
