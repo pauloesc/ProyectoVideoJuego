@@ -266,6 +266,29 @@ void menuParaDesarollador(){
                                 }
 
                         }
+                        break;
+                        case 5: {
+
+                                vector<string> JuegosDelDesarollador;
+                                JuegosDelDesarollador = InstanciaControladorVideojuego.JuegosDelDesarollador();
+                                
+                                //imprimo los videojuegos del desarollador
+                                for( int i=0; i< JuegosDelDesarollador.size(); i++ ){
+                                        JuegosDelDesarollador[i];
+                                }
+
+                                string nombreJuego;
+                                cout << "Seleccione un juego. (nombre) :"<<'\n';
+                                cin.ignore();
+                                getline(cin,nombreJuego);
+                                cout <<'\n';
+
+                                DataEstadisticaDeSegundoTipo datos;
+                                datos = SeleccionEstadisticasDeCiertoJuego(nombreJuego)
+
+                                cout << datos << endl;
+
+                        }
                 }
         }
 }
