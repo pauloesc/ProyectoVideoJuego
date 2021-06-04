@@ -35,6 +35,25 @@ void Partida::quitarCodigo(int cod) {
 
 
 
+void Partida::setPartida(DtFecha f, Videojuego* v) {
+	this->fecha = f;
+	this->pertenece = v;
+
+	this->codigo = Partida::nuevoCodigo();
+	this->enCurso = true;
+}
+
+void Partida::terminar() {
+	this->enCurso = false;
+	actual = reloj->getFecha();
+	int a = getanio(actual) - getanio(fecha);
+	int m = getmes(actual) - getmes(fecha);
+	int d = getdia(actual) - getdia(fecha);
+	int h = gethora(actual) - gethora(fecha);
+	int min = getminuto(actual) - getminuto(fecha);
+	this->duracion (min + 60*h + 60*24*d + 60*24*30*m + 365*24*60*a);
+}
+
 DtFecha Partida::getFecha() {
     return fecha;
 }
@@ -43,7 +62,7 @@ float Partida::getduracion(){
 	if (!enCurso) {
 		return duracion;
 	} else {
-		actual = reloj->getFecha();
+		DtFecha actual = reloj->getFecha();
 		int a = getanio(actual) - getanio(fecha);
 		int m = getmes(actual) - getmes(fecha);
 		int d = getdia(actual) - getdia(fecha);
@@ -81,4 +100,4 @@ DtPartidaEnCurso* Partida::getDtPartida() {
 
 //no hace nada pero tiene que estar
 Partida::~Partida(){
-};
+}

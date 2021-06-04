@@ -27,9 +27,11 @@ private:
 	Videojuego* pertenece;
 public:
 	
-	int nuevoCodigo();
-	void quitarCodigo(int cod);
+	static int nuevoCodigo();
+	static void quitarCodigo(int cod);
 
+	void setPartida(DtFecha f, Videojuego* v);
+	void terminar();
 	DtFechaHora getFecha();
 	float getduracion();
 	bool getenCurso();
@@ -38,9 +40,9 @@ public:
 
 	bool esPartidaIndividualFinalizadaDelJuego(string nombrevid);
 	DtPartidaEnCurso* getDtPartida() ;
- 	virtual finalizar() = 0;;
-	virtual eliminarPartida() = 0;
- 	virtual tiempoTotal() = 0;
+ 	virtual void finalizar() = 0;;
+	virtual void eliminarPartida() = 0;
+ 	virtual void tiempoTotal() = 0;
 
 
 	virtual bool esIndividual() = 0;
