@@ -27,10 +27,36 @@ void menuParaDesarollador(){
                                 vector<string> nombreCategorias;
                                 nombreCategorias = InstanciaControladorVideojuego.ObtenerCategorias();
 
+                                cout << "Nombre de las categorias existentes: "<<'\n';
+                 
                                 for(int i=0; i< nombreCategorias.size(), i++ ){
                                         cout << nombreCategorias[i] << endl;
 
                                 }
+
+                                
+
+                                string nomCategoria;
+                                cout << "Ingrese nombre de la nueva categoria: "<<'\n';
+                                cin.ignore();
+                                getline(cin,nomCategoria);
+                                cout <<'\n';
+                                
+                                string descCategoria;
+                                cout << "Ingrese nombre de la nueva categoria: "<<'\n';
+                                cin.ignore();
+                                getline(cin,descCategoria);
+                                cout <<'\n';
+                                
+                                string tipoCategoria;
+                                cout << "Ingrese nombre de la nueva categoria: "<<'\n';
+                                cin.ignore();
+                                getline(cin,tipoCategoria);
+                                cout <<'\n';
+                 
+
+
+                                InstanciaControladorVideojuego.NuevaCategoria(nomCategoria, descCategoria, tipoCategoria);
 
                         }
                 }
