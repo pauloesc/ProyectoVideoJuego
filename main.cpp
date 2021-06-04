@@ -54,9 +54,20 @@ void menuParaDesarollador(){
                                 getline(cin,tipoCategoria);
                                 cout <<'\n';
                  
-
-
                                 InstanciaControladorVideojuego.NuevaCategoria(nomCategoria, descCategoria, tipoCategoria);
+
+                                bool confirmar= 0;
+                                cout << "Confirmar creacion de categoria: 1 para si, 0 para no "<<'\n';
+                                cin.ignore();
+                                getline(cin,confirmar);
+                                cout <<'\n';
+
+                                if(confirmar){
+                                        InstanciaControladorVideojuego.ConfirmarCategoria()
+                                }
+                                else{
+                                        InstanciaControladorVideojuego.ConfirmarCategoria()
+                                }
 
                         }
                 }
