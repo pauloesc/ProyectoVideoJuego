@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <vector>
 #include <string>
 
 using namespace std;
@@ -24,7 +24,14 @@ void menuParaDesarollador(){
                 switch (eleccion) {
 
                         case 1: {
-                                
+                                vector<string> nombreCategorias;
+                                nombreCategorias = InstanciaControladorVideojuego.ObtenerCategorias();
+
+                                for(int i=0; i< nombreCategorias.size(), i++ ){
+                                        cout << nombreCategorias[i] << endl;
+
+                                }
+
                         }
                 }
 
