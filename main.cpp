@@ -274,7 +274,7 @@ void menuParaDesarollador(){
                                 
                                 //imprimo los videojuegos del desarollador
                                 for( int i=0; i< JuegosDelDesarollador.size(); i++ ){
-                                        JuegosDelDesarollador[i];
+                                        cout << JuegosDelDesarollador[i] << endl;
                                 }
 
                                 string nombreJuego;
