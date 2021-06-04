@@ -2,6 +2,7 @@
 #define CONTROLADORUSUARIO
 
 #include ".../include/Usuario.h"
+using namespace std;
 #include <vector>
 
 class ControladorUsuario {
