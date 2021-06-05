@@ -105,7 +105,30 @@ void menuParaJugador(){
 
                         }
                         break;
-                        case 2: {}
+                        case 2: {
+
+                                vector<DataVideoJuegoResumido> VideojuegosDatos;
+                                VideojuegosDatos = InstanciaControladorVideojuego.ObtenerVideojuegos();
+
+                                for(int i=0; i< VideojuegosDatos.size(), i++ ){
+                                        cout << VideojuegosDatos[i] << endl;
+                                }
+
+                                string NombreVj;
+                                cout << "Nombre del Vj: "<<'\n';
+                                cin.ignore();
+                                getline(cin,NombreVj);
+                                cout <<'\n';
+
+                                int puntaje=0;
+                                cout << "Ingrese puntaje : "<<'\n';
+                                cin.ignore();
+                                getline(cin,puntaje);
+                                cout <<'\n';
+
+                                InstanciaControladorVideojuego.AsignarPuntajeVJ(NombreVj,puntaje);
+
+                        }
                         break;
                         case 3: {}
                         break;
