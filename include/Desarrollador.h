@@ -18,6 +18,7 @@ class Desarrollador : public Usuario {
 		Desarrollador (string unEmail, string unaContraseña, string unaEmpresa);
 		string getnomEmpresa ();
 		set <DataEstadisticaDeSegundoTipo> DarEstadisticas(Videojuego vj);
+		bool esJugador();
 };
 
 
