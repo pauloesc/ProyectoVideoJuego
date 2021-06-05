@@ -18,6 +18,7 @@ static string nomEmpresa;
 static bool desarrollador;
 static string nickname;
 static string desc;
+static Usuario* uenlinea;
 
 public:
 static ControladorUsuario * getInstance();
