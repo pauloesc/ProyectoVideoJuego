@@ -130,7 +130,113 @@ void menuParaJugador(){
 
                         }
                         break;
-                        case 3: {}
+                        case 3: {
+
+                                vector<DataVidestringoJuegoResumido> ListaVJConSuscrActiva;
+                                ListaVJConSuscrActiva = InstanciaControladorPartida.listarVideojuegosConSuscripcionActiva();
+
+                                for(int i = 0; i< ListaVJConSuscrActiva.size(); i++ ){
+                                        cout << ListaVJConSuscrActiva[i] << endl;
+                                }
+                                
+                                string NombreVj;
+                                cout << "Nombre del Vj del cual quiere iniciar una partida: "<<'\n';
+                                cin.ignore();
+                                getline(cin,NombreVj);
+                                cout <<'\n';
+
+                                InstanciaControladorPartida.seleccionaVideoJuego(NombreVj);
+
+
+                                bool TipoPartida;
+                                cout << "Presione 1 si quiere iniciar una partida multijugador 0 si induvidual: "<<'\n';
+                                cin.ignore();
+                                getline(cin,TipoPartida);
+                                cout <<'\n';
+
+                                //si quiere iniciar una partida multijugador
+                                if(TipoPartida){
+
+                                        bool EsTransEnVivo;
+                                        cout << "Presiona 1 si la partida es transmitida en vivo: "<<'\n';
+                                        cin.ignore();
+                                        getline(cin,EsTransEnVivo);
+                                        cout <<'\n';
+
+                                        InstanciaControladorPartida.IngresarPartidaMultijugador(EsTransEnVivo);
+
+                                        vector<string> ListaJugadoresQuePuedenUnirse;
+                                        ListaJugadoresQuePuedenUnirse = InstanciaControladorPartida.ListarJugadoresConSuscripcionActiva();
+
+                                        for(int i = 0; i< ListaJugadoresQuePuedenUnirse.size(); i++ ){
+                                                        cout << ListaJugadoresQuePuedenUnirse[i] << endl;
+                                                }
+
+                                        bool agregarJugadores = 1;
+                                        while(agregarJugadores){
+                                                string nomJugadorAgregar;
+                                                cout << "Ingrese el nombre de un jugador a ingresar para agregarlo a la partida: "<<'\n';
+                                                cin.ignore();
+                                                getline(cin,nomJugadorAgregar);
+                                                cout <<'\n';
+                                                AgregarJugador(nomJugadorAgregar);
+
+                                                
+                                                cout << "Quiere ingresar mas jugadores, presione 1 para si, 0 para no: "<<'\n';
+                                                cin.ignore();
+                                                getline(cin,agregarJugadores);
+                                                cout <<'\n';
+
+                                        }
+
+                                }
+                                //si quiere iniciar una partida individual
+                                else{
+
+                                        bool EsContinuacion;
+                                        cout << "Presiona 1 si la partida es continuacion de otra: "<<'\n';
+                                        cin.ignore();
+                                        getline(cin,EsContinuacion);
+                                        cout <<'\n';
+
+                                        InstanciaControladorPartida.ingresarPartidaIndividual(EsContinuacion);
+
+                                        //si quiere iniciar una partida continuacion de otra
+                                        if(EsContinuacion){
+                                                
+                                                vector<DtPartidaIndividual> HistorialPartidaIndiv;
+                                                HistorialPartidaIndiv = InstanciaControladorPartida.HistorialDePartidasIndividualesFinalizadas();
+
+                                                for(int i = 0; i< HistorialPartidaIndiv.size(); i++ ){
+                                                        cout << HistorialPartidaIndiv[i] << endl;
+                                                }
+
+                                                int codigoPartida;
+                                                cout << "Ingrese el codigo de la partida que quiere continuar: "<<'\n';
+                                                cin.ignore();
+                                                getline(cin,codigoPartida);
+                                                cout <<'\n';
+
+                                                InstanciaControladorPartida.PartidaAcontinuar(codigoPartida);
+
+                                        }
+
+                                }
+
+                                int Confirmarr;
+                                cout << "Presione 1 para confirmar 0 para cancelar el codigo de la partida que quiere continuar: "<<'\n';
+                                cin.ignore();
+                                getline(cin,Confirmarr);
+                                cout <<'\n';
+
+                                if(Confirmarr){
+                                       InstanciaControladorPartida.IniciarPartida();
+                                }
+                                else{
+                                        InstanciaControladorPartida.CancelarPartida();
+                                }
+
+                        }
                         break;
                         case 4: {}
                         break;
