@@ -32,8 +32,8 @@ void PartidaMultijugador::finalizar() {
 	set<Jugadores*>::iterator it;
 	for (it=jugadoresUnidos.begin(); it!=jugadoresUnidos.end(); ++it) { 
     	
-    	Abandona* ab = new Abandona();  //pone la fecha del sistema
-    	ab->setJugador(*it)
+    	Abandona* ab = new Abandona(*it);  //pone la fecha del sistema
+
     	abandonados.insert(ab);
 
     	jugadoresUnidos.erase(*it);

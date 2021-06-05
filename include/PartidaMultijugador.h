@@ -2,6 +2,7 @@
 #define PARTIDAMULTIJUGADOR
 
 #include "Partida.h"
+#include "Abandona.h"
 
 
 
