@@ -4,6 +4,25 @@
 
 using namespace std;
 
+void menuParaJugador(){
+
+        bool termina = 0;
+        while (!termina){
+
+                cout << "Eliga la operacion a realizar: " << '\n';
+                cout << "1) Suscribirse a videojuego." << '\n';
+                cout << "2) Asignar puntaje a videojuego." << '\n';
+                cout << "3) Iniciar partida." << '\n';
+                cout << "4) Abandonar partida multijugador." << '\n';
+                cout << "5) Finalizar partida." << '\n';
+                cout << "7) Salir." << '\n';
+                int eleccion;
+                cin >> eleccion;
+                cout << '\n';
+
+        }
+
+};
 
 void menuParaDesarollador(){
 
@@ -16,7 +35,8 @@ void menuParaDesarollador(){
                 cout << "2) Publicar videojuego." << '\n';
                 cout << "3) Eliminar videojuego." << '\n';
                 cout << "4) Seleccionar estadisticas." << '\n';
-                cout << "5) Ver iformacion del videojuego." << '\n';
+                cout << "5) Consultar estadísticas." << '\n';
+                cout << "6) Ver iformacion del videojuego." << '\n';
                 cout << "7) Salir." << '\n';
                 int eleccion;
                 cin >> eleccion;
@@ -321,7 +341,7 @@ void menuParaDesarollador(){
                         break;
                 }
         }
-}
+};
 
 
 int main() {
