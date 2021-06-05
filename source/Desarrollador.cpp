@@ -4,7 +4,7 @@
 
 using namespace std;
 
-Desarrollador::Desarrollador (string unEmail, string unaContraseña, string unaEmpresa) : Usuario (unEmail, unaContraseña) {
+Desarrollador::Desarrollador (string unEmail, string unaContrasenia, string unaEmpresa) : Usuario (unEmail, unaContrasenia) {
 	nombreEmpresa = unaEmpresa;
 }
 
