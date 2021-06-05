@@ -12,6 +12,10 @@ private:
 static ControladorUsuario * instance;
 ControladorUsuario();
 vector<Usuario*> Usuarios;
+static string email;
+static string contrasenia;
+static vector<string> nicknames;
+static vector<string> des;
 
 public:
 static ControladorUsuario * getInstance();
