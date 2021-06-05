@@ -7,6 +7,7 @@ using namespace std;
 
 void menuParaDesarollador(){
 
+        bool termina = 0;
         while (!termina){
 
 
@@ -289,6 +290,35 @@ void menuParaDesarollador(){
                                 cout << datos << endl;
 
                         }
+                        break;
+                        case 6: {
+                                
+                                vector<string> VideojuegosEnSistema;
+                                VideojuegosEnSistema = InstanciaControladorVideojuego.ObtenerVideoJuegos();
+
+                                for(int i=0; i< VideojuegosEnSistema.size(); i++){
+                                        cout << VideojuegosEnSistema[i] << endl;
+                                }
+
+                                string nombreJuego;
+                                cout << "Seleccione un juego. (nombre) :"<<'\n';
+                                cin.ignore();
+                                getline(cin,nombreJuego);
+                                cout <<'\n';
+
+                                DataInfoEspecifica datosVj;
+                                datosVj = InstanciaControladorVideojuego.SeleccionarVideojuego(nombreJuego);
+
+                                float VMostarTotalHorasJugadas = MostrarTotalHorasJugadas();
+                                cout << "Total de horas Jugadas: ";
+                                cout << VMostarTotalHorasJugadas << endl;
+
+                        }
+                        break;
+                        case 7: {
+                                termina = 1;
+                        }
+                        break;
                 }
         }
 }
