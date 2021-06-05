@@ -5,10 +5,10 @@
 
 using namespace std;
 
-//Esta mal, necesito revisar
+//Esta mal, necesito revisar // Le agregue el email y contrasenia porque lo necesito como parametro para crear la operacion en el controlador usuario
 
 
-Jugador::Jugador(string unNickname, string unaDescripcion) {
+Jugador::Jugador(string unEmail, string unaContrasenia string unNickname, string unaDescripcion) :Usuario (unEmail, unaContrasenia) {
 	nickname = unNickname;
 	descripcion = unaDescripcion;
 }
