@@ -47,6 +47,8 @@ void menuParaJugador(){
                                 cout <<'\n';
 
                                 bool puedeSuscribirse = InstanciaControladorSuscripcion.SeleccionarVideojuegoParaSuscr(nombreVideojego);
+
+                                //si puede suscribirse
                                 if(puedeSuscribirse){
 
                                         bool cancela=0;
@@ -55,12 +57,12 @@ void menuParaJugador(){
                                         getline(cin,cancela);
                                         cout <<'\n';
 
-                                        //si cancela la suscripcion existente
-                                        if(cancela){
+                                        //si no cancela la suscripcion existente
+                                        if(!cancela){
                                                 InstanciaControladorSuscripcion.Cancelar() 
                                         }
 
-                                        //no quiere cancela la suscripcion existente.
+                                        //nosi quiere cancela la suscripcion existente.
                                         else{
 
                                                 string tipoSusc;
@@ -77,6 +79,19 @@ void menuParaJugador(){
 
                                                 InstanciaControladorSuscripcion.IngresarDatosSuscripcion(tipoSusc,formaPago);
 
+                                                bool confirSus=0;
+                                                cout << "Confirmar suscripcion: "<<'\n';
+                                                cin.ignore();
+                                                getline(cin,confirSus);
+                                                cout <<'\n';
+
+                                                if(confirSus){
+                                                        InstanciaControladorSuscripcion.ConfirmarSuscripcion();
+                                                }
+                                                else{
+                                                        InstanciaControladorSuscripcion.Cancelar();
+                                                }
+
                                         }
 
 
@@ -87,18 +102,6 @@ void menuParaJugador(){
                                         InstanciaControladorSuscripcion.Finalizarproceso();
                                 }
 
-                                bool confirSus=0;
-                                cout << "Confirmar suscripcion: "<<'\n';
-                                cin.ignore();
-                                getline(cin,confirSus);
-                                cout <<'\n';
-
-                                if(confirSus){
-                                        InstanciaControladorSuscripcion.ConfirmarSuscripcion();
-                                }
-                                else{
-                                        InstanciaControladorSuscripcion.Cancelar();
-                                }
 
                         }
                         break;
