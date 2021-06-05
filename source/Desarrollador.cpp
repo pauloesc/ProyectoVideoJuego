@@ -12,6 +12,10 @@ string Desarrollador::getnomEmpresa() {
 	return nombreEmpresa;
 }
 
+bool Desarrollador::esJugador() {
+	return false;
+}
+
 set <DataEstadisticaDeSegundoTipo> Desarrollador::DarEstadisticas(Videojuego vj) {
 	set <DataEstadisticaDeSegundoTipo> res;
 	estadisticas::iterator it;
