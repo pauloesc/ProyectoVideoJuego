@@ -17,6 +17,10 @@ string Jugador::getnickname () {
 	return nickname;
 }
 
+bool Jugador::esJugador() {
+	return true;
+}
+
 string Jugador::getdescripcion() {
 	return descripcion;
 }
