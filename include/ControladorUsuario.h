@@ -11,7 +11,7 @@ class ControladorUsuario {
 private:
 static ControladorUsuario * instance;
 ControladorUsuario();
-vector<Usuario*> Usuarios;
+set<Usuario*> Usuarios;
 static string email;
 static string contrasenia;
 static string nomEmpresa;
@@ -28,8 +28,8 @@ bool IngresardatosJugador(string nickname, string desc);
 void ConfirmarAltaUsuario();
 void cancelarAltaUsuario();
 Jugador* darJugador(); 
-vector<string> darNombreJugadoresConSuscripcionActiva(string nombrevid);
-vector<Jugadores*> darJugadores(vector<string> jugadoresUnidos); 
+set<string> darNombreJugadoresConSuscripcionActiva(string nombrevid);
+set<Jugadores*> darJugadores(set<string> jugadoresUnidos); 
 Desarrollador* darDesarrollador();
 void eliminarSuscripcionesVideoJuego(string nomVJ);
 ~ControladorUsuario();
