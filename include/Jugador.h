@@ -21,6 +21,7 @@ class Jugador : public Usuario {
 		Jugador (string unNickname, string unaDescripcion);
 		string getnickname ();
 		string getdescripcion();
+		bool esJugador();
 
 		set(DtPartidaIndividual) darPartidasIndividualesFinalizadas(string nombrevid);
 		set(DtPartidaEnCurso) darPartidasEnCurso();
