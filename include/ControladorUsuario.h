@@ -3,6 +3,7 @@
 
 #include ".../include/Usuario.h"
 using namespace std;
+#include <string>
 #include <vector>
 
 class ControladorUsuario {
