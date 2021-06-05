@@ -9,8 +9,8 @@ using namespace std;
 class ControladorUsuario {
 
 private:
-static ControladorUsuario * instance;
-ControladorUsuario();
+static ControladorUsuario* instance;
+ControladorUsuario(); //tiene que ir protected?
 vector<Usuario*> Usuarios;
 static string email;
 static string contrasenia;
@@ -21,7 +21,7 @@ static string desc;
 static Usuario* uenlinea;
 
 public:
-static ControladorUsuario * getInstance();
+static ControladorUsuario* getInstance();
 
 void IngresardatosUsuario(string email, string contrasenia);
 void IngresardatosDesarrollador(string nomEmpresa);
