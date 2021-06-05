@@ -34,7 +34,7 @@ void ControladorUsuario::IngresardatosDesarrollador(string nomEmpresa){
 bool ControladorUsuario::IngresardatosJugador(string nickname, string desc){
        bool existe=false;
        vector<Usuario*>::iterator it = Usuarios.begin();
-       While ((!existe) && (it!=suarios.end()){
+       While ((!existe) && (it!=Usuarios.end()){
               if (dynamic_cast<Jugador*>(it)){  
                   if (it->getnickname()==nickname)
                      existe=true;
@@ -69,7 +69,7 @@ Usuario* ControladorUsuario::uenlinea=NULL;
 bool ControladorUsuario::ingresarDatos(string email, string contrasenia){
        bool existe=false;
        vector<Usuario*>::iterator it = Usuarios.begin();
-       While ((!existe) && (it!=suarios.end()){
+       While ((!existe) && (it!=Usuarios.end()){
                if ((it->getemail()==email)&&(it->getcontrasenia==contrasenia)){
                      existe=true;
                      uenlinea=it;
@@ -91,13 +91,15 @@ Desarrollador* ControladorUsuario::darDesarrollador(){
 
 vector<string> ControladorUsuario::darNombreJugadoresConSuscripcionActiva(string nombrevid){
        vector<string> jug;
+       vector<Usuario*>::iterator it;
 
-       vector<Usuario*>::iterator it = Usuarios.begin();
+       for (it = Usuarios.begin(); it!=Usuarios.end(); ++it){
+              if (dynamic_cast<Jugador*>(it)){
 
-       While (it!=Usuarios.end){
-       if (dynamic_cast<Jugador*>(it)){
-
+              }
        }
+
+
 }
 
 
@@ -118,14 +120,10 @@ vector<string> ControladorUsuario::darNombreJugadoresConSuscripcionActiva(string
 
 
 
-
-
-
 ControladorUsuario::~ControladorUsuario() {
-       vector<Usuario*>::iterator it = Usuarios.begin();
-       While (it!=suarios.end()){
+       vector<Usuario*>::iterator it;
+       for ( it = Usuarios.begin(); it!=Usuarios.end(); ++i){
               delete it;
-              ++it;
        }	
-       delete usuarios;
+       delete Usuarios;
 }
