@@ -13,22 +13,22 @@ ControladorUsuario *ControladorUsuario::getInstancia() {
  return instance;
 } 
 
-static string email;
-static string contrasenia;
-static string nomEmpresa;
-static bool desarrollador;
-static string nickname;
-static string desc;
+string ControladorUsuario::email=$; //no sé si se escriben asi
+string ControladorUsuario::contrasenia=$;
+string ControladorUsuario::nomEmpresa;
+bool ControladorUsuario::desarrollador=false;
+string ControladorUsuario::nickname=$;
+string ControladorUsuario::desc=$;
 
 
 void ControladorUsuario::IngresardatosUsuario(string email, string contrasenia){
-       ControladorUsuario::email=email;
-       ControladorUsuario::contrasenia=contrasenia;
+       this->email =email;
+       this->contrasenia =contrasenia;
 }
 
 void ControladorUsuario::IngresardatosDesarrollador(string nomEmpresa){
-       ControladorUsuario::nomEmpresa=nomEmpresa;
-       ControladorUsuario::derrollador=true;
+       this->nomEmpresa=nomEmpresa;
+       this->desarrollador=true;
 }
 
 bool ControladorUsuario::IngresardatosJugador(string nickname, string desc){
@@ -42,29 +42,90 @@ bool ControladorUsuario::IngresardatosJugador(string nickname, string desc){
              ++it;
        }
        if(!existe){
-              ControladorUsuario::desarrollador=false; 
-              ControladorUsuario::nickname=nickname;
-              ControladorUsuario::desc=desc;
+              this->desarrollador=false; 
+              this->nickname=nickname;
+              this->desc=desc;
        }
        return (!existe);
 }
 
 void ControladorUsuario::ConfirmarAltaUsuario(){
       
-       if (ControladorUsuario::desarrollador){
-              Desarrollador* d= new Desarrollador (ControladorUsuario::email, ControladorUsuario::contrasenia,  ControladorUsuario::nomEmpresa)
-              Usuario u*=dynamic_cast <*Usurio>(d); //no se si esto es necesario
+       if (desarrollador){
+              Desarrollador* d= new Desarrollador(email, contrasenia, nomEmpresa);
+              Usuario u*=dynamic_cast <Usuario*>(d); //no se si esto es necesario
        }
        else {
-              Desarrollador* d= new Desarrollador (ControladorUsuario::email, ControladorUsuario::contrasenia,  ControladorUsuario::nomEmpresa)
-              Usuario u*=dynamic_cast <*Usurio>(d); //no se si esto es necesario
+              Jugador* j= new Jugador(email, contrasenia, nickname, desc);
+              Usuario u*=dynamic_cast <Usuario*>(j); //no se si esto es necesario
 
        }
-              
-
 usuarios.push_back (u);
 }
-void ControladorUsuario::cancelarAltaUsuario();
+void ControladorUsuario::cancelarAltaUsuario(){} //puedeo volve los valores a $ o dejarlos como estan
 
-Jugador* ControladorUsuario::darJugador(); 
+Usuario* ControladorUsuario::uenlinea=NULL;
 
+bool ControladorUsuario::ingresarDatos(string email, string contrasenia){
+       bool existe=false;
+       vector<Usuario*>::iterator it = Usuarios.begin();
+       While ((!existe) && (it!=suarios.end()){
+               if ((it->getemail()==email)&&(it->getcontrasenia==contrasenia)){
+                     existe=true;
+                     uenlinea=it;
+               }
+       ++it;
+       }
+
+       return existe;
+}
+
+Jugador* ControladorUsuario::darJugador(){
+       return uenlinea;
+} 
+
+Desarrollador* ControladorUsuario::darDesarrollador(){
+       return uenlinea;
+} 
+
+
+vector<string> ControladorUsuario::darNombreJugadoresConSuscripcionActiva(string nombrevid){
+       vector<string> jug;
+
+       vector<Usuario*>::iterator it = Usuarios.begin();
+
+       While (it!=Usuarios.end){
+       if (dynamic_cast<Jugador*>(it)){
+
+       }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ControladorUsuario::~ControladorUsuario() {
+       vector<Usuario*>::iterator it = Usuarios.begin();
+       While (it!=suarios.end()){
+              delete it;
+              ++it;
+       }	
+       delete usuarios;
+}
