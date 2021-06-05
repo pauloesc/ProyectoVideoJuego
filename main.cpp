@@ -256,7 +256,23 @@ void menuParaJugador(){
 
                         }
                         break;
-                        case 5: {}
+                        case 5: {
+
+                                vector<DtPartidaEnCurso> PartidaEnCursoDelJugador;
+                                PartidaEnCursoDelJugador = InstanciaControladorPartida.obtenerPartidasEnCurso();
+
+                                for(int i = 0; i< PartidaEnCursoDelJugador.size(); i++ ){
+                                        cout << PartidaEnCursoDelJugador[i] << endl;
+                                }
+
+                                int codPartida;
+                                cout << "Ingrese le codigo de la partida que quiere finalizar: "<<'\n';
+                                cin.ignore();
+                                getline(cin,codPartida);
+                                cout <<'\n';
+                                InstanciaControladorPartida.finalizarPartida(codPartida)
+
+                        }
                         break;
                         case 6: {}
                         break;
