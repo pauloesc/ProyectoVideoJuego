@@ -238,7 +238,23 @@ void menuParaJugador(){
 
                         }
                         break;
-                        case 4: {}
+                        case 4: {
+                                
+                                vector<DtPartidaMultijugador> Info;
+                                Info = InstanciaControladorPartida.obtenerPartidasEnCursoUnido();
+
+                                for(int i = 0; i< Info.size(); i++ ){
+                                        cout << Info[i] << endl;
+                                }
+
+                                int codPartida;
+                                cout << "Ingrese le codigo de la partida que quiere abandonar: "<<'\n';
+                                cin.ignore();
+                                getline(cin,codPartida);
+                                cout <<'\n';
+                                InstanciaControladorPartida.abandonarPartida(codPartida)
+
+                        }
                         break;
                         case 5: {}
                         break;
