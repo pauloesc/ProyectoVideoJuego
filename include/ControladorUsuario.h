@@ -14,8 +14,10 @@ ControladorUsuario();
 vector<Usuario*> Usuarios;
 static string email;
 static string contrasenia;
-static vector<string> nicknames;
-static vector<string> des;
+static string nomEmpresa;
+static bool desarrollador;
+static string nickname;
+static string desc;
 
 public:
 static ControladorUsuario * getInstance();
