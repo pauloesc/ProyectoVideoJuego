@@ -23,15 +23,19 @@ static Usuario* uenlinea;
 public:
 static ControladorUsuario* getInstance();
 
-void IngresardatosUsuario(string email, string contrasenia);
+void IngresardatosUsuario(string email, string contrasenia); //caso de uso Alta usuario
 void IngresardatosDesarrollador(string nomEmpresa);
 bool IngresardatosJugador(string nickname, string desc);
 void ConfirmarAltaUsuario();
 void cancelarAltaUsuario();
+
+bool ingresarDatos(string email, string contrasenia) //caso de uso iniciar sesion
 Jugador* darJugador(); 
+Desarrollador* darDesarrollador();
+
 vector<string> darNombreJugadoresConSuscripcionActiva(string nombrevid);
 vector<Jugadores*> darJugadores(vector<string> jugadoresUnidos); 
-Desarrollador* darDesarrollador();
 void eliminarSuscripcionesVideoJuego(string nomVJ);
+
 ~ControladorUsuario();
 }
