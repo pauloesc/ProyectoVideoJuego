@@ -15,11 +15,106 @@ void menuParaJugador(){
                 cout << "3) Iniciar partida." << '\n';
                 cout << "4) Abandonar partida multijugador." << '\n';
                 cout << "5) Finalizar partida." << '\n';
+                cout << "6) Ver información de videojuego." << '\n';
                 cout << "7) Salir." << '\n';
                 int eleccion;
                 cin >> eleccion;
                 cout << '\n';
 
+                switch (eleccion) {
+
+                        case 1: {
+                                vector<DtSuscripcion> SuscripcionesActivas;
+                                SuscripcionesActivas = InstanciaControladorSuscripcion.obtenerSuscripcionesActivas();
+
+                                for(int i=0; i< SuscripcionesActivas.size(), i++ ){
+                                        cout << SuscripcionesActivas[i] << endl;
+
+                                }
+
+                                vector<DtSuscripcion> SuscripcionesActivas;
+                                SuscripcionesNoActivas = InstanciaControladorSuscripcion.obtenerSuscripcionesNoActivas();
+
+                                for(int i=0; i< SuscripcionesActivas.size(), i++ ){
+                                        cout << SuscripcionesActivas[i] << endl;
+
+                                }
+
+                                string nombreVideojego;
+                                cout << "Ingrese nombre del videojuego: "<<'\n';
+                                cin.ignore();
+                                getline(cin,nombreVideojego);
+                                cout <<'\n';
+
+                                bool puedeSuscribirse = InstanciaControladorSuscripcion.SeleccionarVideojuegoParaSuscr(nombreVideojego);
+                                if(puedeSuscribirse){
+
+                                        bool cancela=0;
+                                        cout << "Usted tiene una suscripcion a dicho juego quiere cancelarla 1 para si, 0 para no: "<<'\n';
+                                        cin.ignore();
+                                        getline(cin,cancela);
+                                        cout <<'\n';
+
+                                        //si cancela la suscripcion existente
+                                        if(cancela){
+                                                InstanciaControladorSuscripcion.Cancelar() 
+                                        }
+
+                                        //no quiere cancela la suscripcion existente.
+                                        else{
+
+                                                string tipoSusc;
+                                                cout << "Digite el tipo de suscripcion (mensual)(trimestral)(anual): "<<'\n';
+                                                cin.ignore();
+                                                getline(cin,tipoSusc);
+                                                cout <<'\n';
+
+                                                string formaPago;
+                                                cout << ": "<<'\n';
+                                                cin.ignore();
+                                                getline(cin,formaPago);
+                                                cout <<'\n';
+
+                                                InstanciaControladorSuscripcion.IngresarDatosSuscripcion(tipoSusc,formaPago);
+
+                                        }
+
+
+                                                
+                                }
+                                //no puede siscribirse
+                                else{
+                                        InstanciaControladorSuscripcion.Finalizarproceso();
+                                }
+
+                                bool confirSus=0;
+                                cout << "Confirmar suscripcion: "<<'\n';
+                                cin.ignore();
+                                getline(cin,confirSus);
+                                cout <<'\n';
+
+                                if(confirSus){
+                                        InstanciaControladorSuscripcion.ConfirmarSuscripcion();
+                                }
+                                else{
+                                        InstanciaControladorSuscripcion.Cancelar();
+                                }
+
+                        }
+                        break;
+                        case 2: {}
+                        break;
+                        case 3: {}
+                        break;
+                        case 4: {}
+                        break;
+                        case 5: {}
+                        break;
+                        case 6: {}
+                        break;
+                        case 7: {}
+                        break;
+                }
         }
 
 };
