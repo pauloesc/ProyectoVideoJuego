@@ -11,7 +11,7 @@ class Usuario {
 		Usuario (string unEmail, string unaContraseña);
 		string getemail();
 		string getcontraseña();
-		bool esJugador();
+		virtual bool esJugador();
 };
 
 #endif
