@@ -294,7 +294,9 @@ void menuParaJugador(){
 
                         }
                         break;
-                        case 7: {}
+                        case 7: {
+                        termina = 1;
+                        }
                         break;
                 }
         }
