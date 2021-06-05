@@ -25,4 +25,5 @@ vector<string> darNombreJugadoresConSuscripcionActiva(string nombrevid);
 vector<Jugadores*> darJugadores(vector<string> jugadoresUnidos); 
 Desarrollador* darDesarrollador();
 void eliminarSuscripcionesVideoJuego(string nomVJ);
+~ControladorUsuario();
 }
