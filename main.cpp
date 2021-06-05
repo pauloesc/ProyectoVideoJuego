@@ -274,7 +274,25 @@ void menuParaJugador(){
 
                         }
                         break;
-                        case 6: {}
+                        case 6: {
+
+                                vector<string> VideojuegosEnSistema;
+                                VideojuegosEnSistema = InstanciaControladorVideojuego.ObtenerVideoJuegos();
+
+                                for(int i=0; i< VideojuegosEnSistema.size(); i++){
+                                        cout << VideojuegosEnSistema[i] << endl;
+                                }
+
+                                string nombreJuego;
+                                cout << "Seleccione un juego. (nombre) :"<<'\n';
+                                cin.ignore();
+                                getline(cin,nombreJuego);
+                                cout <<'\n';
+
+                                DataInfoEspecifica datosVj;
+                                datosVj = InstanciaControladorVideojuego.SeleccionarVideojuego(nombreJuego);
+
+                        }
                         break;
                         case 7: {}
                         break;
