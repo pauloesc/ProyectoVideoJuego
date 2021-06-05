@@ -33,7 +33,7 @@ bool ingresarDatos(string email, string contrasenia) //caso de uso iniciar sesio
 Jugador* darJugador(); 
 Desarrollador* darDesarrollador();
 
-vector<string> darNombreJugadoresConSuscripcionActiva(string nombrevid);
+vector<string> darNombreJugadoresConSuscripcionActiva(string nombrevid); //caso de uso iniciar partida
 vector<Jugadores*> darJugadores(vector<string> jugadoresUnidos); 
 void eliminarSuscripcionesVideoJuego(string nomVJ);
 
