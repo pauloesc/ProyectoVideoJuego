@@ -25,7 +25,7 @@ static float costoAnual;
 static float costoVitalicia;
 static vector<string> cats;
 static Videojuego* vid;
-static DtCategoria categoria;
+static DtCategoria datacat;
 
 
 
