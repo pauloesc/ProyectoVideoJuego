@@ -48,7 +48,7 @@ void seleccionarVideoJuego(string nomVJ);
 void eliminarVideoJuego();
 void cancelarLaEliminacion();
 
-vector<string> DarJuegos(nombDes:string); //caso uso estadistica
+vector<string> DarJuegos(email:string); //caso uso estadistica
 
 vector<string> ObtenerCategorias(); //caso de uso agregar categorias
 void NuevaCategoria(DtCategoria datos);
