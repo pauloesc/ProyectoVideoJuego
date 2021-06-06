@@ -1,10 +1,6 @@
 #include <string> 
 #include <vector>
 #include ".../include/ControladorUsuario.h"
-#include ".../include/Usuario.h"
-#include ".../include/Jugador.h"
-#include ".../include/Desarrolador.h"
-#include ".../include/Videojuego.h"
 
 using namespace std;
 
