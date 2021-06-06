@@ -4,6 +4,7 @@
 #include Usuario.h
 #include Jugador.h
 #include Desarrolador.h
+#include Videojuego.h
 #include <string>
 #include <vector>
 
@@ -40,6 +41,7 @@ Desarrollador* darDesarrollador();
 vector<string> darNombreJugadoresConSuscripcionActiva(string nombrevid); //caso de uso iniciar partida
 vector<Jugador*> darJugadores(vector<string> jugadoresUnidos); 
 void eliminarSuscripcionesVideoJuego(string nomVJ); //caso de uso eliminar videojuego
+int totalSuscriptos(v:VideoJuego);  //caso de uso consultar estadistica2
 
 bool esUsuarioEnLineaJugador();
 
