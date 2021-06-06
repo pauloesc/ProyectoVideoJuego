@@ -1,7 +1,7 @@
 #ifndef DESARROLLADOR
 #define DESARROLLADOR
 
-#include <set>
+#include <vector>
 #include <map>
 
 #include "Usuario.h"
@@ -17,7 +17,7 @@ class Desarrollador : public Usuario {
 	public:
 		Desarrollador (string unEmail, string unaContrasenia, string unaEmpresa);
 		string getnomEmpresa ();
-		set <DataEstadisticaDeSegundoTipo> DarEstadisticas(Videojuego vj);
+		vector<DataEstadisticaDeSegundoTipo> DarEstadisticas(Videojuego vj);
 		bool esJugador();
 };
 
