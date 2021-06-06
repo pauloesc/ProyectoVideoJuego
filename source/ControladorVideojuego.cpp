@@ -195,12 +195,12 @@ void ControladorVideojuego::cancelarLaEliminacion(){
     ControladorVideojuego::vid=NULL;
 }
 
-vector<string> ControladorVideojuego::DarJuegos(nombDes:string){
+vector<string> ControladorVideojuego::DarJuegos(email:string){
     vector<string> resu;
     int tamCol=Videojuegos.size();
    for (int i=0; i<tamCol; i++){
-       if (Videojuego[i]->esDesarrolador(nombDes))  //ver en videojuego
-            resu.push_back(Videojuego[i]->getNombre())
+       if (Videojuego[i]->esDesarrolador(email))  //ver en videojuego
+            resu.push_back(Videojuego[i]->getemail())
    }
    return resu;
 }
