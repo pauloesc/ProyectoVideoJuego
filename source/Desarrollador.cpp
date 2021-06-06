@@ -16,10 +16,10 @@ bool Desarrollador::esJugador() {
 	return false;
 }
 
-set <DataEstadisticaDeSegundoTipo> Desarrollador::DarEstadisticas(Videojuego vj) {
-	set <DataEstadisticaDeSegundoTipo> res;
+vector<DataEstadisticaDeSegundoTipo> Desarrollador::DarEstadisticas(Videojuego vj) {
+	vector<DataEstadisticaDeSegundoTipo> res;
 	estadisticas::iterator it;
 	for (it = estadisticas.begin(); it != estadisticas.end(); ++it) 
-		res.insert(it->second->DarEstadisticas(vj));
+		res.push_back(it->second->DarEstadisticas(vj));
 	return res;
 }
