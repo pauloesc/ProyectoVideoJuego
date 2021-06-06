@@ -5,7 +5,7 @@
 using namespace std;
 
 
-PartidaMultijugador::PartidaMultijugador (bool enVivo, set<Jugador*> jugadores, Videojuego* v){
+PartidaMultijugador::PartidaMultijugador (bool enVivo, vector<Jugador*> jugadores, Videojuego* v){
 	this->enVivo = enVivo;
 	this->jugadoresUnidos = jugadores;
 
@@ -31,16 +31,15 @@ void PartidaMultijugador::finalizar() {
 
 	//recorro el set de jugadoresUnidos 
 	//(it es un puntero al contenido del set, es un puntero a un puntero de Jugador)
-	set<Jugadores*>::iterator it;
-	for (it=jugadoresUnidos.begin(); it!=jugadoresUnidos.end(); ++it) { 
+	for (int i = 0; i<jugadoresUnidos.size(); i++) { 
     	
     	Abandona* ab = new Abandona(*it);  //pone la fecha del sistema
 
     	abandonados.insert(ab);
 
-    	jugadoresUnidos.erase(*it);
   	}
 
+  	jugadoresUnidos.clear();
 }
 
 //aclaracion: no es un destructor, para eliminar toda la memoria de 

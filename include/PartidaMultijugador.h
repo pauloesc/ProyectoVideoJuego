@@ -15,11 +15,10 @@ private:
 	bool enVivo;
 
 	set<Abandona*> abandonados;
-	set<Jugador*> jugadoresUnidos;
-	// set<Comentario*> comentarios;
+	vector<Jugador*> jugadoresUnidos;
 
 public:
-	PartidaMultijugador(bool enVivo, set<Jugador*> jugadores, Videojuego* v);
+	PartidaMultijugador(bool enVivo, vector<Jugador*> jugadores, Videojuego* v);
 
 	bool esIndividual();         //siempre devuelve false
 	bool getenVivo();
