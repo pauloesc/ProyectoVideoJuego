@@ -39,7 +39,10 @@ void agregarcategoria (string categoria);
 DtVideojuego ObtenerInfoVideojuego();
 void ConfirmarAltavideoJuego();
 void CancelarAltavideoJuego();
-string getTipo();
+
+Videojuego* darVideojuego(string Juego); //caso de uso suscripcion
+
+string getTipo(); //de donde es?
 Videojuego* darVideojuego(string Juego); 
 void seleccionarVideoJuego(string nomVJ); 
 vector<string> obtenerVideoJuegosConTodasLasPartidasFinalizadas();
