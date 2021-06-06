@@ -1,9 +1,9 @@
 #include <string> 
 #include <vector>
-#include ControladorUsuario.h
-#include Usuario.h
-#include Jugador.h
-#include Desarrollador.h
+#include "../include/ControladorUsuario.h"
+#include ".../include/Usuario.h"
+#include ".../include/Jugador.h"
+#include ".../include/Desarrolador.h"
 
 using namespace std;
 
