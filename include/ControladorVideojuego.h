@@ -50,6 +50,14 @@ void cancelarLaEliminacion();
 
 vector<string> DarJuegos(nombDes:string); //caso uso estadistica
 
+vector<string> ObtenerCategorias(); //caso de uso agregar categorias
+void NuevaCategoria(DtCategoria datos);
+void ConfirmarCategoria();
+void CancelarCategoria();
+
+
+
+
 ~ControladorVideoJuego();
 //string getTipo(); //de donde es?
 }
