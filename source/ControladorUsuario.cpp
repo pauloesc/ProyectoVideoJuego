@@ -126,7 +126,15 @@ vector<Jugador*> ControladorUsuario::darJugadores(vector<string> jugadoresUnidos
 }
 
 
+void ControladorUsuario::eliminarSuscripcionesVideoJuego(string nomVJ){
+       int tamCol=Usuarios.size();
 
+       for (int i=0; i<tamJug; i++){
+              if (dynamic_cast<Jugador*>(Usuarios[i])!=NULL){
+                   usuarios[i]->eliminarSuscripciones(nomVJ);
+              }
+       }
+}
 
 
 
