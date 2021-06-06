@@ -2,9 +2,13 @@
 #define CONTROLADORUSUARIO
 
 #include ".../include/Usuario.h"
-using namespace std;
+#include ".../include/Jugador.h"
+#include ".../include/Desarrolador.h"
 #include <string>
 #include <vector>
+
+using namespace std;
+
 
 class ControladorUsuario {
 
