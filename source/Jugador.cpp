@@ -5,8 +5,7 @@
 
 using namespace std;
 
-//Esta mal, necesito revisar // Le agregue el email y contrasenia porque lo necesito como parametro para crear la operacion en el controlador usuario
-
+//Esta mal, necesito revisar //
 
 Jugador::Jugador(string unEmail, string unaContrasenia string unNickname, string unaDescripcion) :Usuario (unEmail, unaContrasenia) {
 	nickname = unNickname;
@@ -77,7 +76,7 @@ void Jugador::eliminarSuscripciones(string nomVJ) {
 			it->erase(); //dudoso
 }
 
-set(Suscripcion) Jugador::darSuscripcionesActivas() {
+set(Suscripcion) Jugador::darSuscripcionesActivas() {     
 	set(Suscripcion) res;
 	sus::iterator it;
 	for (it = sus.begin(); it != sus.end(); ++it)
@@ -86,7 +85,7 @@ set(Suscripcion) Jugador::darSuscripcionesActivas() {
 	return res;
 }
 
-bool Jugador::tieneSuscripcionActiva(string nombrevid) {
+bool Jugador::tieneSuscripcionActiva(string nombrevid) { //como es la misma función que la sig no es una sobre carga?
 	sus::iterator it;
 	it = sus.begin();
 	while (it != sus.end() && !it->esActiva(nombrevid))
