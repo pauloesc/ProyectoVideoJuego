@@ -2,6 +2,8 @@
 #include <vector>
 #include ControladorUsuario.h
 #include Usuario.h
+#include Jugador.h
+#include Desarrollador.h
 
 using namespace std;
 
