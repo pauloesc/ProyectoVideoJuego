@@ -5,6 +5,7 @@
 #include DtVideojuego.h
 #include DtCategoria.h
 #include Categoria.h
+#include DtInfoEspecifica.h
 #include <vector>
 #include <string>
 
@@ -55,6 +56,9 @@ void NuevaCategoria(DtCategoria datos);
 void ConfirmarCategoria();
 void CancelarCategoria();
 
+vector<string> ObtenerVideoJuegos(); //caso uso ver info de videojuego
+DtInfoEspecifica SeleccionarVideojuego(string nombVJ);
+int MostrarHorasTotalJugadas();
 
 
 
