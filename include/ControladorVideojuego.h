@@ -4,6 +4,7 @@
 #include Videojuego.h
 #include DtVideojuego.h
 #include DtCategoria.h
+#include Categoria.h
 #include <vector>
 #include <string>
 
@@ -15,6 +16,7 @@ private:
 static ControladorVideojuego * instance;
 ControladorVideojuego();
 vector<Videojuego*> Videojuegos;
+vector<Categoria*> Categorias;
 static string nombreJuego;
 static string descrip;
 static float costoMensual;
