@@ -123,7 +123,6 @@ vector<Jugador*> ControladorUsuario::darJugadores(vector<string> jugadoresUnidos
                      }
               j++;
               }
-       i++;
        }
        return jug;
 }
