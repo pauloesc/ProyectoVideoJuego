@@ -1,4 +1,5 @@
 #include <string> 
+#include <vector>
 #include ControladorUsuario.h
 #include Usuario.h
 
