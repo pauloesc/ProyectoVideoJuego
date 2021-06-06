@@ -1,9 +1,9 @@
 #ifndef CONTROLADORUSUARIO
 #define CONTROLADORUSUARIO
 
-#include ".../include/Usuario.h"
-#include ".../include/Jugador.h"
-#include ".../include/Desarrolador.h"
+#include Usuario.h
+#include Jugador.h
+#include Desarrolador.h
 #include <string>
 #include <vector>
 
