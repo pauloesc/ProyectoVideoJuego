@@ -23,15 +23,15 @@ class Jugador : public Usuario {
 		string getdescripcion();
 		bool esJugador();
 
-		set(DtPartidaIndividual) darPartidasIndividualesFinalizadas(string nombrevid);
-		set(DtPartidaEnCurso) darPartidasEnCurso();
+		vector<DtPartidaIndividual> darPartidasIndividualesFinalizadas(string nombrevid);
+		vector<DtPartidaEnCurso> darPartidasEnCurso();
 		Partida encontrarPartidasIndividual(int codigoAnterior);
 		void AsociarPartidaIniciada(Partida PI);
 		void DesvincularPartida(Partida par);
 		void finalizarPartida(int identificador);
 		
 		void eliminarSuscripciones(string nomVJ);
-		set(Suscripcion) darSuscripcionesActivas();
+		vector<Suscripcion> darSuscripcionesActivas();
 		bool tieneSuscripcionActiva(string nombrevid);
 		bool tieneSuscripcionActiva(Videojuego vid);
 		void cancelarSuscripcionActiva(string Juego);
