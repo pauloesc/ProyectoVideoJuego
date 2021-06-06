@@ -35,8 +35,8 @@ void Partida::quitarCodigo(int cod) {
 
 
 
-void Partida::setPartida(DtFecha f, Videojuego* v) {
-	this->fecha = f;
+void Partida::setPartida(Videojuego* v) {
+	this->fecha = Reloj::getFecha();
 	this->pertenece = v;
 
 	this->codigo = Partida::nuevoCodigo();
@@ -45,16 +45,16 @@ void Partida::setPartida(DtFecha f, Videojuego* v) {
 
 void Partida::terminar() {
 	this->enCurso = false;
-	actual = reloj->getFecha();
-	int a = getanio(actual) - getanio(fecha);
-	int m = getmes(actual) - getmes(fecha);
-	int d = getdia(actual) - getdia(fecha);
-	int h = gethora(actual) - gethora(fecha);
-	int min = getminuto(actual) - getminuto(fecha);
+	DtFecha* actual = Reloj::getFecha();
+	int a = actual->getAnio() - fecha->getAnio();
+	int m = actual->getMes() - fecha->getMes();
+	int d = actual->getDia() - fecha->getDia();
+	int h = actual->getHora() - fecha->getHora();
+	int min = actual->getMinuto() - fecha->getMinuto();
 	this->duracion (min + 60*h + 60*24*d + 60*24*30*m + 365*24*60*a);
 }
 
-DtFecha Partida::getFecha() {
+DtFecha* Partida::getFecha() {
     return fecha;
 }
 
@@ -62,12 +62,12 @@ float Partida::getduracion(){
 	if (!enCurso) {
 		return duracion;
 	} else {
-		DtFecha actual = reloj->getFecha();
-		int a = getanio(actual) - getanio(fecha);
-		int m = getmes(actual) - getmes(fecha);
-		int d = getdia(actual) - getdia(fecha);
-		int h = gethora(actual) - gethora(fecha);
-		int min = getminuto(actual) - getminuto(fecha);
+		DtFecha* actual = Reloj::getFecha();
+		int a = actual->getAnio() - fecha->getAnio();
+		int m = actual->getMes() - fecha->getMes();
+		int d = actual->getDia() - fecha->getDia();
+		int h = actual->getHora() - fecha->getHora();
+		int min = actual->getMinuto() - fecha->getMinuto();
 		return (min + 60*h + 60*24*d + 60*24*30*m + 365*24*60*a);
 	}
 };
@@ -91,10 +91,7 @@ bool Partida::esPartidaIndividualFinalizadaDelJuego(string nombrevid) {
 	return ((nom == nombrevid) and (enCurso));
 }
 
-DtPartidaEnCurso* Partida::getDtPartida() {
-	// falta implemetar, falta revision de los datatypes
 
-}
 
 
 

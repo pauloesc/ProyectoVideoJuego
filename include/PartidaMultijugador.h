@@ -3,6 +3,8 @@
 
 #include "Partida.h"
 #include "Abandona.h"
+#include "Jugador.h"
+
 
 
 
@@ -17,7 +19,7 @@ private:
 	// set<Comentario*> comentarios;
 
 public:
-	PartidaMultijugador(bool enVivo, DtFecha fecha, set<Jugador*> jugadores, Videojuego* v);
+	PartidaMultijugador(bool enVivo, set<Jugador*> jugadores, Videojuego* v);
 
 	bool esIndividual();         //siempre devuelve false
 	bool getenVivo();
@@ -26,7 +28,7 @@ public:
 	void eliminarPartida();
  	float tiempoTotal();
 
-	DtPartidaMultijugadorEnCurso getDtPartida();
+	DtPartidaEnCurso* getDtPartida(); //*DtPartidaMultijugadorEnCurso
     
     //no hace nada pero tiene que estar
     ~PartidaMultijugador();

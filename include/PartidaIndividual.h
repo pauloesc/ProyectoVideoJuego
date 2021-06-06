@@ -2,6 +2,8 @@
 #define PARTIDAINDIVIDUAL
 
 #include "Partida.h"
+#include "DtPartidaIndividual.h"
+
 
 
 
@@ -12,7 +14,7 @@ private:
 	bool continuacion;
 	PartidaIndividual* anterior;
 public:
-	PartidaIndividual(bool continuacion, DtFecha fecha, PartidaIndividual* anterior, Videojuego* v);
+	PartidaIndividual(bool continuacion, PartidaIndividual* anterior, Videojuego* v);
 
 	bool esIndividual();         //siempre devuelve true
 	bool getcontinuacion();
@@ -21,8 +23,8 @@ public:
 	void eliminarPartida();
  	float tiempoTotal();
 
- 	DtPatidaIndividual darDatosPatida();
-	DtPartidaIndividualEnCurso getDtPartida();
+ 	DtPartidaIndividual* darDatosPartida();
+	DtPartidaEnCurso* getDtPartida(); //*DtPartidaIndividualEnCurso
     
     //no hace nada pero tiene que estar
     ~PartidaIndividual();

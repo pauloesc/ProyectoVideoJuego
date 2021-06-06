@@ -1,15 +1,17 @@
-//faltan implementar las funciones de los datatypes, y revisar lo del reloj
 #include "../include/PartidaMultijugador.h"
+#include <list>
 
 
+using namespace std;
 
-PartidaMultijugador::PartidaMultijugador (bool enVivo, DtFecha fecha, set<Jugador*> jugadores, Videojuego* v){
+
+PartidaMultijugador::PartidaMultijugador (bool enVivo, set<Jugador*> jugadores, Videojuego* v){
 	this->enVivo = enVivo;
 	this->jugadoresUnidos = jugadores;
 
-	// el set de abanconados se inicializa solo como vacio
+	// el set de abandonados se inicializa solo como vacio
 	Partida* p = dynamic_cast<Partida*>(this);
-	p->setPartida(fecha,v)
+	p->setPartida(v)
 
 
 }
@@ -60,22 +62,44 @@ float PartidaMultijugador::tiempoTotal() {
 	tiempo = tiempo*(jugadoresUnidos.size());
 
 	DtFecha f;
-	DtFecha actual = reloj->getFecha();
+	DtFecha* actual = Reloj::getFecha();
 	set<Abandona*>::iterator it;
 	for (it=abandonados.begin(); it!=abandonados.end(); ++it) { 
     	f = (it*)->getFecha()
     	
-		int a = getanio(actual) - getanio(f);
-		int m = getmes(actual) - getmes(f);
-		int d = getdia(actual) - getdia(f);
-		int h = gethora(actual) - gethora(f);
-		int min = getminuto(actual) - getminuto(fecha);
+		int a = actual->getAnio() - f->getAnio();
+		int m = actual->getMes() - f->getMes();
+		int d = actual->getDia() - f->getDia();
+		int h = actual->getHora() - f->getHora();
+		int min = actual->getMinuto() - f->getMinuto();
 		tiempo = tiempo + min + 60*h + 60*24*d + 60*24*30*m + 365*24*60*a;
   	}
 
   	return tiempo;
 }
 
+DtPartidaEnCurso* PartidaMultijugador::getDtPartida() {
+	DtFecha* f = this->getFecha();
+	string nom = (this->getVideojuego())->getNombre();
+	string unJug;
+
+
+	list<string> listilla;
+	list<int>::iterator it;
+	it = listilla.begin();
+
+	set<Abandona*>::iterator it;
+	for (it=listilla.begin(); it!=listilla.end(); ++it) {
+		unJug = ((*it)->getJugador())->getnickname();
+		listilla.insert(it,unJug);
+	}
+
+
+	int tam = listilla.size() + 1;
+
+	DtPartidaEnCurso* p = new DtPartidaMultijugadorEnCurso(*f,this->getcodigo(),nom,this->getenVivo(),listilla,tam);
+	return p;
+}
 
 PartidaMultijugador::~PartidaMultijugador(){
 }

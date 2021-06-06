@@ -1,14 +1,15 @@
 //faltan implementar las funciones de los datatypes
 #include "../include/PartidaIndividual.h"
 
+using namespace std;
 
 
-PartidaIndividual::PartidaIndividual (bool continuacion, DtFecha fecha, PartidaIndividual* anterior, Videojuego* v){
+PartidaIndividual::PartidaIndividual (bool continuacion, PartidaIndividual* anterior, Videojuego* v){
 	this->continuacion = continuacion;
 	this->anterior = anterior;
 
 	Partida* p = dynamic_cast<Partida*>(this);
-	p->setPartida(fecha,v)
+	p->setPartida(v)
 
 
 }
@@ -36,6 +37,21 @@ float PartidaIndividual::tiempoTotal() {
 	Partida* p = dynamic_cast<Partida*>(this);
 	return p->getduracion();
 }
+
+DtPartidaIndividual* PartidaIndividual::darDatosPartida() {
+	DtFecha* f = this->getFecha();
+	DtPartidaIndividual* dt = new DtPartidaIndividual(*f,this->getduracion(),this->getcodigo(),this->getenCurso(),this->getcontinuacion());
+	return dt;
+}
+
+DtPartidaEnCurso* PartidaIndividual::getDtPartida() {
+	DtFecha* f = this->getFecha();
+	string nom = (this->getVideojuego())->getNombre();
+	DtPartidaEnCurso* p = new DtPartidaIndividualEnCurso(*f,this->getcodigo(),nom,this->getcontinuacion());
+	return p;
+}
+
+
 
 PartidaIndividual::~PartidaIndividual(){
 }

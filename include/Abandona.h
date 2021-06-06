@@ -3,16 +3,18 @@
 
 #include "Jugador.h"
 #include "DtFecha.h"
+#include "Reloj.h"
+
 
 class Abandona {
 private:
-	DtFecha fecha;
+	DtFecha* fecha;
 	Jugador* jug;
 public:
 	Abandona(Jugador* j);
 
 	Jugador* getJugador();
-	DtFecha getFecha();
+	DtFecha* getFecha();
 };
 
 
