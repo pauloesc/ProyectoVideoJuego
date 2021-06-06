@@ -4,6 +4,7 @@
 #include ".../include/Usuario.h"
 #include ".../include/Jugador.h"
 #include ".../include/Desarrolador.h"
+#include ".../include/Videojuego.h"
 
 using namespace std;
 
@@ -146,6 +147,19 @@ bool ControladorUsuario::esUsuarioEnLineaJugador(){
        
        return resu;
 
+}
+
+int ControladorUsuario::totalSuscriptos(v:VideoJuego){
+       int tamCol=Usuarios.size();
+       int total=0;
+
+       for (int i=0; i<tamCol; i++){
+              if (dynamic_cast<Jugador*>(Usuarios[i])!=NULL){
+                   if (Usuarios[i]->tieneSuscripcionActiva(v))   //ven en jugador
+                      total++;
+              }
+       }
+       return total;
 }
 
 
