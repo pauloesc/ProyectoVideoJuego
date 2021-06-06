@@ -6,11 +6,11 @@
 class Usuario {
 	private:
 		string email;
-		string contraseña;
+		string contrasenia;
 	public:
-		Usuario (string unEmail, string unaContraseña);
+		Usuario (string unEmail, string unaContrasenia);
 		string getemail();
-		string getcontraseña();
+		string getcontrasenia();
 		virtual bool esJugador();
 };
 
