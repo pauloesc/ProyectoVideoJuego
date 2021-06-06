@@ -38,7 +38,7 @@ string getTipo();
 Videojuego* darVideojuego(string Juego); 
 void seleccionarVideoJuego(string nomVJ); 
 vector<string> obtenerVideoJuegosConTodasLasPartidasFinalizadas();
-void cancelarLaEliminación();
+void cancelarLaEliminacion();
 void eliminarVideoJuego();
 vector<string> busquedaVideojuegos(string criterio);
 
