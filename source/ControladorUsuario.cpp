@@ -56,15 +56,15 @@ void ControladorUsuario::ConfirmarAltaUsuario(){
       
        if (desarrollador){
               Desarrollador* d= new Desarrollador(email, contrasenia, nomEmpresa);
-              usuarios.push_back (&d);
+              Usuarios.push_back (&d);
        }
        else {
               Jugador* j= new Jugador(email, contrasenia, nickname, desc);
-              usuarios.push_back (&j);
+              Usuarios.push_back (&j);
        }
 }
 
-void ControladorUsuario::cancelarAltaUsuario(){} //puedeo volve los valores a $ o dejarlos como estan
+void ControladorUsuario::cancelarAltaUsuario(){} //puedeo volver los valores a 0
 
 Usuario* ControladorUsuario::uenlinea=NULL;
 
@@ -134,8 +134,8 @@ void ControladorUsuario::eliminarSuscripcionesVideoJuego(string nomVJ){
 
        for (int i=0; i<tamCol; i++){
               if (dynamic_cast<Jugador*>(Usuarios[i])!=NULL){
-                   usuarios[i]->eliminarSuscripciones(nomVJ);
-                   usuarios[i]->desvincularPartidas(nomVJ);
+                   Usuarios[i]->eliminarSuscripciones(nomVJ);
+                   Usuarios[i]->desvincularPartidas(nomVJ);
               }
        }
 }
