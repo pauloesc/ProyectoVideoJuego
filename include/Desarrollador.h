@@ -15,7 +15,7 @@ class Desarrollador : public Usuario {
 		string nombreEmpresa;
 		map <string, Estadistica *> estadisticas;
 	public:
-		Desarrollador (string unEmail, string unaContraseña, string unaEmpresa);
+		Desarrollador (string unEmail, string unaContrasenia, string unaEmpresa);
 		string getnomEmpresa ();
 		set <DataEstadisticaDeSegundoTipo> DarEstadisticas(Videojuego vj);
 		bool esJugador();
