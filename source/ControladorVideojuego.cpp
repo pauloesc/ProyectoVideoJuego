@@ -113,5 +113,30 @@ void ControladorVideojuego::CancelarAltavideoJuego(){//puedo volver todos a cero
     cats.clear();
 }
 
+Videojuego* ControladorViojuego::darVideojuego(string Juego){
+    Videojuego* vid;
+    int tamCol=Videojuegos.size();
+    int i=0;
+    bool resu=false;
 
+    while ((!resu)&& (i<tamCol){
+        if (Videojuegos[i]->getNombre()==Juego){
+            resu=true;
+            vid=Videojuego[i];
+        }  //ver en videojuego 
+        i++;
+    }
+    return vid;
+}
 
+vector<string> ControladorVideojuego::obtenerVideoJuegosConTodasLasPartidasFinalizadas(){
+    vector<string> parfin;
+    int tamCol=Videojuegos.size();
+
+    for (int i=0; i<tamCol; i++){
+        if (Videojuegos[i]->TodasFinalizadas()){
+            parfin.push_back[Videojuegos[i]->getNombre()];
+        }
+    }
+    return parfin;
+}
