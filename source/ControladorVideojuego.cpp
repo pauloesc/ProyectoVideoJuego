@@ -107,6 +107,7 @@ void ControladorVideojuego::ConfirmarAltavideoJuego(){
     Desarrollador* des=cu->darDesarrollador();
     nuevo->setDesarrollador(des);   //fijarse en videojuego
     Videojuegos.push_back[nuevo];
+    cats.clear();
 }
 
 void ControladorVideojuego::CancelarAltavideoJuego(){//puedo volver todos a cero, pero el que si hay que borrar es el vector
@@ -159,4 +160,32 @@ void ControladorVideojuego::seleccionarVideoJuego(string nomVJ){
 
 void ControladorVideojuego::eliminarVideoJuego(){
     
+    int tamCol=Videojuegos.size();
+    int i=0;
+    bool resu=false;
+
+    while ((!resu)&& (i<tamCol){
+        if (Videojuegos[i]->getNombre()==vid->getNombre()){
+            resu=true;
+            Videojuegos.erase(Videojuegos.begin()+i);
+        }  
+        i++;
+    }
+
+    int tamCol=Categorias.size();
+    for (int i=0; i<tamCol; i++){
+        Categorias[i]->desvincularVideojuego(vid) //mirarlo despues en categoria
+    }
+
+    ControladorVideojuego* cvid;
+    cvid= ControladorVideojuego::getInstance();
+    cvid->eliminarPartidas(vid);
+
+    ControladorUsuario* cu;
+    cu= ControladorUsuario::getInstance();
+    cu->eliminarSuscripcionesVideoJuego(vid->getNombre());
+
+    vid->eliminarPuntajes(); // ven en videojuego
+    delete vid;
+    ControladorVideojuego::vid=NULL;
 }
