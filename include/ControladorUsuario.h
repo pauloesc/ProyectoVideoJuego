@@ -37,7 +37,7 @@ vector<string> darNombreJugadoresConSuscripcionActiva(string nombrevid); //caso 
 vector<Jugador*> darJugadores(vector<string> jugadoresUnidos); 
 void eliminarSuscripcionesVideoJuego(string nomVJ); //caso de uso eliminar videojuego
 
-bool esJugador(Usuario* us);
+bool esUsuarioEnLineaJugador(Usuario* us);
 
 ~ControladorUsuario();
 }
