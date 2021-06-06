@@ -28,6 +28,7 @@ class Jugador : public Usuario {
 		Partida encontrarPartidasIndividual(int codigoAnterior);
 		void AsociarPartidaIniciada(Partida PI);
 		void DesvincularPartida(Partida par);
+		void desvincularPartidas(string nomVJ);
 		void finalizarPartida(int identificador);
 		
 		void eliminarSuscripciones(string nomVJ);
