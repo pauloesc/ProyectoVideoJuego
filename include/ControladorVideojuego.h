@@ -24,7 +24,9 @@ static float costoTrimestral;
 static float costoAnual;
 static float costoVitalicia;
 static vector<string> cats;
+static Videojuego* vid;
 static DtCategoria categoria;
+
 
 
 
@@ -40,14 +42,16 @@ DtVideojuego ObtenerInfoVideojuego();
 void ConfirmarAltavideoJuego();
 void CancelarAltavideoJuego();
 
-Videojuego* darVideojuego(string Juego); //caso de uso suscripcion
+Videojuego* darVideojuego(string Juego); //caso de uso suscripcion y iniciar partida
+vector<string> obtenerVideoJuegosConTodasLasPartidasFinalizadas(); //eliminar videojuego
+void seleccionarVideoJuego(string nomVJ); 
+void eliminarVideoJuego()
 
 string getTipo(); //de donde es?
-Videojuego* darVideojuego(string Juego); 
-void seleccionarVideoJuego(string nomVJ); 
-vector<string> obtenerVideoJuegosConTodasLasPartidasFinalizadas();
+
+; 
+
 void cancelarLaEliminacion();
-void eliminarVideoJuego();
 vector<string> busquedaVideojuegos(string criterio);
 
 }

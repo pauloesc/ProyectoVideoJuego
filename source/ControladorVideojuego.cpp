@@ -113,7 +113,7 @@ void ControladorVideojuego::CancelarAltavideoJuego(){//puedo volver todos a cero
     cats.clear();
 }
 
-Videojuego* ControladorViojuego::darVideojuego(string Juego){
+Videojuego* ControladorVideojuego::darVideojuego(string Juego){
     Videojuego* vid;
     int tamCol=Videojuegos.size();
     int i=0;
@@ -139,4 +139,24 @@ vector<string> ControladorVideojuego::obtenerVideoJuegosConTodasLasPartidasFinal
         }
     }
     return parfin;
+}
+
+Videojuego* ControladorVideojuego::vid=NULL;
+
+void ControladorVideojuego::seleccionarVideoJuego(string nomVJ){
+    int tamCol=Videojuegos.size();
+    int i=0;
+    bool resu=false;
+
+    while ((!resu)&& (i<tamCol){
+        if (Videojuegos[i]->getNombre()==nomVJ){
+            resu=true;
+            ControladorVideojuego::vid=Videojuego[i];
+        }  
+        i++;
+    }
+} 
+
+void ControladorVideojuego::eliminarVideoJuego(){
+    
 }
