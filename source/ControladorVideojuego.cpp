@@ -189,3 +189,35 @@ void ControladorVideojuego::eliminarVideoJuego(){
     delete vid;
     ControladorVideojuego::vid=NULL;
 }
+
+
+void ControladorVideojuego::cancelarLaEliminacion(){
+    ControladorVideojuego::vid=NULL;
+}
+
+vector<string> ControladorVideojuego::DarJuegos(nombDes:string){
+    vector<string> resu;
+    int tamCol=Videojuegos.size();
+   for (int i=0; i<tamCol; i++){
+       if (Videojuego[i]->esDesarrolador(nombDes))  //ver en videojuego
+            resu.push_back(Videojuego[i]->getNombre())
+   }
+   return resu;
+}
+
+
+ControladorVideojuego::~ControladorVideojuego() {
+    int tamCol=Videojuegos.size();
+    for (int i=0; i<tamCol; i++)
+        delete Videojuegos[i];
+    Videojuegos.clear();
+
+    int tamCol2=Categorias.size();
+    for (int i=0; i<tamCol2; i++)
+           delete Categorias[i];
+    Categorias.clear();
+}
+
+
+
+
