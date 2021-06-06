@@ -218,6 +218,27 @@ ControladorVideojuego::~ControladorVideojuego() {
     Categorias.clear();
 }
 
+vector<string> ControladorVideojuego::ObtenerCategorias(){
+    vector<string> resu;
+    int tamCol=Categorias.size()
+    for (int i=0; i<tamCol; i++){
+           resu.push_back(Categorias[i]->getNombre())
+    }
+}
+
+DtCategoria ControladorVideojuego::datacat; //como hay constructor vacio supongo que queda inicializado
+
+
+void NuevaCategoria(DtCategoria datos){
+    ControladorVideojuego::datacat(datos.getNombrecat, datos.getDescripcion, datos.getTipo);  //asi no uso operador de copia
+}
+
+void ConfirmarCategoria{
+    Categoria* nuevo=new Categoria(datacat.getNombrecat, datacat.getDescripcion, datacat.getTipo);
+    Categorias.push_back(nuevo);
+};
+
+void CancelarCategoria(){}; //No sé si es necesario borra el dtcategoria
 
 
 
