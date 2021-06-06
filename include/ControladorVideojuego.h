@@ -50,5 +50,6 @@ void cancelarLaEliminacion();
 
 vector<string> DarJuegos(nombDes:string); //caso uso estadistica
 
+~ControladorVideoJuego();
 //string getTipo(); //de donde es?
 }
