@@ -10,7 +10,7 @@ using namespace std;
 ControladorUsuario* ControladorUsuario::instance = NULL; 
 ControladorUsuario::ControladorUsuario() {}
 
-ControladorUsuario *ControladorUsuario::getInstancia() {
+ControladorUsuario *ControladorUsuario::getInstance() {
  if (instance == NULL)
  instance = new ControladorUsuario();
  return instance;
