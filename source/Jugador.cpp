@@ -5,7 +5,7 @@
 
 using namespace std;
 
-//Esta mal, necesito revisar //
+//Esta mal, necesito revisar //falta una función que es desvincularPartidas (nomVJ:string) esta el caso de uso de eliminar videojuego
 
 Jugador::Jugador(string unEmail, string unaContrasenia string unNickname, string unaDescripcion) :Usuario (unEmail, unaContrasenia) {
 	nickname = unNickname;
