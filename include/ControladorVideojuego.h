@@ -1,7 +1,7 @@
 #ifndef CONTROLADORVIDEOJUEGO
 #define CONTROLADORVIDEOJUEGO
 
-#include ".../include/Videojuego.h"
+#include Videojuego.h
 #include <vector>
 #include <string>
 
