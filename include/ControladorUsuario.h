@@ -35,7 +35,7 @@ Desarrollador* darDesarrollador();
 
 vector<string> darNombreJugadoresConSuscripcionActiva(string nombrevid); //caso de uso iniciar partida
 vector<Jugador*> darJugadores(vector<string> jugadoresUnidos); 
-void eliminarSuscripcionesVideoJuego(string nomVJ);
+void eliminarSuscripcionesVideoJuego(string nomVJ); //caso de uso eliminar videojuego
 
 ~ControladorUsuario();
 }
