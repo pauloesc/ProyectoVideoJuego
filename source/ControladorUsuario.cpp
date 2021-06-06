@@ -103,7 +103,27 @@ vector<string> ControladorUsuario::darNombreJugadoresConSuscripcionActiva(string
 }
 
 
+vector<Jugador*> ControladorUsuario::darJugadores(vector<string> jugadoresUnidos){
+       vector<Jugador*> jug;
+       int tamJug=jugadoresUnidos.size();
+       int tamCol=Usuarios.size();
 
+       for (int i=0; i<tamJug; i++){
+              int j=0;
+              bool resu=false;
+              While ((!resu) && (j<tamCol)){
+                     if (dynamic_cast<Jugador*>(Usuarios[j])!=NULL){
+                            if (Usuarios[j]->getnickname()==jugadoresUnidos[i]){ 
+                                  jug.push_back(Usuarios[j]);
+                                  resu=true;
+                            }
+                     }
+              j++;
+              }
+       i++;
+       }
+       return jug;
+}
 
 
 
