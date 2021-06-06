@@ -42,16 +42,13 @@ DtVideojuego ObtenerInfoVideojuego();
 void ConfirmarAltavideoJuego();
 void CancelarAltavideoJuego();
 
-Videojuego* darVideojuego(string Juego); //caso de uso suscripcion y iniciar partida
+Videojuego* darVideojuego(string Juego); //caso de uso suscripcion y iniciar partida y estadistica
 vector<string> obtenerVideoJuegosConTodasLasPartidasFinalizadas(); //eliminar videojuego
 void seleccionarVideoJuego(string nomVJ); 
-void eliminarVideoJuego()
-
-string getTipo(); //de donde es?
-
-; 
-
+void eliminarVideoJuego();
 void cancelarLaEliminacion();
-vector<string> busquedaVideojuegos(string criterio);
 
+vector<string> DarJuegos(nombDes:string); //caso uso estadistica
+
+//string getTipo(); //de donde es?
 }
