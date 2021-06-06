@@ -1,13 +1,10 @@
-// falta incluir "DtPartidaEnCurso" y "DtFecha", esperando decicion acerca de los datatypes
-
-
 #ifndef PARTIDA
 #define PARTIDA
 
 #include "Videojuego.h"
-#include "DtFecha.h"
 #include "Reloj.h"
 
+#include "DtFecha.h"
 #include "DtPartidaEnCurso"
 #include "DtPartidaIndividualEnCurso.h"
 #include "DtPartidaMultijugadorEnCurso.h"

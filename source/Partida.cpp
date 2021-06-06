@@ -1,5 +1,3 @@
-//falta revisar getDruacion "reloj"
-
 #include "../include/Partida.h"
 
 

@@ -1,4 +1,3 @@
-//faltan implementar las funciones de los datatypes
 #include "../include/PartidaIndividual.h"
 
 using namespace std;
