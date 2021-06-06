@@ -23,8 +23,9 @@ static float costoMensual;
 static float costoTrimestral;
 static float costoAnual;
 static float costoVitalicia;
-static DtCategoria categoria;
 static vector<string> cats;
+static DtCategoria categoria;
+
 
 
 public:
