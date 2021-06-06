@@ -53,6 +53,7 @@ void PartidaMultijugador::eliminarPartida() {
 
   	abandonados.clear();
   	jugadoresUnidos.clear();
+  	Partida::quitarCodigo(this->getcodigo());
 }
 
 float PartidaMultijugador::tiempoTotal() {

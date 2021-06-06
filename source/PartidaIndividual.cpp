@@ -30,7 +30,7 @@ void PartidaIndividual::finalizar() {
 //aclaracion: no es un destructor, para eliminar toda la memoria de 
 // Partida* p hay que hacer p->eliminarPartida() y delete p
 void PartidaIndividual::eliminarPartida() {
-	// no hay que eliminar nada extra XD
+	Partida::quitarCodigo(this->getcodigo());
 }
 
 float PartidaIndividual::tiempoTotal() {
