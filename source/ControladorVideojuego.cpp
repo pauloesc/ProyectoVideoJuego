@@ -5,13 +5,17 @@
 #include ".../include/DtCategoria.h"
 #include ".../include/Videojuego.h"
 #include ".../include/Categoria.h"
+#include ".../include/ControladorUsuario.h"
+#include ".../include/Usuario.h"
+#include ".../include/Desarrolador.h"
+
 
 using namespace std;
 
 ControladorVideojuego* ControladorVideojuego::instance = NULL; 
 ControladorVideojuego::ControladorVideojuego() {}
 
-ControladorVideojuego* ControladorVideojuego::getInstancia() {
+ControladorVideojuego* ControladorVideojuego::getInstance() {
  if (instance == NULL)
  instance = new ControladorVideojuego();
  return instance;
@@ -81,8 +85,33 @@ DtVideojuego ControladorVideojuego::ObtenerInfoVideojuego(){
     return info;
 }//ver la parte de DtVideojuego
 
-void ControladorVideojuego::ConfirmarAltavideoJuego(){}
+void ControladorVideojuego::ConfirmarAltavideoJuego(){
+    
+    Videojuego* nuevo=new Videojuego (nombreJuego, descrip, costoMensual, costoTrimestral, costoAnual, costoVitalicio);
+    int tamcats=cats.size();
+    int tamCol=Categorias.size();
 
-void ControladorVideojuego::CancelarAltavideoJuego(){}
+    for (int i=0; i<tamcats; i++){
+        int j=0;
+        bool resu=false;
+        While ((!resu) && (j<tamCol)){
+            if ((Categorias[j]->getNombre())==cats[i]){ //Fijarse en categoria
+                Categorias[j]->adicionarVideojuego(nombreJuego);
+                resu=true;
+            }
+        j++;                      
+        }
+    }
+    ControladorUsuario* cu;
+    cu= ControladorUsuario::getInstance();
+    Desarrollador* des=cu->darDesarrollador();
+    nuevo->setDesarrollador(des);   //fijarse en videojuego
+    Videojuegos.push_back[nuevo];
+}
+
+void ControladorVideojuego::CancelarAltavideoJuego(){//puedo volver todos a cero, pero el que si hay que borrar es el vector
+    cats.clear();
+}
+
 
 
