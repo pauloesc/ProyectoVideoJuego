@@ -4,7 +4,7 @@
 #include "map"
 using namespace std;
 
-
+// este data type es un poco diferente se los diagramas, tiene los nombres de las categorias
 
 DtVideojuego::DtVideojuego (string Snombre, string Sdescripcion, float ScostoMensual, float ScostoTrimestral, float ScostoAnual, float ScostoVitalicio, map<string, DtCategoria> Scategorias) {
 	nombre = Snombre;
@@ -97,12 +97,12 @@ void DtVideojuego::setCategorias(map<string, DtCategoria> scategorias) {
 
 ostream& operator<<(ostream &o, DtVideojuego *s) {
 	o << "Nombre: " << s->getNombre() << '\n';
-	o << "Descripción: " << s->getDescripcion() << '\n';
+	o << "Descripcin: " << s->getDescripcion() << '\n';
 	o << "Costo Mensual: " << s->getCostoMensual() << '\n';
 	o << "Costo Trimestral: " << s->getCostoTrimestral() << '\n';
 	o << "Costo Anual: " << s->getCostoAnual() << '\n';
 	o << "Costo Vitalicio: " << s->getCostoVitalicio() << '\n';
-	o << "Categorías: " ;
+	o << "Categoras: " ;
 	int i = 0;
 	map<string, DtCategoria> :: iterator it;
 	for(it = s->categorias.begin(); it != s->categorias.end(); ++it){
