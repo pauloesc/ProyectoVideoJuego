@@ -4,6 +4,7 @@
 #include ".../include/DtVideojuego.h"
 #include ".../include/DtCategoria.h"
 #include ".../include/Videojuego.h"
+#include ".../include/Categoria.h"
 
 using namespace std;
 
@@ -69,6 +70,19 @@ vector<DtCategoria> ControladorVideojuego::ObtenerCategoriaOtros(){
     }
     return colotro;
 } 
+vector<string> ControladorVideojuego::cats; //no sé si queda bien inicializado
 
+void ControladorVideojuego::agregarcategoria (string categoria){
+    ControladorVideojuego::cats.push_back(categoria);
+}
+
+DtVideojuego ControladorVideojuego::ObtenerInfoVideojuego(){
+    DtVideojuego info(nombreJuego, descrip, costoMensual, costoTrimestral, costoAnual, costoVitalicio, cats);
+    return info;
+}//ver la parte de DtVideojuego
+
+void ControladorVideojuego::ConfirmarAltavideoJuego(){}
+
+void ControladorVideojuego::CancelarAltavideoJuego(){}
 
 
