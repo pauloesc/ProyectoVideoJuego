@@ -2,6 +2,8 @@
 #define CONTROLADORVIDEOJUEGO
 
 #include Videojuego.h
+#include DtVideojuego.h
+#include DtCategoria.h
 #include <vector>
 #include <string>
 
