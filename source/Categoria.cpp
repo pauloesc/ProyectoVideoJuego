@@ -1,3 +1,5 @@
+#include "../include/Categoria.h"
+
 Categoria::Categoria( string vNombre, string vDescripcion, string vTipo) {
 	this->Nombre = vNombre;
     this->Descripcion = vDescripcion;
@@ -17,8 +19,8 @@ string Categoria::getTpo(){
     return Tipo;
 }
 
-DataCategoria Categoria::ObtenerDataCategoria(){
-    DataCategoria Datos(this->Nombre, this->Descripcion, this->Tipo);
+DtCategoria Categoria::ObtenerDataCategoria(){
+    DtCategoria Datos(this->Nombre, this->Descripcion, this->Tipo);
     return Datos;
 }
 
@@ -28,12 +30,12 @@ Categoria::adicionarVideojuego(vid:Videojuego){
 }
 
 Categoria::desvincularVideoJuego(vj:VideoJuego){
-    
+
     int i=0;
     bool NoEncontrado = 1;
-    
+
     while( (i< VectorDePunterosVideojuegos.size()) && NoEncontrado){
-        
+
         if ( (*VectorDePunterosVideojuegos[i]).getNombre() == vj.getNombre() ){
             NoEncontrado = 0;
         }
