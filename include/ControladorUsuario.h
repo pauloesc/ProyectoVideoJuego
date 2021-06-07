@@ -47,3 +47,5 @@ bool esUsuarioEnLineaJugador();
 
 ~ControladorUsuario();
 }
+
+#endif
