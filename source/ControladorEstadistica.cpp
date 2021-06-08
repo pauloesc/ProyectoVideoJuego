@@ -76,7 +76,24 @@ ConfirmarSeleccionEstaditicas(){
     ControladorUsuario* ControlUsuario;
     ControlUsuario = ControladorUsuario::getInstance();
 
-    ControlUsuario.asignarEstadisticas( EstadisticasSeleccionadas );
+    vector<Estadistica*> VectorDePunterosAEstadisticasEspecificas;
+
+
+    for(int i=0; EstadisticasSeleccionadas.size(); i++ ){
+
+        for(int j=0; EstadisticasDelSistema.size(); j++ ){
+
+            if( EstadisticasSeleccionadas[i].getNombre() == EstadisticasDelSistema[j]->getNombre() ){
+
+                VectorDePunterosAEstadisticasEspecificas.push_back( EstadisticasDelSistema[j] );
+
+            }
+    
+        }
+
+    }
+
+    ControlUsuario.asignarEstadisticas( VectorDePunterosAEstadisticasEspecificas );
 
 }
 
