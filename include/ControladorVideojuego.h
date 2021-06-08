@@ -68,3 +68,5 @@ void AsignarPuntajeVJ (string nomVJ; int puntaje);
 ~ControladorVideoJuego();
 //string getTipo(); //de donde es?
 }
+
+#endif
