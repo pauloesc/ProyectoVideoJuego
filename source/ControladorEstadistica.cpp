@@ -49,3 +49,19 @@ vector<DataEstadisticaDeSegundoTipo> SeleccionEstadisticasDeCiertoJuego(string n
     return vectorRetornar;
     
 }
+
+vector<DataEstadistica> TiposDeEstadistica(){
+
+
+    vector<DataEstadistica> infoRetornar{
+
+    for( int i=0; i< EstadisticasDelSistema.size(); i++ ){
+
+        infoRetornar.push_back( DataEstadistica(    EstadisticasDelSistema[i].getNombre(),
+                                                    EstadisticasDelSistema[i].getDescripcion() ));
+
+    }
+
+    return infoRetornar;
+
+}
