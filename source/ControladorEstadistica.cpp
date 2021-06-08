@@ -70,3 +70,17 @@ vector<DataEstadistica> TiposDeEstadistica(){
 SeleccionEstadisticas( vector<strings> elecciones ){
     EstadisticasSeleccionadas = elecciones;
 }
+
+ConfirmarSeleccionEstaditicas(){
+
+    ControladorUsuario* ControlUsuario;
+    ControlUsuario = ControladorUsuario::getInstance();
+
+    ControlUsuario.asignarEstadisticas( EstadisticasSeleccionadas );
+
+}
+
+CancelarSeleccionEstaditicas(){
+    EstadisticasSeleccionadas.clear();
+    }
+    
