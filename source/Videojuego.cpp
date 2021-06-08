@@ -16,12 +16,12 @@ string VideoJuego::getDescripcion(){
     return Descripcion;
 }
 
-string VideoJuego::getCostoVitalicio(){
+float VideoJuego::getCostoVitalicio(){
     return CostoVitalicio;
 }
 
 
-float VideoJuego::CostoMensual(){
+float VideoJuego::getCostoMensual(){
     return CostoMensual;
 }
 
