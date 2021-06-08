@@ -174,7 +174,7 @@ void ControladorVideojuego::eliminarVideoJuego(){
 
     int tamCol=Categorias.size();
     for (int i=0; i<tamCol; i++){
-        Categorias[i]->desvincularVideojuego(vid) //mirarlo despues en categoria
+        Categorias[i]->desvincularVideojuego(vid); //mirarlo despues en categoria
     }
 
     ControladorVideojuego* cvid;
@@ -200,7 +200,7 @@ vector<string> ControladorVideojuego::DarJuegos(email:string){
     int tamCol=Videojuegos.size();
    for (int i=0; i<tamCol; i++){
        if (Videojuego[i]->esDesarrolador(email))  //ver en videojuego
-            resu.push_back(Videojuego[i]->getemail())
+            resu.push_back(Videojuego[i]->getemail());
    }
    return resu;
 }
@@ -222,7 +222,7 @@ vector<string> ControladorVideojuego::ObtenerCategorias(){
     vector<string> resu;
     int tamCol=Categorias.size()
     for (int i=0; i<tamCol; i++){
-           resu.push_back(Categorias[i]->getNombre())
+           resu.push_back(Categorias[i]->getNombre());
     }
 }
 
@@ -239,6 +239,84 @@ void ConfirmarCategoria{
 };
 
 void CancelarCategoria(){}; //No sé si es necesario borra el dtcategoria
+
+vector<string> ObtenerVideoJuegos(){
+    vector<string> resu;
+    int tamCol=Videojuegos.size()
+    for (int i=0; i<tamCol; i++){
+           resu.push_back(Videojuegos[i]->getNombre());
+    }
+} 
+
+DtInfoEspecifica SeleccionarVideojuego(string nombVJ){
+    
+    int tamCol=Videojuegos.size();
+    int i=0;
+    bool resu=false;
+
+    while ((!resu)&& (i<tamCol){
+        if (Videojuegos[i]->getNombre()==nombVJ){
+            ControladorVideojuego::vid=Videojuegos[i]; //para recordarlo en memoria
+            resu=true;
+            
+            string des= Videojuegos[i]->getDescripcion();
+            float men= Videojuegos[i]->getCostoMensual();
+            float tri= Videojuegos[i]->CostoTrimestral();
+            float anual= Videojuegos[i]->CostoAnual();
+            float vit= Videojuegos[i]->getCostoVitalicio();
+            string emp= Videojuegos[i]->darEmpresaDesarroladora();
+            float promedio= Videojuegos[i]->darPromedioPuntaje();
+
+            vector<string> cates;
+            int tam=Categorias.size();
+            for (int j=0; j<tam; j++){
+                if (Categorias[i]->esCategoriaDelVideojuego(nombVJ))
+                    cates.push_back(Categorias[i]->getNombre());
+            }
+        
+            DtInfoEspecifica nuevo(des, men, tri, anual, vit, cates, emp, promedio);
+        }
+        i++;
+    }
+    return nuevo;
+}
+
+int MostrarHorasTotalJugadas(){
+    int resu=vid->totalHorasJugadas();
+    
+    ControladorVideojuego::vid=NULL;
+    
+    return resu;
+}
+
+vector<DtVideoJuegoResumido> ObtenerVideoJuegos(){
+    vector<DtVideoJuegoResumido> resu;
+    int tamCol=Videojuegos.size()
+    for (int i=0; i<tamCol; i++){
+        DtVideoJuegoResumido nuevo(Videojuegos[i]->getNombre(), Videojuegos[i]->getDescripcion());
+        resu.push_back(nuevo);
+    }
+    return nuevo;
+}
+
+void AsignarPuntajeVJ (string nomVJ; int puntaje){
+    ControladorUsuario* cu;
+    cu= ControladorUsuario::getInstance();
+    Jugador* jug=cu->darJugador();
+    
+    int tamCol=Videojuegos.size();
+    int i=0;
+    bool resu=false;
+
+    while ((!resu)&& (i<tamCol){
+        if (Videojuegos[i]->getNombre()==nombVJ){
+            resu=true;
+            Videojuegos[i]->asignar(puntaje, jug);
+        }
+    i++;
+    }
+
+}
 
 
 
