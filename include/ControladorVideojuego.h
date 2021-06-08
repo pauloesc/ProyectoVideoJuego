@@ -19,15 +19,15 @@ static ControladorVideojuego * instance;
 ControladorVideojuego();
 vector<Videojuego*> Videojuegos;
 vector<Categoria*> Categorias;
-static string nombreJuego;
-static string descrip;
-static float costoMensual;
-static float costoTrimestral;
-static float costoAnual;
-static float costoVitalicia;
-static vector<string> cats;
-static Videojuego* vid;
-static DtCategoria datacat;
+string nombreJuego;
+string descrip;
+float costoMensual;
+float costoTrimestral;
+float costoAnual;
+float costoVitalicia;
+vector<string> cats;
+Videojuego* vid;
+DtCategoria datacat;
 
 
 
