@@ -13,22 +13,15 @@ ControladorUsuario *ControladorUsuario::getInstance() {
  return instance;
 } 
 
-string ControladorUsuario::email=0; //no sé si se escriben asi
-string ControladorUsuario::contrasenia=0;
-string ControladorUsuario::nomEmpresa=0;
-bool ControladorUsuario::desarrollador=false;
-string ControladorUsuario::nickname=0;
-string ControladorUsuario::desc=0;
-
 
 void ControladorUsuario::IngresardatosUsuario(string email, string contrasenia){
-       controladorUsuario::email=email;
-       controladorUsuario::contrasenia=contrasenia;
+       this->email=email;
+       this->contrasenia=contrasenia;
 }
 
 void ControladorUsuario::IngresardatosDesarrollador(string nomEmpresa){
-       controladorUsuario::nomEmpresa=nomEmpresa;
-       controladorUsuario::desarrollador=true;
+       this->nomEmpresa=nomEmpresa;
+       this->desarrollador=true;
 }
 
 bool ControladorUsuario::IngresardatosJugador(string nickname, string desc){
@@ -42,9 +35,9 @@ bool ControladorUsuario::IngresardatosJugador(string nickname, string desc){
              ++it;
        }
        if(!existe){
-              controladorUsuario::desarrollador=false; 
-              controladorUsuario::nickname=nickname;
-              controladorUsuario::desc=desc;
+              this->desarrollador=false; 
+              this->nickname=nickname;
+              this->desc=desc;
        }
        return (!existe);
 }
@@ -63,7 +56,7 @@ void ControladorUsuario::ConfirmarAltaUsuario(){
 
 void ControladorUsuario::cancelarAltaUsuario(){} //puedeo volver los valores a 0
 
-Usuario* ControladorUsuario::uenlinea=NULL;
+
 
 bool ControladorUsuario::ingresarDatos(string email, string contrasenia){
        bool existe=false;
@@ -71,7 +64,7 @@ bool ControladorUsuario::ingresarDatos(string email, string contrasenia){
        While ((!existe) && (it!=Usuarios.end()){
                if (((*it)->getemail()==email)&&((*it)->getcontrasenia==contrasenia)){
                      existe=true;
-                     ControladorUsuario::uenlinea=(*it);
+                     uenlinea=(*it);
                }
        ++it;
        }
