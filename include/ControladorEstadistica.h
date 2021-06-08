@@ -21,6 +21,9 @@ private:
     
     vector<Estadistica*> EstadisticasDelSistema;
 
+    //momoria caso de uso seleccionar estadistica
+    vector<string> EstadisticasSeleccionadas;
+
 public:
     static ControladorEstadistica* getInstance();
     vector<string> JuegosDelDesarollador();
