@@ -20,7 +20,7 @@ vector<string> ControladorEstadistica::JuegosDelDesarollador(){
     nombDes = InstanciaDesarollador->getEmail();
     
     ControladorVideojuego* ControlVideojuego;
-    ControlVideojuego = ControladorUsuario::getInstance();
+    ControlVideojuego = ControladorVideojuego::getInstance();
  
     vector<string>  infoRetornar;
     infoRetornar = ControlVideojuego->DarJuegos(nombDes);
@@ -38,7 +38,7 @@ vector<DataEstadisticaDeSegundoTipo> SeleccionEstadisticasDeCiertoJuego(string n
     InstanciaDesarollador = ControlUsuario.darDesarrollador();
     
     ControladorVideojuego* ControlVideojuego;
-    ControlVideojuego = ControladorUsuario::getInstance();
+    ControlVideojuego = ControladorVideojuego::getInstance();
     
     Videojuego* vj =0;
     vj = ControlVideojuego->darVideoJuego(nombreJuego);
