@@ -65,3 +65,8 @@ vector<DataEstadistica> TiposDeEstadistica(){
     return infoRetornar;
 
 }
+
+
+SeleccionEstadisticas( vector<strings> elecciones ){
+    EstadisticasSeleccionadas = elecciones;
+}
