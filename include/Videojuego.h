@@ -37,6 +37,7 @@ public:
     eliminarPuntajes();
     float totalHorasJugadas();
     
+    string darEmpresaDesarroladora(); //Caso de uso info videojuego
     ~VideoJuego();
     
 };
