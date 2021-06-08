@@ -1,5 +1,8 @@
 # --------------------------------------------------------------------
-#  Makefile de laboratorio cero.
+
+#FALTA AGREGAR MODULOS DE FABRICA E INTERFACES
+
+#  Makefile de laboratorio cuatro.
 
 #  Laboratorio de Programación 4.
 #  InCo-FIng-UDELAR
@@ -36,7 +39,7 @@ all: main
 # Objetivos que no son archivos.
 .PHONY: all clean_bin clean_test clean 
 
-MODULOS = DtFechaHora DtJugador DtPartida DtPartidaIndividual DtPartidaMultijugador DtVideojuego Jugador Partida PartidaIndividual PartidaMultijugador Sistema Videojuego
+MODULOS = Abandona Categoria ControladorEstadistica ControladorPartida ControladorUsuario ControladorVideojuego ControladorSuscripcion Desarrollador Estadistica Jugador Partida PartidaIndividual PartidaMultijugador Puntaje Reloj Suscripcion SuscripcionTemporal SuscripcionVitalicia TotalHorasJugadas TotalJugadoresSuscriptos Usuario Videojuego DtCategoria DtDesarrollador DtEstadisticaDeSegundoTipo DtFecha DtJugador DtPago DtPartida DtPartidaEnCurso DtPartidaIndividual DtPartidaIndividualEnCurso DtPartidaMultijugador DtPartidaMultijugadorEnCurso DtSuscripcion DtUsuario DtVideojuego
 
 # directorios
 HDIR    = include
