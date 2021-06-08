@@ -17,13 +17,13 @@ private:
 static ControladorUsuario* instance;
 ControladorUsuario(); //tiene que ir protected?
 vector<Usuario*> Usuarios;
-static string email;
-static string contrasenia;
-static string nomEmpresa;
-static bool desarrollador;
-static string nickname;
-static string desc;
-static Usuario* uenlinea;
+string email;
+string contrasenia;
+string nomEmpresa;
+bool desarrollador;
+string nickname;
+string desc;
+Usuario* uenlinea;
 
 public:
 static ControladorUsuario* getInstance();
