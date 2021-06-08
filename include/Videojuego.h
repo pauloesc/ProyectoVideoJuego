@@ -38,6 +38,7 @@ public:
     float totalHorasJugadas();
     
     string darEmpresaDesarroladora(); //Caso de uso info videojuego
+    float darPromedioPuntaje(); //Caso de uso info videojuego
     ~VideoJuego();
     
 };
