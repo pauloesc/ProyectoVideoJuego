@@ -25,6 +25,7 @@ public:
     static ControladorEstadistica* getInstance();
     vector<string> JuegosDelDesarollador();
     vector<DataEstadisticaDeSegundoTipo> SeleccionEstadisticasDeCiertoJuego(nombreJuego:string);
+    vector<DataEstadistica> TiposDeEstadistica();
     
 }
  
