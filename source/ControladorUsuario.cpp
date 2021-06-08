@@ -9,7 +9,7 @@ ControladorUsuario::ControladorUsuario() {}
 
 ControladorUsuario *ControladorUsuario::getInstance() {
  if (instance == NULL)
- instance = new ControladorUsuario();
+       instance = new ControladorUsuario();
  return instance;
 } 
 
@@ -95,7 +95,7 @@ vector<string> ControladorUsuario::darNombreJugadoresConSuscripcionActiva(string
        for (it = Usuarios.begin(); it!=Usuarios.end(); ++it){
               if ((dynamic_cast<Jugador*>(*it))!=NULL){
                 if ((*it)->tieneSuscripcionActiva(nombrevid))
-                   jug.push_back((*it)->getnickname())
+                   jug.push_back((*it)->getnickname());
               }
        }
 
