@@ -18,11 +18,14 @@ public:
 
     string getNombre();
 	string getDescripcion();
-    string getTpo();
+    string getTipo();
+
 
     DtCategoria ObtenerDataCategoria();
-    adicionarVideojuego(vid:Videojuego);
-    desvincularVideoJuego(vj:VideoJuego);
+    void adicionarVideojuego(vid Videojuego);
+    void desvincularVideoJuego(vj VideoJuego);
+
+    bool esCategoriaDelVideojuego(string vid); //es necesario para el caso de uso de pedir info video juego
 
     ~Categoria();
 };
