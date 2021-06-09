@@ -25,7 +25,7 @@ public:
     void adicionarVideojuego(Videojuego* vid);
     void desvincularVideoJuego(VideoJuego* vj);
 
-    bool esCategoriaDelVideojuego(string vid); //es necesario para el caso de uso de pedir info video juego
+    bool esCategoriaDelVideojuego(Videojuego* v); //es necesario para el caso de uso de pedir info video juego
 
     ~Categoria();
 };
