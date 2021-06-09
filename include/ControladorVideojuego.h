@@ -58,7 +58,7 @@ void ConfirmarCategoria();
 void CancelarCategoria();
 
 vector<string> ObtenerVideoJuegos(); //caso uso ver info de videojuego
-DtInfoEspecifica SeleccionarVideojuego(string nombVJ);
+DtInfoEspecifica* SeleccionarVideojuego(string nombVJ);
 int MostrarHorasTotalJugadas();
 
 vector<DtVideoJuegoResumido> ObtenerVideoJuegos(); //asignar puntaje
