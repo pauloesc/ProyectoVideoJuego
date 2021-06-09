@@ -11,11 +11,11 @@ Jugador* Puntaje::getJugador(){
     return Jugador;
 }
 
-Puntaje::setPuntos(int p){
+void Puntaje::setPuntos(int p){
     this->Puntos = p;
 }
 
-Puntaje::setJugador(Jugador* j){
+void Puntaje::setJugador(Jugador* j){
     this->Jugador = j;
 }
 
