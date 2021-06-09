@@ -27,7 +27,7 @@ float costoAnual;
 float costoVitalicia;
 vector<string> cats;
 Videojuego* vid;
-DtCategoria datacat;
+DtCategoria* datacat;
 
 
 
