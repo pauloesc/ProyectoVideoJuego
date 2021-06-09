@@ -49,31 +49,31 @@ void Jugador::AsociarPartidaIniciada(Partida *PI) {
 void Jugador::DesvincularPartida(Partida *par) {
     int i;
 	for(i = 0; *partidas[i] != par; i++);
-	partidas.erase(partidas.begin() + i, partidas.begin() + i);
+	partidas.erase(partidas.begin() + i);
 }
 
 void Jugador::desvincularPartidas(string nomVJ) {
 	int i;
 	for (i = 0; i < partidas.size(); i++)
 		if (*partidas[i]->getVideJuegoAsociado() == nomVJ)
-			partidas.erase(partidas.begin() + i, partidas.begin() + i);
+			partidas.erase(partidas.begin() + i);
 }
 
 void Jugador::finalizarPartida(int identificador) { //identificador es el lugar donde esta la partida en el vector o es el codigo?
-	partidas.erase(partidas.begin() + identificador, partidas.begin() + identificador);
+	partidas.erase(partidas.begin() + identificador);
 }
 
 void Jugador::finalizarPartida(int identificador) { //Dejo las dos operaciones, despues borro segun la respuesta
     int i;
     for (i = 0; *partidas[i]->getcodigo != identificador; i++);
-    partidas.erase(partidas.begin() + i, partidas.begin() + i);
+    partidas.erase(partidas.begin() + i);
 }
 
 
 void Jugador::eliminarSuscripciones(string nomVJ) {
 	int i;
 	for (i = 0; *sus[i]->getVideojuegoAsociado()->getNombre() != nomVJ; i++)//Ya tiene una suscripcion
-    sus.erase(sus.begin() + i, sus.begin() + i));
+    sus.erase(sus.begin() + i);
 }
 
 vector<Suscripcion *> Jugador::darSuscripcionesActivas() {     
