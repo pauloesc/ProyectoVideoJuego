@@ -1,8 +1,10 @@
 #ifndef CATEGORIA
 #define CATEGORIA
+
 #include <string>
 #include "DtCategoria.h"
 #include "vector"
+#include "Videojuego.h"
 using namespace std;
 
 class Categoria {
