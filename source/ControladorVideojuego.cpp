@@ -89,7 +89,7 @@ void ControladorVideojuego::ConfirmarAltavideoJuego(){
         bool resu=false;
         While ((!resu) && (j<tamCol)){
             if ((Categorias[j]->getNombre())==cats[i]){ //Fijarse en categoria
-                Categorias[j]->adicionarVideojuego(nombreJuego);
+                Categorias[j]->adicionarVideojuego(nuevo);
                 resu=true;
             }
         j++;                      
