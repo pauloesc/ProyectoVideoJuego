@@ -23,7 +23,7 @@ public:
     string getTipo();
 
 
-    DtCategoria ObtenerDataCategoria();
+    DtCategoria* ObtenerDataCategoria();
     void adicionarVideojuego(Videojuego* vid);
     void desvincularVideoJuego(VideoJuego* vj);
 
