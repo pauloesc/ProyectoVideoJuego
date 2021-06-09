@@ -37,11 +37,20 @@ vector<Partida*> VideoJuego::getPartidas(){
     return VectorDePunterosPartidasDelVideojuego;
 }
 
-
-
-VideoJuego::sDesarrollador(des:Desarrollador){
-    
+void setDesarrollador(Desarrollador* des){
+    Desarrolladores=des;
 }
+
+Desarrollador* VideoJuego::getDesarrolador(){
+    return desarrolladores;
+}
+
+bool esDesarrolador(string email){
+    return (Desarrolladores->getNombre()==email)
+}
+
+    
+
 
 bool VideoJuego::TodasFinalizadas(){
     
