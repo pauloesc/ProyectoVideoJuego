@@ -48,4 +48,7 @@ bool esUsuarioEnLineaJugador(); //sirve para ver info videojuego
 ~ControladorUsuario();
 }
 
+//paulo agregue lo siguente 
+void asignarEstadisticas( vector<Estadistica*> VectorDePunterosAEstadisticasEspecificas );
+
 #endif
