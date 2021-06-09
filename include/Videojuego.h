@@ -28,9 +28,8 @@ public:
     float getCostoTrimestral();
     float getCostoAnual();
     
-    //falta implementra esta 
-    //no encuentro donde esta dafinida(no se que hace la funcion)
-    sDesarrollador(des:Desarrollador);
+    
+    bool esDesarrolador(string email);
     
     bool TodasFinalizadas();
     EliminarPartidas();
