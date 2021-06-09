@@ -39,7 +39,7 @@ public:
     
     string darEmpresaDesarroladora(); //Caso de uso info videojuego
     float darPromedioPuntaje(); //Caso de uso info videojuego
-    void asignar(int puntaje, Jugador* jug); // Para caso de uso asignar puntaje, crea el puntaje y lo vincula con el jugador.
+    void asignar(Puntaje* punt); // Para caso de uso asignar puntaje, crea el puntaje y lo vincula con el jugador.
     ~VideoJuego();
     
 };
