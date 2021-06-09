@@ -24,11 +24,11 @@ DtCategoria Categoria::ObtenerDataCategoria(){
     return Datos;
 }
 
-Categoria::adicionarVideojuego(Videojuego* vid){
+void Categoria::adicionarVideojuego(Videojuego* vid){
     VectorDePunterosVideojuegos.push_back(vid);
 }
 
-Categoria::desvincularVideoJuego(VideoJuego* vj){
+void Categoria::desvincularVideoJuego(VideoJuego* vj){
 
     int i=0;
     bool NoEncontrado = 1;
@@ -46,6 +46,16 @@ Categoria::desvincularVideoJuego(VideoJuego* vj){
     iterator= VectorDePunterosVideojuegos.begin() + i;
     VectorDePunterosVideojuegos.erase(iterator);
 }
+
+bool esCategoriaDelVideojuego(Videojuego v){
+
+    bool res=0;
+    for(int i= 0; i< VectorDePunterosVideojuegos.size(); i++){
+        res = res || ( VectorDePunterosVideojuegos[i] == v )
+    }
+
+}
+
 
 Categoria::~Categoria(){
     VectorDePunterosVideojuegos.clear();
