@@ -55,6 +55,34 @@ void PartidaMultijugador::eliminarPartida() {
   	Partida::quitarCodigo(this->getcodigo());
 }
 
+bool PartidaMultijugador::perteneceAPartidaJugador(string nombreJug){
+    bool encontrojug = false;
+	vector<Jugador*>::iterator it;
+	for (it=jugadoresUnidos.begin(); it!=jugadoresUnidos.end(); ++it) {
+    		Jugador* j = *it;
+    		if (j->getnickname() == nombrejug){
+            		encontrojug = true;
+    		}
+  	}
+  	return encontrojug;
+}
+
+
+bool PartidaMultijugador::abandonarPartida(string nombreJug){
+    int i = 0;
+    vector<Jugador*>::iterator it;
+	for (it=jugadoresUnidos.begin(); it!=jugadoresUnidos.end(); ++it) {
+    		Jugador* j = *it;
+    		if (j->getnickname() == nombrejug){
+            		Abandona* ab = Abandona(j);
+            		abandonados.insert(ab);
+            		jugadoresUnidos.erase(jugadoresUnidos.begin() + i);
+    		}else{
+            		i++;
+    		}
+  	}
+}
+
 float PartidaMultijugador::tiempoTotal() {
 	Partida* p = dynamic_cast<Partida*>(this);
 	float tiempo = p->getduracion();
