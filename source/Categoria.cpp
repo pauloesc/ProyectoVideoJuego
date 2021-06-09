@@ -24,9 +24,8 @@ DtCategoria Categoria::ObtenerDataCategoria(){
     return Datos;
 }
 
-Categoria::adicionarVideojuego(vid:Videojuego){
-    //recibo el juego es si pero guardo la direccion de momoria
-    VectorDePunterosVideojuegos.push_back(&vid);
+Categoria::adicionarVideojuego(Videojuego* vid){
+    VectorDePunterosVideojuegos.push_back(vid);
 }
 
 Categoria::desvincularVideoJuego(vj:VideoJuego){
