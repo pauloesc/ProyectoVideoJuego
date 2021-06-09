@@ -263,7 +263,7 @@ DtInfoEspecifica SeleccionarVideojuego(string nombVJ){
             vector<string> cates;
             int tam=Categorias.size();
             for (int j=0; j<tam; j++){
-                if (Categorias[i]->esCategoriaDelVideojuego(nombVJ))
+                if (Categorias[i]->esCategoriaDelVideojuego(vid))
                     cates.push_back(Categorias[i]->getNombre());
             }
         
