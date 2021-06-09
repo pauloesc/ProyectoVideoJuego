@@ -15,8 +15,8 @@ Puntaje::setPuntos(int p){
     this->Puntos = p;
 }
 
-Puntaje::setJugador(Jugador* vj){
-    this->Jugador = vj;
+Puntaje::setJugador(Jugador* j){
+    this->Jugador = j;
 }
 
 Puntaje::~Puntaje(){
