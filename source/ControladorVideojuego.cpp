@@ -297,6 +297,9 @@ void AsignarPuntajeVJ (string nomVJ; int puntaje){
     cu= ControladorUsuario::getInstance();
     Jugador* jug=cu->darJugador();
     
+    Puntaje* punt= new Puntaje(puntaje,jug);
+    
+    
     int tamCol=Videojuegos.size();
     int i=0;
     bool resu=false;
@@ -304,7 +307,7 @@ void AsignarPuntajeVJ (string nomVJ; int puntaje){
     while ((!resu)&& (i<tamCol){
         if (Videojuegos[i]->getNombre()==nombVJ){
             resu=true;
-            Videojuegos[i]->asignar(puntaje, jug);
+            Videojuegos[i]->asignar(punt);
         }
     i++;
     }
