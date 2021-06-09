@@ -53,7 +53,7 @@ void cancelarLaEliminacion();
 vector<string> DarJuegos(string email); //caso uso estadistica
 
 vector<string> ObtenerCategorias(); //caso de uso agregar categorias
-void NuevaCategoria(DtCategoria datos);
+void NuevaCategoria(DtCategoria* datos);
 void ConfirmarCategoria();
 void CancelarCategoria();
 
@@ -61,7 +61,7 @@ vector<string> ObtenerVideoJuegos(); //caso uso ver info de videojuego
 DtInfoEspecifica* SeleccionarVideojuego(string nombVJ);
 int MostrarHorasTotalJugadas();
 
-vector<DtVideoJuegoResumido> ObtenerVideoJuegos(); //asignar puntaje
+vector<DtVideoJuegoResumido*> ObtenerVideoJuegos(); //asignar puntaje
 void AsignarPuntajeVJ (string nomVJ; int puntaje);
 
 
