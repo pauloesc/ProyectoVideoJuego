@@ -27,7 +27,7 @@ public:
     float getCostoMensual();
     float getCostoTrimestral();
     float getCostoAnual();
-    
+    vector<Partida*> getPartidas();
     
     bool esDesarrolador(string email);
     
