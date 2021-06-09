@@ -21,6 +21,6 @@ vector<DataEstadisticaDeSegundoTipo *> Desarrollador::DarEstadisticas(Videojuego
 	return res;
 }
 
-void Desarrollador::getEstadisticas(vector<Estadistica *>) {
-    estadisticas = vector<Estadistica *>;
+void Desarrollador::getEstadisticas(vector<Estadistica *> estadist) {
+    estadisticas = estadist;
 }
