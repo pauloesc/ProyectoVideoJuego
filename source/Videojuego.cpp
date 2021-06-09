@@ -103,3 +103,20 @@ VideoJuego::~VideoJuego(){
         }
 
 }
+
+
+string VideoJuego::darEmpresaDesarroladora(){
+    return Desarolladores->getnomEmpresa();
+    }
+
+float VideoJuego::darPromedioPuntaje(){
+
+        float suma= 0;
+        int cant= 0;
+
+        for(cant=0; cant < VectorDeObjetosPuntaje.size(); cant++ ){
+            suma = suma + VectorDeObjetosPuntaje[i].getPuntaje();
+        }
+
+        return suma/cant;
+}
