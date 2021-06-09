@@ -165,6 +165,6 @@ void ControladorUsuario::asignarEstadisticas( vector<Estadistica*> VectorDePunte
 
        Desarrollador* Desaor = darDesarrollador();
 
-       //en desarollador tiene que existir una funcion para poder cargar el vector
+       Desaor->setEstadisticas(VectorDePunterosAEstadisticasEspecificas);
 
 }
