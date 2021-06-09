@@ -33,9 +33,9 @@ void ControladorVideojuego::datosVideojuego(string nombreJuego, string descrip, 
     this->costoVitalicia=costoVitalicia;
 }
 
-vector<DtCategoria> ControladorVideojuego::ObtenerCategoriaPlataforma(){
+vector<DtCategoria*> ControladorVideojuego::ObtenerCategoriaPlataforma(){
     
-    vector<DtCategoria> colplataforma; 
+    vector<DtCategoria*> colplataforma; 
     int tamCol=Categorias.size();
     for (int i=0; i<tamCol; i++){
         if(Categorias[i]->getTipo()=plataforma){  //mirarlo despues en categoria
@@ -45,9 +45,9 @@ vector<DtCategoria> ControladorVideojuego::ObtenerCategoriaPlataforma(){
     return colplataforma;
 }
 
-vector<DtCategoria> ControladorVideojuego::ObtenerCategoriaGenero(){
+vector<DtCategoria*> ControladorVideojuego::ObtenerCategoriaGenero(){
     
-    vector<DtCategoria> colgenero; 
+    vector<DtCategoria*> colgenero; 
     int tamCol=Categorias.size();
     for (int i=0; i<tamCol; i++){
         if(Categorias[i]->getTipo()=genero){  //mirarlo despues en categoria
@@ -57,9 +57,9 @@ vector<DtCategoria> ControladorVideojuego::ObtenerCategoriaGenero(){
     return colgenero;
 }
 
-vector<DtCategoria> ControladorVideojuego::ObtenerCategoriaOtros(){
+vector<DtCategoria*> ControladorVideojuego::ObtenerCategoriaOtros(){
 
-    vector<DtCategoria> colotro; 
+    vector<DtCategoria*> colotro; 
     int tamCol=Categorias.size();
     for (int i=0; i<tamCol; i++){
         if(Categorias[i]->getTipo()=otro){  //mirarlo despues en categoria
@@ -188,7 +188,7 @@ void ControladorVideojuego::cancelarLaEliminacion(){
     vid=NULL;
 }
 
-vector<string> ControladorVideojuego::DarJuegos(email:string){
+vector<string> ControladorVideojuego::DarJuegos(string email){
     vector<string> resu;
     int tamCol=Videojuegos.size();
    for (int i=0; i<tamCol; i++){
@@ -226,13 +226,13 @@ void NuevaCategoria(DtCategoria* datos){
 }
 
 void ConfirmarCategoria{
-    Categoria* nuevo=new Categoria(datacat->getNombre, datacat.getDescripcion, datacat.getTipo);
+    Categoria* nuevo=new Categoria(datacat->getNombre, datacat->getDescripcion, datacat->getTipo);
     Categorias.push_back(nuevo);
     delete datacat;
 };
 
 void CancelarCategoria(){
-    delete datacat
+    delete datacat;
 }
 
 vector<string> ObtenerVideoJuegos(){
@@ -284,11 +284,11 @@ int MostrarHorasTotalJugadas(){
     return resu;
 }
 
-vector<DtVideoJuegoResumido> ObtenerVideoJuegos(){
-    vector<DtVideoJuegoResumido> resu;
+vector<DtVideoJuegoResumido*> ObtenerVideoJuegos(){
+    vector<DtVideoJuegoResumido*> resu;
     int tamCol=Videojuegos.size()
     for (int i=0; i<tamCol; i++){
-        DtVideoJuegoResumido nuevo(Videojuegos[i]->getNombre(), Videojuegos[i]->getDescripcion());
+        DtVideoJuegoResumido nuevo= new DtVideoJuegoResumido(Videojuegos[i]->getNombre(), Videojuegos[i]->getDescripcion());
         resu.push_back(nuevo);
     }
     return nuevo;
