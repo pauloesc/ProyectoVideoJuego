@@ -27,7 +27,7 @@ float costoAnual;
 float costoVitalicia;
 vector<string> cats;
 Videojuego* vid;
-DtCategoria datacat;
+DtCategoria* datacat;
 
 
 
@@ -50,7 +50,7 @@ void seleccionarVideoJuego(string nomVJ);
 void eliminarVideoJuego();
 void cancelarLaEliminacion();
 
-vector<string> DarJuegos(email:string); //caso uso estadistica
+vector<string> DarJuegos(string email); //caso uso estadistica
 
 vector<string> ObtenerCategorias(); //caso de uso agregar categorias
 void NuevaCategoria(DtCategoria datos);
