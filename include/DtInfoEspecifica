@@ -42,7 +42,7 @@ public:
     void setpromedio(float promedio);
 
 	friend ostream& operator<<(ostream &o, DtInfoEspecifica *s);
-	virtual ~DtInfoEspecifa();
+	~DtInfoEspecifa();
 };
 
 
