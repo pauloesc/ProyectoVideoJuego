@@ -6,21 +6,33 @@
 
 #include "Suscripcion.h"
 #include "Jugador.h"
-#include "DtSuscripcion.h"
 
+#include "DtSuscripcion.h"
+#include "DtPago.h"
+#include "DtFecha.h"
+
+#include "ControladorVideojuego.h"
+#include "ControladorUsusario.h"
+
+
+
+using namespace std;
 
 
 class ControladorSuscripciones {
     private:
-        static ControladorSuscripcion* instance;
-        static Videojuego *vj;
-        static string tiposus;
-        static DtPago *pago;
-        static Suscripcion *sus;
-        static DtFecha *fecha;
+        static ControladorSuscripciones* Instance;
+        
+        Videojuego *vj;
+        string nomJ;
+        string tiposus;
+        DtPago pago;    // es un enumerado
     public:
-        vector<DtSuscripcion *> obtenerNombresSuscripcionesActivas();
-        vector<DtSuscripcion *> obtenerSuscripcionesNoActivas();
+        ControladorSuscripciones* getInstance();
+
+        vector<string> obtenerNombresSuscripcionesActivas();
+        vector<DtSuscripcion*> obtenerSuscripcionesActivas();
+        vector<DtSuscripcion*> obtenerSuscripcionesNoActivas();
         void IngresarDatosSuscripcion(string tiposuscripcion, DtPago *pag);
         void SeleccionarVideojuego(string Juego);
         void IngresarDatosSuscripcion(string tiposuscripcion, DtPago *pag);
@@ -28,7 +40,6 @@ class ControladorSuscripciones {
         void Finalizarproceso();
         void ConfirmarSuscripcion();
         void Cancelar();
-        int totalSuscriptos(VideoJuego *v);     
 }
 
 #endif
