@@ -14,8 +14,8 @@ public:
     int getPuntos();
     Jugador* getJugador();
     
-    setPuntos(int p);
-    setJugador(Jugador* vj);
+    void setPuntos(int p);
+    void setJugador(Jugador* vj);
 
     ~Puntaje();
     
