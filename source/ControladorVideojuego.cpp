@@ -21,22 +21,16 @@ ControladorVideojuego* ControladorVideojuego::getInstance() {
  return instance;
 } 
 
-string ControladorVideojuego::nombreJuego=0;
-string ControladorVideojuego::descrip=0;
-float ControladorVideojuego::costoMensual=0;
-float ControladorVideojuego::costoTrimestral=0;
-float ControladorVideojuego::costoAnual=0;
-float ControladorVideojuego::costoVitalicia=0;
+
 
 void ControladorVideojuego::datosVideojuego(string nombreJuego, string descrip, float costoMensual, float costoTrimestral, float costoAnual, float costoVitalicia){
 
-    ControladorVideojuego::nombreJuego=nombreJuego;
-    ControladorVideojuego::descrip=descrip;
-    ControladorVideojuego::costoMensual=costoMensual;
-    ControladorVideojuego::costoTrimestral=costoTrimestral;
-    ControladorVideojuego::costoAnual=costoAnual;
-    ControladorVideojuego::costoVitalicia=costoVitalicia;
-
+    this->nombreJuego=nombreJuego;
+    this->descrip=descrip;
+    this->costoMensual=costoMensual;
+    this->costoTrimestral=costoTrimestral;
+    this->costoAnual=costoAnual;
+    this->costoVitalicia=costoVitalicia;
 }
 
 vector<DtCategoria> ControladorVideojuego::ObtenerCategoriaPlataforma(){
@@ -74,10 +68,9 @@ vector<DtCategoria> ControladorVideojuego::ObtenerCategoriaOtros(){
     }
     return colotro;
 } 
-vector<string> ControladorVideojuego::cats; //no sé si queda bien inicializado
 
 void ControladorVideojuego::agregarcategoria (string categoria){
-    ControladorVideojuego::cats.push_back(categoria);
+    cats.push_back(categoria);
 }
 
 DtVideojuego ControladorVideojuego::ObtenerInfoVideojuego(){
@@ -142,7 +135,7 @@ vector<string> ControladorVideojuego::obtenerVideoJuegosConTodasLasPartidasFinal
     return parfin;
 }
 
-Videojuego* ControladorVideojuego::vid=NULL;
+
 
 void ControladorVideojuego::seleccionarVideoJuego(string nomVJ){
     int tamCol=Videojuegos.size();
@@ -152,7 +145,7 @@ void ControladorVideojuego::seleccionarVideoJuego(string nomVJ){
     while ((!resu)&& (i<tamCol){
         if (Videojuegos[i]->getNombre()==nomVJ){
             resu=true;
-            ControladorVideojuego::vid=Videojuego[i];
+            vid=Videojuego[i];
         }  
         i++;
     }
@@ -187,12 +180,12 @@ void ControladorVideojuego::eliminarVideoJuego(){
 
     vid->eliminarPuntajes(); // ven en videojuego
     delete vid;
-    ControladorVideojuego::vid=NULL;
+    vid=NULL;
 }
 
 
 void ControladorVideojuego::cancelarLaEliminacion(){
-    ControladorVideojuego::vid=NULL;
+    vid=NULL;
 }
 
 vector<string> ControladorVideojuego::DarJuegos(email:string){
@@ -256,7 +249,7 @@ DtInfoEspecifica SeleccionarVideojuego(string nombVJ){
 
     while ((!resu)&& (i<tamCol){
         if (Videojuegos[i]->getNombre()==nombVJ){
-            ControladorVideojuego::vid=Videojuegos[i]; //para recordarlo en memoria
+            vid=Videojuegos[i]; //para recordarlo en memoria
             resu=true;
             
             string des= Videojuegos[i]->getDescripcion();
@@ -284,7 +277,7 @@ DtInfoEspecifica SeleccionarVideojuego(string nombVJ){
 int MostrarHorasTotalJugadas(){
     int resu=vid->totalHorasJugadas();
     
-    ControladorVideojuego::vid=NULL;
+    vid=NULL;
     
     return resu;
 }
