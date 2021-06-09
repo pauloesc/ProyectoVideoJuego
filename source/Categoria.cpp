@@ -15,12 +15,12 @@ string Categoria::getDescripcion(){
     return Descripcion;
 }
 
-string Categoria::getTpo(){
+string Categoria::getTipo(){
     return Tipo;
 }
 
-DtCategoria Categoria::ObtenerDataCategoria(){
-    DtCategoria Datos(this->Nombre, this->Descripcion, this->Tipo);
+DtCategoria* Categoria::ObtenerDataCategoria(){
+    DtCategoria* Datos= new Datos(this->Nombre, this->Descripcion, this->Tipo);
     return Datos;
 }
 
