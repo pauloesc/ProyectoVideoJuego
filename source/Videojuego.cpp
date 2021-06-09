@@ -46,7 +46,7 @@ Desarrollador* VideoJuego::getDesarrolador(){
 }
 
 bool esDesarrolador(string email){
-    return (Desarrolladores->getNombre()==email)
+    return (Desarrolladores->getemail()==email)
 }
 
     
