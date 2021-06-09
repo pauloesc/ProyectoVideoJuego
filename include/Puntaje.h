@@ -6,16 +6,16 @@ class Puntaje {
 private:
     
     int Puntos=0;
-    Videojuego* vidj=0;
+    Jugador* vidj=0;
 	
 public:
-	Puntaje(int Puntos, Videojuego* punteroVj);
+	Puntaje(int Puntos, Jugador* punteroVj);
     
     int getPuntos();
-    Videojuego* getVideoJuego();
+    Jugador* getJugador();
     
     setPuntos(int p);
-    setVideoJuego(Videojuego* vj);
+    setJugador(Jugador* vj);
 
     ~Puntaje();
     
