@@ -3,7 +3,7 @@
 
 #include <string>
 #include <iostream>
-#include "map"
+#include <vector>
 #include "DtCategoria.h"
 
 using namespace std;
