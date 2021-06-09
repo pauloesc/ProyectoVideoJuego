@@ -96,4 +96,10 @@ void VideoJuego::asignar(Puntaje* punt){
 
 
 VideoJuego::~VideoJuego(){
+
+    for(int i = 0; i< VectorDeObjetosPuntaje.size(); i++ ){
+        Puntaje* eliminar = VectorDeObjetosPuntaje[i];
+        delete eliminar;
+        }
+
 }
