@@ -47,7 +47,7 @@ void Categoria::desvincularVideoJuego(VideoJuego* vj){
     VectorDePunterosVideojuegos.erase(iterator);
 }
 
-bool esCategoriaDelVideojuego(Videojuego v){
+bool Categoria::esCategoriaDelVideojuego(Videojuego v){
 
     bool res=0;
     for(int i= 0; i< VectorDePunterosVideojuegos.size(); i++){
