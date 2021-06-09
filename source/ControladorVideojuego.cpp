@@ -73,8 +73,8 @@ void ControladorVideojuego::agregarcategoria (string categoria){
     cats.push_back(categoria);
 }
 
-DtVideojuego ControladorVideojuego::ObtenerInfoVideojuego(){
-    DtVideojuego info(nombreJuego, descrip, costoMensual, costoTrimestral, costoAnual, costoVitalicio, cats);
+DtVideojuego* ControladorVideojuego::ObtenerInfoVideojuego(){
+    DtVideojuego info= new DtVideoJuego(nombreJuego, descrip, costoMensual, costoTrimestral, costoAnual, costoVitalicio, cats);
     return info;
 }//ver la parte de DtVideojuego
 
@@ -219,19 +219,21 @@ vector<string> ControladorVideojuego::ObtenerCategorias(){
     }
 }
 
-DtCategoria ControladorVideojuego::datacat; //como hay constructor vacio supongo que queda inicializado
 
 
-void NuevaCategoria(DtCategoria datos){
-    ControladorVideojuego::datacat(datos.getNombrecat, datos.getDescripcion, datos.getTipo);  //asi no uso operador de copia
+void NuevaCategoria(DtCategoria* datos){
+    datacat=datos;  //asi no uso operador de copia
 }
 
 void ConfirmarCategoria{
-    Categoria* nuevo=new Categoria(datacat.getNombrecat, datacat.getDescripcion, datacat.getTipo);
+    Categoria* nuevo=new Categoria(datacat->getNombre, datacat.getDescripcion, datacat.getTipo);
     Categorias.push_back(nuevo);
+    delete datacat;
 };
 
-void CancelarCategoria(){}; //No sé si es necesario borra el dtcategoria
+void CancelarCategoria(){
+    delete datacat
+}
 
 vector<string> ObtenerVideoJuegos(){
     vector<string> resu;
@@ -241,7 +243,7 @@ vector<string> ObtenerVideoJuegos(){
     }
 } 
 
-DtInfoEspecifica SeleccionarVideojuego(string nombVJ){
+DtInfoEspecifica* SeleccionarVideojuego(string nombVJ){
     
     int tamCol=Videojuegos.size();
     int i=0;
@@ -267,7 +269,7 @@ DtInfoEspecifica SeleccionarVideojuego(string nombVJ){
                     cates.push_back(Categorias[i]->getNombre());
             }
         
-            DtInfoEspecifica nuevo(des, men, tri, anual, vit, cates, emp, promedio);
+            DtInfoEspecifica nuevo= new DtInfoEspecifica(des, men, tri, anual, vit, cates, emp, promedio);
         }
         i++;
     }
