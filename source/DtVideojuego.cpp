@@ -6,26 +6,20 @@ using namespace std;
 
 // este data type es un poco diferente se los diagramas, tiene los nombres de las categorias
 
-DtVideojuego::DtVideojuego (string Snombre, string Sdescripcion, float ScostoMensual, float ScostoTrimestral, float ScostoAnual, float ScostoVitalicio, map<string, DtCategoria> Scategorias) {
+DtVideojuego::DtVideojuego (string Snombre, string Sdescripcion, float ScostoMensual, float ScostoTrimestral, float ScostoAnual, float ScostoVitalicio, vector<string> Scategorias) {
 	nombre = Snombre;
 	descripcion = Sdescripcion;
 	costoMensual = ScostoMensual;
 	costoTrimestral = ScostoTrimestral;
 	costoAnual = ScostoAnual;
 	costoVitalicio = ScostoVitalicio;
-	map<string, DtCategoria> :: iterator it;
+	vector<string> :: iterator it;
 	for(it = Scategorias.begin(); it != Scategorias.end(); ++it){
-        categorias.insert(pair<string, DtCategoria>(it->first,it->second));
+        categorias.push_back(*it);
 	}
 }
 
 DtVideojuego::~DtVideojuego () {
-	map<string, DtCategoria> :: iterator it;
-    for(it = categorias.begin(); it != categorias.end(); ++it)
-    {
-        DtCategoria cat = it->second;
-        cat.~DtCategoria();
-    }
     categorias.clear();
 }
 
@@ -82,35 +76,30 @@ void DtVideojuego::setCostoVitalicio(float costoVitalicio) {
 	this->costoVitalicio = costoVitalicio;
 }
 
-void DtVideojuego::setCategorias(map<string, DtCategoria> scategorias) {
-	map<string, DtCategoria> :: iterator it;
-    for(it = categorias.begin(); it != categorias.end(); ++it)
-    {
-        categorias.erase(it);
-    }
-    categorias.clear();
-    map<string, DtCategoria> :: iterator it1;
-	for(it1 = scategorias.begin(); it1 != scategorias.end(); ++it1){
-        categorias.insert(pair<string, DtCategoria>(it1->first,it1->second));
+void DtVideojuego::setCategorias(vector<string> scategorias) {
+	
+	categorias.clear();
+	vector<string> :: iterator it;
+	for(it = Scategorias.begin(); it != Scategorias.end(); ++it){
+        categorias.push_back(*it);
 	}
 }
 
-ostream& operator<<(ostream &o, DtVideojuego *s) {
+ostream& operator<<(ostream &o, DtVideojuego* s) {
 	o << "Nombre: " << s->getNombre() << '\n';
-	o << "Descripcin: " << s->getDescripcion() << '\n';
+	o << "Descripción: " << s->getDescripcion() << '\n';
 	o << "Costo Mensual: " << s->getCostoMensual() << '\n';
 	o << "Costo Trimestral: " << s->getCostoTrimestral() << '\n';
 	o << "Costo Anual: " << s->getCostoAnual() << '\n';
 	o << "Costo Vitalicio: " << s->getCostoVitalicio() << '\n';
 	o << "Categoras: " ;
 	int i = 0;
-	map<string, DtCategoria> :: iterator it;
+	vector<string> :: iterator it;
 	for(it = s->categorias.begin(); it != s->categorias.end(); ++it){
-        i++;
         if ( i == s->categorias.size()){
-            o << it->first << '\n';
+            o << (*it) << '\n';
         }else{
-            o << it->first << ", ";
+            o << (*it) << ", ";
         }
 	}
 	return o;
