@@ -25,6 +25,7 @@ public:
 
 	void finalizar();
 	void eliminarPartida();
+	void abandonarPartida(string nombreJug);
  	float tiempoTotal();
 
 	DtPartidaEnCurso* getDtPartida(); //*DtPartidaMultijugadorEnCurso
