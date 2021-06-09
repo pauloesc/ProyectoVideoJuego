@@ -25,6 +25,7 @@ public:
 
 	void finalizar();
 	void eliminarPartida();
+	bool perteneceAPartidaJugador(string nombreJug);
 	void abandonarPartida(string nombreJug);
  	float tiempoTotal();
 
