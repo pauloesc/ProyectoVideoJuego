@@ -45,6 +45,7 @@ public:
 
 	void eliminarPartidas(VideoJuego* vj);
 	vector<DtPartidaEnCurso*> obtenerPartidasEnCurso();
+	vector<DtPartidaEnCurso*> obtenerPartidasEnCursoUnido();
 	void finalizarPartida(int identidicador);
 	vector<string> listarVideojuegosConSuscripcionActiva();
 	vector<DtPartidaIndividual*> HistorialDePartidasIndividualesFinalizadas();
