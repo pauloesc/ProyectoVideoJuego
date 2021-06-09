@@ -33,6 +33,10 @@ float VideoJuego::CostoAnual(){
     return CostoAnual;
 }
 
+vector<Partida*> VideoJuego::getPartidas(){
+    return VectorDePunterosPartidasDelVideojuego;
+}
+
 
 
 VideoJuego::sDesarrollador(des:Desarrollador){
