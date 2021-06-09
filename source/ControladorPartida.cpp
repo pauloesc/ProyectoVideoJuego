@@ -68,6 +68,29 @@ vector<DtPartidaEnCurso*> ControladorPartida::obtenerPartidasEnCurso() {
 	return j->darPartidasEnCurso();
 }
 
+vector<DtPartidaEnCurso*> ControladorPartida::obtenerPartidasEnCursoUnido() {
+    vector<DtPartidaEnCurso*> res;
+	ControladorUsuario* cu = ControladorUsuario::getInstance();
+	Jugador* j = cu->darJugador();
+	ControladorVideojuego* cv = ControladorVideojuego::getInstance();
+	vector<string> strvid = cv->obtenerVideoJuegos();
+	vector<string>::iterator it;
+	for(it = strvid.begin(); it != strvid.end(); ++it){
+        VideoJuego* v = cv->darVideojuego(*it);
+        vector<Partida*> partidas = v->getPartidas();
+        vector<Partida*>::iterator it1;
+        for(it1 = partidas.begin(); it1 != partidas.end(); ++it1){
+            if (dynamic_cast<PartidaMultijugador*>(*it1) != NULL){
+                PartidaMultijugador* pm = dynamic_cast<PartidaMultijugador*>(*it1);
+                if (pm->perteneceAPartidaJugador(j->getnickname())){
+                    res.push_back(pm->getDtPartida())
+                }
+            }
+        }
+    }
+    return res;
+}
+
 void ControladorPartida::finalizarPartida(int identidicador) {
 	ControladorUsuario* cu = ControladorUsuario::getInstance();
 	Jugador* j = cu->darJugador();
