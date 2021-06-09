@@ -90,6 +90,9 @@ float VideoJuego::totalHorasJugadas(){
     
 }
 
+void asignar(Puntaje* punt){
+    VectorDeObjetosPuntaje.push_back(punt);
+}
 
 
 VideoJuego::~VideoJuego(){
