@@ -1,22 +1,22 @@
-Puntaje::Puntaje(int Puntos, Videojuego* punteroVj) {
+Puntaje::Puntaje(int Puntos, Jugador* punteroj) {
     this->Puntos = Puntos;
-    this->Videojuego = punteroVj;
+    this->Videojuego = punteroj;
 }
 
 int Puntaje::getPuntos(){
     return Nombre;
 }
 
-Videojuego* Puntaje::getVideoJuego(){
-    return Videojuego;
+Jugador* Puntaje::getJugador(){
+    return Jugador;
 }
 
 Puntaje::setPuntos(int p){
     this->Puntos = p;
 }
 
-Puntaje::setVideoJuego(Videojuego* vj){
-    this->Videojuego = vj;
+Puntaje::setJugador(Jugador* vj){
+    this->Jugador = vj;
 }
 
 Puntaje::~Puntaje(){
