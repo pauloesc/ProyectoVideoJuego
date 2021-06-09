@@ -16,6 +16,8 @@ class ControladorSuscripciones {
         static Videojuego *vj;
         static string tiposus;
         static DtPago *pago;
+        static Suscripcion *sus;
+        static DtFecha *fecha;
     public:
         vector<DtSuscripcion *> obtenerNombresSuscripcionesActivas();
         vector<DtSuscripcion *> obtenerSuscripcionesNoActivas();
