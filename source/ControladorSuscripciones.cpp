@@ -24,3 +24,11 @@ void ControladorSuscripciones::IngresarDatosSuscripcion(string tiposuscripcion, 
     ControladorSuscripciones::tiposus = tiposuscripcion;
     ControladorSuscripciones::pago = pag;
 }
+
+void ControladorSuscripciones::ConfirmarSuscripcion() {
+    ControladorUsusario* cu = ControladorUsuario::getInstance();
+    Jugador* jug = cu->darJugador();
+    jug->cancelarSuscripcionActiva(string Juego);
+    sus->CrearSuscripcion(pago, fecha, tiposus, vj);
+    jug->asociarSuscripcion(sus); 
+}
