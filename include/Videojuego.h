@@ -12,7 +12,7 @@ private:
     float CostoTrimestral;
     float CostoAnual;
     
-    vector<Desarrollador*> VectorDePunterosDesarolladores;
+    Desarrollador* Desarolladores = 0;
     vector<Partida*> VectorDePunterosPartidasDelVideojuego;
     
     //recordar que esto podria llegar a dar algun tipo de problemas si alguien gurdase la direccion de memeoria de los puntajes, ya que cuando se redimensiona vector cambia de lugar en la memoria del vector(pregunta a Paulo si no entienden).
