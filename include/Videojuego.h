@@ -29,6 +29,7 @@ public:
     float getCostoAnual();
     vector<Partida*> getPartidas();
     
+    Desarrollador* getDesarrolador();
     bool esDesarrolador(string email);
     
     bool TodasFinalizadas();
