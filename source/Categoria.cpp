@@ -28,14 +28,14 @@ Categoria::adicionarVideojuego(Videojuego* vid){
     VectorDePunterosVideojuegos.push_back(vid);
 }
 
-Categoria::desvincularVideoJuego(vj:VideoJuego){
+Categoria::desvincularVideoJuego(VideoJuego* vj){
 
     int i=0;
     bool NoEncontrado = 1;
 
     while( (i< VectorDePunterosVideojuegos.size()) && NoEncontrado){
 
-        if ( (*VectorDePunterosVideojuegos[i]).getNombre() == vj.getNombre() ){
+        if ( (*VectorDePunterosVideojuegos[i]).getNombre() == (*vj).getNombre() ){
             NoEncontrado = 0;
         }
         else{
