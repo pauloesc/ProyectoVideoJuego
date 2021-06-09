@@ -34,8 +34,8 @@ public:
     bool esDesarrolador(string email);
     
     bool TodasFinalizadas();
-    EliminarPartidas();
-    eliminarPuntajes();
+    void EliminarPartidas();
+    void eliminarPuntajes();
     float totalHorasJugadas();
     
     string darEmpresaDesarroladora(); //Caso de uso info videojuego
