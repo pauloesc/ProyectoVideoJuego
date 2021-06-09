@@ -18,7 +18,7 @@ class Desarrollador : public Usuario {
 		string getnomEmpresa ();
 		vector<DataEstadisticaDeSegundoTipo *> DarEstadisticas(Videojuego *vj);
 		bool esJugador();
-        void getEstadisticas(vector<Estadistica *> estadist);
+        void setEstadisticas(vector<Estadistica *> estadist);
 };
 
 
