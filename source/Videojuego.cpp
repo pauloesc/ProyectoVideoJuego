@@ -115,7 +115,7 @@ float VideoJuego::darPromedioPuntaje(){
         int cant= 0;
 
         for(cant=0; cant < VectorDeObjetosPuntaje.size(); cant++ ){
-            suma = suma + VectorDeObjetosPuntaje[i].getPuntaje();
+            suma = suma + VectorDeObjetosPuntaje[i].getPuntos();
         }
 
         return suma/cant;
