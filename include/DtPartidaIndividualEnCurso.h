@@ -5,7 +5,6 @@
 #include "DtPartidaEnCurso.h"
 #include "DtFecha.h"
 
-using namespace std;
 
 
 

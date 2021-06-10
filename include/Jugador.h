@@ -2,6 +2,8 @@
 #define JUGADOR
 
 #include <vector>
+#include <string>
+
 
 #include "Usuario.h"
 #include "Partida.h" //este tiene a Videojuego.h creo

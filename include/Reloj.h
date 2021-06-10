@@ -11,5 +11,6 @@ private:
 public:
 	static DtFecha* getFecha();
 	static void setFecha(int Sdia, int Smes, int Sanio, int Shora, int Sminuto);
+};
 
 #endif
