@@ -21,7 +21,7 @@ private:
 
 public:
     DtInfoEspecifica();
-	DtInfoEspecifica(string descripcion,float costoMensual,float costoTrimestral,float costoAnual, float costoVitalicio, vector<string> categorias, string empresadesarrolladora, float promedio);
+	DtInfoEspecifica(string descripcion,float costoMensual,float costoTrimestral,float costoAnual, float costoVitalicio, vector<string> scategorias, string empresadesarrolladora, float promedio);
 	string getDescripcion();
 	float getCostoMensual();
 	float getCostoTrimestral();
