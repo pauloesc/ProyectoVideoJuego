@@ -4,15 +4,7 @@
 using namespace std;
 
 ControladorPartida* ControladorPartida::instance = NULL;
-string ControladorPartida::nombrevid;
-Videojuego* ControladorPartida::vid;
-bool ControladorPartida::individual;
-bool ControladorPartida::continuacion;
-Partida* ControladorPartida::Pcont;
-int ControladorPartida::codigoAnterior;
-bool ControladorPartida::TransmitidaenVivo;
-string ControladorPartida::jug;
-vector<string> ControladorPartida::jugadoresUnidos;
+
 
 ControladorPartida::ControladorPartida() {
 }
@@ -29,30 +21,30 @@ ControladorPartida* ControladorPartida::getInstance() {
 
 
 void ControladorPartida::seleccionaVideoJuego(string nombrevid) {
-	ControladorPartida::nombrevid = nombrevid;
+	this->nombrevid = nombrevid;
 	ControladorVideojuego* cv = ControladorVideojuego::getInstance();
-	ControladorPartida::vid = cv->darVideojuego(nombrevid);
+	this->vid = cv->darVideojuego(nombrevid);
 }
 
 void ControladorPartida::ingresarPartidaIndividual(bool continuacion) {
-	ControladorPartida::individual = true;
-	ControladorPartida::continuacion = continuacion;
+	this->individual = true;
+	this->continuacion = continuacion;
 }
 
 void ControladorPartida::PartidaAcontinuar(int codigoAnterior) {
 	ControladorUsuario* cu = ControladorUsuario::getInstance();
 	Jugador* j = cu->darJugador();
-	ControladorPartida::Pcont = j->encontrarPartidasIndividual(codigoAnterior);
+	this->Pcont = j->encontrarPartidasIndividual(codigoAnterior);
 }
 
 void ControladorPartida::ingresarPartidaMultijugador(bool TransmitidaenVivo) {
-	ControladorPartida::individual = false;
-	ControladorPartida::TransmitidaenVivo = TransmitidaenVivo;
+	this->individual = false;
+	this->TransmitidaenVivo = TransmitidaenVivo;
 }
 
 
 void ControladorPartida::AgregarJugador(string jug) {
-	ControladorPartida::jugadoresUnidos.push_back(jug);
+	this->jugadoresUnidos.push_back(jug);
 }
 
 
@@ -117,25 +109,25 @@ void ControladorPartida::IniciarPartida() {
 	ControladorUsuario* cu = ControladorUsuario::getInstance();
 	
 	if (ControladorPartida::individual) {
-		PartidaIndividual* part = dynamic_cast<PartidaIndividual*>(ControladorPartida::Pcont);
-		Partida* p = new PartidaIndividual(ControladorPartida::continuacion,part,ControladorPartida::vid);
+		PartidaIndividual* part = dynamic_cast<PartidaIndividual*>(this->Pcont);
+		Partida* p = new PartidaIndividual(this->continuacion,part,this->vid);
 	} else {
-		vector<Jugador*> unidos = cu->darJugadores(ControladorPartida::jugadoresUnidos);
-		Partida* p = new PartidaMultijugador(ControladorPartida::TransmitidaenVivo,unidos,ControladorPartida::vid);
+		vector<Jugador*> unidos = cu->darJugadores(this->jugadoresUnidos);
+		Partida* p = new PartidaMultijugador(this->TransmitidaenVivo,unidos,this->vid);
 
 	}
 
 	Jugador* j = cu->darJugador();
 	j->asociarPartidaIniciada(p);
-	ControladorPartida::vid->AsociarPartida(p);
+	(this->vid)->AsociarPartida(p);
 
-	ControladorPartida::jugadoresUnidos.clear();
+	this->jugadoresUnidos.clear();
 
 }
 
 
 void ControladorPartida::CancelarPartida() {
-	ControladorPartida::jugadoresUnidos.clear();
+	this->jugadoresUnidos.clear();
 }
 
 

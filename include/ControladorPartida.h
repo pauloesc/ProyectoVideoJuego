@@ -23,14 +23,14 @@ class ControladorPartida {
 private:
 	static ControladorPartida* instance;
 	
-	static string nombrevid;
-	static Videojuego* vid;
-	static bool individual;
-	static bool continuacion;
-	static Partida* Pcont;
-	static int codigoAnterior;
-	static bool TransmitidaenVivo;
-	static vector<string> jugadoresUnidos;
+	string nombrevid;
+	Videojuego* vid;
+	bool individual;
+	bool continuacion;
+	Partida* Pcont;
+	int codigoAnterior;
+	bool TransmitidaenVivo;
+	vector<string> jugadoresUnidos;
 	
 	ControladorPartida();
 public:
