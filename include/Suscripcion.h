@@ -3,12 +3,16 @@
 
 #include "DtPago.h"
 #include "DtFecha.h"
+#include "DtSuscripcion.h"
+
 #include "Reloj.h"
 #include "Jugador.h"
 #include "Videojuego.h"
 
+
 #include <string>
 
+class Jugador;
 
 using namespace std;
 
@@ -24,7 +28,7 @@ public:
 	DtFecha* getFecha();
 	DtPago getMedioDePago();
 	float getCosto();
-	VideoJuego* getVideojuegoAsociado();
+	Videojuego* getVideojuegoAsociado();
 	Jugador* getJugador();
     virtual DtSuscripcion  crearDtSuscripcion() = 0;
     bool esActiva();

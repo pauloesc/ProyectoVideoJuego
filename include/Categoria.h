@@ -25,7 +25,7 @@ public:
 
     DtCategoria* ObtenerDataCategoria();
     void adicionarVideojuego(Videojuego* vid);
-    void desvincularVideoJuego(VideoJuego* vj);
+    void desvincularVideoJuego(Videojuego* vj);
 
     bool esCategoriaDelVideojuego(Videojuego* v); //es necesario para el caso de uso de pedir info video juego
 

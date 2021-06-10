@@ -26,7 +26,7 @@ class Jugador : public Usuario {
 
 		vector<DtPartidaIndividual *> darPartidasIndividualesFinalizadas(string nombrevid);
 		vector<DtPartidaEnCurso *> darPartidasEnCurso();
-		*Partida encontrarPartidasIndividual(int codigoAnterior);
+		Partida* encontrarPartidasIndividual(int codigoAnterior);
 		void AsociarPartidaIniciada(Partida *PI);
 		void DesvincularPartida(Partida *par);
 		void desvincularPartidas(string nomVJ);

@@ -40,7 +40,7 @@ public:
 
 	void setPartida(Videojuego* v);
 	void terminar();
-	DtFechaHora* getFecha();
+	DtFecha* getFecha();
 	float getduracion();
 	bool getenCurso();
 	int getcodigo();

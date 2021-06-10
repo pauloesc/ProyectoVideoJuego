@@ -20,7 +20,7 @@ string Categoria::getTipo(){
 }
 
 DtCategoria* Categoria::ObtenerDataCategoria(){
-    DtCategoria* Datos= new Datos(this->Nombre, this->Descripcion, this->Tipo);
+    DtCategoria* Datos= new DtCategoria(this->Nombre, this->Descripcion, this->Tipo);
     return Datos;
 }
 
@@ -28,12 +28,12 @@ void Categoria::adicionarVideojuego(Videojuego* vid){
     VectorDePunterosVideojuegos.push_back(vid);
 }
 
-void Categoria::desvincularVideoJuego(VideoJuego* vj){
+void Categoria::desvincularVideoJuego(Videojuego* vj){
 
-    int i=0;
+    long unsigned int i=0;
     bool NoEncontrado = 1;
 
-    while( (i< VectorDePunterosVideojuegos.size()) && NoEncontrado){
+    while( (i < VectorDePunterosVideojuegos.size()) && NoEncontrado){
 
         if ( (*VectorDePunterosVideojuegos[i]).getNombre() == (*vj).getNombre() ){
             NoEncontrado = 0;
@@ -43,17 +43,17 @@ void Categoria::desvincularVideoJuego(VideoJuego* vj){
         }
     }
     //elimino la posicion donde esta ese puntero;
-    iterator= VectorDePunterosVideojuegos.begin() + i;
-    VectorDePunterosVideojuegos.erase(iterator);
+    VectorDePunterosVideojuegos.erase(VectorDePunterosVideojuegos.begin() + i);
 }
 
 bool Categoria::esCategoriaDelVideojuego(Videojuego* v){
 
     bool res=0;
-    for(int i= 0; i< VectorDePunterosVideojuegos.size(); i++){
-        res = res || ( VectorDePunterosVideojuegos[i] == v )
+    for(long unsigned int i= 0; i< VectorDePunterosVideojuegos.size(); i++){
+        res = res || ( VectorDePunterosVideojuegos[i] == v );
     }
 
+    return res;
 }
 
 

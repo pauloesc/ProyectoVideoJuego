@@ -12,5 +12,5 @@ DtFecha* Abandona::getFecha() {
 }
 
 Jugador* Abandona::getJugador() {
-	return jug
+	return jug;
 }
