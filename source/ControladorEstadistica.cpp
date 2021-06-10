@@ -1,3 +1,5 @@
+#include "../include/ControladorEstadistica.h"
+
 ControladorEstadistica* ControladorEstadistica::instance = NULL; 
 
 

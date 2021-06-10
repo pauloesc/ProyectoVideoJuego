@@ -3,7 +3,7 @@
 
 #include "Usuario.h"
 #include "Jugador.h"
-#include "Desarrolador.h"
+#include "Desarrollador.h"
 #include "Videojuego.h"
 #include <string>
 #include <vector>

@@ -1,12 +1,14 @@
 #ifndef CONTROLADORVIDEOJUEGO
 #define CONTROLADORVIDEOJUEGO
 
-#include Videojuego.h
-#include DtVideojuego.h
-#include DtCategoria.h
-#include Categoria.h
-#include DtInfoEspecifica.h
-#include DtVideoJuegoResumido.h
+#include "Videojuego.h"
+#include "Categoria.h"
+
+#include "DtVideojuego.h"
+#include "DtCategoria.h"
+#include "DtInfoEspecifica.h"
+#include "DtVideoJuegoResumido.h"
+
 #include <vector>
 #include <string>
 
