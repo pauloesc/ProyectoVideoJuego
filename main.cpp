@@ -4,6 +4,9 @@
 
 using namespace std;
 
+// comento todo para arreglar errores de sintaxis en las clases primero
+/*
+ 
 void menuParaJugador(){
 
         bool termina = 0;
@@ -825,6 +828,10 @@ int main() {
                         cout << e.what() << endl;
                 }
         }
+
+*/
+int main() { //quitar esta linea
+
 
         return 0;
 }
