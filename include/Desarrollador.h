@@ -5,7 +5,7 @@
 
 #include "Usuario.h"
 #include "Videojuego.h"
-#include "DataEstadisticaDeSegundoTipo.h"
+#include "DtEstadisticaDeSegundoTipo.h"
 #include "Estadistica.h"
 
 
@@ -16,7 +16,7 @@ class Desarrollador : public Usuario {
 	public:
 		Desarrollador (string unEmail, string unaContrasenia, string unaEmpresa);
 		string getnomEmpresa ();
-		vector<DataEstadisticaDeSegundoTipo *> DarEstadisticas(Videojuego *vj);
+		vector<DtEstadisticaDeSegundoTipo *> DarEstadisticas(Videojuego *vj);
 		bool esJugador();
         void setEstadisticas(vector<Estadistica *> estadist);
 };

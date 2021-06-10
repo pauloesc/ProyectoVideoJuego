@@ -1,12 +1,20 @@
-#ifndef VideoJuego
-#define VideoJuego
+#ifndef VIDEOJUEGO
+#define VIDEOJUEGO
 
 #include "Desarrollador.h"
+#include "Partida.h"
+#include "Puntaje.h"
 
+#include <string>
+#include <vector>
+
+
+
+class Partida;
 
 using namespace std;
 
-class VideoJuego {
+class Videojuego {
 private:
     
     string Nombre;
@@ -23,7 +31,7 @@ private:
     vector<Puntaje*> VectorDeObjetosPuntaje;
 	
 public:
-	VideoJuego(string Nombre, string Descripcion, float CostoVitalicio, float CostoMensual, float CostoTrimestral, float CostoAnual);
+	Videojuego(string Nombre, string Descripcion, float CostoVitalicio, float CostoMensual, float CostoTrimestral, float CostoAnual);
 
     string getNombre();
     string getDescripcion();
@@ -45,7 +53,7 @@ public:
     string darEmpresaDesarroladora(); //Caso de uso info videojuego
     float darPromedioPuntaje(); //Caso de uso info videojuego
     void asignar(Puntaje* punt); // Para caso de uso asignar puntaje, crea el puntaje y lo vincula con el jugador.
-    ~VideoJuego();
+    ~Videojuego();
     
 };
 #endif

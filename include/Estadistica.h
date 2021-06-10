@@ -1,7 +1,10 @@
 #ifndef ESTADISTICA
 #define ESTADISTICA
+
 #include "Videojuego.h"
-#include "DataEstadisticaDeSegundoTipo.h"
+#include "DtEstadisticaDeSegundoTipo.h"
+
+class Videojuego;
 
 class Estadistica {
 
@@ -15,7 +18,7 @@ public:
 	string getNombre();
 	string getDescripcion();
     
-    virtual DataEstadisticaDeSegundoTipo DarEstadistica(VideoJuego* vjp) = 0;
+    virtual DtEstadisticaDeSegundoTipo DarEstadistica(Videojuego* vjp) = 0;
     
     ~Estadistica();
 };
