@@ -1,5 +1,9 @@
 #ifndef VideoJuego
 #define VideoJuego
+
+#include "Desarrollador.h"
+
+
 using namespace std;
 
 class VideoJuego {

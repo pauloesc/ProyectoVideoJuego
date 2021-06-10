@@ -5,7 +5,7 @@
 #include "Reloj.h"
 
 #include "DtFecha.h"
-#include "DtPartidaEnCurso"
+#include "DtPartidaEnCurso.h"
 #include "DtPartidaIndividualEnCurso.h"
 #include "DtPartidaMultijugadorEnCurso.h"
 
