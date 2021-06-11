@@ -41,7 +41,7 @@ Desarrollador* darDesarrollador();
 vector<string> darNombreJugadoresConSuscripcionActiva(string nombrevid); //caso de uso iniciar partida
 vector<Jugador*> darJugadores(vector<string> jugadoresUnidos); 
 void eliminarSuscripcionesVideoJuego(string nomVJ); //caso de uso eliminar videojuego
-int totalSuscriptos(v:VideoJuego);  //caso de uso consultar estadistica2
+int totalSuscriptos(VideoJuego v);  //caso de uso consultar estadistica2
 
 bool esUsuarioEnLineaJugador(); //sirve para ver info videojuego
 
