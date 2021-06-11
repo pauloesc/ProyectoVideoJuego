@@ -27,6 +27,6 @@ void DataEstadistica::setDescripcion(string des) {
 }
 
 ostream& operator<<(ostream &o, DataEstadistica* d) {
-  o << "Info mimpdf dnjknjdnvkjdfnd: " <<'\n';
+  o << "Info Estadistica: " << '\n' << "Nombre: " << d->getNombre() << "Descripcion: " d->getDescripcion();
   return o;
 }
