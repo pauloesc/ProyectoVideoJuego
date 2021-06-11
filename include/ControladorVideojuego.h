@@ -69,7 +69,7 @@ DtInfoEspecifica* SeleccionarVideojuego(string nombVJ);
 int MostrarHorasTotalJugadas();
 
 vector<DtVideojuegoResumido*> ObtenerVideoJuegos(); //asignar puntaje
-void AsignarPuntajeVJ(string nomVJ int puntaje);
+void AsignarPuntajeVJ(string nomVJ, int puntaje);
 
 
 ~ControladorVideojuego();
