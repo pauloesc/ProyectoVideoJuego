@@ -1,32 +1,32 @@
 #include <string>
 
-DtVideoJuegoResumido::DtVideoJuegoResumido(){}
+DtVideojuegoResumido::DtVideojuegoResumido(){}
 
 
-DtVideoJuegoResumido::DtVideoJuegoResumido (string nom, string des){
+DtVideojuegoResumido::DtVideojuegoResumido (string nom, string des){
     Nombre = nom;
     Descripcion = des;
 }
 
 
-string DtVideoJuegoResumido::getNombre() {
+string DtVideojuegoResumido::getNombre() {
 	return Nombre;
 }
 
-void DtVideoJuegoResumido::setNombre(string nom) {
+void DtVideojuegoResumido::setNombre(string nom) {
 	Nombre = nom;
 }
 
 
-string DtVideoJuegoResumido::getDescripcion() {
+string DtVideojuegoResumido::getDescripcion() {
 	return Descripcion;
 }
 
-void DtVideoJuegoResumido::setDescripcion(string des) {
+void DtVideojuegoResumido::setDescripcion(string des) {
 	Descripcion = des;
 }
 
-ostream& operator<<(ostream &o, DtVideoJuegoResumido* d) {
+ostream& operator<<(ostream &o, DtVideojuegoResumido* d) {
   o << "Info Estadistica: " << '\n' << "Nombre: " << d->getNombre() << "Descripcion: " d->getDescripcion();
   return o;
 }
