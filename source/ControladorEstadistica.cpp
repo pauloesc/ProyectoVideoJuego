@@ -86,7 +86,7 @@ void ControladorEstadistica::ConfirmarSeleccionEstaditicas(){
 
         for(int j=0; EstadisticasDelSistema.size(); j++ ){
 
-            if( EstadisticasSeleccionadas[i].getNombre() == EstadisticasDelSistema[j]->getNombre() ){
+            if( EstadisticasSeleccionadas[i] == EstadisticasDelSistema[j]->getNombre() ){
 
                 VectorDePunterosAEstadisticasEspecificas.push_back( EstadisticasDelSistema[j] );
 
