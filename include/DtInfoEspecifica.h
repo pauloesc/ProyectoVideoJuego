@@ -8,7 +8,7 @@
 
 using namespace std;
 
-class DtVideojuego {
+class DtInfoEspecifica {
 private:
 	string descripcion;
 	float costoMensual;
@@ -20,8 +20,8 @@ private:
     float promedio;
 
 public:
-    DtVideojuego();
-	DtVideojuego(string titulo,string descripcion,float costoMensual,float costoTrimestral,float costoAnual, float costoVitalicio, vector<string> categorias, string empresadesarrolladora, float promedio);
+    DtInfoEspecifica();
+	DtInfoEspecifica(string sdescripcion, float scostoMensual,float scostoTrimestral,float scostoAnual, float scostoVitalicio, vector<string> scategorias, string sempresadesarrolladora, float spromedio);
 	string getDescripcion();
 	float getCostoMensual();
 	float getCostoTrimestral();
@@ -44,9 +44,5 @@ public:
 	friend ostream& operator<<(ostream &o, DtInfoEspecifica *s);
 	~DtInfoEspecifa();
 };
-
-
-
-
 
 #endif
