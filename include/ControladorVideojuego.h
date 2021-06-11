@@ -3,6 +3,10 @@
 
 #include "Videojuego.h"
 #include "Categoria.h"
+#include "ControladorPartida.h"
+#include "ControladorUsuario.h"
+#include "Usuario.h"
+#include "Desarrollador.h"
 
 #include "DtVideojuego.h"
 #include "DtCategoria.h"
@@ -39,11 +43,11 @@ public:
 static ControladorVideojuego* getInstance();
 
 void datosVideojuego(string nombreJuego, string descrip, float costoMensual, float costoTrimestral, float costoAnual, float costoVitalicia); //publicar videojuego
-vector<DtCategoria> ObtenerCategoriaPlataforma();
-vector<DtCategoria> ObtenerCategoriaGenero();
-vector<DtCategoria> ObtenerCategoriaOtros(); 
+vector<DtCategoria*> ObtenerCategoriaPlataforma();
+vector<DtCategoria*> ObtenerCategoriaGenero();
+vector<DtCategoria*> ObtenerCategoriaOtros(); 
 void agregarcategoria (string categoria);
-DtVideojuego ObtenerInfoVideojuego();
+DtVideojuego* ObtenerInfoVideojuego();
 void ConfirmarAltavideoJuego();
 void CancelarAltavideoJuego();
 

@@ -1,13 +1,5 @@
-#include <string> 
-#include <vector>
 #include "../include/ControladorVideojuego.h"
-#include "../include/DtVideojuego.h"
-#include "../include/DtCategoria.h"
-#include "../include/Videojuego.h"
-#include "../include/Categoria.h"
-#include "../include/ControladorUsuario.h"
-#include "../include/Usuario.h"
-#include "../include/Desarrollador.h"
+
 
 
 using namespace std;
@@ -38,7 +30,7 @@ vector<DtCategoria*> ControladorVideojuego::ObtenerCategoriaPlataforma(){
     vector<DtCategoria*> colplataforma; 
     int tamCol=Categorias.size();
     for (int i=0; i<tamCol; i++){
-        if(Categorias[i]->getTipo()=plataforma){  //mirarlo despues en categoria
+        if(Categorias[i]->getTipo()== "plataforma"){  //mirarlo despues en categoria
             colplataforma.push_back(Categorias[i]->ObtenerDataCategoria()); //mirarlo en cat
         }
     }
@@ -50,7 +42,7 @@ vector<DtCategoria*> ControladorVideojuego::ObtenerCategoriaGenero(){
     vector<DtCategoria*> colgenero; 
     int tamCol=Categorias.size();
     for (int i=0; i<tamCol; i++){
-        if(Categorias[i]->getTipo()=genero){  //mirarlo despues en categoria
+        if(Categorias[i]->getTipo()== "genero"){  //mirarlo despues en categoria
             colgenero.push_back(Categorias[i]->ObtenerDataCategoria());
         }
     }
@@ -62,7 +54,7 @@ vector<DtCategoria*> ControladorVideojuego::ObtenerCategoriaOtros(){
     vector<DtCategoria*> colotro; 
     int tamCol=Categorias.size();
     for (int i=0; i<tamCol; i++){
-        if(Categorias[i]->getTipo()=otro){  //mirarlo despues en categoria
+        if(Categorias[i]->getTipo()=="otro"){  //mirarlo despues en categoria
             colotro.push_back(Categorias[i]->ObtenerDataCategoria());
         }
     }
@@ -74,20 +66,20 @@ void ControladorVideojuego::agregarcategoria (string categoria){
 }
 
 DtVideojuego* ControladorVideojuego::ObtenerInfoVideojuego(){
-    DtVideojuego info= new DtVideoJuego(nombreJuego, descrip, costoMensual, costoTrimestral, costoAnual, costoVitalicio, cats);
+    DtVideojuego* info= new DtVideojuego(nombreJuego, descrip, costoMensual, costoTrimestral, costoAnual, costoVitalicia, cats);
     return info;
-}//ver la parte de DtVideojuego
+}
 
 void ControladorVideojuego::ConfirmarAltavideoJuego(){
     
-    Videojuego* nuevo=new Videojuego (nombreJuego, descrip, costoMensual, costoTrimestral, costoAnual, costoVitalicio);
+    Videojuego* nuevo=new Videojuego (nombreJuego, descrip, costoMensual, costoTrimestral, costoAnual, costoVitalicia);
     int tamcats=cats.size();
     int tamCol=Categorias.size();
 
     for (int i=0; i<tamcats; i++){
         int j=0;
         bool resu=false;
-        While ((!resu) && (j<tamCol)){
+        while ((!resu) && (j<tamCol)){
             if ((Categorias[j]->getNombre())==cats[i]){ //Fijarse en categoria
                 Categorias[j]->adicionarVideojuego(nuevo);
                 resu=true;
@@ -99,7 +91,7 @@ void ControladorVideojuego::ConfirmarAltavideoJuego(){
     cu= ControladorUsuario::getInstance();
     Desarrollador* des=cu->darDesarrollador();
     nuevo->setDesarrollador(des);   //fijarse en videojuego
-    Videojuegos.push_back[nuevo];
+    Videojuegos.push_back(nuevo);
     cats.clear();
 }
 
@@ -113,10 +105,10 @@ Videojuego* ControladorVideojuego::darVideojuego(string Juego){
     int i=0;
     bool resu=false;
 
-    while ((!resu)&& (i<tamCol){
+    while ((!resu)&& (i<tamCol)){
         if (Videojuegos[i]->getNombre()==Juego){
             resu=true;
-            vid=Videojuego[i];
+            vid=Videojuegos[i];
         }  //ver en videojuego 
         i++;
     }
@@ -129,7 +121,7 @@ vector<string> ControladorVideojuego::obtenerVideoJuegosConTodasLasPartidasFinal
 
     for (int i=0; i<tamCol; i++){
         if (Videojuegos[i]->TodasFinalizadas()){
-            parfin.push_back[Videojuegos[i]->getNombre()];
+            parfin.push_back(Videojuegos[i]->getNombre());
         }
     }
     return parfin;
@@ -142,10 +134,10 @@ void ControladorVideojuego::seleccionarVideoJuego(string nomVJ){
     int i=0;
     bool resu=false;
 
-    while ((!resu)&& (i<tamCol){
+    while ((!resu)&& (i<tamCol)){
         if (Videojuegos[i]->getNombre()==nomVJ){
             resu=true;
-            vid=Videojuego[i];
+            vid=Videojuegos[i];
         }  
         i++;
     }
@@ -157,7 +149,7 @@ void ControladorVideojuego::eliminarVideoJuego(){
     int i=0;
     bool resu=false;
 
-    while ((!resu)&& (i<tamCol){
+    while ((!resu)&& (i<tamCol)){
         if (Videojuegos[i]->getNombre()==vid->getNombre()){
             resu=true;
             Videojuegos.erase(Videojuegos.begin()+i);
@@ -165,14 +157,14 @@ void ControladorVideojuego::eliminarVideoJuego(){
         i++;
     }
 
-    int tamCol=Categorias.size();
+    tamCol=Categorias.size();
     for (int i=0; i<tamCol; i++){
-        Categorias[i]->desvincularVideojuego(vid); //mirarlo despues en categoria
+        Categorias[i]->desvincularVideoJuego(vid); //mirarlo despues en categoria
     }
 
-    ControladorVideojuego* cvid;
-    cvid= ControladorVideojuego::getInstance();
-    cvid->eliminarPartidas(vid);
+    
+    ControladorPartida* cpar = ControladorPartida::getInstance();
+    cpar->eliminarPartidas(vid);
 
     ControladorUsuario* cu;
     cu= ControladorUsuario::getInstance();
@@ -192,8 +184,8 @@ vector<string> ControladorVideojuego::DarJuegos(string email){
     vector<string> resu;
     int tamCol=Videojuegos.size();
    for (int i=0; i<tamCol; i++){
-       if (Videojuego[i]->esDesarrolador(email))  //ver en videojuego
-            resu.push_back(Videojuego[i]->getemail());
+       if (Videojuegos[i]->esDesarrolador(email))  //ver en videojuego
+            resu.push_back(Videojuegos[i]->getemail());
    }
    return resu;
 }
