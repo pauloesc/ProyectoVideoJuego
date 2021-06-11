@@ -35,6 +35,6 @@ public:
     void ConfirmarSeleccionEstaditicas();
     void CancelarSeleccionEstaditicas();
     
-}
+};
  
 #endif
