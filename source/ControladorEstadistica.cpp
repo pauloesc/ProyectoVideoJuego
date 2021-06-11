@@ -69,11 +69,11 @@ vector<DataEstadistica> TiposDeEstadistica(){
 }
 
 
-SeleccionEstadisticas( vector<string> elecciones ){
+void SeleccionEstadisticas( vector<string> elecciones ){
     EstadisticasSeleccionadas = elecciones;
 }
 
-ConfirmarSeleccionEstaditicas(){
+void ConfirmarSeleccionEstaditicas(){
 
     ControladorUsuario* ControlUsuario;
     ControlUsuario = ControladorUsuario::getInstance();
@@ -99,7 +99,7 @@ ConfirmarSeleccionEstaditicas(){
 
 }
 
-CancelarSeleccionEstaditicas(){
+void CancelarSeleccionEstaditicas(){
     EstadisticasSeleccionadas.clear();
     }
     
