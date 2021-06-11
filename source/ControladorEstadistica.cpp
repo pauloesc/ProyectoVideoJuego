@@ -19,7 +19,7 @@ vector<string> ControladorEstadistica::JuegosDelDesarollador(){
     InstanciaDesarollador = ControlUsuario->darDesarrollador();
     
     string nombDes;
-    nombDes = InstanciaDesarollador->getEmail();
+    nombDes = InstanciaDesarollador->getemail();
     
     ControladorVideojuego* ControlVideojuego;
     ControlVideojuego = ControladorVideojuego::getInstance();
