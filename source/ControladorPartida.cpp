@@ -1,4 +1,4 @@
-#include ".../include/ControladorPartida.h"
+#include "../include/ControladorPartida.h"
 
 
 using namespace std;
@@ -50,7 +50,7 @@ void ControladorPartida::AgregarJugador(string jug) {
 
 
 
-void ControladorPartida::eliminarPartidas(VideoJuego* vj) {
+void ControladorPartida::eliminarPartidas(Videojuego* vj) {
 	vj->EliminarPartidas();
 }
 
@@ -65,7 +65,7 @@ vector<DtPartidaEnCurso*> ControladorPartida::obtenerPartidasEnCursoUnido() {
 	ControladorUsuario* cu = ControladorUsuario::getInstance();
 	Jugador* j = cu->darJugador();
 	ControladorVideojuego* cv = ControladorVideojuego::getInstance();
-	vector<string> strvid = cv->obtenerVideoJuegos();
+	vector<string> strvid = cv->ObtenerVideoJuegos();
 	vector<string>::iterator it;
 	for(it = strvid.begin(); it != strvid.end(); ++it){
         VideoJuego* v = cv->darVideojuego(*it);

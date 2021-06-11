@@ -10,7 +10,7 @@
 
 
 #include "Videojuego.h"
-#include "Jugador"
+#include "Jugador.h"
 #include "PartidaIndividual.h"
 #include "PartidaMultijugador.h"
 
@@ -43,14 +43,14 @@ public:
 	void AgregarJugador(string jug);
 	
 
-	void eliminarPartidas(VideoJuego* vj);
+	void eliminarPartidas(Videojuego* vj);
 	vector<DtPartidaEnCurso*> obtenerPartidasEnCurso();
 	vector<DtPartidaEnCurso*> obtenerPartidasEnCursoUnido();
 	void finalizarPartida(int identidicador);
 	vector<string> listarVideojuegosConSuscripcionActiva();
 	vector<DtPartidaIndividual*> HistorialDePartidasIndividualesFinalizadas();
 	vector<string> ListarJugadoresConSuscripcionActiva();
-	void IniciarPartida():
+	void IniciarPartida();
 	void CancelarPartida();
 
 

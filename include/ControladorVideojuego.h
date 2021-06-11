@@ -18,7 +18,7 @@ using namespace std;
 class ControladorVideojuego {
 
 private:
-static ControladorVideojuego * instance;
+static ControladorVideojuego* instance;
 ControladorVideojuego();
 vector<Videojuego*> Videojuegos;
 vector<Categoria*> Categorias;
@@ -36,7 +36,7 @@ DtCategoria* datacat;
 
 
 public:
-static ControladorUsuario * getInstance();
+static ControladorVideojuego* getInstance();
 
 void datosVideojuego(string nombreJuego, string descrip, float costoMensual, float costoTrimestral, float costoAnual, float costoVitalicia); //publicar videojuego
 vector<DtCategoria> ObtenerCategoriaPlataforma();

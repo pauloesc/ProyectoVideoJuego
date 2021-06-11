@@ -50,7 +50,7 @@ public:
 	virtual DtPartidaEnCurso* getDtPartida() = 0;
  	virtual void finalizar() = 0;
 	virtual void eliminarPartida() = 0;
- 	virtual void tiempoTotal() = 0;
+ 	virtual float tiempoTotal() = 0;
 
 
 	virtual bool esIndividual() = 0;

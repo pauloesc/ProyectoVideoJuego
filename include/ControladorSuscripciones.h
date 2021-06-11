@@ -12,7 +12,7 @@
 #include "DtFecha.h"
 
 #include "ControladorVideojuego.h"
-#include "ControladorUsusario.h"
+#include "ControladorUsuario.h"
 
 
 
@@ -26,7 +26,7 @@ class ControladorSuscripciones {
         Videojuego *vj;
         string nomJ;
         string tiposus;
-        DtPago pago;    // es un enumerado
+        DtPago *pago;    // es un enumerado
     public:
         ControladorSuscripciones* getInstance();
 
@@ -35,11 +35,9 @@ class ControladorSuscripciones {
         vector<DtSuscripcion*> obtenerSuscripcionesNoActivas();
         void IngresarDatosSuscripcion(string tiposuscripcion, DtPago *pag);
         void SeleccionarVideojuego(string Juego);
-        void IngresarDatosSuscripcion(string tiposuscripcion, DtPago *pag);
-        vector<string> obtenerNombresSuscripcionesActivas();
         void Finalizarproceso();
         void ConfirmarSuscripcion();
         void Cancelar();
-}
+};
 
 #endif
