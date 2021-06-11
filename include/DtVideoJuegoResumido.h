@@ -20,7 +20,7 @@ public:
     void setNombre();
     void setDescripcion();
     
-    friend ostream& operator<<(ostream &o, DataEstadistica* d);
+    friend ostream& operator<<(ostream &o, DtVIdeoJuegoResumido* d);
     
 };
 
