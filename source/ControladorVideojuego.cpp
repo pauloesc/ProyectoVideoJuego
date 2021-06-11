@@ -295,7 +295,7 @@ vector<DtVideojuegoResumido*> ObtenerVideoJuegos(){
     return nuevo;
 }
 
-void AsignarPuntajeVJ (string nomVJ; int puntaje){
+void AsignarPuntajeVJ (string nomVJ, int puntaje){
     ControladorUsuario* cu;
     cu= ControladorUsuario::getInstance();
     Jugador* jug=cu->darJugador();
