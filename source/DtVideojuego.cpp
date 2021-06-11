@@ -1,10 +1,11 @@
 #include <string>
 #include "../include/DtVideojuego.h"
 #include <iostream>
-#include "map"
+#include <vector>
 using namespace std;
 
-// este data type es un poco diferente se los diagramas, tiene los nombres de las categorias
+
+DtVideojuego::DtVideojuego(){}
 
 DtVideojuego::DtVideojuego (string Snombre, string Sdescripcion, float ScostoMensual, float ScostoTrimestral, float ScostoAnual, float ScostoVitalicio, vector<string> Scategorias) {
 	nombre = Snombre;
@@ -48,7 +49,7 @@ float DtVideojuego::getCostoVitalicio() {
 	return costoVitalicio;
 }
 
-map<string, DtCategoria> DtVideojuego::getCategorias() {
+vector<string> DtVideojuego::getCategorias() {
 	return categorias;
 }
 
