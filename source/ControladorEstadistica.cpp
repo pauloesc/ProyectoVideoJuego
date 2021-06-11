@@ -55,7 +55,7 @@ vector<DtEstadisticaDeSegundoTipo*> SeleccionEstadisticasDeCiertoJuego(string no
 vector<DataEstadistica> TiposDeEstadistica(){
 
 
-    vector<DataEstadistica> infoRetornar{
+    vector<DataEstadistica> infoRetornar;
 
     for( int i=0; i< EstadisticasDelSistema.size(); i++ ){
 
