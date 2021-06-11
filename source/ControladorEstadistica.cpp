@@ -43,7 +43,7 @@ vector<DtEstadisticaDeSegundoTipo> SeleccionEstadisticasDeCiertoJuego(string nom
     ControlVideojuego = ControladorVideojuego::getInstance();
     
     Videojuego* vj =0;
-    vj = ControlVideojuego->darVideoJuego(nombreJuego);
+    vj = ControlVideojuego->darVideojuego(nombreJuego);
     
     vector<DtEstadisticaDeSegundoTipo> vectorRetornar;
     vectorRetornar = InstanciaDesarollador->DarEstardisticas(vj);
