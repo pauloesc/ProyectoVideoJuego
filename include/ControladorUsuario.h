@@ -51,6 +51,6 @@ bool esUsuarioEnLineaJugador(); //sirve para ver info videojuego
 //paulo agregue lo siguente 
 void asignarEstadisticas( vector<Estadistica*> VectorDePunterosAEstadisticasEspecificas );
 
-}
+};
 
 #endif
