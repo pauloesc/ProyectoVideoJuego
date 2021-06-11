@@ -235,7 +235,8 @@ void CancelarCategoria(){
     delete datacat;
 }
 
-vector<string> ObtenerVideoJuegos(){
+//a esta funcion le tuve que cambiar el nombre porque habia otra con el mismo nombre
+vector<string> ObtenerVideoJuegosString(){
     vector<string> resu;
     int tamCol=Videojuegos.size()
     for (int i=0; i<tamCol; i++){
