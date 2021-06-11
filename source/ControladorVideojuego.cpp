@@ -285,11 +285,11 @@ int MostrarHorasTotalJugadas(){
     return resu;
 }
 
-vector<DtVideoJuegoResumido*> ObtenerVideoJuegos(){
-    vector<DtVideoJuegoResumido*> resu;
+vector<DtVideojuegoResumido*> ObtenerVideoJuegos(){
+    vector<DtVideojuegoResumido*> resu;
     int tamCol=Videojuegos.size()
     for (int i=0; i<tamCol; i++){
-        DtVideoJuegoResumido nuevo= new DtVideoJuegoResumido(Videojuegos[i]->getNombre(), Videojuegos[i]->getDescripcion());
+        DtVideojuegoResumido nuevo= new DtVideojuegoResumido(Videojuegos[i]->getNombre(), Videojuegos[i]->getDescripcion());
         resu.push_back(nuevo);
     }
     return nuevo;
