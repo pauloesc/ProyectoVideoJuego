@@ -46,7 +46,7 @@ vector<DtEstadisticaDeSegundoTipo> SeleccionEstadisticasDeCiertoJuego(string nom
     vj = ControlVideojuego->darVideojuego(nombreJuego);
     
     vector<DtEstadisticaDeSegundoTipo> vectorRetornar;
-    vectorRetornar = InstanciaDesarollador->DarEstardisticas(vj);
+    vectorRetornar = InstanciaDesarollador->DarEstadisticas(vj);
     
     return vectorRetornar;
     
