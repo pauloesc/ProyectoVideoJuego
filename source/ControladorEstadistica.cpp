@@ -31,7 +31,7 @@ vector<string> ControladorEstadistica::JuegosDelDesarollador(){
     
 }
 
-vector<DtEstadisticaDeSegundoTipo*> SeleccionEstadisticasDeCiertoJuego(string nombreJuego){
+vector<DtEstadisticaDeSegundoTipo*> ControladorEstadistica::SeleccionEstadisticasDeCiertoJuego(string nombreJuego){
     
     ControladorUsuario* ControlUsuario;
     ControlUsuario = ControladorUsuario::getInstance();
@@ -52,7 +52,7 @@ vector<DtEstadisticaDeSegundoTipo*> SeleccionEstadisticasDeCiertoJuego(string no
     
 }
 
-vector<DataEstadistica> TiposDeEstadistica(){
+vector<DataEstadistica> ControladorEstadistica::TiposDeEstadistica(){
 
 
     vector<DataEstadistica> infoRetornar;
@@ -69,11 +69,11 @@ vector<DataEstadistica> TiposDeEstadistica(){
 }
 
 
-void SeleccionEstadisticas( vector<string> elecciones ){
+void ControladorEstadistica::SeleccionEstadisticas( vector<string> elecciones ){
     EstadisticasSeleccionadas = elecciones;
 }
 
-void ConfirmarSeleccionEstaditicas(){
+void ControladorEstadistica::ConfirmarSeleccionEstaditicas(){
 
     ControladorUsuario* ControlUsuario;
     ControlUsuario = ControladorUsuario::getInstance();
@@ -99,7 +99,7 @@ void ConfirmarSeleccionEstaditicas(){
 
 }
 
-void CancelarSeleccionEstaditicas(){
+void ControladorEstadistica::CancelarSeleccionEstaditicas(){
     EstadisticasSeleccionadas.clear();
     }
     
