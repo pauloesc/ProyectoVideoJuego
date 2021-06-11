@@ -96,7 +96,7 @@ void ControladorEstadistica::ConfirmarSeleccionEstaditicas(){
 
     }
 
-    ControlUsuario.asignarEstadisticas( VectorDePunterosAEstadisticasEspecificas );
+    ControlUsuario->asignarEstadisticas( VectorDePunterosAEstadisticasEspecificas );
 
 }
 
