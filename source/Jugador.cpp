@@ -2,7 +2,7 @@
 
 using namespace std;
 
-Jugador::Jugador(string unEmail, string unaContrasenia string unNickname, string unaDescripcion) :Usuario (unEmail, unaContrasenia) {
+Jugador::Jugador(string unEmail, string unaContrasenia, string unNickname, string unaDescripcion) :Usuario (unEmail, unaContrasenia) {
 	nickname = unNickname;
 	descripcion = unaDescripcion;
 }

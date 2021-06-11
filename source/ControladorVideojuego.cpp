@@ -1,13 +1,13 @@
 #include <string> 
 #include <vector>
-#include ".../include/ControladorVideojuego.h"
-#include ".../include/DtVideojuego.h"
-#include ".../include/DtCategoria.h"
-#include ".../include/Videojuego.h"
-#include ".../include/Categoria.h"
-#include ".../include/ControladorUsuario.h"
-#include ".../include/Usuario.h"
-#include ".../include/Desarrolador.h"
+#include "../include/ControladorVideojuego.h"
+#include "../include/DtVideojuego.h"
+#include "../include/DtCategoria.h"
+#include "../include/Videojuego.h"
+#include "../include/Categoria.h"
+#include "../include/ControladorUsuario.h"
+#include "../include/Usuario.h"
+#include "../include/Desarrollador.h"
 
 
 using namespace std;

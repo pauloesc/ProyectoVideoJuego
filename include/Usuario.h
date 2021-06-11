@@ -15,6 +15,8 @@ class Usuario {
 		string getemail();
 		string getcontrasenia();
 		virtual bool esJugador();
+
+		virtual ~Usuario() = 0;
 };
 
 #endif

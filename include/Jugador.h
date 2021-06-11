@@ -21,7 +21,7 @@ class Jugador : public Usuario {
 		vector<Partida *> partidas;
 		vector<Suscripcion *> sus;
 	public:
-		Jugador (string unNickname, string unaDescripcion);
+		Jugador (string unEmail, string unaContrasenia, string unNickname, string unaDescripcion);
 		string getnickname ();
 		string getdescripcion();
 		bool esJugador();
