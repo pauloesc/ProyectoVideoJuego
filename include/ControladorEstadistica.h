@@ -28,7 +28,7 @@ private:
 public:
     static ControladorEstadistica* getInstance();
     vector<string> JuegosDelDesarollador();
-    vector<DtEstadisticaDeSegundoTipo> SeleccionEstadisticasDeCiertoJuego(string nombreJuego);
+    vector<DtEstadisticaDeSegundoTipo*> SeleccionEstadisticasDeCiertoJuego(string nombreJuego);
     
     vector<DataEstadistica> TiposDeEstadistica();
     void SeleccionEstadisticas( vector<string> elecciones );
