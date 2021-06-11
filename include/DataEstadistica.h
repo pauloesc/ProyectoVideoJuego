@@ -11,8 +11,8 @@ private:
 	string Nombre;
     string Descripcion;
 public:
-    DtDesarrollador();
-	DtDesarrollador(string nom, string des);
+    DataEstadistica();
+	DataEstadistica(string nom, string des);
     
 	string getNombre();
     string getDescripcion();
