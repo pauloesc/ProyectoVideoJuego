@@ -67,7 +67,7 @@ vector<DtVideoJuegoResumido*> ObtenerVideoJuegos(); //asignar puntaje
 void AsignarPuntajeVJ(string nomVJ int puntaje);
 
 
-~ControladorVideoJuego();
+~ControladorVideojuego();
 //string getTipo(); //de donde es?
 };
 
