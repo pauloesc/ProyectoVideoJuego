@@ -23,7 +23,7 @@ string DataEstadistica::getDescripcion() {
 }
 
 void DataEstadistica::setDescripcion(string des) {
-	Nombre = des;
+	Descripcion = des;
 }
 
 ostream& operator<<(ostream &o, DataEstadistica* d) {
