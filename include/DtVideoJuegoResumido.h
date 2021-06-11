@@ -6,13 +6,13 @@
 
 using namespace std;
 
-class DtVIdeoJuegoResumido {
+class DtVideojuegoResumido {
 private:
 	string Nombre;
     string Descripcion;
 public:
-    DtVIdeoJuegoResumido();
-	DtVIdeoJuegoResumido(string nom, string des);
+    DtVideojuegoResumido();
+	DtVideojuegoResumido(string nom, string des);
     
 	string getNombre();
     string getDescripcion();
@@ -20,7 +20,7 @@ public:
     void setNombre();
     void setDescripcion();
     
-    friend ostream& operator<<(ostream &o, DtVIdeoJuegoResumido* d);
+    friend ostream& operator<<(ostream &o, DtVideojuegoResumido* d);
     
 };
 
