@@ -50,7 +50,12 @@ float DtVideojuego::getCostoVitalicio() {
 }
 
 vector<string> DtVideojuego::getCategorias() {
-	return categorias;
+	vector<string> resu;
+	vector<string> :: iterator it;
+	for(it =categorias.begin(); it !=categorias.end(); ++it){
+        resu.push_back(*it);
+
+	return resu;
 }
 
 void DtVideojuego::setNombre(string nombre) {
