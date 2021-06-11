@@ -10,6 +10,7 @@
 #include "Videojuego.h"
 #include "DtEstadisticaDeSegundoTipo.h"
 #include "Estadistica.h"
+#include "DataEstadistica.h"
 
 using namespace std;
 
