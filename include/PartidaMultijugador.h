@@ -4,6 +4,8 @@
 #include "Partida.h"
 #include "Abandona.h"
 #include "Jugador.h"
+#include "DtPartidaMultijugador.h"
+
 
 
 
@@ -23,10 +25,11 @@ public:
 	bool esIndividual();         //siempre devuelve false
 	bool getenVivo();
 
+	void jugadorSeVa(Jugador* jug);
+	bool esJugadorUnido(Jugador* jug);
+	DtPartidaMultijugador* getDtPartidaMultijugador(string ini);
 	void finalizar();
 	void eliminarPartida();
-	bool perteneceAPartidaJugador(string nombreJug);
-	void abandonarPartida(string nombreJug);
  	float tiempoTotal();
 
 	DtPartidaEnCurso* getDtPartida(); //*DtPartidaMultijugadorEnCurso

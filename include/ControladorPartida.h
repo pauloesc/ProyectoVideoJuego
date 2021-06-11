@@ -16,7 +16,9 @@
 
 
 #include "DtPartidaIndividual.h"
+#include "DtPartidaMultijugador.h"
 #include "DtPartidaEnCurso.h"
+
 
 class ControladorPartida {
 
@@ -43,9 +45,10 @@ public:
 	void AgregarJugador(string jug);
 	
 
+	void abandonarPartida(int indentificador);
+	vector<DtPartidaMultijugador*> obtenerPartidasEnCursoUnido();
 	void eliminarPartidas(Videojuego* vj);
 	vector<DtPartidaEnCurso*> obtenerPartidasEnCurso();
-	vector<DtPartidaEnCurso*> obtenerPartidasEnCursoUnido();
 	void finalizarPartida(int identidicador);
 	vector<string> listarVideojuegosConSuscripcionActiva();
 	vector<DtPartidaIndividual*> HistorialDePartidasIndividualesFinalizadas();

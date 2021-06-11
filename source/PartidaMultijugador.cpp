@@ -24,6 +24,51 @@ bool PartidaMultijugador::getenVivo() {
 	return enVivo;
 }
 
+void PartidaMultijugador::jugadorSeVa(Jugador* jug) {
+	unsigned long int i = 0;
+	bool encontrado = false;
+	while ((i<jugadoresUnidos.size()) and !encontrado) {
+		if (jugadoresUnidos[i] == jug) {
+			encontrado = true;
+		} else {
+			i++;
+		}
+	}
+
+	if (encontrado) {
+		Abandona* ab = new Abandona(jug);
+		abandonados.insert(ab);
+
+		jugadoresUnidos.erase(jugadoresUnidos.begin()+i);
+	}
+}
+
+bool PartidaMultijugador::esJugadorUnido(Jugador* jug) {
+	unsigned long int i = 0;
+	bool encontrado = false;
+	while ((i<jugadoresUnidos.size()) and !encontrado) {
+		if (jugadoresUnidos[i] == jug) {
+			encontrado = true;
+		} else {
+			i++;
+		}
+	}
+	return encontrado;
+}
+
+DtPartidaMultijugador* PartidaMultijugador::getDtPartidaMultijugador(string ini) {
+	Partida* p = dynamic_cast<Partida*>(this);
+
+	vector<string> vs;
+
+	for (unsigned long int i = 0; i < jugadoresUnidos.size(); i++) {
+		vs.push_back(jugadoresUnidos[i]->getnickname());
+	}
+
+	DtPartidaMultijugador* res = new DtPartidaMultijugador(p->getcodigo(), p->getFecha(), (p->getVideojuego())->getNombre(), this->getenVivo(), ini, vs);
+	return res;
+}
+
 void PartidaMultijugador::finalizar() {
 	Partida* p = dynamic_cast<Partida*>(this);
 	p->terminar();
@@ -55,33 +100,6 @@ void PartidaMultijugador::eliminarPartida() {
   	Partida::quitarCodigo(this->getcodigo());
 }
 
-bool PartidaMultijugador::perteneceAPartidaJugador(string nombreJug){
-    bool encontrojug = false;
-	vector<Jugador*>::iterator it;
-	for (it=jugadoresUnidos.begin(); it!=jugadoresUnidos.end(); ++it) {
-    		Jugador* j = *it;
-    		if (j->getnickname() == nombrejug){
-            		encontrojug = true;
-    		}
-  	}
-  	return encontrojug;
-}
-
-
-bool PartidaMultijugador::abandonarPartida(string nombreJug){
-    int i = 0;
-    vector<Jugador*>::iterator it;
-	for (it=jugadoresUnidos.begin(); it!=jugadoresUnidos.end(); ++it) {
-    		Jugador* j = *it;
-    		if (j->getnickname() == nombrejug){
-            		Abandona* ab = Abandona(j);
-            		abandonados.insert(ab);
-            		jugadoresUnidos.erase(jugadoresUnidos.begin() + i);
-    		}else{
-            		i++;
-    		}
-  	}
-}
 
 float PartidaMultijugador::tiempoTotal() {
 	Partida* p = dynamic_cast<Partida*>(this);

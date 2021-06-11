@@ -111,3 +111,34 @@ void Jugador::cancelarSuscripcionActiva(string Juego) {
 void Jugador::asociarSuscripcion(Suscripcion *SNuevo) {
 	sus.push_back(SNuevo);
 }
+
+vector<DtPartidaMultijugador*> Jugador::partidasJuntos(Jugador* jug) {
+	bool indi, es;
+	string yo = this->getnickname()
+	vector<DtPartidaMultijugador*> res;
+
+	for (unsigned long int i = 0; i < partidas.size(); i++) {
+		indi = partidas[i].esIndividual();
+
+		if (indi) {
+			es = partidas[i]->esJugadorUnido(jug);
+
+			if (es) {
+				PartidaMultijugador* p = dynamic_cast<PartidaMultijugador*>(partidas[i]);
+				res.push_back(p->getDtPartidaMultijugador(yo));
+			}
+		}
+	}
+
+	return res;
+
+}
+
+void Jugador::jugadorAbandona(int identificador, Jugador* jug) {
+	for (unsigned long int i = 0; i < partidas.size(); i++) {
+		if (partidas[i]->getcodigo() == identificador) {
+			PartidaMultijugador* p = dynamic_cast<PartidaMultijugador*>(partidas[i]);
+			p->jugadorSeVa(jug);
+		}
+	}
+}

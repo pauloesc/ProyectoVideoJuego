@@ -39,7 +39,6 @@ public:
     float getCostoMensual();
     float getCostoTrimestral();
     float getCostoAnual();
-    vector<Partida*> getPartidas();
     
     void setDesarrollador(Desarrollador* des);
     Desarrollador* getDesarrolador();

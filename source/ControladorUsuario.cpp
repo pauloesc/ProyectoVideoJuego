@@ -1,6 +1,6 @@
 #include <string> 
 #include <vector>
-#include ".../include/ControladorUsuario.h"
+#include "../include/ControladorUsuario.h"
 
 using namespace std;
 
@@ -149,6 +149,38 @@ int ControladorUsuario::totalSuscriptos(v:VideoJuego){
               }
        }
        return total;
+}
+
+ 
+vector<DtPartidaMultijugador*> ControladorUsuario::obtenerPartidasEnCursoUnido() {
+  vector<DtPartidaMultijugador*> res, inter;
+  Jugador* iniciada = dynamic_cast<Jugador*>(uenlinea);
+
+
+  for (unsigned long int i = 0; i < Usuarios.size(); i++) {
+    if (Usuarios[i]->esJugador()) {
+      Jugador* j = dynamic_cast<Jugador*>(Usuarios[i]);
+      inter = j->PartidasJuntos(iniciada); 
+
+      for (unsigned long int j = 0; j < inter.size(); j++) {
+        res.push_back(inter[j]);
+      }
+      inter.clear();
+    }
+  }
+ return res;
+}
+
+
+void ControladorUsuario::jugadorAbandona(int identificador) {
+  Jugador* iniciada = dynamic_cast<Jugador*>(uenlinea);
+
+  for (unsigned long int i = 0; i < Usuarios.size(); i++) {
+    if (Usuarios[i]->esJugador()) {
+      Jugador* j = dynamic_cast<Jugador*>(Usuarios[i]);
+      j->jugadorAbandona(identificador,iniciada);
+    }
+  }
 }
 
 

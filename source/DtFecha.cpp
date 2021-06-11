@@ -34,8 +34,8 @@ int DtFecha::getMinuto(){
 
 
 
-ostream& operator<<(ostream &o, DtFecha d) {
-  o << "Fecha partida: " << d.getDia() << "/" << d.getMes() << "/" << d.getAnio() << " " << d.getHora() << ":" << d.getMinuto() <<'\n';
+ostream& operator<<(ostream &o, DtFecha* d) {
+  o << "Fecha partida: " << d->getDia() << "/" << d->getMes() << "/" << d->getAnio() << " " << d->getHora() << ":" << d->getMinuto() <<'\n';
 
   return o;
 }
