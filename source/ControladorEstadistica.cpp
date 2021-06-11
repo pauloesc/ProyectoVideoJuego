@@ -57,7 +57,8 @@ vector<DataEstadistica> ControladorEstadistica::TiposDeEstadistica(){
 
     vector<DataEstadistica> infoRetornar;
 
-    for( int i=0; i< EstadisticasDelSistema.size(); i++ ){
+    int maxx = EstadisticasDelSistema.size(); 
+    for( int i=0; i< maxx; i++ ){
 
         infoRetornar.push_back( DataEstadistica(    EstadisticasDelSistema[i].getNombre(),
                                                     EstadisticasDelSistema[i].getDescripcion() ));
