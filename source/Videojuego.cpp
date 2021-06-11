@@ -33,8 +33,11 @@ float VideoJuego::CostoAnual(){
     return CostoAnual;
 }
 
+void Videojuego::AsociarPartida(Partida* p) {
+    VectorDePunterosPartidasDelVideojuego.push_back(p);
+}
 
-void setDesarrollador(Desarrollador* des){
+void Videojuego::setDesarrollador(Desarrollador* des){
     Desarrolladores=des;
 }
 
@@ -42,7 +45,7 @@ Desarrollador* VideoJuego::getDesarrolador(){
     return desarrolladores;
 }
 
-bool esDesarrolador(string email){
+bool Videojuego::esDesarrolador(string email){
     return (Desarrolladores->getemail()==email)
 }
 

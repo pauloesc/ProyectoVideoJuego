@@ -41,6 +41,7 @@ public:
     float getCostoAnual();
     
     void setDesarrollador(Desarrollador* des);
+    void AsociarPartida(Partida* p);
     Desarrollador* getDesarrolador();
     bool esDesarrolador(string email);
     

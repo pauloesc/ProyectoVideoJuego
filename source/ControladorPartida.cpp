@@ -95,18 +95,19 @@ vector<string> ControladorPartida::ListarJugadoresConSuscripcionActiva() {
 
 void ControladorPartida::IniciarPartida() {
 	ControladorUsuario* cu = ControladorUsuario::getInstance();
-	
+	Partida* p;
+
 	if (ControladorPartida::individual) {
 		PartidaIndividual* part = dynamic_cast<PartidaIndividual*>(this->Pcont);
-		Partida* p = new PartidaIndividual(this->continuacion,part,this->vid);
+		p = new PartidaIndividual(this->continuacion,part,this->vid);
 	} else {
 		vector<Jugador*> unidos = cu->darJugadores(this->jugadoresUnidos);
-		Partida* p = new PartidaMultijugador(this->TransmitidaenVivo,unidos,this->vid);
+		p = new PartidaMultijugador(this->TransmitidaenVivo,unidos,this->vid);
 
 	}
 
 	Jugador* j = cu->darJugador();
-	j->asociarPartidaIniciada(p);
+	j->AsociarPartidaIniciada(p);
 	(this->vid)->AsociarPartida(p);
 
 	this->jugadoresUnidos.clear();

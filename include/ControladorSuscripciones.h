@@ -28,7 +28,7 @@ class ControladorSuscripciones {
         string tiposus;
         DtPago *pago;    // es un enumerado
     public:
-        ControladorSuscripciones* getInstance();
+        static ControladorSuscripciones* getInstance();
 
         vector<string> obtenerNombresSuscripcionesActivas();
         vector<DtSuscripcion*> obtenerSuscripcionesActivas();
