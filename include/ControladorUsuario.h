@@ -34,7 +34,7 @@ bool IngresardatosJugador(string nickname, string desc);
 void ConfirmarAltaUsuario();
 void cancelarAltaUsuario();
 
-bool ingresarDatos(string email, string contrasenia) //caso de uso iniciar sesion
+bool ingresarDatos(string email, string contrasenia); //caso de uso iniciar sesion
 Jugador* darJugador(); 
 Desarrollador* darDesarrollador();
 
