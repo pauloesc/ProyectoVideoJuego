@@ -64,11 +64,11 @@ DtInfoEspecifica* SeleccionarVideojuego(string nombVJ);
 int MostrarHorasTotalJugadas();
 
 vector<DtVideoJuegoResumido*> ObtenerVideoJuegos(); //asignar puntaje
-void AsignarPuntajeVJ (string nomVJ; int puntaje);
+void AsignarPuntajeVJ(string nomVJ int puntaje);
 
 
 ~ControladorVideoJuego();
 //string getTipo(); //de donde es?
-}
+};
 
 #endif
