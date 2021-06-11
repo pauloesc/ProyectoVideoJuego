@@ -59,7 +59,11 @@ void NuevaCategoria(DtCategoria* datos);
 void ConfirmarCategoria();
 void CancelarCategoria();
 
-vector<string> ObtenerVideoJuegos(); //caso uso ver info de videojuego
+
+//vector<string> ObtenerVideoJuegos(); //caso uso ver info de videojuego
+//esta funcion generaba un problema que es el siguiente tiene el mismo nombre q otra funcion que esta mas abajo
+vector<string> ObtenerVideoJuegosString(); //caso uso ver info de videojuego
+
 DtInfoEspecifica* SeleccionarVideojuego(string nombVJ);
 int MostrarHorasTotalJugadas();
 
