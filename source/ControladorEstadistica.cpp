@@ -16,7 +16,7 @@ vector<string> ControladorEstadistica::JuegosDelDesarollador(){
     ControlUsuario = ControladorUsuario::getInstance();
 
     Desarrollador* InstanciaDesarollador;
-    InstanciaDesarollador = ControlUsuario.darDesarrollador();
+    InstanciaDesarollador = ControlUsuario->darDesarrollador();
     
     string nombDes;
     nombDes = InstanciaDesarollador->getEmail();
@@ -37,7 +37,7 @@ vector<DtEstadisticaDeSegundoTipo> SeleccionEstadisticasDeCiertoJuego(string nom
     ControlUsuario = ControladorUsuario::getInstance();
     
     Desarrollador* InstanciaDesarollador;
-    InstanciaDesarollador = ControlUsuario.darDesarrollador();
+    InstanciaDesarollador = ControlUsuario->darDesarrollador();
     
     ControladorVideojuego* ControlVideojuego;
     ControlVideojuego = ControladorVideojuego::getInstance();
@@ -46,7 +46,7 @@ vector<DtEstadisticaDeSegundoTipo> SeleccionEstadisticasDeCiertoJuego(string nom
     vj = ControlVideojuego->darVideoJuego(nombreJuego);
     
     vector<DtEstadisticaDeSegundoTipo> vectorRetornar;
-    vectorRetornar = InstanciaDesarollador.DarEstardisticas(vj);
+    vectorRetornar = InstanciaDesarollador->DarEstardisticas(vj);
     
     return vectorRetornar;
     
