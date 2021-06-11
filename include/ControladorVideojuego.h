@@ -7,7 +7,8 @@
 #include "DtVideojuego.h"
 #include "DtCategoria.h"
 #include "DtInfoEspecifica.h"
-#include "DtVideoJuegoResumido.h"
+#include "DtVideojuegoResumido.h"
+
 
 #include <vector>
 #include <string>
@@ -67,7 +68,7 @@ vector<string> ObtenerVideoJuegosString(); //caso uso ver info de videojuego
 DtInfoEspecifica* SeleccionarVideojuego(string nombVJ);
 int MostrarHorasTotalJugadas();
 
-vector<DtVideoJuegoResumido*> ObtenerVideoJuegos(); //asignar puntaje
+vector<DtVideojuegoResumido*> ObtenerVideoJuegos(); //asignar puntaje
 void AsignarPuntajeVJ(string nomVJ int puntaje);
 
 
