@@ -31,9 +31,9 @@ public:
     vector<DtEstadisticaDeSegundoTipo> SeleccionEstadisticasDeCiertoJuego(string nombreJuego);
     
     vector<DataEstadistica> TiposDeEstadistica();
-    SeleccionEstadisticas( vector<string> elecciones );
-    ConfirmarSeleccionEstaditicas();
-    CancelarSeleccionEstaditicas();
+    void SeleccionEstadisticas( vector<string> elecciones );
+    void ConfirmarSeleccionEstaditicas();
+    void CancelarSeleccionEstaditicas();
     
 }
  
