@@ -1,5 +1,5 @@
-#ifndef DataEstadistica
-#define DataEstadistica
+#ifndef DATAESTADISTICA
+#define DATAESTADISTICA
 
 #include <string>
 #include <iostream>
