@@ -8,36 +8,36 @@ using namespace std;
 
 
 DtPartida::DtPartida() {
-    fechaIniciada = DtFecha();
+    fechaIniciada = new DtFecha();
 	duracion = 0;
 	codigo = 0;
 	enCurso = false;
 }
 
-DtPartida::DtPartida(DtFecha Sfecha, float duracionPartida, int codigo, bool enCurso){
+DtPartida::DtPartida(DtFecha* Sfecha, float duracionPartida, int codigo, bool enCurso){
 	fechaIniciada = Sfecha;
 	duracion = duracionPartida;
 	codigo = codigo;
 	enCurso = enCurso;
 }
 
-DtFecha DtPartida::getFecha() const{
+DtFecha* DtPartida::getFecha(){
 	return fechaIniciada;
 }
 
-float DtPartida::getDuracion() const{
+float DtPartida::getDuracion(){
 	return duracion;
 }
 
-int DtPartida::getCodigo() const{
+int DtPartida::getCodigo(){
 	return codigo;
 }
 
-bool DtPartida::getEnCurso() const{
+bool DtPartida::getEnCurso(){
 	return enCurso;
 }
 
-void DtPartida::setFecha(DtFecha fecha){
+void DtPartida::setFecha(DtFecha* fecha){
     this->fechaIniciada = fecha;
 }
 void DtPartida::setDuracion(float duracion){

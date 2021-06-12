@@ -9,21 +9,21 @@ using namespace std;
 
 class DtPartida {
 	private:
-		DtFecha fechaIniciada;
+		DtFecha *fechaIniciada;
 		float duracion;
 		int codigo;
 		bool enCurso;
 
 	public:
 		DtPartida();
-		DtPartida(DtFecha, float, int, bool);
+		DtPartida(DtFecha* Sfecha, float duracionPartida, int codigo, bool enCurso);
 
-		DtFecha getFecha() const;
-		float getDuracion() const;
-		int getCodigo() const;
-		bool getEnCurso() const;
+		DtFecha* getFecha();
+		float getDuracion();
+		int getCodigo();
+		bool getEnCurso();
 
-        void setFecha(DtFecha fechaIniciada);
+        void setFecha(DtFecha* fechaIniciada);
         void setDuracion(float duracion);
         void setCodigo(int codigo);
         void setEnCurso(bool enCurso);
