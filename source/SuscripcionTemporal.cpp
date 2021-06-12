@@ -19,9 +19,9 @@ bool SuscripcionTemporal::getCancelada(){
 	return this->costo;
 }
 
-DtSuscripcion SuscripcionTemporal::crearDtSuscripcion(){
-    dtsus = DtSuscripcion(this->getVideojuegoAsociado()->getNombre(),this->costo,"temporal");
-	return dtsus
+DtSuscripcion* SuscripcionTemporal::crearDtSuscripcion(){
+    DtSuscripcion* dtsus = new DtSuscripcion(this->getVideojuegoAsociado()->getNombre(),this->costo,"temporal");
+	return dtsus;
 }
 
 void SuscripcionTemporal::cancelarSuscripcion() {
