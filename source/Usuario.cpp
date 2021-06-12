@@ -1,15 +1,15 @@
 #include "../include/Usuario.h"
 
 
-Usuario :: Usuario (string unEmail, string unaContraseña) {
+Usuario::Usuario (string unEmail, string unaContrasenia) {
 	email = unEmail;
-	contraseña = unaContraseña;
+	contrasenia = unaContrasenia;
 }
 
 string Usuario :: getemail () {
-	devolver correo electrónico;
+	return email;
 }
 
 string Usuario :: getcontraseña () {
-	volver contraseña;
+	return contrasenia;
 }
