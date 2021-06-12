@@ -76,7 +76,7 @@ void Jugador::eliminarSuscripciones(string nomVJ) {
     sus.erase(sus.begin() + i);
 }
 
-vector<Suscripcion *> Jugador::darSuscripcionesActivas() {     
+vector<DtSuscripcion*> Jugador::darSuscripcionesActivas() {     
 	vector<Suscripcion *> res;
 	for (int i = 0; i < sus.size(); i++)
 		if (*sus[i]->esActiva())
