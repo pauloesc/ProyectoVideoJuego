@@ -2,7 +2,7 @@
 #define VIDEOJUEGO
 
 #include "Desarrollador.h"
-#include "Partida.h"
+//#include "Partida.h"
 #include "Puntaje.h"
 
 #include "DtSuscripcion.h"
@@ -10,8 +10,7 @@
 #include <string>
 #include <vector>
 
-
-
+class Puntaje;
 class Partida;
 class Desarrollador;
 

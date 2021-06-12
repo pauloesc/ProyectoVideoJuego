@@ -1,14 +1,16 @@
+#include "../include/Puntaje.h"
+
 Puntaje::Puntaje(int Puntos, Jugador* punteroj) {
     this->Puntos = Puntos;
-    this->Videojuego = punteroj;
+    this->vidj = punteroj;
 }
 
 int Puntaje::getPuntos(){
-    return Nombre;
+    return Puntos;
 }
 
 Jugador* Puntaje::getJugador(){
-    return Jugador;
+    return vidj;
 }
 
 void Puntaje::setPuntos(int p){
@@ -16,7 +18,7 @@ void Puntaje::setPuntos(int p){
 }
 
 void Puntaje::setJugador(Jugador* j){
-    this->Jugador = j;
+    this->vidj = j;
 }
 
 Puntaje::~Puntaje(){

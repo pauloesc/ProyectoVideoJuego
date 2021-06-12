@@ -12,6 +12,7 @@
 
 #include <string>
 
+class Videojuego;
 class Jugador;
 
 using namespace std;
@@ -41,5 +42,4 @@ public:
 
 
 
-#include "Jugador.h"
 #endif

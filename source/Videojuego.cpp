@@ -1,3 +1,5 @@
+#include "../include/Videojuego.h"
+
 VideoJuego::VideoJuego(string Nombre, string Descripcion, float CostoVitalicio, float CostoMensual, float CostoTrimestral, float CostoAnual){
     this->Nombre = Nombre;
     this->Descripcion = Descripcion;

@@ -7,6 +7,8 @@
 #include "Videojuego.h"
 using namespace std;
 
+class Videojuego;
+
 class Categoria {
 private:
 	string Nombre;

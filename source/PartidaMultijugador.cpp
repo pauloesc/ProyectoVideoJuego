@@ -1,6 +1,9 @@
 #include "../include/PartidaMultijugador.h"
 
 #include <list>
+#include <vector>
+#include <set>
+
 
 
 using namespace std;
@@ -12,7 +15,7 @@ PartidaMultijugador::PartidaMultijugador (bool enVivo, vector<Jugador*> jugadore
 
 	// el set de abandonados se inicializa solo como vacio
 	Partida* p = dynamic_cast<Partida*>(this);
-	p->setPartida(v)
+	p->setPartida(v);
 
 
 }
@@ -77,9 +80,9 @@ void PartidaMultijugador::finalizar() {
 
 	//recorro el set de jugadoresUnidos 
 	//(it es un puntero al contenido del set, es un puntero a un puntero de Jugador)
-	for (int i = 0; i<jugadoresUnidos.size(); i++) { 
+	for (long unsigned int i = 0; i<jugadoresUnidos.size(); i++) { 
     	
-    	Abandona* ab = new Abandona(*it);  //pone la fecha del sistema
+    	Abandona* ab = new Abandona(jugadoresUnidos[i]);  //pone la fecha del sistema
 
     	abandonados.insert(ab);
 
@@ -108,11 +111,11 @@ float PartidaMultijugador::tiempoTotal() {
 
 	tiempo = tiempo*(jugadoresUnidos.size());
 
-	DtFecha f;
+	DtFecha* f;
 	DtFecha* actual = Reloj::getFecha();
 	set<Abandona*>::iterator it;
 	for (it=abandonados.begin(); it!=abandonados.end(); ++it) { 
-    	f = (it*)->getFecha()
+    	f = (*it)->getFecha();
     	
 		int a = actual->getAnio() - f->getAnio();
 		int m = actual->getMes() - f->getMes();
@@ -132,14 +135,13 @@ DtPartidaEnCurso* PartidaMultijugador::getDtPartida() {
 
 
 	list<string> listilla;
-	list<int>::iterator it;
-	it = listilla.begin();
+	
 
-	set<Abandona*>::iterator it;
-	for (it=listilla.begin(); it!=listilla.end(); ++it) {
-		unJug = ((*it)->getJugador())->getnickname();
-		listilla.insert(it,unJug);
+	for (long unsigned int i = 0; i < jugadoresUnidos.size(); i++) {
+		listilla.insert(listilla.begin(),jugadoresUnidos[i]->getnickname());
 	}
+
+	
 
 
 	int tam = listilla.size() + 1;

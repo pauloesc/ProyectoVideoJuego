@@ -8,7 +8,7 @@
 
 
 
-
+class Partida;
 
 class PartidaIndividual : public Partida{
 private:

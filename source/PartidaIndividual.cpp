@@ -1,4 +1,6 @@
 #include "../include/PartidaIndividual.h"
+#include "../include/Videojuego.h"
+
 
 using namespace std;
 
@@ -8,7 +10,7 @@ PartidaIndividual::PartidaIndividual (bool continuacion, PartidaIndividual* ante
 	this->anterior = anterior;
 
 	Partida* p = dynamic_cast<Partida*>(this);
-	p->setPartida(v)
+	p->setPartida(v);
 
 
 }

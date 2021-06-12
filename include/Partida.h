@@ -1,9 +1,9 @@
 #ifndef PARTIDA
 #define PARTIDA
 
-#include "Videojuego.h"
+//#include "Videojuego.h"    // si se descomenta esto salta un error terrible
+//#include "Abandona.h"
 #include "Reloj.h"
-#include "Abandona.h"
 
 
 #include "DtPartidaMultijugador.h"
@@ -21,9 +21,8 @@
 
 
 
-class Abandona;
 class Videojuego;
-class Jugador;
+class Abandona;
 
 class Partida {
 private:

@@ -1,4 +1,7 @@
 #include "../include/Partida.h"
+#include "../include/Videojuego.h"
+#include "../include/Abandona.h"
+
 
 
 using namespace std;
@@ -49,7 +52,7 @@ void Partida::terminar() {
 	int d = actual->getDia() - fecha->getDia();
 	int h = actual->getHora() - fecha->getHora();
 	int min = actual->getMinuto() - fecha->getMinuto();
-	this->duracion (min + 60*h + 60*24*d + 60*24*30*m + 365*24*60*a);
+	this->duracion = (min + 60*h + 60*24*d + 60*24*30*m + 365*24*60*a);
 }
 
 DtFecha* Partida::getFecha() {
@@ -85,7 +88,7 @@ Videojuego* Partida::getVideojuego() {
 
 
 bool Partida::esPartidaIndividualFinalizadaDelJuego(string nombrevid) {
-	string nom = pertenece->getnombre();
+	string nom = pertenece->getNombre();
 	return ((nom == nombrevid) and (enCurso));
 }
 

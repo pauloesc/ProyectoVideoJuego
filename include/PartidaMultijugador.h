@@ -2,8 +2,8 @@
 #define PARTIDAMULTIJUGADOR
 
 #include "Jugador.h"
+#include "Abandona.h"
 #include "Partida.h"
-
 
 class Jugador;
 

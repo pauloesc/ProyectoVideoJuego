@@ -1,9 +1,9 @@
 #include "../include/Suscripcion.h"
 #include "../include/SuscripcionTemporal.h"
-#include "../include/SuscripcionActiva.h"
+#include "../include/SuscripcionVitalicia.h"
 
-Suscripcion(DtFecha* fecha, DtPago medioDePago, float costo, Videojuego* vj, Jugador* j) {
-	this->fecha = Reloj::getFecha();
+Suscripcion (DtFecha* fecha, DtPago medioDePago, float costo, Videojuego* vj, Jugador* j) {
+	this->fecha = fecha;
 	this->medioDePago = medioDePago;
 	this->costo = costo;
 	this->videoj = vj;
@@ -22,7 +22,7 @@ float Suscripcion::getCosto() {
 	return this->costo;
 }
 
-VideoJuego* Suscripcion::getVideojuegoAsociado() {
+Videojuego* Suscripcion::getVideojuegoAsociado() {
 	return this->videoj;
 }
 

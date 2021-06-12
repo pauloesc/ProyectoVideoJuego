@@ -1,3 +1,6 @@
+#include "../include/TotalHorasJugadas.h"
+
+
 DtEstadisticaDeSegundoTipo* TotalHorasJugadas::DarEstadistica(VideoJuego* vjp){
     
     ControladorUsuario* ControlUsuario;
