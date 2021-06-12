@@ -1,13 +1,13 @@
 #ifndef ESTADISTICATOTALHORASJUGADAS
 #define ESTADISTICATOTALHORASJUGADAS
 
-
+#include "Estadistica.h"
 
 class TotalHorasJugadas : public Estadistica{
 private:
 
 public:
-	DataEstadisticaDeSegundoTipo DarEstadistica(VideoJuego* vjp);
+	DtEstadisticaDeSegundoTipo* DarEstadistica(VideoJuego* vjp);
 };
 
 

@@ -1,3 +1,5 @@
+#include "../include/Estadistica.h"
+
 string Estadistica::getNombre(){
     return Nombre;
 }

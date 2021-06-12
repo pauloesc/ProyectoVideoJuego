@@ -8,6 +8,8 @@
 #include "DtEstadisticaDeSegundoTipo.h"
 #include "Estadistica.h"
 
+class Estadistica;
+class Videojuego;
 
 class Desarrollador : public Usuario {
 	private:

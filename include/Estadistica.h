@@ -4,6 +4,9 @@
 #include "Videojuego.h"
 #include "DtEstadisticaDeSegundoTipo.h"
 
+#include <string>
+
+
 class Videojuego;
 
 class Estadistica {
@@ -18,7 +21,7 @@ public:
 	string getNombre();
 	string getDescripcion();
     
-    virtual DtEstadisticaDeSegundoTipo DarEstadistica(Videojuego* vjp) = 0;
+    virtual DtEstadisticaDeSegundoTipo* DarEstadistica(Videojuego* vjp) = 0;
     
     ~Estadistica();
 };

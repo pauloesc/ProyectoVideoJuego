@@ -2,13 +2,14 @@
 #define ESTADISTICATOTALJUGADORESSUSCRIPTOS
 
 #include "ControladorUsuario.h"
+#include "Estadistica.h"
 
 
 class TotalJugadoresSuscriptos : public Estadistica{
 private:
 
 public:
-	DataEstadisticaDeSegundoTipo DarEstadistica(VideoJuego* vjp);
+	DtEstadisticaDeSegundoTipo* DarEstadistica(VideoJuego* vjp);
 };
 
 #endif

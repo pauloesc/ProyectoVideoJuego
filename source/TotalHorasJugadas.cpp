@@ -1,5 +1,5 @@
-DataEstadisticaDeSegundoTipo TotalHorasJugadas::DarEstadistica(VideoJuego* vjp){
+DtEstadisticaDeSegundoTipo* TotalHorasJugadas::DarEstadistica(VideoJuego* vjp){
     
-    DataEstadisticaDeSegundoTipo infoRetornar( vjp->getNombre(), vjp->totalHorasJugadas() );
+    DtEstadisticaDeSegundoTipo* infoRetornar = new DtEstadisticaDeSegundoTipo( vjp->getNombre(), vjp->totalHorasJugadas() );
     return infoRetornar;
 }

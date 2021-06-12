@@ -1,4 +1,4 @@
-#include "Desarrollador.h"
+#include "../include/Desarrollador.h"
 
 using namespace std;
 
@@ -14,10 +14,10 @@ bool Desarrollador::esJugador() {
 	return false;
 }
 
-vector<DataEstadisticaDeSegundoTipo *> Desarrollador::DarEstadisticas(Videojuego *vj) {
-	vector<DataEstadisticaDeSegundoTipo *> res;
-	for (int i = 0; i < estadisticas.size(); i++)
-		res.push_back(*estadisticas[i]->DarEstadisticas(vj));
+vector<DtEstadisticaDeSegundoTipo *> Desarrollador::DarEstadisticas(Videojuego *vj) {
+	vector<DtEstadisticaDeSegundoTipo *> res;
+	for (long unsigned int i = 0; i < estadisticas.size(); i++)
+		res.push_back((estadisticas[i])->DarEstadistica(vj));
 	return res;
 }
 
