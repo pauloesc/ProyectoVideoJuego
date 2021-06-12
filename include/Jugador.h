@@ -16,6 +16,9 @@
 #include "DtPartidaMultijugador.h"
 
 class Suscripcion;
+class PartidaMultijugador;
+class PartidaIndividual;
+
 
 class Jugador : public Usuario {
 	private:

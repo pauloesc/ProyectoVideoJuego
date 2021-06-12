@@ -3,7 +3,10 @@
 
 #include "Videojuego.h"
 #include "Reloj.h"
+#include "Abandona.h"
 
+
+#include "DtPartidaMultijugador.h"
 #include "DtFecha.h"
 #include "DtPartidaEnCurso.h"
 #include "DtPartidaIndividualEnCurso.h"
@@ -18,7 +21,7 @@
 
 
 
-
+class Abandona;
 class Videojuego;
 
 class Partida {

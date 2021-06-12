@@ -1,18 +1,13 @@
 #ifndef PARTIDAMULTIJUGADOR
 #define PARTIDAMULTIJUGADOR
 
-#include "Partida.h"
-#include "Abandona.h"
 #include "Jugador.h"
-#include "DtPartidaMultijugador.h"
+#include "Partida.h"
 
 
+class Jugador;
 
-
-
-
-
-class PartidaMultijugador : public Partida{
+class PartidaMultijugador : public Partida {
 private:
 	bool enVivo;
 

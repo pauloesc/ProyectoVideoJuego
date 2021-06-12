@@ -5,6 +5,7 @@
 #include "DtFecha.h"
 #include "Reloj.h"
 
+class Jugador;
 
 class Abandona {
 private:
