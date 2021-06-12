@@ -22,23 +22,23 @@ string Jugador::getdescripcion() {
 vector<DtPartidaIndividual *> Jugador::darPartidasIndividualesFinalizadas(string nombrevid) {
 	vector<DtPartidaIndividual *> res;
     for (int i = 0; i < partidas.size(); i++)
-        if (*partidas[i]->esPartidaIndividualFinalizadaDelJuego(nombrevid))
-            res.push_back(*partidas[i]->darDatosPartida());
+        if (partidas[i]->esPartidaIndividualFinalizadaDelJuego(nombrevid))
+            res.push_back(partidas[i]->darDatosPartida());
 	return res;
 }
 
-vector<DtPartidaEnCurso *> Jugador::darPartidasEnCurso() {
+vector<DtPartidaEnCurso*> Jugador::darPartidasEnCurso() {
 	vector<DtPartidaEnCurso *> res;
 	for (int i = 0; i < partidas.size(); i++)
-		if (*partidas[i]->getEnCurso())
-			res.push_back(*partidas[i]->getDtPartida());
+		if (partidas[i]->getEnCurso())
+			res.push_back(partidas[i]->getDtPartida());
 	return res;
 }
 
 *Partida Jugador::encontrarPartidasIndividual(int codigoAnterior) {
 	partidas::iterator it = partidas.begin()
     int i;
-    for (i = 0; *partidas[i]->getcodigo() != codigoAnterior; i++);
+    for (i = 0; partidas[i]->getcodigo() != codigoAnterior; i++);
     return *partidas[i];
 }
 
@@ -48,7 +48,7 @@ void Jugador::AsociarPartidaIniciada(Partida *PI) {
 
 void Jugador::DesvincularPartida(Partida *par) {
     int i;
-	for(i = 0; *partidas[i] != par; i++);
+	for(i = 0; partidas[i] != par; i++);
 	partidas.erase(partidas.begin() + i);
 }
 
@@ -65,22 +65,22 @@ void Jugador::finalizarPartida(int identificador) { //identificador es el lugar 
 
 void Jugador::finalizarPartida(int identificador) { //Dejo las dos operaciones, despues borro segun la respuesta
     int i;
-    for (i = 0; *partidas[i]->getcodigo != identificador; i++);
+    for (i = 0; partidas[i]->getcodigo != identificador; i++);
     partidas.erase(partidas.begin() + i);
 }
 
 
 void Jugador::eliminarSuscripciones(string nomVJ) {
 	int i;
-	for (i = 0; *sus[i]->getVideojuegoAsociado()->getNombre() != nomVJ; i++)//Ya tiene una suscripcion
+	for (i = 0; sus[i]->getVideojuegoAsociado()->getNombre() != nomVJ; i++)//Ya tiene una suscripcion
     sus.erase(sus.begin() + i);
 }
 
 vector<DtSuscripcion*> Jugador::darSuscripcionesActivas() {     
-	vector<DtSuscripcion *> res;
+	vector<DtSuscripcion*> res;
 	for (int i = 0; i < sus.size(); i++)
 		if (*sus[i]->esActiva())
-			res.push_back(*sus[i]->crearDtSuscripcion());
+			res.push_back(sus[i]->crearDtSuscripcion());
 	return res;
 }
 
