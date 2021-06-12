@@ -8,6 +8,7 @@
 #include "Usuario.h"
 #include "Partida.h" //este tiene a Videojuego.h creo
 #include "Suscripcion.h"
+#include "DtSuscripcion.h"
 #include "DtPartidaIndividual.h"
 #include "DtPartidaEnCurso.h"
 #include "DtPartidaMultijugador.h"
@@ -18,8 +19,8 @@ class Jugador : public Usuario {
 	private:
 		string nickname;
 		string descripcion;
-		vector<Partida *> partidas;
-		vector<Suscripcion *> sus;
+		vector<Partida*> partidas;
+		vector<Suscripcion*> sus;
 	public:
 		Jugador (string unEmail, string unaContrasenia, string unNickname, string unaDescripcion);
 		string getnickname ();
@@ -35,7 +36,7 @@ class Jugador : public Usuario {
 		void finalizarPartida(int identificador);
 		
 		void eliminarSuscripciones(string nomVJ);
-		vector<Suscripcion *> darSuscripcionesActivas();
+		vector<DtSuscripcion*> darSuscripcionesActivas();
 		bool tieneSuscripcionActiva(string nombrevid);
 		bool tieneSuscripcionActiva(Videojuego *vid);
 		void cancelarSuscripcionActiva(string Juego);
