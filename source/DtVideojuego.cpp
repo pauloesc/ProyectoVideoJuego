@@ -48,7 +48,7 @@ float DtVideojuego::getCostoVitalicio() {
 	return costoVitalicio;
 }
 
-map<string, DtCategoria> DtVideojuego::getCategorias() {
+vector<string> DtVideojuego::getCategorias() {
 	return categorias;
 }
 
@@ -80,7 +80,7 @@ void DtVideojuego::setCategorias(vector<string> scategorias) {
 	
 	categorias.clear();
 	vector<string> :: iterator it;
-	for(it = Scategorias.begin(); it != Scategorias.end(); ++it){
+	for(it = scategorias.begin(); it != scategorias.end(); ++it){
         categorias.push_back(*it);
 	}
 }
@@ -93,7 +93,7 @@ ostream& operator<<(ostream &o, DtVideojuego* s) {
 	o << "Costo Anual: " << s->getCostoAnual() << '\n';
 	o << "Costo Vitalicio: " << s->getCostoVitalicio() << '\n';
 	o << "Categoras: " ;
-	int i = 0;
+	long unsigned int i = 0;
 	vector<string> :: iterator it;
 	for(it = s->categorias.begin(); it != s->categorias.end(); ++it){
         if ( i == s->categorias.size()){

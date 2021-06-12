@@ -21,6 +21,8 @@ public:
 	int getMinuto();
 
 	friend ostream& operator<<(ostream &o, DtFecha* d);
+	friend ostream& operator<<(ostream &o, DtFecha d);
+
 
 
 

@@ -41,13 +41,13 @@ ostream& operator<<(ostream &o, DtPartidaMultijugador* d) {
 	o << '\n';
 	o << "Partida del videojuego: " << d->getNombreVid() << '\n' << "Codigo: " << d->getCodigo() << '\n' << "Transmitida en vivo: ";
 
-	if (d->getTransmitidaEnVivo) {
+	if (d->getTransmitidaEnVivo()) {
 		o << "Si" << '\n';
 	} else {
 		o << "No" << '\n';
 	}
 
-	o << d->getFecha << "Partida iniciada por: " << d->getInicio() << '\n';
+	o << d->getFecha() << "Partida iniciada por: " << d->getInicio() << '\n';
 	o << "Lista de Jugadores Unidos: " << '\n';
 
 	for (unsigned long int i = 0; i < (d->getNicknameJugadoresUnidos()).size(); i++) {
@@ -55,6 +55,7 @@ ostream& operator<<(ostream &o, DtPartidaMultijugador* d) {
 	}
 
 	o << '\n';
+	return o;
 
 }
 

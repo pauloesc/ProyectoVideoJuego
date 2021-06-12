@@ -9,7 +9,7 @@ DtPartidaIndividual::DtPartidaIndividual(): DtPartida() {
 	this->continuarPartidaAnterior = false;
 }
 
-DtPartidaIndividual::DtPartidaIndividual(DtFecha fecha, float duracion, int codigo, bool enCurso, bool continuarPartidaAnterior): DtPartida(fecha, duracion, codigo, enCurso) {
+DtPartidaIndividual::DtPartidaIndividual(DtFecha fecha, float duracion, int codigo, bool enCurso, bool continuarPartidaAnterior): DtPartida(&fecha, duracion, codigo, enCurso) {
 	this->continuarPartidaAnterior = continuarPartidaAnterior;
 }
 
