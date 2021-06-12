@@ -76,7 +76,6 @@ void Jugador::finalizarPartida(int identificador) { //Dejo las dos operaciones, 
     for (long unsigned int i = 0; i < partidas.size(); i++) {
     	if (partidas[i]->getcodigo() == identificador) {
     		partidas[i]->finalizar();
-    		partidas.erase(partidas.begin()+i);
     	}
     }
 }
