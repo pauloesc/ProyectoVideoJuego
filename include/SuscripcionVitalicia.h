@@ -15,8 +15,8 @@ private:
 
 public:
 	SuscripcionVitalicia(DtFecha* fecha, DtPago medioDePago, float costo, Videojuego* vj, Jugador* j);
-    DtSuscripcion  crearDtSuscripcion();
-    void cancelarSuscripción();
+    DtSuscripcion*  crearDtSuscripcion();
+    void cancelarSuscripcion();
 };
 
 
