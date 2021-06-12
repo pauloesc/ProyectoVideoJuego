@@ -1,6 +1,6 @@
 #include "../include/Videojuego.h"
 
-VideoJuego::VideoJuego(string Nombre, string Descripcion, float CostoVitalicio, float CostoMensual, float CostoTrimestral, float CostoAnual){
+Videojuego::Videojuego(string Nombre, string Descripcion, float CostoVitalicio, float CostoMensual, float CostoTrimestral, float CostoAnual){
     this->Nombre = Nombre;
     this->Descripcion = Descripcion;
     this->CostoVitalicio = CostoVitalicio;
@@ -10,28 +10,28 @@ VideoJuego::VideoJuego(string Nombre, string Descripcion, float CostoVitalicio, 
 }
 
 
-string VideoJuego::getNombre(){
+string Videojuego::getNombre(){
     return Nombre;
 }
 
-string VideoJuego::getDescripcion(){
+string Videojuego::getDescripcion(){
     return Descripcion;
 }
 
-float VideoJuego::getCostoVitalicio(){
+float Videojuego::getCostoVitalicio(){
     return CostoVitalicio;
 }
 
 
-float VideoJuego::getCostoMensual(){
+float Videojuego::getCostoMensual(){
     return CostoMensual;
 }
 
-float VideoJuego::CostoTrimestral(){
+float Videojuego::getCostoTrimestral(){
     return CostoTrimestral;
 }
 
-float VideoJuego::CostoAnual(){
+float Videojuego::getCostoAnual(){
     return CostoAnual;
 }
 
@@ -40,63 +40,63 @@ void Videojuego::AsociarPartida(Partida* p) {
 }
 
 void Videojuego::setDesarrollador(Desarrollador* des){
-    Desarrolladores=des;
+    Desarolladores=des;
 }
 
-Desarrollador* VideoJuego::getDesarrolador(){
-    return desarrolladores;
+Desarrollador* Videojuego::getDesarrolador(){
+    return Desarolladores;
 }
 
 bool Videojuego::esDesarrolador(string email){
-    return (Desarrolladores->getemail()==email)
+    return (Desarolladores->getemail()==email);
 }
 
     
 
 
-bool VideoJuego::TodasFinalizadas(){
+bool Videojuego::TodasFinalizadas(){
     
     bool Todasfinalizadas = 1;
-    int i = 0;
+    long unsigned int i = 0;
     while( Todasfinalizadas && ( i < VectorDePunterosPartidasDelVideojuego.size() ) ){
         
-        Todasfinalizadas = (*VectorDePunterosPartidasDelVideojuego[i]).getEsPartidaEnCurso();
+        Todasfinalizadas = (*VectorDePunterosPartidasDelVideojuego[i]).getenCurso();
         i=i+1;
     }
     return Todasfinalizadas;
 }
 
-VideoJuego::EliminarPartidas(){
+void Videojuego::EliminarPartidas(){
     
     
-    for(int i=0; i < VectorDePunterosPartidasDelVideojuego.size(); i++ ){
+    for(long unsigned int i=0; i < VectorDePunterosPartidasDelVideojuego.size(); i++ ){
         
         (*VectorDePunterosPartidasDelVideojuego[i]).eliminarPartida();
+        delete VectorDePunterosPartidasDelVideojuego[i];
     }
     
-    //no se si es necesario
-    //elimino toda la info dentro del vector;
-    iterator1= VectorDePunterosVideojuegos.begin();
-    iterator2= VectorDePunterosVideojuegos.end();
-    VectorDePunterosVideojuegos.erase(iterator1, iterator2);
+    
+    VectorDePunterosPartidasDelVideojuego.clear();
     
 }
 
 
-VideoJuego::eliminarPuntajes(){
+void Videojuego::eliminarPuntajes(){
     
-    iterator1= VectorDeObjetosPuntaje.begin();
-    iterator2= VectorDeObjetosPuntaje.end();
-    VectorDePunterosVideojuegos.erase(iterator1, iterator2);
+    for (unsigned long int i = 0; i < VectorDeObjetosPuntaje.size(); i++) {
+        delete VectorDeObjetosPuntaje[i];
+    }
+
+    VectorDeObjetosPuntaje.clear();
     
 }
 
 
-float VideoJuego::totalHorasJugadas(){
+float Videojuego::totalHorasJugadas(){
     
     float valorTotal = 0;
     
-    for(int i=0; i < VectorDePunterosPartidasDelVideojuego.size(); i++ ){
+    for(long unsigned int i=0; i < VectorDePunterosPartidasDelVideojuego.size(); i++ ){
         
         valorTotal = valorTotal + (*VectorDePunterosPartidasDelVideojuego[i]).tiempoTotal();
     }
@@ -105,50 +105,51 @@ float VideoJuego::totalHorasJugadas(){
     
 }
 
-void VideoJuego::asignar(Puntaje* punt){
+void Videojuego::asignar(Puntaje* punt){
     VectorDeObjetosPuntaje.push_back(punt);
 }
 
 
-VideoJuego::~VideoJuego(){
+Videojuego::~Videojuego(){
 
-    for(int i = 0; i< VectorDeObjetosPuntaje.size(); i++ ){
+    for(long unsigned int i = 0; i< VectorDeObjetosPuntaje.size(); i++ ){
         Puntaje* eliminar = VectorDeObjetosPuntaje[i];
         delete eliminar;
         }
 
 }
 
-vector<DtSuscripcion*> VideoJuego::crearDtsuscripcion() {
+vector<DtSuscripcion*> Videojuego::crearDtsuscripcion() {
     vector<DtSuscripcion*> res;
+    DtSuscripcion* d;
 
-    DtSuscripcion* d = new DtSuscripcion(this->Nombre,this->CostoMensual,"mensual");
+    d = new DtSuscripcion(this->Nombre,this->CostoMensual,"mensual");
     res.push_back(d);
 
-    DtSuscripcion* d = new DtSuscripcion(this->Nombre,this->CostoTrimestral,"trimestral");
+    d = new DtSuscripcion(this->Nombre,this->CostoTrimestral,"trimestral");
     res.push_back(d);
 
-    DtSuscripcion* d = new DtSuscripcion(this->Nombre,this->CostoAnual,"anual");
+    d = new DtSuscripcion(this->Nombre,this->CostoAnual,"anual");
     res.push_back(d);
 
-    DtSuscripcion* d = new DtSuscripcion(this->Nombre,this->CostoVitalicio,"vitalicia");
+    d = new DtSuscripcion(this->Nombre,this->CostoVitalicio,"vitalicia");
     res.push_back(d);
 
     return res;
 }
 
 
-string VideoJuego::darEmpresaDesarroladora(){
+string Videojuego::darEmpresaDesarroladora(){
     return Desarolladores->getnomEmpresa();
     }
 
-float VideoJuego::darPromedioPuntaje(){
+float Videojuego::darPromedioPuntaje(){
 
         float suma= 0;
-        int cant= 0;
+        long unsigned int cant= 0;
 
         for(cant=0; cant < VectorDeObjetosPuntaje.size(); cant++ ){
-            suma = suma + VectorDeObjetosPuntaje[i].getPuntos();
+            suma = suma + VectorDeObjetosPuntaje[cant]->getPuntos();
         }
 
         return suma/cant;

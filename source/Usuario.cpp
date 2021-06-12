@@ -10,6 +10,6 @@ string Usuario :: getemail () {
 	return email;
 }
 
-string Usuario :: getcontraseña () {
+string Usuario :: getcontrasenia () {
 	return contrasenia;
 }
