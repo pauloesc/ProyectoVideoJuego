@@ -20,8 +20,8 @@ public:
 	bool getActiva();
     int getValidez();
     bool getCancelada();
-    DtSuscripcion  crearDtSuscripcion();
-    void cancelarSuscripciOn();
+    DtSuscripcion* crearDtSuscripcion();
+    void cancelarSuscripcion();
 };
 
 
