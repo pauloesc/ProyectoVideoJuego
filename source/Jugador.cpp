@@ -21,25 +21,37 @@ string Jugador::getdescripcion() {
 
 vector<DtPartidaIndividual *> Jugador::darPartidasIndividualesFinalizadas(string nombrevid) {
 	vector<DtPartidaIndividual *> res;
-    for (int i = 0; i < partidas.size(); i++)
-        if (partidas[i]->esPartidaIndividualFinalizadaDelJuego(nombrevid))
-            res.push_back(partidas[i]->darDatosPartida());
+	PartidaIndividual* pi;
+    for (long unsigned int i = 0; i < partidas.size(); i++) {
+        if (partidas[i]->esPartidaIndividualFinalizadaDelJuego(nombrevid)) {
+            pi = dynamic_cast<PartidaIndividual*>(partidas[i]);
+            res.push_back(pi->darDatosPartida());
+        }
+    }
 	return res;
 }
 
 vector<DtPartidaEnCurso*> Jugador::darPartidasEnCurso() {
 	vector<DtPartidaEnCurso *> res;
-	for (int i = 0; i < partidas.size(); i++)
-		if (partidas[i]->getEnCurso())
+	for (unsigned long int i = 0; i < partidas.size(); i++)
+		if (partidas[i]->getenCurso())
 			res.push_back(partidas[i]->getDtPartida());
 	return res;
 }
 
-*Partida Jugador::encontrarPartidasIndividual(int codigoAnterior) {
-	partidas::iterator it = partidas.begin()
-    int i;
-    for (i = 0; partidas[i]->getcodigo() != codigoAnterior; i++);
-    return *partidas[i];
+Partida* Jugador::encontrarPartidasIndividual(int codigoAnterior) {
+	Partida* res = NULL;
+	unsigned long int i = 0;
+	bool listo = false;
+
+	while (!listo and (i < partidas.size())) {
+		if (partidas[i]->getcodigo() == codigoAnterior) {
+			listo = true;
+			res = partidas[i];
+		}
+		i++;
+	}
+	return res;
 }
 
 void Jugador::AsociarPartidaIniciada(Partida *PI) {
@@ -53,20 +65,20 @@ void Jugador::DesvincularPartida(Partida *par) {
 }
 
 void Jugador::desvincularPartidas(string nomVJ) {
-	int i;
+	long unsigned int i;
 	for (i = 0; i < partidas.size(); i++)
-		if (*partidas[i]->getVideJuegoAsociado() == nomVJ)
+		if ((partidas[i]->getVideojuego())->getNombre() == nomVJ)
 			partidas.erase(partidas.begin() + i);
 }
 
-void Jugador::finalizarPartida(int identificador) { //identificador es el lugar donde esta la partida en el vector o es el codigo?
-	partidas.erase(partidas.begin() + identificador);
-}
 
 void Jugador::finalizarPartida(int identificador) { //Dejo las dos operaciones, despues borro segun la respuesta
-    int i;
-    for (i = 0; partidas[i]->getcodigo != identificador; i++);
-    partidas.erase(partidas.begin() + i);
+    for (long unsigned int i = 0; i < partidas.size(); i++) {
+    	if (partidas[i]->getcodigo() == identificador) {
+    		partidas[i]->finalizar();
+    		partidas.erase(partidas.begin()+i);
+    	}
+    }
 }
 
 
@@ -78,14 +90,14 @@ void Jugador::eliminarSuscripciones(string nomVJ) {
 
 vector<DtSuscripcion*> Jugador::darSuscripcionesActivas() {     
 	vector<DtSuscripcion*> res;
-	for (int i = 0; i < sus.size(); i++)
-		if (*sus[i]->esActiva())
+	for (long unsigned int i = 0; i < sus.size(); i++)
+		if (sus[i]->esActiva())
 			res.push_back(sus[i]->crearDtSuscripcion());
 	return res;
 }
 
 bool Jugador::tieneSuscripcionActiva(string nombrevid) { //como es la misma función que la sig no es una sobre carga?
-	int i;
+	long unsigned int i;
 	for (i = 0; i < sus.size() && !(*sus[i]->esActiva(nombrevid)); i++);
 	return i < sus.size();
 }

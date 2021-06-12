@@ -6,8 +6,10 @@
 
 
 #include "Usuario.h"
-#include "Partida.h" //este tiene a Videojuego.h creo
+#include "PartidaMultijugador.h"
+#include "PartidaIndividual.h"
 #include "Suscripcion.h"
+
 #include "DtSuscripcion.h"
 #include "DtPartidaIndividual.h"
 #include "DtPartidaEnCurso.h"
