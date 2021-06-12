@@ -23,6 +23,7 @@
 
 class Abandona;
 class Videojuego;
+class Jugador;
 
 class Partida {
 private:
