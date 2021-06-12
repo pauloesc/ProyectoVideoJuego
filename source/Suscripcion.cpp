@@ -1,8 +1,7 @@
 #include "../include/Suscripcion.h"
 #include "../include/SuscripcionTemporal.h"
-#include "../include/SuscripcionVitalicia.h"
 
-Suscripcion (DtFecha* fecha, DtPago medioDePago, float costo, Videojuego* vj, Jugador* j) {
+Suscripcion::Suscripcion(DtFecha* fecha, DtPago medioDePago, float costo, Videojuego* vj, Jugador* j) {
 	this->fecha = fecha;
 	this->medioDePago = medioDePago;
 	this->costo = costo;
@@ -32,7 +31,7 @@ Jugador* Suscripcion::getJugador() {
 
 
 bool Suscripcion::esActiva(string juego) {
-	if (this->getVideojuegoAsociado->getNombre() == juego){
+	if ((this->getVideojuegoAsociado())->getNombre() == juego){
         if (dynamic_cast<SuscripcionTemporal*>(this) != NULL){
             SuscripcionTemporal* stemp = dynamic_cast<SuscripcionTemporal*>(this);
             return stemp->getActiva();

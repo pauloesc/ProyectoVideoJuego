@@ -9,7 +9,8 @@ class TotalJugadoresSuscriptos : public Estadistica{
 private:
 
 public:
-	DtEstadisticaDeSegundoTipo* DarEstadistica(VideoJuego* vjp);
+	TotalJugadoresSuscriptos(string nom, string des);
+	DtEstadisticaDeSegundoTipo* DarEstadistica(Videojuego* vjp);
 };
 
 #endif

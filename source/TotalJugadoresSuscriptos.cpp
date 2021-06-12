@@ -1,13 +1,14 @@
-#include "../include/TotalHorasJugadas.h"
+#include "../include/TotalJugadoresSuscriptos.h"
 
+TotalJugadoresSuscriptos::TotalJugadoresSuscriptos(string nom, string des) : Estadistica(nom,des) {
+}
 
-DtEstadisticaDeSegundoTipo* TotalHorasJugadas::DarEstadistica(VideoJuego* vjp){
+DtEstadisticaDeSegundoTipo* TotalJugadoresSuscriptos::DarEstadistica(Videojuego* vjp) {
     
-    ControladorUsuario* ControlUsuario;
-    ControlUsuario = ControladorUsuario::getInstance();
+    ControladorUsuario* ControlUsuario = ControladorUsuario::getInstance();
     
-    int cantSusc = ControlUsuario->totalSuscriptos(vjp)
+    float cantSusc = ControlUsuario->totalSuscriptos(vjp);
     
-    DtEstadisticaDeSegundoTipo* infoRetornar = new DtEstadisticaDeSegundoTipo( vjp->getNombre(), cantSusc );
+    DtEstadisticaDeSegundoTipo* infoRetornar = new DtEstadisticaDeSegundoTipo(vjp->getNombre(), cantSusc);
     return infoRetornar;
 }

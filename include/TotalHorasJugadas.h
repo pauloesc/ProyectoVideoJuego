@@ -3,11 +3,13 @@
 
 #include "Estadistica.h"
 
-class TotalHorasJugadas : public Estadistica{
+class TotalHorasJugadas : public Estadistica {
 private:
 
 public:
-	DtEstadisticaDeSegundoTipo* DarEstadistica(VideoJuego* vjp);
+	TotalHorasJugadas(string nom, string desc);
+	DtEstadisticaDeSegundoTipo* DarEstadistica(Videojuego* vjp);
+
 };
 
 
