@@ -12,6 +12,7 @@
 #include "DtCategoria.h"
 #include "DtInfoEspecifica.h"
 #include "DtVideojuegoResumido.h"
+#include "DtSuscripcion.h"
 
 
 #include <vector>
@@ -75,6 +76,7 @@ int MostrarHorasTotalJugadas();
 vector<DtVideojuegoResumido*> ObtenerVideoJuegos(); //asignar puntaje
 void AsignarPuntajeVJ(string nomVJ, int puntaje);
 
+vector<DtSuscripcion*> costosDeTodosLosVideojuegos(); // caso de uso suscribirse a videojuego
 
 ~ControladorVideojuego();
 //string getTipo(); //de donde es?

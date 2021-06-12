@@ -5,12 +5,15 @@
 #include "Partida.h"
 #include "Puntaje.h"
 
+#include "DtSuscripcion.h"
+
 #include <string>
 #include <vector>
 
 
 
 class Partida;
+class Desarrollador;
 
 using namespace std;
 
@@ -50,6 +53,7 @@ public:
     void eliminarPuntajes();
     float totalHorasJugadas();
     
+    vector<DtSuscripcion*> crearDtsuscripcion();
     string darEmpresaDesarroladora(); //Caso de uso info videojuego
     float darPromedioPuntaje(); //Caso de uso info videojuego
     void asignar(Puntaje* punt); // Para caso de uso asignar puntaje, crea el puntaje y lo vincula con el jugador.

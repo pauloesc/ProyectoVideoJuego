@@ -117,6 +117,24 @@ VideoJuego::~VideoJuego(){
 
 }
 
+vector<DtSuscripcion*> VideoJuego::crearDtsuscripcion() {
+    vector<DtSuscripcion*> res;
+
+    DtSuscripcion* d = new DtSuscripcion(this->Nombre,this->CostoMensual,"mensual");
+    res.push_back(d);
+
+    DtSuscripcion* d = new DtSuscripcion(this->Nombre,this->CostoTrimestral,"trimestral");
+    res.push_back(d);
+
+    DtSuscripcion* d = new DtSuscripcion(this->Nombre,this->CostoAnual,"anual");
+    res.push_back(d);
+
+    DtSuscripcion* d = new DtSuscripcion(this->Nombre,this->CostoVitalicio,"vitalicia");
+    res.push_back(d);
+
+    return res;
+}
+
 
 string VideoJuego::darEmpresaDesarroladora(){
     return Desarolladores->getnomEmpresa();

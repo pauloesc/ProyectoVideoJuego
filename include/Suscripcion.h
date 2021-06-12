@@ -5,6 +5,7 @@
 #include "DtFecha.h"
 #include "DtSuscripcion.h"
 
+#include "Jugador.h"
 #include "Reloj.h"
 #include "Videojuego.h"
 
@@ -29,7 +30,7 @@ public:
 	float getCosto();
 	Videojuego* getVideojuegoAsociado();
 	Jugador* getJugador();
-    virtual DtSuscripcion  crearDtSuscripcion() = 0;
+    virtual DtSuscripcion* crearDtSuscripcion() = 0;
     bool esActiva();
     bool esActiva(string juego);
     virtual void cancelarSuscripcion()= 0;

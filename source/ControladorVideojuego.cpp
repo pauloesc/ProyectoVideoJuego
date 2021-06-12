@@ -301,6 +301,20 @@ void ControladorVideojuego::AsignarPuntajeVJ(string nomVJ, int puntaje){
 
 }
 
+vector<DtSuscripcion*> ControladorVideojuego::costosDeTodosLosVideojuegos() {
+    vector<DtSuscripcion*> inter;
+    vector<DtSuscripcion*> res;
+
+    for (long unsigned int i = 0; i < Videojuegos.size(); i++) {
+            inter = Videojuegos[i]->crearDtsuscripcion();
+            for (long unsigned int j = 0; j < inter.size(); j++) {
+                res.push_back(inter[j]);
+            }
+        }
+
+    return res;
+}
+
 ControladorVideojuego::~ControladorVideojuego() {
     int tamCol=Videojuegos.size();
     for (int i=0; i<tamCol; i++)

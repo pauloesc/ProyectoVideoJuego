@@ -13,7 +13,7 @@
 #include "DtPartidaEnCurso.h"
 #include "DtPartidaMultijugador.h"
 
-
+class Suscripcion;
 
 class Jugador : public Usuario {
 	private:

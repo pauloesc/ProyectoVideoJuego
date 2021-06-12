@@ -2,11 +2,9 @@
 #define SUSCRIPCIONTEMPORAL
 
 #include "Suscripcion.h"
+
 #include "DtPago.h"
 #include "DtFecha.h"
-#include "Reloj.h"
-#include "Jugador.h"
-#include "Videojuego.h"
 
 using namespace std;
 

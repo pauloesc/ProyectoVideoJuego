@@ -4,8 +4,10 @@
 #include <string>
 #include <vector>
 
-#include "Suscripcion.h"
+#include "SuscripcionTemporal.h"
+#include "SuscripcionVitalicia.h"
 #include "Jugador.h"
+#include "Reloj.h"
 
 #include "DtSuscripcion.h"
 #include "DtPago.h"
@@ -26,14 +28,14 @@ class ControladorSuscripciones {
         Videojuego *vj;
         string nomJ;
         string tiposus;
-        DtPago *pago;    // es un enumerado
+        DtPago pago;    // es un enumerado
     public:
         static ControladorSuscripciones* getInstance();
 
         vector<string> obtenerNombresSuscripcionesActivas();
         vector<DtSuscripcion*> obtenerSuscripcionesActivas();
         vector<DtSuscripcion*> obtenerSuscripcionesNoActivas();
-        void IngresarDatosSuscripcion(string tiposuscripcion, DtPago *pag);
+        void IngresarDatosSuscripcion(string tiposuscripcion, DtPago pag);
         void SeleccionarVideojuego(string Juego);
         void Finalizarproceso();
         void ConfirmarSuscripcion();
