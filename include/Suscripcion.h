@@ -6,7 +6,6 @@
 #include "DtSuscripcion.h"
 
 #include "Reloj.h"
-#include "Jugador.h"
 #include "Videojuego.h"
 
 
@@ -39,5 +38,5 @@ public:
 
 
 
-
+#include "Jugador.h"
 #endif
