@@ -33,9 +33,11 @@ vector<DtPartidaIndividual *> Jugador::darPartidasIndividualesFinalizadas(string
 
 vector<DtPartidaEnCurso*> Jugador::darPartidasEnCurso() {
 	vector<DtPartidaEnCurso *> res;
-	for (unsigned long int i = 0; i < partidas.size(); i++)
-		if (partidas[i]->getenCurso())
+	for (unsigned long int i = 0; i < partidas.size(); i++){
+		if (partidas[i]->getenCurso()){
 			res.push_back(partidas[i]->getDtPartida());
+		}
+	}
 	return res;
 }
 
@@ -65,14 +67,20 @@ void Jugador::DesvincularPartida(Partida *par) {
 }
 
 void Jugador::desvincularPartidas(string nomVJ) {
-	long unsigned int i;
-	for (i = 0; i < partidas.size(); i++)
-		if ((partidas[i]->getVideojuego())->getNombre() == nomVJ)
+	long unsigned int i = 0;
+
+	while (i < partidas.size()) {
+		if ((partidas[i]->getVideojuego())->getNombre() == nomVJ) {
 			partidas.erase(partidas.begin() + i);
+		} else {
+			i++;
+		}
+	}
+
 }
 
 
-void Jugador::finalizarPartida(int identificador) { //Dejo las dos operaciones, despues borro segun la respuesta
+void Jugador::finalizarPartida(int identificador) { 
     for (long unsigned int i = 0; i < partidas.size(); i++) {
     	if (partidas[i]->getcodigo() == identificador) {
     		partidas[i]->finalizar();
@@ -82,9 +90,16 @@ void Jugador::finalizarPartida(int identificador) { //Dejo las dos operaciones, 
 
 
 void Jugador::eliminarSuscripciones(string nomVJ) {
-	int i;
-	for (i = 0; sus[i]->getVideojuegoAsociado()->getNombre() != nomVJ; i++)//Ya tiene una suscripcion
-    sus.erase(sus.begin() + i);
+	long unsigned int i = 0;
+	
+	while (i < sus.size()) {
+		if ((sus[i]->getVideojuegoAsociado())->getNombre() == nomVJ) {
+			delete sus[i];
+			sus.erase(sus.begin()+i);
+		} else {
+			i++;
+		}
+	}
 }
 
 vector<DtSuscripcion*> Jugador::darSuscripcionesActivas() {     
@@ -97,24 +112,24 @@ vector<DtSuscripcion*> Jugador::darSuscripcionesActivas() {
 
 bool Jugador::tieneSuscripcionActiva(string nombrevid) { //como es la misma función que la sig no es una sobre carga?
 	long unsigned int i;
-	for (i = 0; i < sus.size() && !(*sus[i]->esActiva(nombrevid)); i++);
+	for (i = 0; i < sus.size() && !(sus[i]->esActiva(nombrevid)); i++);
 	return i < sus.size();
 }
 
 bool Jugador::tieneSuscripcionActiva(Videojuego *vid) {
 	bool res = false;
-    int i = 0;
+    long unsigned int i = 0;
 	while (i != sus.size() && !res)
-		if (*sus[i]->esActiva() && *sus[i]->getVideojuegoAsociado() == vid)
+		if (sus[i]->esActiva() && sus[i]->getVideojuegoAsociado() == vid)
 			res = true;
 	return res;
 }
 
 void Jugador::cancelarSuscripcionActiva(string Juego) {
 	bool terminar = false;
-	for (int i = 0; i < sus.size() && !terminar; i++)
-		if (*sus[i]->esActiva(Juego)) {
-			*sus[i]->cancelarSuscripcion();
+	for (long unsigned int i = 0; i < sus.size() && !terminar; i++)
+		if (sus[i]->esActiva(Juego)) {
+			sus[i]->cancelarSuscripcion();
 			terminar = true;
 		}
 }
@@ -125,17 +140,17 @@ void Jugador::asociarSuscripcion(Suscripcion *SNuevo) {
 
 vector<DtPartidaMultijugador*> Jugador::partidasJuntos(Jugador* jug) {
 	bool indi, es;
-	string yo = this->getnickname()
+	string yo = this->getnickname();
 	vector<DtPartidaMultijugador*> res;
 
 	for (unsigned long int i = 0; i < partidas.size(); i++) {
-		indi = partidas[i].esIndividual();
+		indi = partidas[i]->esIndividual();
 
-		if (indi) {
-			es = partidas[i]->esJugadorUnido(jug);
+		if (!indi) {
+			PartidaMultijugador* p = dynamic_cast<PartidaMultijugador*>(partidas[i]);
+			es = p->esJugadorUnido(jug);
 
 			if (es) {
-				PartidaMultijugador* p = dynamic_cast<PartidaMultijugador*>(partidas[i]);
 				res.push_back(p->getDtPartidaMultijugador(yo));
 			}
 		}

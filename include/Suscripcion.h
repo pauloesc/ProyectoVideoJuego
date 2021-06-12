@@ -34,6 +34,8 @@ public:
     bool esActiva();
     bool esActiva(string juego);
     virtual void cancelarSuscripcion()= 0;
+
+    virtual ~Suscripcion();
 };
 
 
