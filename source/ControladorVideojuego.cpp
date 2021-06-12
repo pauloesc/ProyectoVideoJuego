@@ -185,11 +185,121 @@ vector<string> ControladorVideojuego::DarJuegos(string email){
     int tamCol=Videojuegos.size();
    for (int i=0; i<tamCol; i++){
        if (Videojuegos[i]->esDesarrolador(email))  //ver en videojuego
-            resu.push_back(Videojuegos[i]->getemail());
+            resu.push_back(Videojuegos[i]->getNombre());
    }
    return resu;
 }
 
+
+
+vector<string> ControladorVideojuego::ObtenerCategorias(){
+    vector<string> resu;
+    int tamCol=Categorias.size();
+    for (int i=0; i<tamCol; i++){
+           resu.push_back(Categorias[i]->getNombre());
+    }
+    return resu;
+}
+
+
+
+void ControladorVideojuego::NuevaCategoria(DtCategoria* datos){
+    this->datac = datos;  //asi no uso operador de copia
+}
+
+void ControladorVideojuego::ConfirmarCategoria(){
+    Categoria* nuevo=new Categoria(datac->getNombreCat(), datac->getDescripcion(), datac->getTipo());
+    Categorias.push_back(nuevo);
+    delete datac;
+}
+
+void ControladorVideojuego::CancelarCategoria(){
+    delete datac;
+}
+
+//a esta funcion le tuve que cambiar el nombre porque habia otra con el mismo nombre
+vector<string> ControladorVideojuego::ObtenerVideoJuegosString(){
+    vector<string> resu;
+    int tamCol=Videojuegos.size();
+    for (int i=0; i<tamCol; i++){
+           resu.push_back(Videojuegos[i]->getNombre());
+    }
+   return resu;
+} 
+
+DtInfoEspecifica* ControladorVideojuego::SeleccionarVideojuego(string nombVJ){
+    
+    DtInfoEspecifica* nuevo;
+    int tamCol=Videojuegos.size();
+    int i=0;
+    bool resu=false;
+
+    while ((!resu)&& (i<tamCol)){
+        if (Videojuegos[i]->getNombre()==nombVJ){
+            vid=Videojuegos[i]; //para recordarlo en memoria
+            resu=true;
+            
+            string des= Videojuegos[i]->getDescripcion();
+            float men= Videojuegos[i]->getCostoMensual();
+            float tri= Videojuegos[i]->getCostoTrimestral();
+            float anual= Videojuegos[i]->getCostoAnual();
+            float vit= Videojuegos[i]->getCostoVitalicio();
+            string emp= Videojuegos[i]->darEmpresaDesarroladora();
+            float promedio= Videojuegos[i]->darPromedioPuntaje();
+
+            vector<string> cates;
+            int tam=Categorias.size();
+            for (int j=0; j<tam; j++){
+                if (Categorias[i]->esCategoriaDelVideojuego(vid))
+                    cates.push_back(Categorias[i]->getNombre());
+            }
+        
+            nuevo= new DtInfoEspecifica(des, men, tri, anual, vit, cates, emp, promedio);
+        }
+        i++;
+    }
+   return nuevo;
+}
+
+int ControladorVideojuego::MostrarHorasTotalJugadas(){
+    int resu=vid->totalHorasJugadas();
+    
+    vid=NULL;
+    
+    return resu;
+}
+
+vector<DtVideojuegoResumido*> ControladorVideojuego::ObtenerVideoJuegos(){
+    vector<DtVideojuegoResumido*> resu;
+    int tamCol=Videojuegos.size();
+    for (int i=0; i<tamCol; i++){
+        DtVideojuegoResumido* nuevo= new DtVideojuegoResumido(Videojuegos[i]->getNombre(), Videojuegos[i]->getDescripcion());
+        resu.push_back(nuevo);
+    }
+    return resu;
+}
+
+void ControladorVideojuego::AsignarPuntajeVJ(string nomVJ, int puntaje){
+    ControladorUsuario* cu;
+    cu= ControladorUsuario::getInstance();
+    Jugador* jug=cu->darJugador();
+    
+    Puntaje* punt= new Puntaje(puntaje,jug);
+    
+    
+    int tamCol=Videojuegos.size();
+    int i=0;
+    bool resu=false;
+
+    while ((!resu)&& (i<tamCol)){
+        if (Videojuegos[i]->getNombre()==nomVJ){
+            resu=true;
+            Videojuegos[i]->asignar(punt);
+        }
+    i++;
+    }
+
+}
 
 ControladorVideojuego::~ControladorVideojuego() {
     int tamCol=Videojuegos.size();
@@ -203,111 +313,6 @@ ControladorVideojuego::~ControladorVideojuego() {
     Categorias.clear();
 }
 
-vector<string> ControladorVideojuego::ObtenerCategorias(){
-    vector<string> resu;
-    int tamCol=Categorias.size()
-    for (int i=0; i<tamCol; i++){
-           resu.push_back(Categorias[i]->getNombre());
-    }
-}
-
-
-
-void NuevaCategoria(DtCategoria* datos){
-    datacat=datos;  //asi no uso operador de copia
-}
-
-void ConfirmarCategoria{
-    Categoria* nuevo=new Categoria(datacat->getNombre, datacat->getDescripcion, datacat->getTipo);
-    Categorias.push_back(nuevo);
-    delete datacat;
-};
-
-void CancelarCategoria(){
-    delete datacat;
-}
-
-//a esta funcion le tuve que cambiar el nombre porque habia otra con el mismo nombre
-vector<string> ObtenerVideoJuegosString(){
-    vector<string> resu;
-    int tamCol=Videojuegos.size()
-    for (int i=0; i<tamCol; i++){
-           resu.push_back(Videojuegos[i]->getNombre());
-    }
-} 
-
-DtInfoEspecifica* SeleccionarVideojuego(string nombVJ){
-    
-    int tamCol=Videojuegos.size();
-    int i=0;
-    bool resu=false;
-
-    while ((!resu)&& (i<tamCol){
-        if (Videojuegos[i]->getNombre()==nombVJ){
-            vid=Videojuegos[i]; //para recordarlo en memoria
-            resu=true;
-            
-            string des= Videojuegos[i]->getDescripcion();
-            float men= Videojuegos[i]->getCostoMensual();
-            float tri= Videojuegos[i]->CostoTrimestral();
-            float anual= Videojuegos[i]->CostoAnual();
-            float vit= Videojuegos[i]->getCostoVitalicio();
-            string emp= Videojuegos[i]->darEmpresaDesarroladora();
-            float promedio= Videojuegos[i]->darPromedioPuntaje();
-
-            vector<string> cates;
-            int tam=Categorias.size();
-            for (int j=0; j<tam; j++){
-                if (Categorias[i]->esCategoriaDelVideojuego(vid))
-                    cates.push_back(Categorias[i]->getNombre());
-            }
-        
-            DtInfoEspecifica nuevo= new DtInfoEspecifica(des, men, tri, anual, vit, cates, emp, promedio);
-        }
-        i++;
-    }
-    return nuevo;
-}
-
-int MostrarHorasTotalJugadas(){
-    int resu=vid->totalHorasJugadas();
-    
-    vid=NULL;
-    
-    return resu;
-}
-
-vector<DtVideojuegoResumido*> ObtenerVideoJuegos(){
-    vector<DtVideojuegoResumido*> resu;
-    int tamCol=Videojuegos.size()
-    for (int i=0; i<tamCol; i++){
-        DtVideojuegoResumido nuevo= new DtVideojuegoResumido(Videojuegos[i]->getNombre(), Videojuegos[i]->getDescripcion());
-        resu.push_back(nuevo);
-    }
-    return nuevo;
-}
-
-void AsignarPuntajeVJ (string nomVJ, int puntaje){
-    ControladorUsuario* cu;
-    cu= ControladorUsuario::getInstance();
-    Jugador* jug=cu->darJugador();
-    
-    Puntaje* punt= new Puntaje(puntaje,jug);
-    
-    
-    int tamCol=Videojuegos.size();
-    int i=0;
-    bool resu=false;
-
-    while ((!resu)&& (i<tamCol){
-        if (Videojuegos[i]->getNombre()==nombVJ){
-            resu=true;
-            Videojuegos[i]->asignar(punt);
-        }
-    i++;
-    }
-
-}
 
 
 
