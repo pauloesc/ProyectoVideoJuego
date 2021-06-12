@@ -17,8 +17,8 @@ public:
 	string getNombre();
     string getDescripcion();
     
-    void setNombre();
-    void setDescripcion();
+    void setNombre(string nom);
+    void setDescripcion(string des);
     
     friend ostream& operator<<(ostream &o, DataEstadistica* d);
     

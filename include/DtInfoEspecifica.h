@@ -5,6 +5,7 @@
 #include <iostream>
 #include <vector>
 #include "DtCategoria.h"
+#include "DtVideojuego.h"
 
 using namespace std;
 
@@ -32,14 +33,6 @@ public:
     float getpromedio();
 
 	
-	void setDescripcion(string descripcion);
-	void setCostoMensual(float costoMensual);
-	void setCostoTrimestral(float costoTrimestral);
-	void setCostoAnual(float costoAnual);
-	void setCostoVitalicio(float costoVitalicio);
-	void setCategorias(vector<string> categorias);
-    void setEmpresa(string empresadesarroladora);
-    void setpromedio(float promedio);
 
 	friend ostream& operator<<(ostream &o, DtInfoEspecifica *s);
 	~DtInfoEspecifica();

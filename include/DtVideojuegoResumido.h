@@ -17,8 +17,7 @@ public:
 	string getNombre();
     string getDescripcion();
     
-    void setNombre();
-    void setDescripcion();
+ 
     
     friend ostream& operator<<(ostream &o, DtVideojuegoResumido* d);
     

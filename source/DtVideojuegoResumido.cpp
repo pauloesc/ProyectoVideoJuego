@@ -1,4 +1,5 @@
 #include <string>
+#include "../include/DtVideojuegoResumido.h"
 
 DtVideojuegoResumido::DtVideojuegoResumido(){}
 
@@ -13,20 +14,14 @@ string DtVideojuegoResumido::getNombre() {
 	return Nombre;
 }
 
-void DtVideojuegoResumido::setNombre(string nom) {
-	Nombre = nom;
-}
 
 
 string DtVideojuegoResumido::getDescripcion() {
 	return Descripcion;
 }
 
-void DtVideojuegoResumido::setDescripcion(string des) {
-	Descripcion = des;
-}
 
 ostream& operator<<(ostream &o, DtVideojuegoResumido* d) {
-  o << "Info Estadistica: " << '\n' << "Nombre: " << d->getNombre() << "Descripcion: " d->getDescripcion();
+  o << "Info Estadistica: " << '\n' << "Nombre: " << d->getNombre() << "Descripcion: " << d->getDescripcion();
   return o;
 }

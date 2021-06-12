@@ -1,4 +1,5 @@
 #include <string>
+#include "../include/DataEstadistica.h"
 
 DataEstadistica::DataEstadistica(){}
 
@@ -27,6 +28,6 @@ void DataEstadistica::setDescripcion(string des) {
 }
 
 ostream& operator<<(ostream &o, DataEstadistica* d) {
-  o << "Info Estadistica: " << '\n' << "Nombre: " << d->getNombre() << "Descripcion: " d->getDescripcion();
+  o << "Info Estadistica: " << '\n' << "Nombre: " << d->getNombre() << "Descripcion: "  << d->getDescripcion();
   return o;
 }
