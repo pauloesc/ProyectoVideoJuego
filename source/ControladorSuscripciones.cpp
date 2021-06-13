@@ -118,6 +118,8 @@ void ControladorSuscripciones::ConfirmarSuscripcion() {
 
 }
 
+void ControladorSuscripciones::Finalizarproceso(){}
+ 
 void ControladorSuscripciones::Cancelar() {
 }
 
