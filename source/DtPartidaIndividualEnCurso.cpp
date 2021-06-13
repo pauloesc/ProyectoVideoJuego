@@ -25,3 +25,18 @@ void DtPartidaIndividualEnCurso::setContinuaPartidaAnterior(bool continuarPartid
 DtPartidaIndividualEnCurso::~DtPartidaIndividualEnCurso(){
 
 }
+
+ostream& operator<<(ostream &o, DtPartidaIndividualEnCurso *s) {
+    o << "Partida Individual: "<< s->getFecha()<<'\n';
+    o << "Código: " << s->getCodigo() <<'\n';
+    o << "Nombre del Videojuego: " << s->getNombreVideojuego() <<'\n';
+    o << "Continuación de la partida anterior: ";
+		if (s->getContinuaPartidaAnterior()) {
+			o << "Si" <<'\n';
+		} else {
+			o << "No" <<'\n';
+		}
+	
+     return o;
+}
+
