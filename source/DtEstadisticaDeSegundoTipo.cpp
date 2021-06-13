@@ -30,7 +30,7 @@ void DtEstadisticaDeSegundoTipo::setValorNumeroDeEstadisica(float valorNumeroDeE
 
 ostream& operator<<(ostream &o, DtEstadisticaDeSegundoTipo *s) {
 	o << "Nombre: "<< s->getNombre() <<'\n';
-	o << "Valor de Número de Estadisica: "<< s->getValorNumeroDeEstadisica() <<'\n';
+	o << "Resultado: "<< s->getValorNumeroDeEstadisica() <<'\n';
 
 	return o;
 }
