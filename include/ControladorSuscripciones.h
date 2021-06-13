@@ -40,6 +40,7 @@ class ControladorSuscripciones {
         void Finalizarproceso();
         void ConfirmarSuscripcion();
         void Cancelar();
+        ~ControladorSuscripciones();
 };
 
 #endif
