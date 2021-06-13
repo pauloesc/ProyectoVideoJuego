@@ -20,8 +20,7 @@ string DtVideojuegoResumido::getDescripcion() {
 	return Descripcion;
 }
 
-
 ostream& operator<<(ostream &o, DtVideojuegoResumido* d) {
-  o << "Info Estadistica: " << '\n' << "Nombre: " << d->getNombre() << "Descripcion: " << d->getDescripcion();
+  o << "Nombre: " << d->getNombre() <<" "<< "Descripcion: " << d->getDescripcion()<<'\n';
   return o;
 }
