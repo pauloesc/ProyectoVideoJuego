@@ -22,6 +22,7 @@ public:
     virtual void SeleccionEstadisticas( vector<string> elecciones )=0;
     virtual void ConfirmarSeleccionEstaditicas()=0;
     virtual void CancelarSeleccionEstaditicas()=0;
+    virtual~IControladorEstadistica(){};
     
 };
  
