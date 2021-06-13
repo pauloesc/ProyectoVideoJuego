@@ -52,4 +52,6 @@ bool Suscripcion::esActiva() {
 	}
 }
 
+Suscripcion::~Suscripcion(){}
+
 
