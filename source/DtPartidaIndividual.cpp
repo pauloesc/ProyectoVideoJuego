@@ -25,3 +25,11 @@ void DtPartidaIndividual::setContinuaPartidaAnterior(bool continuarPartidaAnteri
 DtPartidaIndividual::~DtPartidaIndividual(){
 
 }
+
+ostream& operator<<(ostream &o, DtPartidaIndividual *s) {
+    o << "Partida Individual: "<< s->getFecha()<<'\n';
+    o << "Código: " << s->getCodigo() <<'\n';
+    o << "Duración: " << s->getDuracion() <<'\n';
+         
+return o;
+}
