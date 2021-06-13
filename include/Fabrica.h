@@ -5,13 +5,13 @@
 
 #include "ControladorUsuario.h"
 #include "ControladorVideojuego.h"
-#include "ControladorSuscripcion.h"
+#include "ControladorSuscripciones.h"
 #include "ControladorPartida.h"
 #include "ControladorEstadistica.h"
 
 #include "IControladorUsuario.h"
 #include "IControladorVideojuego.h"
-#include "IControladorSuscripcion.h"
+#include "IControladorSuscripciones.h"
 #include "IControladorPartida.h"
 #include "IControladorEstadistica.h"
 
@@ -21,7 +21,7 @@ class Fabrica {
 private:
 	static IControladorUsuario* IUsuario;
 	static IControladorVideojuego* IVideojuego;
-	static IControladorSuscripcion* ISuscripcion;
+	static IControladorSuscripciones* ISuscripcion;
 	static IControladorPartida* IPartida;
 	static IControladorEstadistica* IEstadistica;
 
@@ -30,7 +30,7 @@ private:
 public:
 	static IControladorUsuario* getIUsuario();
 	static IControladorVideojuego* getIVideojuego();
-	static IControladorSuscripcion* getISuscripcion();
+	static IControladorSuscripciones* getISuscripcion();
 	static IControladorPartida* getIPartida();
 	static IControladorEstadistica* getIEstadistica();
 
