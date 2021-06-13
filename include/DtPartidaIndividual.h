@@ -20,6 +20,8 @@ public:
 	DtPartidaIndividual(DtFecha fecha, float duracion, int codigo, bool enCurso, bool continuarPartidaAnterior);
 	bool getContinuaPartidaAnterior();
 	void setContinuaPartidaAnterior(bool continuarPartidaAnterior);
+	friend ostream& operator<<(ostream &o, DtPartidaIndividual *s);
+
 	~DtPartidaIndividual();
 };
 #endif
