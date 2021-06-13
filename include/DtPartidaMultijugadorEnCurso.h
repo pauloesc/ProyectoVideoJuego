@@ -31,7 +31,7 @@ public:
     void setCantidadJugadoresUnidos(int cantidadJugadoresUnidos);
 
 	virtual ~DtPartidaMultijugadorEnCurso();
-
+	friend ostream& operator<<(ostream &o, DtPartidaMultijugadorEnCurso *s);
 
 };
 #endif
