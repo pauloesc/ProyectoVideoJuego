@@ -102,5 +102,6 @@ void ControladorEstadistica::ConfirmarSeleccionEstaditicas(){
 
 void ControladorEstadistica::CancelarSeleccionEstaditicas(){
     EstadisticasSeleccionadas.clear();
-    }
-    
+}
+
+ControladorEstadistica::~ControladorEstadistica(){}
