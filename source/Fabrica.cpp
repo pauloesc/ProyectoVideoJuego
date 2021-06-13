@@ -3,7 +3,7 @@
 //creando las interfaces (unicas)
 IControladorUsuario* Fabrica::IUsuario = new IControladorUsuario;
 IControladorVideojuego* Fabrica::IVideojuego = new IControladorVideojuego;
-IControladorSuscripcion* Fabrica::ISuscripcion = new IControladorSuscripcion;
+IControladorSuscripciones* Fabrica::ISuscripcion = new IControladorSuscripciones;
 IControladorPartida* Fabrica::IPartida = new IControladorPartida;
 IControladorEstadistica* Fabrica::IEstadistica = new IControladorEstadistica;
 
@@ -16,8 +16,8 @@ IControladorVideojuego* Fabrica::getIVideojuego() {
 	return IVideojuego;
 }
 
-IControladorSuscripcion* Fabrica::getISuscripcion() {
-	return ISuscripcion
+IControladorSuscripciones* Fabrica::getISuscripcion() {
+	return ISuscripcion;
 }
 
 IControladorPartida* Fabrica::getIPartida() {
