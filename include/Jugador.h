@@ -49,6 +49,8 @@ class Jugador : public Usuario {
 
 		vector<DtPartidaMultijugador*> partidasJuntos(Jugador* jug);
 		void jugadorAbandona(int identificador, Jugador* jug);
+
+		~Jugador();
 };
 
 
