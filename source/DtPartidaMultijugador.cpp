@@ -38,7 +38,7 @@ vector<string> DtPartidaMultijugador::getNicknameJugadoresUnidos(){
 }
 
 ostream& operator<<(ostream &o, DtPartidaMultijugador* d) {
-	o << '\n';
+	
 	o << "Partida del videojuego: " << d->getNombreVid() << '\n' << "Codigo: " << d->getCodigo() << '\n' << "Transmitida en vivo: ";
 
 	if (d->getTransmitidaEnVivo()) {
@@ -50,16 +50,18 @@ ostream& operator<<(ostream &o, DtPartidaMultijugador* d) {
 	o << d->getFecha() << "Partida iniciada por: " << d->getInicio() << '\n';
 	o << "Lista de Jugadores Unidos: " << '\n';
 
-	for (unsigned long int i = 0; i < (d->getNicknameJugadoresUnidos()).size(); i++) {
+	for (unsigned long int i = 0; i < ((d->getNicknameJugadoresUnidos()).size()-1); i++) {
 		o << (d->getNicknameJugadoresUnidos())[i] << ", ";
 	}
-
-	o << '\n';
+	o << (d->getNicknameJugadoresUnidos())[(d->getNicknameJugadoresUnidos()).size()-1] << '\n';
 	return o;
 
 }
 
 DtPartidaMultijugador::~DtPartidaMultijugador() {
 }
+
+
+
 
 
