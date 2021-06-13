@@ -24,6 +24,7 @@ class IControladorSuscripciones {
         virtual void Finalizarproceso()=0;
         virtual void ConfirmarSuscripcion()=0;
         virtual void Cancelar()=0;
+        virtual~IControladorSuscripciones(){};
 };
 
 #endif
