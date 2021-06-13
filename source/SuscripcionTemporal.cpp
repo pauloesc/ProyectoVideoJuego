@@ -27,3 +27,5 @@ DtSuscripcion* SuscripcionTemporal::crearDtSuscripcion(){
 void SuscripcionTemporal::cancelarSuscripcion() {
 	this->cancelada = true;
 }
+
+SuscripcionTemporal::~SuscripcionTemporal(){}
