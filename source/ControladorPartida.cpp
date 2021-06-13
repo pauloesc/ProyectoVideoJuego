@@ -119,7 +119,7 @@ void ControladorPartida::CancelarPartida() {
 	this->jugadoresUnidos.clear();
 }
 
-
+ControladorPartida::~ControladorPartida(){}
 
 
 
