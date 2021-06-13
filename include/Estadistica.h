@@ -23,7 +23,7 @@ public:
     
     virtual DtEstadisticaDeSegundoTipo* DarEstadistica(Videojuego* vjp) = 0;
     
-    ~Estadistica();
+    virtual ~Estadistica() = 0;
 };
 
 
