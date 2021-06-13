@@ -9,7 +9,7 @@ DtEstadisticaDeSegundoTipo* TotalJugadoresSuscriptos::DarEstadistica(Videojuego*
     
     float cantSusc = ControlUsuario->totalSuscriptos(vjp);
     
-    DtEstadisticaDeSegundoTipo* infoRetornar = new DtEstadisticaDeSegundoTipo(vjp->getNombre(), cantSusc);
+    DtEstadisticaDeSegundoTipo* infoRetornar = new DtEstadisticaDeSegundoTipo(this->getNombre(), cantSusc);
     return infoRetornar;
 }
 
