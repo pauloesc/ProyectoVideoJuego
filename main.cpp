@@ -484,7 +484,7 @@ void menuParaDesarollador(){
                                 //CategoriaGenero = InstanciaControladorVideojuego.ObtenerCategoriaOtro();
                               
                                 //imprimimos las categorias de tipo otro
-                                int max = CategoriaOtro.size();
+                                max = CategoriaOtro.size();
                                 for( int i=0; i<max; i++ ){
                                         //cout << CategoriaOtro[i] << endl;
                                 }
