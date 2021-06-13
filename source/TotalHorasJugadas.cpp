@@ -8,3 +8,7 @@ DtEstadisticaDeSegundoTipo* TotalHorasJugadas::DarEstadistica(Videojuego* vjp){
     DtEstadisticaDeSegundoTipo* infoRetornar = new DtEstadisticaDeSegundoTipo( vjp->getNombre(), vjp->totalHorasJugadas() );
     return infoRetornar;
 }
+
+TotalHorasJugadas::~TotalHorasJugadas(){
+    
+}
