@@ -11,3 +11,5 @@ DtSuscripcion* SuscripcionVitalicia::crearDtSuscripcion(){
 
 void SuscripcionVitalicia::cancelarSuscripcion() {
 }
+
+SuscripcionVitalicia::~SuscripcionVitalicia(){}
