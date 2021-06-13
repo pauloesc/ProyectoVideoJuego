@@ -2,15 +2,18 @@
 
 using namespace std;
 
-ControladorSuscripciones* ControladorSuscripciones::Instance = NULL;
+ControladorSuscripciones* ControladorSuscripciones::instance = NULL;
 
+ControladorSuscripciones::ControladorSuscripciones() {
+}
 
 ControladorSuscripciones* ControladorSuscripciones::getInstance() {
-    if (ControladorSuscripciones::Instance == NULL) {
-        ControladorSuscripciones::Instance = new ControladorSuscripciones;
+    if (instance == NULL) {
+        instance = new ControladorSuscripciones;
     } 
-    return ControladorSuscripciones::Instance;
+    return instance;
 }
+
 
 
 
