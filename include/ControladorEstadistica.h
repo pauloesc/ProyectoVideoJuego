@@ -34,6 +34,7 @@ public:
     void SeleccionEstadisticas( vector<string> elecciones );
     void ConfirmarSeleccionEstaditicas();
     void CancelarSeleccionEstaditicas();
+    ~ControladorEstadistica();
     
 };
  
