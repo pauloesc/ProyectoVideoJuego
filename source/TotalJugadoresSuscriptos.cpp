@@ -12,3 +12,7 @@ DtEstadisticaDeSegundoTipo* TotalJugadoresSuscriptos::DarEstadistica(Videojuego*
     DtEstadisticaDeSegundoTipo* infoRetornar = new DtEstadisticaDeSegundoTipo(vjp->getNombre(), cantSusc);
     return infoRetornar;
 }
+
+TotalJugadoresSuscriptos::~TotalJugadoresSuscriptos(){
+    
+}
