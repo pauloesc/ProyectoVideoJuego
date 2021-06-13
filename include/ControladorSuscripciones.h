@@ -37,7 +37,7 @@ class ControladorSuscripciones {
         vector<DtSuscripcion*> obtenerSuscripcionesNoActivas();
         void IngresarDatosSuscripcion(string tiposuscripcion, DtPago pag);
         void SeleccionarVideojuego(string Juego);
-        void Finalizarproceso();
+        void Finalizarproceso(); //falta implementar
         void ConfirmarSuscripcion();
         void Cancelar();
         ~ControladorSuscripciones();
