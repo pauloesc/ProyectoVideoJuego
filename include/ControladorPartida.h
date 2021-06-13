@@ -55,6 +55,7 @@ public:
 	vector<string> ListarJugadoresConSuscripcionActiva();
 	void IniciarPartida();
 	void CancelarPartida();
+	~ControladorPartida();
 
 
 };
