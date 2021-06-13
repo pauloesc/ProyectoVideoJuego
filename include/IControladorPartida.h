@@ -31,7 +31,7 @@ public:
 	virtual vector<string> ListarJugadoresConSuscripcionActiva()=0;
 	virtual void IniciarPartida()=0;
 	virtual void CancelarPartida()=0;
-
+	virtual~IControladorPartida(){};
 
 };
 
