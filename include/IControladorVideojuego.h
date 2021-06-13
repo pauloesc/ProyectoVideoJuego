@@ -33,7 +33,7 @@ virtual void CancelarAltavideoJuego()=0;
 virtual vector<string> obtenerVideoJuegosConTodasLasPartidasFinalizadas()=0; //eliminar videojuego
 virtual void seleccionarVideoJuego(string nomVJ)=0; 
 virtual void eliminarVideoJuego()=0;
-virtual void void cancelarLaEliminacion()=0;
+virtual void cancelarLaEliminacion()=0;
 
 
 virtual vector<string> ObtenerCategorias()=0; //caso de uso agregar categorias
