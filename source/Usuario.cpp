@@ -13,3 +13,5 @@ string Usuario :: getemail () {
 string Usuario :: getcontrasenia () {
 	return contrasenia;
 }
+
+Usuario::~Usuario(){}
