@@ -44,50 +44,6 @@ void DtPartidaEnCurso::setNombreVideojuego(string nombreVideojuego){
 }
 
 
-
-ostream& operator<<(ostream &o, DtPartidaEnCurso *s) {
-	o << s->getFecha();
-    o << "Código: " << s->getCodigo() <<'\n';
-    o << "Nombre del Videojuego: " << s->getNombreVideojuego() <<'\n';
-	if (dynamic_cast<DtPartidaIndividualEnCurso*>(s) != NULL) {
-		DtPartidaIndividualEnCurso *p = dynamic_cast<DtPartidaIndividualEnCurso*>(s);
-
-		o << "Continuación de la partida anterior: ";
-		if (p->getContinuaPartidaAnterior()) {
-			o << "Si" <<'\n';
-		} else {
-			o << "No" <<'\n';
-		}
-
-	} else {
-		DtPartidaMultijugadorEnCurso *p = dynamic_cast<DtPartidaMultijugadorEnCurso*>(s);
-
-		o << "Transmitida en vivo: ";
-		if (p->getTransmitidaEnVivo()) {
-			o << "Si" <<'\n';
-		} else {
-			o << "No" <<'\n';
-		}
-
-		o << "Cantidad de jugadores unidos a la partida: " << p->getCantidadJugadoresUnidos() <<'\n';
-
-		o << "Jugadores unidos a la partida: ";
-
-
-		list<string> part=p->getNicknameJugadoresUnidos();
-        list<string>::iterator it;
-        for(it = part.begin(); it != part.end(); ++it){
-            if (*it  == p->getNicknameJugadoresUnidos().back()) {
-                o << *it <<'\n';
-            }
-            else{
-                o << *it <<", ";
-            }
-        }
-		part.clear();
-	}
-	return o;
-}
 DtPartidaEnCurso::~DtPartidaEnCurso(){
 
 }
