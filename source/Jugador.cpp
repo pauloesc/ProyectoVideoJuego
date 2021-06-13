@@ -168,3 +168,7 @@ void Jugador::jugadorAbandona(int identificador, Jugador* jug) {
 		}
 	}
 }
+
+Jugador::~Jugador(){
+    
+}
