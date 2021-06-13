@@ -23,7 +23,7 @@ virtual bool ingresarDatos(string email, string contrasenia)=0; //caso de uso in
 virtual bool esUsuarioEnLineaJugador()=0; //lo va pedir tambien la capa presentacion
 
 
-vitual~IControladorUsuario(){};
+virtual~IControladorUsuario(){};
 
 };
 
