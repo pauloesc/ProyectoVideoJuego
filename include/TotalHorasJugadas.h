@@ -10,6 +10,8 @@ public:
 	TotalHorasJugadas(string nom, string desc);
 	DtEstadisticaDeSegundoTipo* DarEstadistica(Videojuego* vjp);
 
+	~TotalHorasJugadas();
+
 };
 
 
