@@ -1,6 +1,4 @@
 #include "../include/DtPartida.h"
-#include "../include/DtPartidaIndividual.h"
-#include "../include/DtPartidaMultijugador.h"
 #include "../include/DtFecha.h"
 #include <string>
 #include <iostream>
@@ -52,39 +50,6 @@ void DtPartida::setEnCurso(bool enCurso){
 }
 
 
-
-ostream& operator<<(ostream &o, DtPartida *s) {
-	o << s->getFecha();
-	o << "Duración de la partida (en horas): " << s->getDuracion() <<'\n';
-    o << "Código: " << s->getCodigo() <<'\n';
-    o << "Está en curso: ";
-		if (s->getEnCurso()) {
-			o << "Si" <<'\n';
-		} else {
-			o << "No" <<'\n';
-		}
-	if (dynamic_cast<DtPartidaIndividual*>(s) != NULL) {
-		DtPartidaIndividual *p = dynamic_cast<DtPartidaIndividual*>(s);
-
-		o << "Continuación de la partida anterior: ";
-		if (p->getContinuaPartidaAnterior()) {
-			o << "Si" <<'\n';
-		} else {
-			o << "No" <<'\n';
-		}
-
-	} else {
-		DtPartidaMultijugador *p = dynamic_cast<DtPartidaMultijugador*>(s);
-
-		o << "Transmitida en vivo: ";
-		if (p->getTransmitidaEnVivo()) {
-			o << "Si" <<'\n';
-		} else {
-			o << "No" <<'\n';
-		}
-	}
-	return o;
-}
 DtPartida::~DtPartida(){
 
 }
