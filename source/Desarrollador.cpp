@@ -24,3 +24,7 @@ vector<DtEstadisticaDeSegundoTipo *> Desarrollador::DarEstadisticas(Videojuego *
 void Desarrollador::setEstadisticas(vector<Estadistica *> estadist) {
     estadisticas = estadist;
 }
+
+Desarrollador::~Desarrollador(){
+    
+}
