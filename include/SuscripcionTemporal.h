@@ -20,6 +20,8 @@ public:
     bool getCancelada();
     DtSuscripcion* crearDtSuscripcion();
     void cancelarSuscripcion();
+
+	~SuscripcionTemporal();
 };
 
 
