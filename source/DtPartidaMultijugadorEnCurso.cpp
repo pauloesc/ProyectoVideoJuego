@@ -71,6 +71,40 @@ void DtPartidaMultijugadorEnCurso::setNicknameJugadoresUnidos(list<string> nickn
 
 
 
+ostream& operator<<(ostream &o, DtPartidaMultijugadorEnCurso *s) {
+    
+    o << "Partida Multijugador"<< s->getFecha()<<'\n';
+    o << "Código: " << s->getCodigo() <<'\n';
+    o << "Nombre del Videojuego: " << s->getNombreVideojuego() <<'\n';
+    o << "Transmitida en vivo: ";
+		if (s->getTransmitidaEnVivo()) {
+			o << "Si" <<'\n';
+		} else {
+			o << "No" <<'\n';
+		}
+
+    o << "Cantidad de jugadores unidos a la partida: " << s->getCantidadJugadoresUnidos() <<'\n';
+
+    o << "Jugadores unidos a la partida: ";
+
+         list<string> part=s->getNicknameJugadoresUnidos();
+         list<string>::iterator it;
+         for(it = part.begin(); it != part.end(); ++it){
+            if (*it  == s->getNicknameJugadoresUnidos().back()) {
+                o << *it <<'\n';
+            }
+            else{
+                o << *it <<", ";
+            }
+        }
+		part.clear();
+	
+	return o;
+}
+
+
+
+
 
 
 
