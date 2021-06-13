@@ -5,6 +5,7 @@
 #include <vector>
 
 #include "DtSuscripcion.h"
+#include "DtPago.h"
 
 
 
