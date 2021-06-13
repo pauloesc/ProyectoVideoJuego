@@ -21,6 +21,8 @@ class Desarrollador : public Usuario {
 		vector<DtEstadisticaDeSegundoTipo *> DarEstadisticas(Videojuego *vj);
 		bool esJugador();
         void setEstadisticas(vector<Estadistica *> estadist);
+		
+		~Desarrollador();
 };
 
 
