@@ -20,5 +20,6 @@ public:
 	bool getContinuaPartidaAnterior();
 	void setContinuaPartidaAnterior(bool continuarPartidaAnterior);
 	~DtPartidaIndividualEnCurso();
+	friend ostream& operator<<(ostream &o, DtPartidaIndividualEnCurso *s);
 };
 #endif
