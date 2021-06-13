@@ -57,7 +57,7 @@ vector<string> DtInfoEspecifica::getCategorias() {
 
 
 
-ostream& operator<<(ostream &o, DtVideojuego* s) {
+ostream& operator<<(ostream &o, DtInfoEspecifica* s) {
 	o << "Nombre: " << s->getNombre() << '\n';
 	o << "Descripción: " << s->getDescripcion() << '\n';
 	o << "Costo Mensual: " << s->getCostoMensual() << '\n';
