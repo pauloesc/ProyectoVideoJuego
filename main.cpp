@@ -4,9 +4,21 @@
 
 using namespace std;
 
-// comento todo para arreglar errores de sintaxis en las clases primero
-/*
+
+#include <../include/DtInfoEspecifica.h>
+#include <../include/DtEstadisticaDeSegundoTipo.h>
+
+#include <../include/DtSuscripcion.h>
+#include <../include/DtPartidaIndividual.h>
+#include <../include/DtPartidaMultijugador.h>
+#include <../include/DtPartidaEnCurso.h>
+#include <../include/DtVideojuego.h>
+#include <../include/DataEstadistica.h>
+
+
  
+ /*
+
 void menuParaJugador(){
 
         bool termina = 0;
@@ -306,6 +318,8 @@ void menuParaJugador(){
 
 };
 
+*/
+
 void menuParaDesarollador(){
 
         bool termina = 0;
@@ -328,16 +342,14 @@ void menuParaDesarollador(){
 
                         case 1: {
                                 vector<string> nombreCategorias;
-                                nombreCategorias = InstanciaControladorVideojuego.ObtenerCategorias();
+                                //nombreCategorias = InstanciaControladorVideojuego.ObtenerCategorias();
 
                                 cout << "Nombre de las categorias existentes: "<<'\n';
                  
-                                for(int i=0; i< nombreCategorias.size(), i++ ){
-                                        cout << nombreCategorias[i] << endl;
-
+                                int maxx = nombreCategorias.size();
+                                for(int i=0; i < maxx; i++ ){
+                                        //cout << nombreCategorias[i] << endl;
                                 }
-
-                                
 
                                 string nomCategoria;
                                 cout << "Ingrese nombre de la nueva categoria: "<<'\n';
@@ -346,30 +358,30 @@ void menuParaDesarollador(){
                                 cout <<'\n';
                                 
                                 string descCategoria;
-                                cout << "Ingrese nombre de la nueva categoria: "<<'\n';
+                                cout << "Ingrese descripcion de la nueva categoria: "<<'\n';
                                 cin.ignore();
                                 getline(cin,descCategoria);
                                 cout <<'\n';
                                 
                                 string tipoCategoria;
-                                cout << "Ingrese nombre de la nueva categoria: "<<'\n';
+                                cout << "Ingrese tipo de la nueva categoria: "<<'\n';
                                 cin.ignore();
                                 getline(cin,tipoCategoria);
                                 cout <<'\n';
                  
-                                InstanciaControladorVideojuego.NuevaCategoria(nomCategoria, descCategoria, tipoCategoria);
+                                //InstanciaControladorVideojuego.NuevaCategoria(nomCategoria, descCategoria, tipoCategoria);
 
                                 bool confirmar= 0;
                                 cout << "Confirmar creacion de categoria: 1 para si, 0 para no "<<'\n';
+                                cin >> confirmar;
                                 cin.ignore();
-                                getline(cin,confirmar);
                                 cout <<'\n';
 
                                 if(confirmar){
-                                        InstanciaControladorVideojuego.ConfirmarCategoria()
+                                        //InstanciaControladorVideojuego.ConfirmarCategoria()
                                 }
                                 else{
-                                        InstanciaControladorVideojuego.ConfirmarCategoria()
+                                        //InstanciaControladorVideojuego.ConfirmarCategoria()
                                 }
 
                         }
@@ -383,7 +395,6 @@ void menuParaDesarollador(){
                                 getline(cin,vJuego);
                                 cout <<'\n';
 
-        
                                 string vDescripcion;
                                 cout << "Ingrese descripcion: "<<'\n';
                                 cin.ignore();
@@ -393,109 +404,115 @@ void menuParaDesarollador(){
                                 string vCostoMensual;
                                 cout << "Ingrese costo mensual: "<<'\n';
                                 cin.ignore();
-                                getline(cin,vCostoMensual);
+                                cin >> vCostoMensual;
                                 cout <<'\n';
 
                                 string vCostoTrimestral;
                                 cout << "Ingrese costo trimestral: "<<'\n';
                                 cin.ignore();
-                                getline(cin,vCostoTrimestral);
+                                cin >> vCostoTrimestral;
                                 cout <<'\n';
 
                                 string vCostoAnual;
                                 cout << "Ingrese costo anual: "<<'\n';
                                 cin.ignore();
-                                getline(cin,vCostoAnual);
+                                cin >> vCostoAnual;
                                 cout <<'\n';
 
                                 string vCostoVitalicio;
                                 cout << "Ingrese costo vitalicio: "<<'\n';
                                 cin.ignore();
-                                getline(cin,vCostoVitalicio);
+                                cin >> vCostoVitalicio;
                                 cout <<'\n';
                                 
                                 vector<DataCategoria2> CategoriaPlataforma;
-                                CategoriaPlataforma = InstanciaControladorVideojuego.ObtenerCategoriaPlataforma();
+                                //CategoriaPlataforma = InstanciaControladorVideojuego.ObtenerCategoriaPlataforma();
                               
                                 //imprimimos las categorias de tipo plataforma
-                                for( int i=0; i<CategoriaPlataforma.size();i++ ){
-                                        cout << CategoriaPlataforma[i] << endl;
+                                int max = CategoriaPlataforma.size();
+                                for( int i=0; i < max; i++ ){
+                                        //cout << CategoriaPlataforma[i] << endl;
                                 }
 
                                 bool auxWhileAgregarCat = 1;
                                 while( auxWhileAgregarCat ){
 
-                                        string vNombrecCategori;
+                                        string vNombreCategoria;
                                         cout << "Agrege una categoria (nombre) :"<<'\n';
                                         cin.ignore();
-                                        getline(cin,vNombrecCategoria);
+                                        getline(cin,vNombreCategoria);
                                         cout <<'\n';
-                                        InstanciaControladorVideojuego.agregarcategoria(vNombrecCategori);
+                                        //InstanciaControladorVideojuego.agregarcategoria(vNombreCategoria);
                                         
                                         cout << "Desea agregar mas categorias: 1 para si 0 para no "<<'\n';
                                         cin.ignore();
-                                        getline(cin,auxWhileAgregarCat);
+                                        cin >> auxWhileAgregarCat;
                                         cout <<'\n';
                                 }
 
 
                                 vector<DataCategoria2> CategoriaGenero;
-                                CategoriaGenero = InstanciaControladorVideojuego.ObtenerCategoriaGenero();
+                                //CategoriaGenero = InstanciaControladorVideojuego.ObtenerCategoriaGenero();
                               
                                 //imprimimos las categorias de tipo genero
-                                for( int i=0; i<CategoriaGenero.size();i++ ){
-                                        cout << CategoriaGenero[i] << endl;
+
+                                //max ya esta definido
+                                max = CategoriaGenero.size();
+                                for( int i=0; i < max ;i++ ){
+                                        //cout << CategoriaGenero[i] << endl;
                                 }
 
                                 auxWhileAgregarCat = 1;
                                 
                                 while( auxWhileAgregarCat ){
 
+                                        string vNombreCategoria;
                                         cout << "Agrege una categoria (nombre) :"<<'\n';
                                         cin.ignore();
-                                        getline(cin,vNombrecCategoria);
+                                        getline(cin,vNombreCategoria);
                                         cout <<'\n';
-                                        InstanciaControladorVideojuego.agregarcategoria(vNombrecCategori);
+                                        //InstanciaControladorVideojuego.agregarcategoria(vNombreCategoria);
                                         
                                         cout << "Desea agregar mas categorias: 1 para si 0 para no "<<'\n';
                                         cin.ignore();
-                                        getline(cin,auxWhileAgregarCat);
+                                        cin >> auxWhileAgregarCat;
                                         cout <<'\n';
                                 }
 
 
                                 vector<DataCategoria2> CategoriaOtro;
-                                CategoriaGenero = InstanciaControladorVideojuego.ObtenerCategoriaOtro();
+                                //CategoriaGenero = InstanciaControladorVideojuego.ObtenerCategoriaOtro();
                               
                                 //imprimimos las categorias de tipo otro
-                                for( int i=0; i<CategoriaOtro.size();i++ ){
-                                        cout << CategoriaOtro[i] << endl;
+                                int max = CategoriaOtro.size();
+                                for( int i=0; i<max; i++ ){
+                                        //cout << CategoriaOtro[i] << endl;
                                 }
 
                                 auxWhileAgregarCat = 1;
                                 cout << "Desea agregar mas categorias: 1 para si 0 para no "<<'\n';
                                 cin.ignore();
-                                getline(cin,auxWhileAgregarCat);
+                                cin >>auxWhileAgregarCat;
                                 cout <<'\n';
 
                                 while( auxWhileAgregarCat ){
-
+                                        string vNombrecCategoria;
                                         cout << "Agrege una categoria (nombre) :"<<'\n';
                                         cin.ignore();
                                         getline(cin,vNombrecCategoria);
                                         cout <<'\n';
 
-                                        InstanciaControladorVideojuego.agregarcategoria(vNombrecCategori);
+                                       // InstanciaControladorVideojuego.agregarcategoria(vNombrecCategoria);
                                         
                                         cout << "Desea agregar mas categorias: 1 para si 0 para no "<<'\n';
                                         cin.ignore();
-                                        getline(cin,auxWhileAgregarCat);
+                                        cin >> auxWhileAgregarCat;
                                         cout <<'\n';
 
                                 }
-                                DtVideoJuego infoVideojuego;
-                                infoVideojuego = InstanciaControladorVideojuego.ObtenerInfoVideojuego();
-                                cout << infoVideojuego << endl;
+                                DtVideojuego infoVideojuego;
+                                //infoVideojuego = InstanciaControladorVideojuego.ObtenerInfoVideojuego();
+                                //cout << infoVideojuego << endl;
 
 
 
@@ -504,34 +521,36 @@ void menuParaDesarollador(){
                         case 3: {
 
                                 vector<string> VideojuegosParaEliminar;
-                                VideojuegosParaEliminar = InstanciaControladorVideojuego.obtenerVideoJuegosConTodasLasPartidasFinalizadas();
+                                //VideojuegosParaEliminar = InstanciaControladorVideojuego.obtenerVideoJuegosConTodasLasPartidasFinalizadas();
 
-                                for( int i = 0; i< VideojuegosParaEliminar.size(); i++ ){
-                                        cout << VideojuegosParaEliminar[i] << endl;
+                                int max = VideojuegosParaEliminar.size();
+                                for( int i = 0; i< max; i++ ){
+                                        //cout << VideojuegosParaEliminar[i] << endl;
                                 }
 
-                                InstanciaControladorVideojuego.SeleccionarVideoJuego (nomVJ: string);
+                                //InstanciaControladorVideojuego.SeleccionarVideoJuego(string nomVJ);
 
                                 bool conf = 0;
                                 cout << "Cofirmar eliminacion 1 para si, 0 para no :"<<'\n';
                                 cin.ignore();
-                                getline(cin,conf);
+                                cin >> conf;
                                 cout <<'\n';
 
                                 if(conf){
-                                        InstanciaControladorVideojuego.eliminarVideojuego();
+                                        //InstanciaControladorVideojuego.eliminarVideojuego();
                                 }
                                 else{
-                                        InstanciaControladorVideojuego.cancelarLaEliminacion();
+                                        //InstanciaControladorVideojuego.cancelarLaEliminacion();
                                 }
                         }
                         break;
                         case 4: {
                                 vector<DataEstadistica> EstadisticasEnElSistema;
-                                EstadisticasEnElSistema = InstanciaControladorEstadistica.TiposDeEstadistica();
+                                //EstadisticasEnElSistema = InstanciaControladorEstadistica.TiposDeEstadistica();
 
-                                for(int i=0; i< EstadisticasEnElSistema.size() ){
-                                        cout << EstadisticasEnElSistema[i] << endl;
+                                int max = EstadisticasEnElSistema.size();
+                                for(int i=0; i< max; i++ ){
+                                        //cout << EstadisticasEnElSistema[i] << endl;
                                 }
 
                                 vector<string> EstadisticasSeleccionadas;
@@ -544,28 +563,28 @@ void menuParaDesarollador(){
                                         getline(cin,estadisticaNombre);
                                         cout <<'\n';
 
-                                        EstadisticasSeleccionadas.push_back(estadisticaNombre);
+                                        //EstadisticasSeleccionadas.push_back(estadisticaNombre);
 
                                         cout << "Quiere seleccionar otra estadistica. 1 para si, 0 para no :"<<'\n';
                                         cin.ignore();
-                                        getline(cin,auxWhile);
+                                        cin >> auxWhile;
                                         cout <<'\n';
 
                                 }
 
-                                InstanciaControladorEstadistica.SeleccionEstadisticas(EstadisticasSeleccionadas);
+                                //InstanciaControladorEstadistica.SeleccionEstadisticas(EstadisticasSeleccionadas);
 
                                 bool confirmar;
                                 cout << "Confirmar. 1 para si 0 para no :"<<'\n';
                                 cin.ignore();
-                                getline(cin,confirmar);
+                                cin >>confirmar;
                                 cout <<'\n';
 
                                 if(confirmar){
-                                        InstanciaControladorEstadistica.ConfirmarSeleccionEstaditicas();
+                                        //InstanciaControladorEstadistica.ConfirmarSeleccionEstaditicas();
                                 }
                                 else{
-                                       InstanciaControladorEstadistica.CancelarSeleccionEstaditicas();
+                                       //InstanciaControladorEstadistica.CancelarSeleccionEstaditicas();
                                 }
 
                         }
@@ -573,11 +592,12 @@ void menuParaDesarollador(){
                         case 5: {
 
                                 vector<string> JuegosDelDesarollador;
-                                JuegosDelDesarollador = InstanciaControladorVideojuego.JuegosDelDesarollador();
+                                //JuegosDelDesarollador = InstanciaControladorVideojuego.JuegosDelDesarollador();
                                 
                                 //imprimo los videojuegos del desarollador
-                                for( int i=0; i< JuegosDelDesarollador.size(); i++ ){
-                                        cout << JuegosDelDesarollador[i] << endl;
+                                int max = JuegosDelDesarollador.size();
+                                for( int i=0; i< max; i++ ){
+                                        //cout << JuegosDelDesarollador[i] << endl;
                                 }
 
                                 string nombreJuego;
@@ -586,20 +606,21 @@ void menuParaDesarollador(){
                                 getline(cin,nombreJuego);
                                 cout <<'\n';
 
-                                DataEstadisticaDeSegundoTipo datos;
-                                datos = SeleccionEstadisticasDeCiertoJuego(nombreJuego)
+                                DtEstadisticaDeSegundoTipo datosDatos;
+                                //datos = SeleccionEstadisticasDeCiertoJuego(nombreJuego)
 
-                                cout << datos << endl;
+                                //cout << datosDatos << endl;
 
                         }
                         break;
                         case 6: {
                                 
                                 vector<string> VideojuegosEnSistema;
-                                VideojuegosEnSistema = InstanciaControladorVideojuego.ObtenerVideoJuegos();
+                                //VideojuegosEnSistema = InstanciaControladorVideojuego.ObtenerVideoJuegos();
 
-                                for(int i=0; i< VideojuegosEnSistema.size(); i++){
-                                        cout << VideojuegosEnSistema[i] << endl;
+                                int max = VideojuegosEnSistema.size();
+                                for(int i=0; i< max; i++){
+                                        //cout << VideojuegosEnSistema[i] << endl;
                                 }
 
                                 string nombreJuego;
@@ -608,10 +629,11 @@ void menuParaDesarollador(){
                                 getline(cin,nombreJuego);
                                 cout <<'\n';
 
-                                DataInfoEspecifica datosVj;
-                                datosVj = InstanciaControladorVideojuego.SeleccionarVideojuego(nombreJuego);
+                                DtInfoEspecifica datosVj;
+                                //datosVj = InstanciaControladorVideojuego.SeleccionarVideojuego(nombreJuego);
 
-                                float VMostarTotalHorasJugadas = MostrarTotalHorasJugadas();
+                                float VMostarTotalHorasJugadas=0;
+                                //float VMostarTotalHorasJugadas = MostrarTotalHorasJugadas();
                                 cout << "Total de horas Jugadas: ";
                                 cout << VMostarTotalHorasJugadas << endl;
 
@@ -626,22 +648,20 @@ void menuParaDesarollador(){
 };
 
 
+
+
 int main() {
 
-        //no cambiar el nombre de estas cosas
-        //no cambiar el nombre de estas cosas
-        //no cambiar el nombre de estas cosas
-        //no cambiar el nombre de estas cosas
-        InstanciaControladorUsuario;
-        InstanciaControladorEstadistica;
-        InstanciaControladorPartida;
-        InstanciaControladorVideojuego;
-        InstanciaControladorSuscripcion;
-        //no cambiar el nombre de estas cosas
-        //no cambiar el nombre de estas cosas
-        //no cambiar el nombre de estas cosas
-        //no cambiar el nombre de estas cosas
+/*
+        Fabrica FricaDeControladores;
+        Fabrica* InstanciaControladorUsuario = FricaDeControladores.getUsuario();
+        Fabrica* InstanciaControladorEstadistica = FricaDeControladores.getIEstadistica();
+        Fabrica* InstanciaControladorPartida = FricaDeControladores.getIPartida();
+        Fabrica* InstanciaControladorVideojuego = FricaDeControladores.getIVideojuego();
+        Fabrica* InstanciaControladorSuscripcion = FricaDeControladores.getISuscripcion();
+*/
 
+        bool termina = 0;
         while (!termina) {
 
                 try {
@@ -653,6 +673,7 @@ int main() {
                         cout << "4) Cargar datos de prueba." << '\n';
                         cout << "5) Salir." << '\n';
 
+                        int eleccion;
                         cin >> eleccion;
                         cout << '\n';
 
@@ -672,15 +693,21 @@ int main() {
                                 getline(cin, vpassword);
                                 cout << '\n';
 
-                                InstanciaControladorUsuario.IngresardatosUsuario(vemail, vpassword);
+                                //InstanciaControladorUsuario.IngresardatosUsuario(vemail, vpassword);
 
-                                bool esDesarollador = 0;
+                                int esDesarollador = 0;
                                 cout << "Es un usuario desarollador: 1 para si, 0 para no" << '\n';
                                 cin.ignore();
-                                getline(cin, esDesarollador);
+                                cin >> esDesarollador;
 
-                                if (esDesarollador) {
-                                        InstanciaControladorUsuario.IngresardatosDesarrollador(nomEmpresa: string)
+
+                                if (esDesarollador==1) {
+                                        string nomEmpresa;
+                                        cout << "Ingrese nombre nomEmpresa" << '\n';
+                                        cin.ignore();
+                                        getline(cin, nomEmpresa);
+                                        //InstanciaControladorUsuario.IngresardatosDesarrollador(nomEmpresa)
+
                                 } else {
 
                                         bool auxWhile = 1;
@@ -698,8 +725,8 @@ int main() {
                                                 getline(cin, vdescripcion);
                                                 cout << '\n';
 
-                                                bool verificacion;
-                                                verificacion: = InstanciaControladorUsuario.IngresardatosJugador(vnickname, vdescripcion)
+                                                bool verificacion=0;
+                                                //verificacion = InstanciaControladorUsuario.IngresardatosJugador(vnickname, vdescripcion);
 
                                                 //si puede registrarse con ese usuario
                                                 if (verificacion) {
@@ -708,8 +735,7 @@ int main() {
 
                                                         bool vreintenarIngresoDatos;
                                                         cout << "No es posible registar dichs datos quiere volver a intentarlo: 0 para no, 1 para si" << '\n';
-                                                        cin.ignore();
-                                                        getline(cin, vreintenarIngresoDatos);
+                                                        cin >> vreintenarIngresoDatos;
                                                         cout << '\n';
 
                                                         auxWhile = vreintenarIngresoDatos;
@@ -723,20 +749,20 @@ int main() {
                                 bool vconfirmar;
                                 cout << "Desea confirmar inscripcion 1 para si 0 para no:" << '\n';
                                 cin.ignore();
-                                getline(cin, vconfirmar);
+                                cin >> vconfirmar;
                                 cout << '\n';
 
                                 if (vconfirmar) {
-                                        InstanciaControladorUsuario.cancelarAltaUsuario()
+                                        //InstanciaControladorUsuario.cancelarAltaUsuario()
                                 } else {
-                                        InstanciaControladorUsuario.ConfirmarAltaUsuario()
+                                        //InstanciaControladorUsuario.ConfirmarAltaUsuario()
                                 }
                         }
                         break;
 
                         case 2: {
 
-                                auxWhile = 1;
+                                bool auxWhile = 1;
                                 while (auxWhile) {
 
                                         string vemail;
@@ -752,17 +778,17 @@ int main() {
                                         cout << '\n';
 
                                         bool ingreso = 0;
-                                        ingreso: = InstanciaControladorUsuario.IngresarDatos(vemail; passw);
+                                        //ingreso = InstanciaControladorUsuario.IngresarDatos(vemail, passw);
 
                                         //si no ingreso
                                         if (!ingreso) {
                                                 bool reintentar;
                                                 cout << "Fallo el ingreso. Quiere reintentar ingresar?: 1 para si 0 para no" << '\n';
                                                 cin.ignore();
-                                                getline(cin, reintentar);
+                                                cin >> reintentar;
                                                 cout << '\n';
 
-                                                auxWhile = reintentar
+                                                auxWhile = reintentar;
                                         }
                                         //si ingreso
                                         else {
@@ -829,9 +855,7 @@ int main() {
                 }
         }
 
-*/
-int main() { //quitar esta linea
-
-
         return 0;
+
+
 }
