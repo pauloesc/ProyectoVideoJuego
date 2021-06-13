@@ -118,3 +118,4 @@ void ControladorSuscripciones::ConfirmarSuscripcion() {
 void ControladorSuscripciones::Cancelar() {
 }
 
+ControladorSuscripciones::~ControladorSuscripciones(){}
