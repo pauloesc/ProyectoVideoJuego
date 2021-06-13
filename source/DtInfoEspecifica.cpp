@@ -55,10 +55,17 @@ vector<string> DtInfoEspecifica::getCategorias() {
 	return resu;
 }
 
+string DtInfoEspecifica::getEmpresa() {
+	return empresadesarrolladora;
+}
+
+float DtInfoEspecifica::getpromedio() {
+	return promedio;
+}
 
 
 ostream& operator<<(ostream &o, DtInfoEspecifica* s) {
-	o << "Descripción: " << s->getDescripcion() << '\n';
+		o << "DescripciÃ³n: " << s->getDescripcion() << '\n';
 	o << "Costo Mensual: " << s->getCostoMensual() << '\n';
 	o << "Costo Trimestral: " << s->getCostoTrimestral() << '\n';
 	o << "Costo Anual: " << s->getCostoAnual() << '\n';
@@ -73,5 +80,9 @@ ostream& operator<<(ostream &o, DtInfoEspecifica* s) {
             o << (*it) << ", ";
         }
 	}
+	o << "Empresa Desarrolladora: " << s->getEmpresa() << '\n';
+	o << "Puntuacion promedio: " << s->getpromedio() << '\n';
+
+
 	return o;
 }
