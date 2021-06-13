@@ -16,7 +16,7 @@ public:
 
 	virtual void seleccionaVideoJuego(string nombrevid)=0;
 	virtual void ingresarPartidaIndividual(bool continuacion)=0;
-	virtual void PartidaAcontinuar(int codigoAnterior)=;
+	virtual void PartidaAcontinuar(int codigoAnterior)=0;
 	virtual void ingresarPartidaMultijugador(bool TransmitidaenVivo)=0;
 	virtual void AgregarJugador(string jug)=0;
 	
