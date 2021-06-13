@@ -24,7 +24,7 @@ using namespace std;
 class ControladorSuscripciones {
     private:
         static ControladorSuscripciones* Instance;
-        
+        ControladorSuscripciones();
         Videojuego *vj;
         string nomJ;
         string tiposus;
