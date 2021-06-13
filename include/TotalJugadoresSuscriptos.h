@@ -11,6 +11,8 @@ private:
 public:
 	TotalJugadoresSuscriptos(string nom, string des);
 	DtEstadisticaDeSegundoTipo* DarEstadistica(Videojuego* vjp);
+
+	~TotalJugadoresSuscriptos();
 };
 
 #endif
