@@ -12,3 +12,4 @@ string Estadistica::getDescripcion(){
     return Descripcion;
 }
     
+Estadistica::~Estadistica(){}
