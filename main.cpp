@@ -19,7 +19,6 @@ using namespace std;
 #include "include/Reloj.h"
 
 
-
 void menuParaJugador(IControladorUsuario* IU, IControladorVideojuego* IV, IControladorSuscripciones* IS, IControladorPartida* IP, IControladorEstadistica* IE){
 
         bool termina = 0;
@@ -41,29 +40,32 @@ void menuParaJugador(IControladorUsuario* IU, IControladorVideojuego* IV, IContr
 
                         case 1: {
                                 vector<DtSuscripcion*> SuscripcionesActivas;
-                                //SuscripcionesActivas = InstanciaControladorSuscripcion.obtenerSuscripcionesActivas();
-/*
-                                for(int i=0; i< SuscripcionesActivas.size(), i++ ){
+                                SuscripcionesActivas = IS->obtenerSuscripcionesActivas();
+
+                                int max = SuscripcionesActivas.size();
+                                for(int i=0; i< max; i++ ){
                                         cout << SuscripcionesActivas[i] << endl;
 
                                 }
-*/
+
                                 vector<DtSuscripcion*> SuscripcionesNoActivas;
-                                //SuscripcionesNoActivas = InstanciaControladorSuscripcion.obtenerSuscripcionesNoActivas();
-/*
-                                for(int i=0; i< SuscripcionesNoActivas.size(), i++ ){
+                                SuscripcionesNoActivas = IS->obtenerSuscripcionesNoActivas();
+
+                                max = SuscripcionesNoActivas.size();
+                                for(int i=0; i < max; i++ ){
                                         cout << SuscripcionesNoActivas[i] << endl;
 
                                 }
-*/
+
                                 string nombreVideojego;
                                 cout << "Ingrese nombre del videojuego: "<<'\n';
                                 cin.ignore();
                                 getline(cin,nombreVideojego);
                                 cout <<'\n';
 
-                                bool puedeSuscribirse=0;
-                                //bool puedeSuscribirse = InstanciaControladorSuscripcion.SeleccionarVideojuegoParaSuscr(nombreVideojego);
+                                bool puedeSuscribirse = 0;
+                                //ESTA FUNCION ES MUY ESPECIFICA NO SE SI ESTA EN EL CONTROLADOR
+                                //puedeSuscribirse = IS->SeleccionarVideojuegoParaSuscr(nombreVideojego);
 
                                 //si puede suscribirse
                                 if(puedeSuscribirse){
@@ -76,7 +78,7 @@ void menuParaJugador(IControladorUsuario* IU, IControladorVideojuego* IV, IContr
 
                                         //si no cancela la suscripcion existente
                                         if(!cancela){
-                                          //      InstanciaControladorSuscripcion.Cancelar();
+                                                IS->Cancelar();
                                         }
 
                                         //nosi quiere cancela la suscripcion existente.
@@ -106,7 +108,7 @@ void menuParaJugador(IControladorUsuario* IU, IControladorVideojuego* IV, IContr
 						
 
 
-                                        //        InstanciaControladorSuscripcion.IngresarDatosSuscripcion(tipoSusc,formaPago);
+                                                IS->IngresarDatosSuscripcion(tipoSusc,formaPago);
 
                                                 bool confirSus=0;
                                                 cout << "Confirmar suscripcion: 1 para si 0 para no "<<'\n';
@@ -115,10 +117,10 @@ void menuParaJugador(IControladorUsuario* IU, IControladorVideojuego* IV, IContr
                                                 cout <<'\n';
 
                                                 if(confirSus){
-                                    //                    InstanciaControladorSuscripcion.ConfirmarSuscripcion();
+                                                        IS->ConfirmarSuscripcion();
                                                 }
                                                 else{
-                                      //                  InstanciaControladorSuscripcion.Cancelar();
+                                                        IS->Cancelar();
                                                 }
 
                                         }
@@ -128,7 +130,7 @@ void menuParaJugador(IControladorUsuario* IU, IControladorVideojuego* IV, IContr
                                 }
                                 //no puede siscribirse
                                 else{
-                                  //      InstanciaControladorSuscripcion.Finalizarproceso();
+                                  //      IS->Finalizarproceso();
                                 }
 
 
@@ -137,12 +139,13 @@ void menuParaJugador(IControladorUsuario* IU, IControladorVideojuego* IV, IContr
                         case 2: {
 
                                 vector<DtVideojuegoResumido*> VideojuegosDatos;
-                                //VideojuegosDatos = InstanciaControladorVideojuego.ObtenerVideojuegos();
-/*
-                                for(int i=0; i< VideojuegosDatos.size(), i++ ){
+                                VideojuegosDatos = IV->ObtenerVideoJuegos();
+
+                                int max = VideojuegosDatos.size();
+                                for(int i=0; i< max; i++ ){
                                         cout << VideojuegosDatos[i] << endl;
                                 }
-*/
+
                                 string NombreVj;
                                 cout << "Nombre del Vj: "<<'\n';
                                 cin.ignore();
@@ -155,26 +158,27 @@ void menuParaJugador(IControladorUsuario* IU, IControladorVideojuego* IV, IContr
                                 cin >> puntaje;
                                 cout <<'\n';
 
-                                //InstanciaControladorVideojuego.AsignarPuntajeVJ(NombreVj,puntaje);
+                                IV->AsignarPuntajeVJ(NombreVj,puntaje);
 
                         }
                         break;
                         case 3: {
 
                                 vector<string> ListaVJConSuscrActiva;
-                                //ListaVJConSuscrActiva = InstanciaControladorPartida.listarVideojuegosConSuscripcionActiva();
-/*
-                                for(int i = 0; i< ListaVJConSuscrActiva.size(); i++ ){
+                                ListaVJConSuscrActiva = IP->listarVideojuegosConSuscripcionActiva();
+
+                                int max = ListaVJConSuscrActiva.size();
+                                for(int i = 0; i< max; i++ ){
                                         cout << ListaVJConSuscrActiva[i] << endl;
                                 }
-*/
+
                                 string NombreVj;
                                 cout << "Nombre del Vj del cual quiere iniciar una partida: "<<'\n';
                                 cin.ignore();
                                 getline(cin,NombreVj);
                                 cout <<'\n';
 
-                                //InstanciaControladorPartida.seleccionaVideoJuego(NombreVj);
+                                IP->seleccionaVideoJuego(NombreVj);
 
 
                                 bool TipoPartida;
@@ -192,15 +196,18 @@ void menuParaJugador(IControladorUsuario* IU, IControladorVideojuego* IV, IContr
                                         cin >> EsTransEnVivo;
                                         cout <<'\n';
 
-                                        //InstanciaControladorPartida.IngresarPartidaMultijugador(EsTransEnVivo);
+                                        IP->ingresarPartidaMultijugador(EsTransEnVivo);
 
                                         vector<string> ListaJugadoresQuePuedenUnirse;
-                                        //ListaJugadoresQuePuedenUnirse = InstanciaControladorPartida.ListarJugadoresConSuscripcionActiva();
-/*
-                                        for(int i = 0; i< ListaJugadoresQuePuedenUnirse.size(); i++ ){
+                                        ListaJugadoresQuePuedenUnirse = IP->ListarJugadoresConSuscripcionActiva();
+
+
+                                        int max = ListaJugadoresQuePuedenUnirse.size();
+                                        for(int i = 0; i< max; i++ ){
                                                         cout << ListaJugadoresQuePuedenUnirse[i] << endl;
                                                 }
-*/
+
+
                                         bool agregarJugadores = 1;
                                         while(agregarJugadores){
                                                 string nomJugadorAgregar;
@@ -208,6 +215,8 @@ void menuParaJugador(IControladorUsuario* IU, IControladorVideojuego* IV, IContr
                                                 cin.ignore();
                                                 getline(cin,nomJugadorAgregar);
                                                 cout <<'\n';
+
+                                                //no se a que controlador pertenece
                                                 //AgregarJugador(nomJugadorAgregar);
 
                                                 
@@ -228,26 +237,26 @@ void menuParaJugador(IControladorUsuario* IU, IControladorVideojuego* IV, IContr
                                         cin >> EsContinuacion;
                                         cout <<'\n';
 
-                                        //InstanciaControladorPartida.ingresarPartidaIndividual(EsContinuacion);
+                                        IP->ingresarPartidaIndividual(EsContinuacion);
 
                                         //si quiere iniciar una partida continuacion de otra
                                         if(EsContinuacion){
                                                 
                                                 vector<DtPartidaIndividual*> HistorialPartidaIndiv;
-                                           //     HistorialPartidaIndiv = InstanciaControladorPartida.HistorialDePartidasIndividualesFinalizadas();
+                                                HistorialPartidaIndiv = IP->HistorialDePartidasIndividualesFinalizadas();
 
-/*
-                                                for(int i = 0; i< HistorialPartidaIndiv.size(); i++ ){
+                                                int max = HistorialPartidaIndiv.size();
+                                                for(int i = 0; i< max; i++ ){
                                                         cout << HistorialPartidaIndiv[i] << endl;
                                                 }
-*/
+
                                                 int codigoPartida;
                                                 cout << "Ingrese el codigo de la partida que quiere continuar: "<<'\n';
                                                 cin.ignore();
                                                 cin >> codigoPartida;
                                                 cout <<'\n';
 
-                                         //       InstanciaControladorPartida.PartidaAcontinuar(codigoPartida);
+                                                IP->PartidaAcontinuar(codigoPartida);
 
                                         }
 
@@ -260,10 +269,10 @@ void menuParaJugador(IControladorUsuario* IU, IControladorVideojuego* IV, IContr
                                 cout <<'\n';
 
                                 if(Confirmarr){
-                                       //InstanciaControladorPartida.IniciarPartida();
+                                       IP->IniciarPartida();
                                 }
                                 else{
-                                        //InstanciaControladorPartida.CancelarPartida();
+                                        IP->CancelarPartida();
                                 }
 
                         }
@@ -271,58 +280,60 @@ void menuParaJugador(IControladorUsuario* IU, IControladorVideojuego* IV, IContr
                         case 4: {
                                 
                                 vector<DtPartidaMultijugador*> Info;
-                                //Info = InstanciaControladorPartida.obtenerPartidasEnCursoUnido();
-/*
-                                for(int i = 0; i< Info.size(); i++ ){
+                                Info = IP->obtenerPartidasEnCursoUnido();
+
+                                int max = Info.size();
+                                for(int i = 0; i< max; i++ ){
                                         cout << Info[i] << endl;
                                 }
-*/
+
+
                                 int codPartida;
                                 cout << "Ingrese le codigo de la partida que quiere abandonar: "<<'\n';
                                 cin.ignore();
                                 cin >> codPartida;
                                 cout <<'\n';
-                                //InstanciaControladorPartida.abandonarPartida(codPartida)
+                                IP->abandonarPartida(codPartida);
 
                         }
                         break;
                         case 5: {
 
                                 vector<DtPartidaEnCurso*> PartidaEnCursoDelJugador;
-                                //PartidaEnCursoDelJugador = InstanciaControladorPartida.obtenerPartidasEnCurso();
+                                PartidaEnCursoDelJugador = IP->obtenerPartidasEnCurso();
 
-/*
-                                for(int i = 0; i< PartidaEnCursoDelJugador.size(); i++ ){
+                                int max = PartidaEnCursoDelJugador.size();
+                                for(int i = 0; i < max ; i++ ){
                                         cout << PartidaEnCursoDelJugador[i] << endl;
                                 }
-*/
 
                                 int codPartida;
                                 cout << "Ingrese le codigo de la partida que quiere finalizar: "<<'\n';
                                 cin.ignore();
                                 cin >> codPartida;
                                 cout <<'\n';
-                                //InstanciaControladorPartida.finalizarPartida(codPartida)
+                                IP->finalizarPartida(codPartida);
 
                         }
                         break;
                         case 6: {
 
-                                vector<string> VideojuegosEnSistema;
-                                //VideojuegosEnSistema = InstanciaControladorVideojuego.ObtenerVideoJuegos();
-/*
-                                for(int i=0; i< VideojuegosEnSistema.size(); i++){
+                                vector<DtVideojuegoResumido*> VideojuegosEnSistema;
+                                VideojuegosEnSistema = IV->ObtenerVideoJuegos();
+
+                                int max = VideojuegosEnSistema.size();
+                                for(int i=0; i< max; i++){
                                         //cout << VideojuegosEnSistema[i] << endl;
                                 }
-*/
+
                                 string nombreJuego;
                                 cout << "Seleccione un juego. (nombre) :"<<'\n';
                                 cin.ignore();
                                 getline(cin,nombreJuego);
                                 cout <<'\n';
 
-                                //DataInfoEspecifica datosVj;
-                                //datosVj = InstanciaControladorVideojuego.SeleccionarVideojuego(nombreJuego);
+                                DtInfoEspecifica* datosVj;
+                                datosVj = IV->SeleccionarVideojuego(nombreJuego);
 
                         }
                         break;
@@ -334,6 +345,11 @@ void menuParaJugador(IControladorUsuario* IU, IControladorVideojuego* IV, IContr
         }
 };
 
+/*
+paulo
+paulo
+paulo
+*/
 
 void menuParaDesarollador(IControladorUsuario* IU, IControladorVideojuego* IV, IControladorSuscripciones* IS, IControladorPartida* IP, IControladorEstadistica* IE){
 
