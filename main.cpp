@@ -19,8 +19,7 @@ using namespace std;
 #include "include/Reloj.h"
 
 
-
-
+/*
 void menuParaJugador(){
 
         bool termina = 0;
@@ -331,7 +330,6 @@ void menuParaJugador(){
         }
 
 };
-
 
 
 
@@ -662,8 +660,11 @@ void menuParaDesarollador(){
         }
 };
 
+*/
 
 
+void menuParaJugador(){}
+void menuParaDesarollador(){}
 
 int main() {
 
@@ -684,7 +685,7 @@ int main() {
                         cout << '\n';
 
                         IControladorUsuario* IU = Fabrica::getIUsuario();
-                        IContoladorVideojuego* IV = Fabrica::getIVideojuego();
+                        IControladorVideojuego* IV = Fabrica::getIVideojuego();
                         IControladorSuscripciones* IS = Fabrica::getISuscripciones();
                         IControladorPartida* IP = Fabrica::getIPartida();
 
@@ -709,7 +710,7 @@ int main() {
                                 cout << "Tipo de usuario a registrar: 1: Desarollador, 2: Jugador" << '\n';
                                 cin >> tipoUsuario;
 
-
+                                bool verificacion=0;
                                 if (tipoUsuario==1) {
                                         string nomEmpresa;
                                         cout << "Ingrese el nombre de su empresa: " << '\n';
@@ -719,6 +720,7 @@ int main() {
                                 } else {
 
                                         bool auxWhile = 1;
+                                        
                                         while (auxWhile) {
 
                                                 string vnickname;
@@ -751,7 +753,7 @@ int main() {
                                         }
 
                                 }
-                                if (verificacion or (tipoUsuario == 1)) { 
+                                if (verificacion || (tipoUsuario == 1)) { 
                                     bool vconfirmar;
                                     cout << "Desea confirmar inscripcion 1 para si 0 para no:" << '\n';
                                     cin >> vconfirmar;
@@ -769,6 +771,7 @@ int main() {
                         case 2: {
 
                                 bool auxWhile = 1;
+                                bool ingreso = 0;
                                 while (auxWhile) {
 
                                         string vemail;
@@ -900,7 +903,7 @@ int main() {
                                 IV->agregarcategoria("PS4");
                                 IV->agregarcategoria("Estrategia");
                                 IV->agregarcategoria("E");
-                                IV->ConfirmarAltaVideojuego();
+                                IV->ConfirmarAltavideoJuego();
 
                                 basura = IU->ingresarDatos("epic@mail.com",123);
                                 IV->datosVideojuego("Fortnite","",3,8,30,60);
@@ -909,14 +912,14 @@ int main() {
                                 IV->agregarcategoria("Xbox One");
                                 IV->agregarcategoria("Supervivencia");
                                 IV->agregarcategoria("Teen");
-                                IV->ConfirmarAltaVideojuego();
+                                IV->ConfirmarAltavideoJuego();
 
                                 basura = IU->ingresarDatos("mojang@mail.com",123);
                                 IV->datosVideojuego("Minecraft",2,5,20,40);
                                 IV->agregarcategoria("PC");
                                 IV->agregarcategoria("Supervivencia");
                                 IV->agregarcategoria("E");
-                                IV->ConfirmarAltaVideojuego();
+                                IV->ConfirmarAltavideoJuego();
 
                                 basura = IU->ingresarDatos("ea@mail.com",123);
                                 IV->datosVideojuego("FIFA 21","igual a todos los FIFA",3,8,28,50);
@@ -925,7 +928,7 @@ int main() {
                                 IV->agregarcategoria("Xbox One");
                                 IV->agregarcategoria("Deporte");
                                 IV->agregarcategoria("E");
-                                IV->ConfirmarAltaVideojuego();
+                                IV->ConfirmarAltavideoJuego();
 
 
                                 //suscripciones
@@ -934,38 +937,38 @@ int main() {
                                 basura = ingresarDatos("gamer@mail.com","123");
                                 IS->SeleccionarVideojuego("KingdomRush");
                                 IS->IngresarDatosSuscripcion("trimestral",paypal);
-                                f = new DtFecha(1,6,2021,9,0)
-                                IS->ConfirmarSuscripcion(f)
+                                f = new DtFecha(1,6,2021,9,0);
+                                IS->ConfirmarSuscripcion(f);
 
                                 basura = ingresarDatos("gamer@mail.com","123");
                                 IS->SeleccionarVideojuego("Fortnite");
                                 IS->IngresarDatosSuscripcion("trimestral",tarjeta);
-                                f = new DtFecha(2,6,2021,11,0)
-                                IS->ConfirmarSuscripcion(f)
+                                f = new DtFecha(2,6,2021,11,0);
+                                IS->ConfirmarSuscripcion(f);
 
                                 basura = ingresarDatos("ari@mail.com","123");
                                 IS->SeleccionarVideojuego("Fortnite");
                                 IS->IngresarDatosSuscripcion("mensual",paypal);
-                                f = new DtFecha(4,6,2021,9,0)
-                                IS->ConfirmarSuscripcion(f)
+                                f = new DtFecha(4,6,2021,9,0);
+                                IS->ConfirmarSuscripcion(f);
 
                                 basura = ingresarDatos("ari@mail.com","123");
                                 IS->SeleccionarVideojuego("Minecraft");
                                 IS->IngresarDatosSuscripcion("anual",tarjeta);
-                                f = new DtFecha(11,6,2021,9,0)
-                                IS->ConfirmarSuscripcion(f)
+                                f = new DtFecha(11,6,2021,9,0);
+                                IS->ConfirmarSuscripcion(f);
 
                                 basura = ingresarDatos("ibai@mail.com","123");
                                 IS->SeleccionarVideojuego("Fortnite");
                                 IS->IngresarDatosSuscripcion("mensual",tarjeta);
-                                f = new DtFecha(3,6,2021,7,0)
-                                IS->ConfirmarSuscripcion(f)
+                                f = new DtFecha(3,6,2021,7,0);
+                                IS->ConfirmarSuscripcion(f);
 
                                 basura = ingresarDatos("ibai@mail.com","123");
                                 IS->SeleccionarVideojuego("Minecraft");
                                 IS->IngresarDatosSuscripcion("vitalicia",tarjeta);
-                                f = new DtFecha(21,12,2020,15,0)
-                                IS->ConfirmarSuscripcion(f)
+                                f = new DtFecha(21,12,2020,15,0);
+                                IS->ConfirmarSuscripcion(f);
 
 
                                 //puntajes
@@ -986,14 +989,14 @@ int main() {
                                 int cod;
 
                                 basura = ingresarDatos("gamer@mail.com","123");
-                                IP->seleccionaVideojuego("KingdomRush");
+                                IP->seleccionaVideoJuego("KingdomRush");
                                 IP->ingresarPartidaIndividual(false);
                                 Reloj::setFecha(2,6,21,9,0);
                                 cod = IP->IniciarPartida();
                                 Reloj::setFecha(2,6,21,10,0);
 
                                 basura = ingresarDatos("gamer@mail.com","123");
-                                IP->seleccionaVideojuego("KingdomRush");
+                                IP->seleccionaVideoJuego("KingdomRush");
                                 IP->ingresarPartidaIndividual(true);
                                 IP->PartidaAcontinuar(cod);
                                 Reloj::setFecha(3,6,21,15,0);
@@ -1002,7 +1005,7 @@ int main() {
                                 IP->finalizarPartida(cod);
 
                                 basura = ingresarDatos("ari@mail.com","123");
-                                IP->seleccionaVideojuego("Minecraft");
+                                IP->seleccionaVideoJuego("Minecraft");
                                 IP->ingresarPartidaIndividual(false);
                                 Reloj::setFecha(12,6,21,9,0);
                                 IP->IniciarPartida();
