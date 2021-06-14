@@ -65,7 +65,7 @@ void menuParaJugador(IControladorUsuario* IU, IControladorVideojuego* IV, IContr
 
                                 bool puedeSuscribirse = 0;
                                 //ESTA FUNCION ES MUY ESPECIFICA NO SE SI ESTA EN EL CONTROLADOR
-                                //puedeSuscribirse = IS->SeleccionarVideojuegoParaSuscr(nombreVideojego);
+                                puedeSuscribirse = IS->SeleccionarVideojuegoParaSuscr(nombreVideojego);
 
                                 //si puede suscribirse
                                 if(puedeSuscribirse){
