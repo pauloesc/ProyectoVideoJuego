@@ -6,6 +6,8 @@
 
 #include "DtSuscripcion.h"
 #include "DtPago.h"
+#include "DtFecha.h"
+
 
 
 
@@ -24,6 +26,7 @@ class IControladorSuscripciones {
         virtual void SeleccionarVideojuego(string Juego)=0;
         virtual void Finalizarproceso()=0;
         virtual void ConfirmarSuscripcion()=0;
+        virtual void ConfirmarSuscripcion(DtFecha* d)=0; // para cargar los datos de "inicio"
         virtual void Cancelar()=0;
         virtual~IControladorSuscripciones(){};
 };

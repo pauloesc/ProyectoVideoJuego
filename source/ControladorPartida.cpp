@@ -114,6 +114,28 @@ void ControladorPartida::IniciarPartida() {
 
 }
 
+int ControladorPartida::IniciarPartida() {
+	ControladorUsuario* cu = ControladorUsuario::getInstance();
+	Partida* p;
+
+	if (ControladorPartida::individual) {
+		PartidaIndividual* part = dynamic_cast<PartidaIndividual*>(this->Pcont);
+		p = new PartidaIndividual(this->continuacion,part,this->vid);
+	} else {
+		vector<Jugador*> unidos = cu->darJugadores(this->jugadoresUnidos);
+		p = new PartidaMultijugador(this->TransmitidaenVivo,unidos,this->vid);
+
+	}
+
+	Jugador* j = cu->darJugador();
+	j->AsociarPartidaIniciada(p);
+	(this->vid)->AsociarPartida(p);
+
+	this->jugadoresUnidos.clear();
+
+	return p->getcodigo();
+}
+
 
 void ControladorPartida::CancelarPartida() {
 	this->jugadoresUnidos.clear();

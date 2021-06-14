@@ -1,6 +1,8 @@
 #ifndef CONTROLADORUSUARIO
 #define CONTROLADORUSUARIO
 
+#include "IControladorUsuario.h"
+
 #include "Usuario.h"
 #include "Jugador.h"
 #include "Desarrollador.h"
@@ -14,7 +16,7 @@
 using namespace std;
 
 
-class ControladorUsuario {
+class ControladorUsuario : public IControladorUsuario {
 
 private:
 static ControladorUsuario* instance;

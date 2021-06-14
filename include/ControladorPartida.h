@@ -2,6 +2,8 @@
 #ifndef CONTROLADORPARTIDA
 #define CONTROLADORPARTIDA
 
+#include "IControladorPartida.h"
+
 #include <vector>
 
 #include "ControladorVideojuego.h"
@@ -20,7 +22,7 @@
 #include "DtPartidaEnCurso.h"
 
 
-class ControladorPartida {
+class ControladorPartida : public IControladorPartida {
 
 private:
 	static ControladorPartida* instance;
@@ -54,6 +56,7 @@ public:
 	vector<DtPartidaIndividual*> HistorialDePartidasIndividualesFinalizadas();
 	vector<string> ListarJugadoresConSuscripcionActiva();
 	void IniciarPartida();
+	int IniciarPartida();
 	void CancelarPartida();
 	~ControladorPartida();
 

@@ -1,11 +1,11 @@
 #include "../include/Fabrica.h"
 
 //creando las interfaces (unicas)
-IControladorUsuario* Fabrica::IUsuario = new IControladorUsuario;
-IControladorVideojuego* Fabrica::IVideojuego = new IControladorVideojuego;
-IControladorSuscripciones* Fabrica::ISuscripcion = new IControladorSuscripciones;
-IControladorPartida* Fabrica::IPartida = new IControladorPartida;
-IControladorEstadistica* Fabrica::IEstadistica = new IControladorEstadistica;
+IControladorUsuario* Fabrica::IUsuario = ControladorUsuario::getInstance();
+IControladorVideojuego* Fabrica::IVideojuego = ControladorVideojuego::getInstance();
+IControladorSuscripciones* Fabrica::ISuscripcion = ControladorSuscripciones::getInstance();
+IControladorPartida* Fabrica::IPartida = ControladorPartida::getInstance();
+IControladorEstadistica* Fabrica::IEstadistica = ControladorEstadistica::getInstance();
 
 
 IControladorUsuario* Fabrica::getIUsuario() {

@@ -4,20 +4,22 @@
 
 using namespace std;
 
+#include "include/Fabrica.h"
 
-#include <../include/DtInfoEspecifica.h>
-#include <../include/DtEstadisticaDeSegundoTipo.h>
-#include <../include/DtCategoria.h>
-#include <../include/DtSuscripcion.h>
-#include <../include/DtPartidaIndividual.h>
-#include <../include/DtPartidaMultijugador.h>
-#include <../include/DtPartidaEnCurso.h>
-#include <../include/DtVideojuego.h>
-#include <../include/DataEstadistica.h>
+#include "include/DtInfoEspecifica.h"
+#include "include/DtEstadisticaDeSegundoTipo.h"
+#include "include/DtCategoria.h"
+#include "include/DtSuscripcion.h"
+#include "include/DtPartidaIndividual.h"
+#include "include/DtPartidaMultijugador.h"
+#include "include/DtPartidaEnCurso.h"
+#include "include/DtVideojuego.h"
+#include "include/DataEstadistica.h"
+#include "include/DtPago.h"
+#include "include/Reloj.h"
 
 
- 
- /*
+
 
 void menuParaJugador(){
 
@@ -330,7 +332,8 @@ void menuParaJugador(){
 
 };
 
-*/
+
+
 
 void menuParaDesarollador(){
 
@@ -463,8 +466,8 @@ void menuParaDesarollador(){
                                 }
 
 
-                                vector<DtCategoria*> CategoriaGenero;
-                                CategoriaGenero = InstanciaControladorVideojuego.ObtenerCategoriaGenero();
+                                
+                                vector<DtCategoria*> CategoriaGenero = InstanciaControladorVideojuego.ObtenerCategoriaGenero();
                               
                                 //imprimimos las categorias de tipo genero
 
@@ -664,14 +667,6 @@ void menuParaDesarollador(){
 
 int main() {
 
-/*
-        Fabrica FricaDeControladores;
-        Fabrica* InstanciaControladorUsuario = FricaDeControladores.getUsuario();
-        Fabrica* InstanciaControladorEstadistica = FricaDeControladores.getIEstadistica();
-        Fabrica* InstanciaControladorPartida = FricaDeControladores.getIPartida();
-        Fabrica* InstanciaControladorVideojuego = FricaDeControladores.getIVideojuego();
-        Fabrica* InstanciaControladorSuscripcion = FricaDeControladores.getISuscripcion();
-*/
 
         bool termina = 0;
         while (!termina) {
@@ -680,45 +675,46 @@ int main() {
 
                         cout << "Eliga la operacion a realizar: " << '\n';
                         cout << "1) Alta de usuario." << '\n';
-                        cout << "2) Iniciar sesiÃ³n." << '\n';
-                        cout << "3) Modificar fecha del sistema." << '\n';
-                        cout << "4) Cargar datos de prueba." << '\n';
-                        cout << "5) Salir." << '\n';
+                        cout << "2) Iniciar sesión." << '\n';
+                        cout << "3) Cargar datos de prueba." << '\n';
+                        cout << "4) Salir." << '\n';
 
                         int eleccion;
                         cin >> eleccion;
                         cout << '\n';
 
+                        IControladorUsuario* IU = Fabrica::getIUsuario();
+                        IContoladorVideojuego* IV = Fabrica::getIVideojuego();
+                        IControladorSuscripciones* IS = Fabrica::getISuscripciones();
+                        IControladorPartida* IP = Fabrica::getIPartida();
+
                         switch (eleccion) {
 
                         case 1: {
 
+
                                 string vemail;
-                                cout << "ingrese email:" << '\n';
-                                cin.ignore();
-                                getline(cin, vemail);
+                                cout << "Ingrese email:" << '\n';
+                                cin >> vemail;
                                 cout << '\n';
 
                                 string vpassword;
                                 cout << "ingrese contrasenia:" << '\n';
-                                cin.ignore();
-                                getline(cin, vpassword);
+                                cin >> vpassword;
                                 cout << '\n';
 
-                                //InstanciaControladorUsuario.IngresardatosUsuario(vemail, vpassword);
+                                IU->IngresardatosUsuario(vemail,vpassword);
 
-                                int esDesarollador = 0;
-                                cout << "Es un usuario desarollador: 1 para si, 0 para no" << '\n';
-                                cin.ignore();
-                                cin >> esDesarollador;
+                                int tipoUsuario = 0;
+                                cout << "Tipo de usuario a registrar: 1: Desarollador, 2: Jugador" << '\n';
+                                cin >> tipoUsuario;
 
 
-                                if (esDesarollador==1) {
+                                if (tipoUsuario==1) {
                                         string nomEmpresa;
-                                        cout << "Ingrese nombre nomEmpresa" << '\n';
-                                        cin.ignore();
+                                        cout << "Ingrese el nombre de su empresa: " << '\n';
                                         getline(cin, nomEmpresa);
-                                        //InstanciaControladorUsuario.IngresardatosDesarrollador(nomEmpresa)
+                                        IU->IngresardatosDesarrollador(nomEmpresa);
 
                                 } else {
 
@@ -727,18 +723,16 @@ int main() {
 
                                                 string vnickname;
                                                 cout << "ingrese nickname:" << '\n';
-                                                cin.ignore();
                                                 getline(cin, vnickname);
                                                 cout << '\n';
 
                                                 string vdescripcion;
                                                 cout << "ingrese descripcion:" << '\n';
-                                                cin.ignore();
                                                 getline(cin, vdescripcion);
                                                 cout << '\n';
 
                                                 bool verificacion=0;
-                                                //verificacion = InstanciaControladorUsuario.IngresardatosJugador(vnickname, vdescripcion);
+                                                verificacion = IU->IngresardatosJugador(vnickname, vdescripcion);
 
                                                 //si puede registrarse con ese usuario
                                                 if (verificacion) {
@@ -746,7 +740,7 @@ int main() {
                                                 } else {
 
                                                         bool vreintenarIngresoDatos;
-                                                        cout << "No es posible registar dichs datos quiere volver a intentarlo: 0 para no, 1 para si" << '\n';
+                                                        cout << "nickname existente, quiere volver a intentarlo: 0 para no, 1 para si" << '\n';
                                                         cin >> vreintenarIngresoDatos;
                                                         cout << '\n';
 
@@ -757,17 +751,17 @@ int main() {
                                         }
 
                                 }
+                                if (verificacion or (tipoUsuario == 1)) { 
+                                    bool vconfirmar;
+                                    cout << "Desea confirmar inscripcion 1 para si 0 para no:" << '\n';
+                                    cin >> vconfirmar;
+                                    cout << '\n';
 
-                                bool vconfirmar;
-                                cout << "Desea confirmar inscripcion 1 para si 0 para no:" << '\n';
-                                cin.ignore();
-                                cin >> vconfirmar;
-                                cout << '\n';
-
-                                if (vconfirmar) {
-                                        //InstanciaControladorUsuario.cancelarAltaUsuario()
-                                } else {
-                                        //InstanciaControladorUsuario.ConfirmarAltaUsuario()
+                                    if (!vconfirmar) {
+                                            IU->cancelarAltaUsuario();
+                                    } else {
+                                            IU->ConfirmarAltaUsuario();
+                                    }
                                 }
                         }
                         break;
@@ -779,24 +773,21 @@ int main() {
 
                                         string vemail;
                                         cout << "ingrese email : " << '\n';
-                                        cin.ignore();
                                         getline(cin, vemail);
                                         cout << '\n';
 
                                         string passw;
-                                        cout << "ingrese contrasenia : " << '\n';
-                                        cin.ignore();
+                                        cout << "ingrese contraseña : " << '\n';
                                         getline(cin, passw);
                                         cout << '\n';
 
-                                        bool ingreso = 0;
-                                        //ingreso = InstanciaControladorUsuario.IngresarDatos(vemail, passw);
+                                        bool ingreso = IU->ingresarDatos(vemail, passw);
+                                       
 
                                         //si no ingreso
                                         if (!ingreso) {
                                                 bool reintentar;
                                                 cout << "Fallo el ingreso. Quiere reintentar ingresar?: 1 para si 0 para no" << '\n';
-                                                cin.ignore();
                                                 cin >> reintentar;
                                                 cout << '\n';
 
@@ -808,11 +799,220 @@ int main() {
                                         }
 
                                 }
+                       
+                                // si logró iniciar sesión
+                                if (ingreso) {
+                                    if (IU->esUsuarioEnLineaJugador()) {
+                                        menuParaJugador();
+                                    } else {
+                                        menuParaDesarollador();
+                                    }
+                                }
+
                         }
                         break;
 
                         case 3: {
+                                
+                                //DATOS DE PRUEBA
+                                cout << "CARGA DE DATOS DE PRUEBA";
+                                cout << '\n';
 
+
+                                //desarrolladores
+                                IU->IngresardatosUsuario("ironhide@mail.com","123");
+                                IU->IngresardatosDesarrollador("Ironhide Game Studio");
+                                IU->ConfirmarAltaUsuario();
+
+                                IU->IngresardatosUsuario("epic@mail.com","123");
+                                IU->IngresardatosDesarrollador("Epic Games");
+                                IU->ConfirmarAltaUsuario();
+
+                                IU->IngresardatosUsuario("mojang@mail.com","123");
+                                IU->IngresardatosDesarrollador("Mojang Studios");
+                                IU->ConfirmarAltaUsuario();
+
+                                IU->IngresardatosUsuario("ea@mail.com","123");
+                                IU->IngresardatosDesarrollador("EA Sports");
+                                IU->ConfirmarAltaUsuario();
+
+
+                                //jugadores
+                                IU->IngresardatosUsuario("gamer@mail.com","123");
+                                IU->IngresardatosJugador("gamer","");
+                                IU->ConfirmarAltaUsuario();
+
+                                IU->IngresardatosUsuario("ari@mail.com","123");
+                                IU->IngresardatosJugador("ari","");
+                                IU->ConfirmarAltaUsuario();
+
+                                IU->IngresardatosUsuario("ibai@mail.com","123");
+                                IU->IngresardatosJugador("ibai","");
+                                IU->ConfirmarAltaUsuario();
+
+                                IU->IngresardatosUsuario("camila@mail.com","123");
+                                IU->IngresardatosJugador("camila","");
+                                IU->ConfirmarAltaUsuario();
+
+
+                                //categorias
+                                DtCategoria* c;
+
+                                c = new DtCategoria("PC","Juegos de pc","plataforma");
+                                IV->NuevaCategoria(c);
+                                IV->ConfirmarCategoria();
+
+                                c = new DtCategoria("PS4","Juegos de PS4","plataforma");
+                                IV->NuevaCategoria(c);
+                                IV->ConfirmarCategoria();
+
+                                c = new DtCategoria("Xbox One","Juegos de Xbox One","plataforma");
+                                IV->NuevaCategoria(c);
+                                IV->ConfirmarCategoria();
+
+                                c = new DtCategoria("Deporte","Juegos de Deporte","genero");
+                                IV->NuevaCategoria(c);
+                                IV->ConfirmarCategoria();
+
+                                c = new DtCategoria("Supervivencia","Juegos de Supervivencia","genero");
+                                IV->NuevaCategoria(c);
+                                IV->ConfirmarCategoria();
+
+                                c = new DtCategoria("Estrategia","Juegos de Estrategia","genero");
+                                IV->NuevaCategoria(c);
+                                IV->ConfirmarCategoria();
+
+                                c = new DtCategoria("Teen","Su contenido está dirigido a jóvenes de 13 años en adelante","otro");
+                                IV->NuevaCategoria(c);
+                                IV->ConfirmarCategoria();
+
+                                c = new DtCategoria("E","Su contenido esta dirigido para todo público","otro");
+                                IV->NuevaCategoria(c);
+                                IV->ConfirmarCategoria();
+
+
+                                //videojuegos
+                                bool basura;
+                                
+                                basura = IU->ingresarDatos("ironhide@mail.com",123);
+                                IV->datosVideojuego("KingdomRush","",1,2,7,14);
+                                IV->agregarcategoria("PC");
+                                IV->agregarcategoria("PS4");
+                                IV->agregarcategoria("Estrategia");
+                                IV->agregarcategoria("E");
+                                IV->ConfirmarAltaVideojuego();
+
+                                basura = IU->ingresarDatos("epic@mail.com",123);
+                                IV->datosVideojuego("Fortnite","",3,8,30,60);
+                                IV->agregarcategoria("PC");
+                                IV->agregarcategoria("PS4");
+                                IV->agregarcategoria("Xbox One");
+                                IV->agregarcategoria("Supervivencia");
+                                IV->agregarcategoria("Teen");
+                                IV->ConfirmarAltaVideojuego();
+
+                                basura = IU->ingresarDatos("mojang@mail.com",123);
+                                IV->datosVideojuego("Minecraft",2,5,20,40);
+                                IV->agregarcategoria("PC");
+                                IV->agregarcategoria("Supervivencia");
+                                IV->agregarcategoria("E");
+                                IV->ConfirmarAltaVideojuego();
+
+                                basura = IU->ingresarDatos("ea@mail.com",123);
+                                IV->datosVideojuego("FIFA 21","igual a todos los FIFA",3,8,28,50);
+                                IV->agregarcategoria("PC");
+                                IV->agregarcategoria("PS4");
+                                IV->agregarcategoria("Xbox One");
+                                IV->agregarcategoria("Deporte");
+                                IV->agregarcategoria("E");
+                                IV->ConfirmarAltaVideojuego();
+
+
+                                //suscripciones
+                                DtFecha* f;
+
+                                basura = ingresarDatos("gamer@mail.com","123");
+                                IS->SeleccionarVideojuego("KingdomRush");
+                                IS->IngresarDatosSuscripcion("trimestral",paypal);
+                                f = new DtFecha(1,6,2021,9,0)
+                                IS->ConfirmarSuscripcion(f)
+
+                                basura = ingresarDatos("gamer@mail.com","123");
+                                IS->SeleccionarVideojuego("Fortnite");
+                                IS->IngresarDatosSuscripcion("trimestral",tarjeta);
+                                f = new DtFecha(2,6,2021,11,0)
+                                IS->ConfirmarSuscripcion(f)
+
+                                basura = ingresarDatos("ari@mail.com","123");
+                                IS->SeleccionarVideojuego("Fortnite");
+                                IS->IngresarDatosSuscripcion("mensual",paypal);
+                                f = new DtFecha(4,6,2021,9,0)
+                                IS->ConfirmarSuscripcion(f)
+
+                                basura = ingresarDatos("ari@mail.com","123");
+                                IS->SeleccionarVideojuego("Minecraft");
+                                IS->IngresarDatosSuscripcion("anual",tarjeta);
+                                f = new DtFecha(11,6,2021,9,0)
+                                IS->ConfirmarSuscripcion(f)
+
+                                basura = ingresarDatos("ibai@mail.com","123");
+                                IS->SeleccionarVideojuego("Fortnite");
+                                IS->IngresarDatosSuscripcion("mensual",tarjeta);
+                                f = new DtFecha(3,6,2021,7,0)
+                                IS->ConfirmarSuscripcion(f)
+
+                                basura = ingresarDatos("ibai@mail.com","123");
+                                IS->SeleccionarVideojuego("Minecraft");
+                                IS->IngresarDatosSuscripcion("vitalicia",tarjeta);
+                                f = new DtFecha(21,12,2020,15,0)
+                                IS->ConfirmarSuscripcion(f)
+
+
+                                //puntajes
+                                basura = ingresarDatos("gamer@mail.com","123");
+                                IV->AsignarPuntajeVJ("KingdomRush",4);
+
+                                basura = ingresarDatos("gamer@mail.com","123");
+                                IV->AsignarPuntajeVJ("Fortnite",5);
+
+                                basura = ingresarDatos("ari@mail.com","123");
+                                IV->AsignarPuntajeVJ("Fortnite",5);
+
+                                basura = ingresarDatos("ari@mail.com","123");
+                                IV->AsignarPuntajeVJ("Minecraft",3);
+
+
+                                //partidas individuales
+                                int cod;
+
+                                basura = ingresarDatos("gamer@mail.com","123");
+                                IP->seleccionaVideojuego("KingdomRush");
+                                IP->ingresarPartidaIndividual(false);
+                                Reloj::setFecha(2,6,21,9,0);
+                                cod = IP->IniciarPartida();
+                                Reloj::setFecha(2,6,21,10,0);
+
+                                basura = ingresarDatos("gamer@mail.com","123");
+                                IP->seleccionaVideojuego("KingdomRush");
+                                IP->ingresarPartidaIndividual(true);
+                                IP->PartidaAcontinuar(cod);
+                                Reloj::setFecha(3,6,21,15,0);
+                                cod = IP->IniciarPartida();
+                                Reloj::setFecha(2,6,21,16,0);
+                                IP->finalizarPartida(cod);
+
+                                basura = ingresarDatos("ari@mail.com","123");
+                                IP->seleccionaVideojuego("Minecraft");
+                                IP->ingresarPartidaIndividual(false);
+                                Reloj::setFecha(12,6,21,9,0);
+                                IP->IniciarPartida();
+                               
+
+                                //partidas multijugador
+                                
+
+
+                                /*
                                 int an, me, di, ho, mi;
 
                                 cout << "Es necesario ingresar la fecha y hora del sistema" << '\n';
@@ -836,24 +1036,19 @@ int main() {
                                 cout << "ingrese el minuto: ";
                                 cin >> mi;
                                 cout << '\n';
+                                */
 
                         }
                         break;
 
                         case 4: {
-
-                                cout << "CARGA DE DATOS DE PRUEBA";
-                                cout << '\n';
+                            cout << "Chau";
+                            cout << '\n';
+                            termina = 1;
+                                
                         }
                         break;
 
-                        case 5: {
-                                cout << "Chau";
-                                cout << '\n';
-                                termina = 1;
-                        }
-
-                        break;
 
                         default: {
 
@@ -866,6 +1061,7 @@ int main() {
                         cout << e.what() << endl;
                 }
         }
+
 
         return 0;
 

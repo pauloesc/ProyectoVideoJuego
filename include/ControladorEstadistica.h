@@ -1,8 +1,12 @@
 #ifndef CONTROLADORESTADISTICA
 #define CONTROLADORESTADISTICA
 
+#include "../include/IControladorEstadistica.h"
+
+
 #include <string>
 #include <vector>
+
 
 #include "ControladorUsuario.h"
 #include "ControladorVideojuego.h"
@@ -14,8 +18,9 @@
 
 using namespace std;
 
+class IControladorEstadistica;
 
-class ControladorEstadistica {
+class ControladorEstadistica : public IControladorEstadistica {
 
 private:
     static ControladorEstadistica* instance;

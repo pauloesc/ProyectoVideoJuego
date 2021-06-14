@@ -1,7 +1,5 @@
 # --------------------------------------------------------------------
 
-#FALTA AGREGAR MODULOS DE FABRICA E INTERFACES
-
 #  Makefile de laboratorio cuatro.
 
 #  Laboratorio de Programación 4.
@@ -39,7 +37,7 @@ all: main
 # Objetivos que no son archivos.
 .PHONY: all clean_bin clean_test clean 
 
-MODULOS = Abandona Categoria ControladorEstadistica ControladorPartida ControladorUsuario ControladorVideojuego ControladorSuscripciones Desarrollador Estadistica Jugador Partida PartidaIndividual PartidaMultijugador Puntaje Reloj Suscripcion SuscripcionTemporal SuscripcionVitalicia TotalHorasJugadas TotalJugadoresSuscriptos Usuario Videojuego DtCategoria DtDesarrollador DtEstadisticaDeSegundoTipo DtFecha DtJugador DtPago DtPartida DtPartidaEnCurso DtPartidaIndividual DtPartidaIndividualEnCurso DtPartidaMultijugador DtPartidaMultijugadorEnCurso DtSuscripcion DtUsuario DtVideojuego DataEstadistica DtInfoEspecifica DtVideojuegoResumido
+MODULOS = Abandona Categoria ControladorEstadistica ControladorPartida ControladorUsuario ControladorVideojuego ControladorSuscripciones Desarrollador Estadistica Jugador Partida PartidaIndividual PartidaMultijugador Puntaje Reloj Suscripcion SuscripcionTemporal SuscripcionVitalicia TotalHorasJugadas TotalJugadoresSuscriptos Usuario Videojuego DtCategoria DtDesarrollador DtEstadisticaDeSegundoTipo DtFecha DtJugador DtPago DtPartida DtPartidaEnCurso DtPartidaIndividual DtPartidaIndividualEnCurso DtPartidaMultijugador DtPartidaMultijugadorEnCurso DtSuscripcion DtUsuario DtVideojuego DataEstadistica DtInfoEspecifica DtVideojuegoResumido IControladorEstadistica IControladorPartida IControladorUsuario IControladorVideojuego IControladorSuscripciones Fabrica
 
 # directorios
 HDIR    = include

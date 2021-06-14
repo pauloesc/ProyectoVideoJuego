@@ -30,6 +30,7 @@ public:
 	virtual vector<DtPartidaIndividual*> HistorialDePartidasIndividualesFinalizadas()=0;
 	virtual vector<string> ListarJugadoresConSuscripcionActiva()=0;
 	virtual void IniciarPartida()=0;
+	virtual int IniciarPartida()=0; 		//necesario para cargar los datos "iniciales"
 	virtual void CancelarPartida()=0;
 	virtual~IControladorPartida(){};
 

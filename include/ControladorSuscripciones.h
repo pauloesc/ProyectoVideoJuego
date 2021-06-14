@@ -1,6 +1,8 @@
 #ifndef CONTROLADORSUSCRIPCIONES
 #define CONTROLADORSUSCRIPCIONES
 
+#include "IControladorSuscripciones.h"
+
 #include <string>
 #include <vector>
 
@@ -20,8 +22,9 @@
 
 using namespace std;
 
+class IControladorSuscripciones;
 
-class ControladorSuscripciones {
+class ControladorSuscripciones : public IControladorSuscripciones {
     private:
         static ControladorSuscripciones* Instance;
         ControladorSuscripciones();
@@ -39,6 +42,7 @@ class ControladorSuscripciones {
         void SeleccionarVideojuego(string Juego);
         void Finalizarproceso(); //falta implementar
         void ConfirmarSuscripcion();
+        void ConfirmarSuscripcion(DtFecha* d);
         void Cancelar();
         ~ControladorSuscripciones();
 };

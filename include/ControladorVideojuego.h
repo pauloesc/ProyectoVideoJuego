@@ -1,6 +1,8 @@
 #ifndef CONTROLADORVIDEOJUEGO
 #define CONTROLADORVIDEOJUEGO
 
+#include "IControladorVideojuego.h"
+
 #include "Videojuego.h"
 #include "Categoria.h"
 #include "ControladorPartida.h"
@@ -20,7 +22,7 @@
 
 using namespace std;
 
-class ControladorVideojuego {
+class ControladorVideojuego : public IControladorVideojuego {
 
 private:
 static ControladorVideojuego* instance;
