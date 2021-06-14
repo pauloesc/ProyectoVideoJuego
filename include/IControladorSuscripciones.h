@@ -22,6 +22,7 @@ class IControladorSuscripciones {
         virtual vector<string> obtenerNombresSuscripcionesActivas()=0;
         virtual vector<DtSuscripcion*> obtenerSuscripcionesActivas()=0;
         virtual vector<DtSuscripcion*> obtenerSuscripcionesNoActivas()=0;
+        virtual bool VerificarSuscripcionVitalicia()=0;
         virtual void IngresarDatosSuscripcion(string tiposuscripcion, DtPago pag)=0;
         virtual void SeleccionarVideojuego(string Juego)=0;
         virtual void Finalizarproceso()=0;

@@ -9,6 +9,8 @@
 #include "PartidaMultijugador.h"
 #include "PartidaIndividual.h"
 #include "Suscripcion.h"
+#include "SuscripcionVitalicia.h"
+
 
 #include "DtSuscripcion.h"
 #include "DtPartidaIndividual.h"
@@ -43,6 +45,7 @@ class Jugador : public Usuario {
 		void eliminarSuscripciones(string nomVJ);
 		vector<DtSuscripcion*> darSuscripcionesActivas();
 		bool tieneSuscripcionActiva(string nombrevid);
+		bool tieneSuscripcionActivaVitalicia(Videojuego *vid);
 		bool tieneSuscripcionActiva(Videojuego *vid);
 		void cancelarSuscripcionActiva(string Juego);
 		void asociarSuscripcion(Suscripcion *SNuevo);

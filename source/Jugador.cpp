@@ -125,6 +125,15 @@ bool Jugador::tieneSuscripcionActiva(Videojuego *vid) {
 	return res;
 }
 
+bool Jugador::tieneSuscripcionActivaVitalicia(Videojuego *vid) {
+	bool res = false;
+    long unsigned int i = 0;
+	while (i != sus.size() && !res)
+		if (sus[i]->esActiva() && sus[i]->getVideojuegoAsociado() == vid && (dynamic_cast<SuscripcionVitalicia*>(sus[i]) != NULL))
+			res = true;
+	return res;
+}
+
 void Jugador::cancelarSuscripcionActiva(string Juego) {
 	bool terminar = false;
 	for (long unsigned int i = 0; i < sus.size() && !terminar; i++)

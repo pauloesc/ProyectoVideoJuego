@@ -14,7 +14,12 @@ ControladorSuscripciones* ControladorSuscripciones::getInstance() {
     return Instance;
 }
 
+ bool ControladorSuscripciones::VerificarSuscripcionVitalicia() {
+    ControladorUsuario* cu = ControladorUsuario::getInstance();
+    Jugador* jug = cu->darJugador();
 
+    return jug->tieneSuscripcionActivaVitalicia(vj);
+ }
 
 
 vector<DtSuscripcion*> ControladorSuscripciones::obtenerSuscripcionesActivas() {
