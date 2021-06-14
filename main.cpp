@@ -63,9 +63,9 @@ void menuParaJugador(IControladorUsuario* IU, IControladorVideojuego* IV, IContr
                                 getline(cin,nombreVideojego);
                                 cout <<'\n';
 
+                                IV->seleccionarVideoJuego(nombreVideojego);
                                 bool puedeSuscribirse = 0;
-                                //ESTA FUNCION ES MUY ESPECIFICA NO SE SI ESTA EN EL CONTROLADOR
-                                puedeSuscribirse = IS->SeleccionarVideojuegoParaSuscr(nombreVideojego);
+                                puedeSuscribirse = IS->VerificarSuscripcionVitalicia();
 
                                 //si puede suscribirse
                                 if(puedeSuscribirse){
