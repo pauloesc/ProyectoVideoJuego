@@ -678,7 +678,7 @@ void menuParaDesarollador(IControladorUsuario* IU, IControladorVideojuego* IV, I
                                 
                                 float VMostarTotalHorasJugadas=0;
                                 VMostarTotalHorasJugadas = IV->MostrarHorasTotalJugadas();
-                                cout << "Total de horas Jugadas: falta esto ";
+                                cout << "Total de horas Jugadas: ";
                                 cout << VMostarTotalHorasJugadas << endl;
 
                         }
