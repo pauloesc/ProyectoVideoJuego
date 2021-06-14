@@ -130,7 +130,7 @@ void menuParaJugador(IControladorUsuario* IU, IControladorVideojuego* IV, IContr
                                 }
                                 //no puede siscribirse
                                 else{
-                                  //      IS->Finalizarproceso();
+                                      IS->Finalizarproceso();
                                 }
 
 
