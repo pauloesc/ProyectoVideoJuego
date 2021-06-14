@@ -686,7 +686,7 @@ int main() {
 
                         IControladorUsuario* IU = Fabrica::getIUsuario();
                         IControladorVideojuego* IV = Fabrica::getIVideojuego();
-                        IControladorSuscripciones* IS = Fabrica::getISuscripciones();
+                        IControladorSuscripciones* IS = Fabrica::getISuscripcion();
                         IControladorPartida* IP = Fabrica::getIPartida();
 
                         switch (eleccion) {
@@ -897,16 +897,16 @@ int main() {
                                 //videojuegos
                                 bool basura;
                                 
-                                basura = IU->ingresarDatos("ironhide@mail.com",123);
-                                IV->datosVideojuego("KingdomRush","",1,2,7,14);
+                                basura = IU->ingresarDatos("ironhide@mail.com","123");
+                                IV->datosVideojuego("KingdomRush","des1",1.f,2.f,7.f,14.f);
                                 IV->agregarcategoria("PC");
                                 IV->agregarcategoria("PS4");
                                 IV->agregarcategoria("Estrategia");
                                 IV->agregarcategoria("E");
                                 IV->ConfirmarAltavideoJuego();
 
-                                basura = IU->ingresarDatos("epic@mail.com",123);
-                                IV->datosVideojuego("Fortnite","",3,8,30,60);
+                                basura = IU->ingresarDatos("epic@mail.com","123");
+                                IV->datosVideojuego("Fortnite","des2",3.f,8.f,30.f,60.f);
                                 IV->agregarcategoria("PC");
                                 IV->agregarcategoria("PS4");
                                 IV->agregarcategoria("Xbox One");
@@ -914,15 +914,15 @@ int main() {
                                 IV->agregarcategoria("Teen");
                                 IV->ConfirmarAltavideoJuego();
 
-                                basura = IU->ingresarDatos("mojang@mail.com",123);
-                                IV->datosVideojuego("Minecraft",2,5,20,40);
+                                basura = IU->ingresarDatos("mojang@mail.com","123");
+                                IV->datosVideojuego("Minecraft","des3",2.f,5.f,20.f,40.f);
                                 IV->agregarcategoria("PC");
                                 IV->agregarcategoria("Supervivencia");
                                 IV->agregarcategoria("E");
                                 IV->ConfirmarAltavideoJuego();
 
-                                basura = IU->ingresarDatos("ea@mail.com",123);
-                                IV->datosVideojuego("FIFA 21","igual a todos los FIFA",3,8,28,50);
+                                basura = IU->ingresarDatos("ea@mail.com","123");
+                                IV->datosVideojuego("FIFA 21","igual a todos los FIFA",3.f,8.f,28.f,50.f);
                                 IV->agregarcategoria("PC");
                                 IV->agregarcategoria("PS4");
                                 IV->agregarcategoria("Xbox One");
