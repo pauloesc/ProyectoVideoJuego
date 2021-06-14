@@ -19,6 +19,7 @@ using namespace std;
 #include "include/Reloj.h"
 
 
+
 /*
 void menuParaJugador(){
 
@@ -332,8 +333,9 @@ void menuParaJugador(){
 };
 
 
+*/
 
-void menuParaDesarollador(){
+void menuParaDesarollador(IControladorUsuario* IU, IControladorVideojuego* IV, IControladorSuscripciones* IS, IControladorPartida* IP, IControladorEstadistica* IE){
 
         bool termina = 0;
         while (!termina){
@@ -355,13 +357,13 @@ void menuParaDesarollador(){
 
                         case 1: {
                                 vector<string> nombreCategorias;
-                                //nombreCategorias = InstanciaControladorVideojuego.ObtenerCategorias();
+                                nombreCategorias = IV->ObtenerCategorias();
 
                                 cout << "Nombre de las categorias existentes: "<<'\n';
                  
                                 int maxx = nombreCategorias.size();
                                 for(int i=0; i < maxx; i++ ){
-                                        //cout << nombreCategorias[i] << endl;
+                                        cout << nombreCategorias[i] << endl;
                                 }
 
                                 string nomCategoria;
@@ -381,8 +383,13 @@ void menuParaDesarollador(){
                                 cin.ignore();
                                 getline(cin,tipoCategoria);
                                 cout <<'\n';
-                 
-                                //InstanciaControladorVideojuego.NuevaCategoria(nomCategoria, descCategoria, tipoCategoria);
+                    
+                                //creo una categoria no en memoria dinamica
+                                DtCategoria nuevaCat(nomCategoria,descCategoria,tipoCategoria);
+                                
+                                //creo un punero a es dt cat
+                                DtCategoria* catNuevaPuntero = &nuevaCat;
+                                IV->NuevaCategoria(catNuevaPuntero);
 
                                 bool confirmar= 0;
                                 cout << "Confirmar creacion de categoria: 1 para si, 0 para no "<<'\n';
@@ -391,10 +398,10 @@ void menuParaDesarollador(){
                                 cout <<'\n';
 
                                 if(confirmar){
-                                        //InstanciaControladorVideojuego.ConfirmarCategoria()
+                                       IV->ConfirmarCategoria();
                                 }
                                 else{
-                                        //InstanciaControladorVideojuego.ConfirmarCategoria()
+                                        IV->ConfirmarCategoria();
                                 }
 
                         }
@@ -439,12 +446,12 @@ void menuParaDesarollador(){
                                 cout <<'\n';
                                 
                                 vector<DtCategoria*> CategoriaPlataforma;
-                                //CategoriaPlataforma = InstanciaControladorVideojuego.ObtenerCategoriaPlataforma();
+                                CategoriaPlataforma = IV->ObtenerCategoriaPlataforma();
                               
                                 //imprimimos las categorias de tipo plataforma
                                 int max = CategoriaPlataforma.size();
                                 for( int i=0; i < max; i++ ){
-                                        //cout << CategoriaPlataforma[i] << endl;
+                                        cout << CategoriaPlataforma[i] << endl;
                                 }
 
                                 bool auxWhileAgregarCat = 1;
@@ -455,7 +462,7 @@ void menuParaDesarollador(){
                                         cin.ignore();
                                         getline(cin,vNombreCategoria);
                                         cout <<'\n';
-                                        //InstanciaControladorVideojuego.agregarcategoria(vNombreCategoria);
+                                        IV->agregarcategoria(vNombreCategoria);
                                         
                                         cout << "Desea agregar mas categorias: 1 para si 0 para no "<<'\n';
                                         cin.ignore();
@@ -465,14 +472,15 @@ void menuParaDesarollador(){
 
 
                                 
-                                vector<DtCategoria*> CategoriaGenero = InstanciaControladorVideojuego.ObtenerCategoriaGenero();
+                                vector<DtCategoria*> CategoriaGenero;
+                                CategoriaGenero = IV->ObtenerCategoriaGenero();
                               
                                 //imprimimos las categorias de tipo genero
 
                                 //max ya esta definido
-                                max1 = CategoriaGenero.size();
+                                int max1 = CategoriaGenero.size();
                                 for( int i=0; i < max1 ;i++ ){
-                                        //cout << CategoriaGenero[i] << endl;
+                                        cout << CategoriaGenero[i] << endl;
                                 }
 
                                 auxWhileAgregarCat = 1;
@@ -484,7 +492,7 @@ void menuParaDesarollador(){
                                         cin.ignore();
                                         getline(cin,vNombreCategoria);
                                         cout <<'\n';
-                                        //InstanciaControladorVideojuego.agregarcategoria(vNombreCategoria);
+                                        IV->agregarcategoria(vNombreCategoria);
                                         
                                         cout << "Desea agregar mas categorias: 1 para si 0 para no "<<'\n';
                                         cin.ignore();
@@ -494,12 +502,12 @@ void menuParaDesarollador(){
 
 
                                 vector<DtCategoria*> CategoriaOtro;
-                                //CategoriaGenero = InstanciaControladorVideojuego.ObtenerCategoriaOtro();
+                                CategoriaGenero = IV->ObtenerCategoriaOtros();
                               
                                 //imprimimos las categorias de tipo otro
                                 max = CategoriaOtro.size();
                                 for( int i=0; i<max; i++ ){
-                                        //cout << CategoriaOtro[i] << endl;
+                                        cout << CategoriaOtro[i] << endl;
                                 }
 
                                 auxWhileAgregarCat = 1;
@@ -515,7 +523,7 @@ void menuParaDesarollador(){
                                         getline(cin,vNombrecCategoria);
                                         cout <<'\n';
 
-                                       // InstanciaControladorVideojuego.agregarcategoria(vNombrecCategoria);
+                                       IV->agregarcategoria(vNombrecCategoria);
                                         
                                         cout << "Desea agregar mas categorias: 1 para si 0 para no "<<'\n';
                                         cin.ignore();
@@ -524,7 +532,7 @@ void menuParaDesarollador(){
 
                                 }
                                 DtVideojuego* infoVideojuego;
-                                infoVideojuego = InstanciaControladorVideojuego.ObtenerInfoVideojuego();
+                                infoVideojuego = IV->ObtenerInfoVideojuego();
                                 cout << infoVideojuego << endl;
 
 
@@ -534,14 +542,20 @@ void menuParaDesarollador(){
                         case 3: {
 
                                 vector<string> VideojuegosParaEliminar;
-                                //VideojuegosParaEliminar = InstanciaControladorVideojuego.obtenerVideoJuegosConTodasLasPartidasFinalizadas();
+                                VideojuegosParaEliminar = IV->obtenerVideoJuegosConTodasLasPartidasFinalizadas();
 
                                 int max = VideojuegosParaEliminar.size();
                                 for( int i = 0; i< max; i++ ){
-                                        //cout << VideojuegosParaEliminar[i] << endl;
+                                        cout << VideojuegosParaEliminar[i] << endl;
                                 }
 
-                                //InstanciaControladorVideojuego.SeleccionarVideoJuego(string nomVJ);
+                                string nomVJ;
+                                cout << "Ingrese nombre de la nueva categoria: "<<'\n';
+                                cin.ignore();
+                                getline(cin,nomVJ);
+                                cout <<'\n';
+
+                                IV->seleccionarVideoJuego(nomVJ);
 
                                 bool conf = 0;
                                 cout << "Cofirmar eliminacion 1 para si, 0 para no :"<<'\n';
@@ -550,20 +564,21 @@ void menuParaDesarollador(){
                                 cout <<'\n';
 
                                 if(conf){
-                                        //InstanciaControladorVideojuego.eliminarVideojuego();
+                                        IV->eliminarVideoJuego();
                                 }
                                 else{
-                                        //InstanciaControladorVideojuego.cancelarLaEliminacion();
+                                        IV->cancelarLaEliminacion();
                                 }
                         }
                         break;
                         case 4: {
                                 vector<DataEstadistica> EstadisticasEnElSistema;
-                                //EstadisticasEnElSistema = InstanciaControladorEstadistica.TiposDeEstadistica();
+                                EstadisticasEnElSistema = IE->TiposDeEstadistica();
 
                                 int max = EstadisticasEnElSistema.size();
                                 for(int i=0; i< max; i++ ){
-                                        //cout << EstadisticasEnElSistema[i] << endl;
+                                        //le paso de dir de memoria no el objeto
+                                        cout << &EstadisticasEnElSistema[i] << endl;
                                 }
 
                                 vector<string> EstadisticasSeleccionadas;
@@ -576,7 +591,7 @@ void menuParaDesarollador(){
                                         getline(cin,estadisticaNombre);
                                         cout <<'\n';
 
-                                        //EstadisticasSeleccionadas.push_back(estadisticaNombre);
+                                        EstadisticasSeleccionadas.push_back(estadisticaNombre);
 
                                         cout << "Quiere seleccionar otra estadistica. 1 para si, 0 para no :"<<'\n';
                                         cin.ignore();
@@ -585,7 +600,7 @@ void menuParaDesarollador(){
 
                                 }
 
-                                //InstanciaControladorEstadistica.SeleccionEstadisticas(EstadisticasSeleccionadas);
+                                IE->SeleccionEstadisticas(EstadisticasSeleccionadas);
 
                                 bool confirmar;
                                 cout << "Confirmar. 1 para si 0 para no :"<<'\n';
@@ -594,10 +609,10 @@ void menuParaDesarollador(){
                                 cout <<'\n';
 
                                 if(confirmar){
-                                        //InstanciaControladorEstadistica.ConfirmarSeleccionEstaditicas();
+                                        IE->ConfirmarSeleccionEstaditicas();
                                 }
                                 else{
-                                       //InstanciaControladorEstadistica.CancelarSeleccionEstaditicas();
+                                        IE->CancelarSeleccionEstaditicas();
                                 }
 
                         }
@@ -619,21 +634,21 @@ void menuParaDesarollador(){
                                 getline(cin,nombreJuego);
                                 cout <<'\n';
 
-                                DtEstadisticaDeSegundoTipo datosDatos;
-                                //datos = SeleccionEstadisticasDeCiertoJuego(nombreJuego)
-
-                                //cout << datosDatos << endl;
+                                //podria no ser un vector
+                                vector<DtEstadisticaDeSegundoTipo*> datos;
+                                datos = IE->SeleccionEstadisticasDeCiertoJuego(nombreJuego);
+                                cout << datos[0] << endl;
 
                         }
                         break;
                         case 6: {
                                 
-                                vector<string> VideojuegosEnSistema;
-                                //VideojuegosEnSistema = InstanciaControladorVideojuego.ObtenerVideoJuegos();
+                                vector<DtVideojuegoResumido*> VideojuegosEnSistema;
+                                VideojuegosEnSistema = IV->ObtenerVideoJuegos();
 
                                 int max = VideojuegosEnSistema.size();
                                 for(int i=0; i< max; i++){
-                                        //cout << VideojuegosEnSistema[i] << endl;
+                                        cout << VideojuegosEnSistema[i] << endl;
                                 }
 
                                 string nombreJuego;
@@ -642,12 +657,12 @@ void menuParaDesarollador(){
                                 getline(cin,nombreJuego);
                                 cout <<'\n';
 
-                                DtInfoEspecifica datosVj;
-                                //datosVj = InstanciaControladorVideojuego.SeleccionarVideojuego(nombreJuego);
+                                DtInfoEspecifica* datosVj;
+                                datosVj = IV->SeleccionarVideojuego(nombreJuego);
 
                                 float VMostarTotalHorasJugadas=0;
                                 //float VMostarTotalHorasJugadas = MostrarTotalHorasJugadas();
-                                cout << "Total de horas Jugadas: ";
+                                cout << "Total de horas Jugadas: falta esto ";
                                 cout << VMostarTotalHorasJugadas << endl;
 
                         }
@@ -660,11 +675,10 @@ void menuParaDesarollador(){
         }
 };
 
-*/
+
 
 
 void menuParaJugador(){}
-void menuParaDesarollador(){}
 
 int main() {
 
@@ -688,6 +702,7 @@ int main() {
                         IControladorVideojuego* IV = Fabrica::getIVideojuego();
                         IControladorSuscripciones* IS = Fabrica::getISuscripcion();
                         IControladorPartida* IP = Fabrica::getIPartida();
+                        IControladorEstadistica* IE = Fabrica::getIEstadistica();
 
                         switch (eleccion) {
 
@@ -808,7 +823,7 @@ int main() {
                                     if (IU->esUsuarioEnLineaJugador()) {
                                         menuParaJugador();
                                     } else {
-                                        menuParaDesarollador();
+                                        menuParaDesarollador(IU, IV, IS, IP, IE);
                                     }
                                 }
 
