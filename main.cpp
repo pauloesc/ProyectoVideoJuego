@@ -636,7 +636,7 @@ void menuParaDesarollador(IControladorUsuario* IU, IControladorVideojuego* IV, I
                         case 5: {
 
                                 vector<string> JuegosDelDesarollador;
-                                //JuegosDelDesarollador = InstanciaControladorVideojuego.JuegosDelDesarollador();
+                                JuegosDelDesarollador = IE->JuegosDelDesarollador();
                                 
                                 //imprimo los videojuegos del desarollador
                                 int max = JuegosDelDesarollador.size();
