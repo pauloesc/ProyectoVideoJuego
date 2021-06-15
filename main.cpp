@@ -323,7 +323,7 @@ void menuParaJugador(IControladorUsuario* IU, IControladorVideojuego* IV, IContr
 
                                 int max = VideojuegosEnSistema.size();
                                 for(int i=0; i< max; i++){
-                                        //cout << VideojuegosEnSistema[i] << endl;
+                                        cout << VideojuegosEnSistema[i] << endl;
                                 }
 
                                 string nombreJuego;
