@@ -1046,7 +1046,9 @@ int main() {
 
                                 //partidas multijugador
                                 
-
+                                if (basura){
+                                        
+                                }
 
                                 /*
                                 int an, me, di, ho, mi;
