@@ -714,6 +714,7 @@ int main() {
 
                         int eleccion;
                         cin >> eleccion;
+                        cin.ignore();
                         cout << '\n';
 
                         IControladorUsuario* IU = Fabrica::getIUsuario();
@@ -730,18 +731,20 @@ int main() {
                                 string vemail;
                                 cout << "Ingrese email:" << '\n';
                                 cin >> vemail;
+                                cin.ignore();
                                 cout << '\n';
 
                                 string vpassword;
                                 cout << "ingrese contrasenia:" << '\n';
-                                cin >> vpassword;
+                                getline(cin,vpassword);
                                 cout << '\n';
 
                                 IU->IngresardatosUsuario(vemail,vpassword);
 
-                                int tipoUsuario = 0;
+                                int tipoUsuario;
                                 cout << "Tipo de usuario a registrar: 1: Desarollador, 2: Jugador" << '\n';
                                 cin >> tipoUsuario;
+                                cin.ignore();
 
                                 bool verificacion=0;
                                 if (tipoUsuario==1) {
@@ -753,7 +756,7 @@ int main() {
                                 } else {
 
                                         bool auxWhile = 1;
-                                        
+                                
                                         while (auxWhile) {
 
                                                 string vnickname;
@@ -766,7 +769,7 @@ int main() {
                                                 getline(cin, vdescripcion);
                                                 cout << '\n';
 
-                                                bool verificacion=0;
+                                                
                                                 verificacion = IU->IngresardatosJugador(vnickname, vdescripcion);
 
                                                 //si puede registrarse con ese usuario
@@ -777,6 +780,7 @@ int main() {
                                                         bool vreintenarIngresoDatos;
                                                         cout << "nickname existente, quiere volver a intentarlo: 0 para no, 1 para si" << '\n';
                                                         cin >> vreintenarIngresoDatos;
+                                                        cin.ignore();
                                                         cout << '\n';
 
                                                         auxWhile = vreintenarIngresoDatos;
@@ -786,10 +790,12 @@ int main() {
                                         }
 
                                 }
+                                
                                 if (verificacion || (tipoUsuario == 1)) { 
                                     bool vconfirmar;
                                     cout << "Desea confirmar inscripcion 1 para si 0 para no:" << '\n';
                                     cin >> vconfirmar;
+                                    cin.ignore();
                                     cout << '\n';
 
                                     if (!vconfirmar) {
@@ -800,7 +806,7 @@ int main() {
                                 }
                         }
                         break;
-
+//
                         case 2: {
 
                                 bool auxWhile = 1;
@@ -825,6 +831,7 @@ int main() {
                                                 bool reintentar;
                                                 cout << "Fallo el ingreso. Quiere reintentar ingresar?: 1 para si 0 para no" << '\n';
                                                 cin >> reintentar;
+                                                cin.ignore();
                                                 cout << '\n';
 
                                                 auxWhile = reintentar;
@@ -839,7 +846,7 @@ int main() {
                                 // si logró iniciar sesión
                                 if (ingreso) {
                                     if (IU->esUsuarioEnLineaJugador()) {
-                                        menuParaJugador();
+                                        menuParaJugador(IU, IV, IS, IP, IE);
                                     } else {
                                         menuParaDesarollador(IU, IV, IS, IP, IE);
                                     }
