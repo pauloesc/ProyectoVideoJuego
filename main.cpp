@@ -967,37 +967,37 @@ int main() {
                                 //suscripciones
                                 DtFecha* f;
 
-                                basura =IS-> ingresarDatos("gamer@mail.com","123");
+                                basura =IU->ingresarDatos("gamer@mail.com","123");
                                 IS->SeleccionarVideojuego("KingdomRush");
                                 IS->IngresarDatosSuscripcion("trimestral",paypal);
                                 f = new DtFecha(1,6,2021,9,0);
                                 IS->ConfirmarSuscripcion(f);
 
-                                basura =IS-> ingresarDatos("gamer@mail.com","123");
+                                basura =IU->ingresarDatos("gamer@mail.com","123");
                                 IS->SeleccionarVideojuego("Fortnite");
                                 IS->IngresarDatosSuscripcion("trimestral",tarjeta);
                                 f = new DtFecha(2,6,2021,11,0);
                                 IS->ConfirmarSuscripcion(f);
 
-                                basura =IS-> ingresarDatos("ari@mail.com","123");
+                                basura =IU->ingresarDatos("ari@mail.com","123");
                                 IS->SeleccionarVideojuego("Fortnite");
                                 IS->IngresarDatosSuscripcion("mensual",paypal);
                                 f = new DtFecha(4,6,2021,9,0);
                                 IS->ConfirmarSuscripcion(f);
 
-                                basura =IS-> ingresarDatos("ari@mail.com","123");
+                                basura =IU->ingresarDatos("ari@mail.com","123");
                                 IS->SeleccionarVideojuego("Minecraft");
                                 IS->IngresarDatosSuscripcion("anual",tarjeta);
                                 f = new DtFecha(11,6,2021,9,0);
                                 IS->ConfirmarSuscripcion(f);
 
-                                basura =IS-> ingresarDatos("ibai@mail.com","123");
+                                basura =IU->ingresarDatos("ibai@mail.com","123");
                                 IS->SeleccionarVideojuego("Fortnite");
                                 IS->IngresarDatosSuscripcion("mensual",tarjeta);
                                 f = new DtFecha(3,6,2021,7,0);
                                 IS->ConfirmarSuscripcion(f);
 
-                                basura =IS-> ingresarDatos("ibai@mail.com","123");
+                                basura =IU->ingresarDatos("ibai@mail.com","123");
                                 IS->SeleccionarVideojuego("Minecraft");
                                 IS->IngresarDatosSuscripcion("vitalicia",tarjeta);
                                 f = new DtFecha(21,12,2020,15,0);
@@ -1005,30 +1005,30 @@ int main() {
 
 
                                 //puntajes
-                                basura =IS->ingresarDatos("gamer@mail.com","123");
+                                basura =IU->ingresarDatos("gamer@mail.com","123");
                                 IV->AsignarPuntajeVJ("KingdomRush",4);
 
-                                basura =IS->ingresarDatos("gamer@mail.com","123");
+                                basura =IU->ingresarDatos("gamer@mail.com","123");
                                 IV->AsignarPuntajeVJ("Fortnite",5);
 
-                                basura =IS-> ingresarDatos("ari@mail.com","123");
+                                basura =IU->ingresarDatos("ari@mail.com","123");
                                 IV->AsignarPuntajeVJ("Fortnite",5);
 
-                                basura =IS-> ingresarDatos("ari@mail.com","123");
+                                basura =IU->ingresarDatos("ari@mail.com","123");
                                 IV->AsignarPuntajeVJ("Minecraft",3);
 
 
                                 //partidas individuales
                                 int cod;
 
-                                basura =IS-> ingresarDatos("gamer@mail.com","123");
+                                basura =IU->ingresarDatos("gamer@mail.com","123");
                                 IP->seleccionaVideoJuego("KingdomRush");
                                 IP->ingresarPartidaIndividual(false);
                                 Reloj::setFecha(2,6,21,9,0);
                                 cod = IP->IniciarPartidaConCodigo();
                                 Reloj::setFecha(2,6,21,10,0);
 
-                                basura =IS-> ingresarDatos("gamer@mail.com","123");
+                                basura =IU->ingresarDatos("gamer@mail.com","123");
                                 IP->seleccionaVideoJuego("KingdomRush");
                                 IP->ingresarPartidaIndividual(true);
                                 IP->PartidaAcontinuar(cod);
@@ -1037,7 +1037,7 @@ int main() {
                                 Reloj::setFecha(2,6,21,16,0);
                                 IP->finalizarPartida(cod);
 
-                                basura =IS->ingresarDatos("ari@mail.com","123");
+                                basura =IU->ingresarDatos("ari@mail.com","123");
                                 IP->seleccionaVideoJuego("Minecraft");
                                 IP->ingresarPartidaIndividual(false);
                                 Reloj::setFecha(12,6,21,9,0);
