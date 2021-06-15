@@ -817,7 +817,7 @@ int main() {
                                         getline(cin, passw);
                                         cout << '\n';
 
-                                        bool ingreso = IU->ingresarDatos(vemail, passw);
+                                        ingreso = IU->ingresarDatos(vemail, passw);
                                        
 
                                         //si no ingreso
