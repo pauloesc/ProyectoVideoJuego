@@ -24,6 +24,7 @@ class DtPartidaEnCurso {
         void setCodigo(int codigo);
         void setNombreVideojuego(string nombreVideojuego);
 
+		virtual void imprimir() = 0;
 
 		virtual ~DtPartidaEnCurso();
 		friend ostream& operator<<(ostream &o, DtPartidaEnCurso *s);

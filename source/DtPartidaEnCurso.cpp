@@ -43,6 +43,10 @@ void DtPartidaEnCurso::setNombreVideojuego(string nombreVideojuego){
     this->nombreVideojuego = nombreVideojuego;
 }
 
+ostream& operator<<(ostream &o, DtPartidaEnCurso *s) {
+	s->imprimir();
+	return o;
+}
 
 DtPartidaEnCurso::~DtPartidaEnCurso(){
 

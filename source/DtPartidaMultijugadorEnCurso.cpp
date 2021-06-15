@@ -69,7 +69,9 @@ void DtPartidaMultijugadorEnCurso::setNicknameJugadoresUnidos(list<string> nickn
     this->cantidadJugadoresUnidos = i;
 }
 
-
+void DtPartidaMultijugadorEnCurso::imprimir() {
+	cout << this;
+}
 
 ostream& operator<<(ostream &o, DtPartidaMultijugadorEnCurso *s) {
     

@@ -30,6 +30,8 @@ public:
 	void setNicknameJugadoresUnidos(list<string> nicknameJugadoresUnidos);
     void setCantidadJugadoresUnidos(int cantidadJugadoresUnidos);
 
+	void imprimir();
+
 	virtual ~DtPartidaMultijugadorEnCurso();
 	friend ostream& operator<<(ostream &o, DtPartidaMultijugadorEnCurso *s);
 
