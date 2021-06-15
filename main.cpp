@@ -641,7 +641,7 @@ void menuParaDesarollador(IControladorUsuario* IU, IControladorVideojuego* IV, I
                                 //imprimo los videojuegos del desarollador
                                 int max = JuegosDelDesarollador.size();
                                 for( int i=0; i< max; i++ ){
-                                        //cout << JuegosDelDesarollador[i] << endl;
+                                        cout << JuegosDelDesarollador[i] << endl;
                                 }
 
                                 string nombreJuego;
