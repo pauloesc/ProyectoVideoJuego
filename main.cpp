@@ -334,6 +334,7 @@ void menuParaJugador(IControladorUsuario* IU, IControladorVideojuego* IV, IContr
 
                                 DtInfoEspecifica* datosVj;
                                 datosVj = IV->SeleccionarVideojuego(nombreJuego);
+                                cout << datosVj;
 
                         }
                         break;
