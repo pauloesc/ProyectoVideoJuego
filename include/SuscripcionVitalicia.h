@@ -24,7 +24,8 @@ public:
 };
 
 
-
+#include "Videojuego.h"
+#include "Jugador.h"
 
 
 #endif

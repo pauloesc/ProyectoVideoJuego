@@ -37,7 +37,8 @@ public:
     virtual ~Suscripcion() = 0;
 };
 
-
+#include "Videojuego.h"
+#include "Jugador.h"
 
 
 #endif
