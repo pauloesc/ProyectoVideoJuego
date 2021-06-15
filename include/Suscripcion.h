@@ -5,9 +5,7 @@
 #include "DtFecha.h"
 #include "DtSuscripcion.h"
 
-#include "Jugador.h"
 #include "Reloj.h"
-#include "Videojuego.h"
 
 
 #include <string>

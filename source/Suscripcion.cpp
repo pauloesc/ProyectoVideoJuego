@@ -1,5 +1,7 @@
 #include "../include/Suscripcion.h"
 #include "../include/SuscripcionTemporal.h"
+#include "../include/Videojuego.h"
+#include "../include/Jugador.h"
 
 Suscripcion::Suscripcion(DtFecha* fecha, DtPago medioDePago, float costo, Videojuego* vj, Jugador* j) {
 	this->fecha = fecha;

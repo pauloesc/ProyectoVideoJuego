@@ -5,10 +5,12 @@
 #include "DtPago.h"
 #include "DtFecha.h"
 #include "Reloj.h"
-#include "Jugador.h"
-#include "Videojuego.h"
+
 
 using namespace std;
+
+class Videojuego;
+class Jugador;
 
 class SuscripcionVitalicia : public Suscripcion{
 private:
