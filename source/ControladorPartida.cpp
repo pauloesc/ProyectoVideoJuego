@@ -114,7 +114,7 @@ void ControladorPartida::IniciarPartida() {
 
 }
 
-int ControladorPartida::IniciarPartida() {
+int ControladorPartida::IniciarPartidaConCodigo() {
 	ControladorUsuario* cu = ControladorUsuario::getInstance();
 	Partida* p;
 

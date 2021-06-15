@@ -56,7 +56,7 @@ public:
 	vector<DtPartidaIndividual*> HistorialDePartidasIndividualesFinalizadas();
 	vector<string> ListarJugadoresConSuscripcionActiva();
 	void IniciarPartida();
-	int IniciarPartida();
+	int IniciarPartidaConCodigo();
 	void CancelarPartida();
 	~ControladorPartida();
 

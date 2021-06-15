@@ -1023,7 +1023,7 @@ int main() {
                                 IP->seleccionaVideoJuego("KingdomRush");
                                 IP->ingresarPartidaIndividual(false);
                                 Reloj::setFecha(2,6,21,9,0);
-                                cod = IP->IniciarPartida();
+                                cod = IP->IniciarPartidaConCodigo();
                                 Reloj::setFecha(2,6,21,10,0);
 
                                 basura = ingresarDatos("gamer@mail.com","123");
@@ -1031,7 +1031,7 @@ int main() {
                                 IP->ingresarPartidaIndividual(true);
                                 IP->PartidaAcontinuar(cod);
                                 Reloj::setFecha(3,6,21,15,0);
-                                cod = IP->IniciarPartida();
+                                cod = IP->IniciarPartidaConCodigo();
                                 Reloj::setFecha(2,6,21,16,0);
                                 IP->finalizarPartida(cod);
 
