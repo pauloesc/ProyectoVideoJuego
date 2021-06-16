@@ -16,6 +16,9 @@
 #include "Estadistica.h"
 #include "DataEstadistica.h"
 
+#include "TotalJugadoresSuscriptos.h"
+#include "TotalHorasJugadas.h"
+
 using namespace std;
 
 class IControladorEstadistica;
@@ -29,6 +32,8 @@ private:
 
     //momoria caso de uso seleccionar estadistica
     vector<string> EstadisticasSeleccionadas;
+
+    ControladorEstadistica();
 
 public:
     static ControladorEstadistica* getInstance();
