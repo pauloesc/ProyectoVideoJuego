@@ -86,6 +86,7 @@ void ControladorVideojuego::ConfirmarAltavideoJuego(){
             }
         j++;                      
         }
+        i++;
     }
     ControladorUsuario* cu;
     cu= ControladorUsuario::getInstance();

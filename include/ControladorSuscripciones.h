@@ -39,6 +39,7 @@ class ControladorSuscripciones : public IControladorSuscripciones {
         vector<DtSuscripcion*> obtenerSuscripcionesActivas();
         vector<DtSuscripcion*> obtenerSuscripcionesNoActivas();
         bool VerificarSuscripcionVitalicia();
+        bool VerificarSuscripcionActiva();
         void IngresarDatosSuscripcion(string tiposuscripcion, DtPago pag);
         void SeleccionarVideojuego(string Juego);
         void Finalizarproceso(); //falta implementar

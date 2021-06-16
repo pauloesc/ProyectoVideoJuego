@@ -34,11 +34,13 @@ void menuParaJugador(IControladorUsuario* IU, IControladorVideojuego* IV, IContr
                 cout << "7) Salir." << '\n';
                 int eleccion;
                 cin >> eleccion;
+                cin.ignore();
                 cout << '\n';
 
                 switch (eleccion) {
 
                         case 1: {
+                                cout << "Sus suscripciones activas:" << '\n';
                                 vector<DtSuscripcion*> SuscripcionesActivas;
                                 SuscripcionesActivas = IS->obtenerSuscripcionesActivas();
 
@@ -48,6 +50,7 @@ void menuParaJugador(IControladorUsuario* IU, IControladorVideojuego* IV, IContr
 
                                 }
 
+                                cout << "Sus suscripciones no activas:" << '\n';
                                 vector<DtSuscripcion*> SuscripcionesNoActivas;
                                 SuscripcionesNoActivas = IS->obtenerSuscripcionesNoActivas();
 
@@ -59,34 +62,34 @@ void menuParaJugador(IControladorUsuario* IU, IControladorVideojuego* IV, IContr
 
                                 string nombreVideojego;
                                 cout << "Ingrese nombre del videojuego: "<<'\n';
-                                cin.ignore();
                                 getline(cin,nombreVideojego);
                                 cout <<'\n';
 
-                                IV->seleccionarVideoJuego(nombreVideojego);
-                                bool puedeSuscribirse = 0;
-                                puedeSuscribirse = IS->VerificarSuscripcionVitalicia();
+                                IS->SeleccionarVideojuego(nombreVideojego);
+                                bool tieneVitalicia = 0;
+                                tieneVitalicia = IS->VerificarSuscripcionVitalicia();
 
                                 //si puede suscribirse
-                                if(puedeSuscribirse){
+                                if(!tieneVitalicia){
 
-                                        bool cancela=0;
-                                        cout << "Usted tiene una suscripcion a dicho juego quiere cancelarla 1 para si, 0 para no: "<<'\n';
-                                        cin.ignore();
-                                        cin >> cancela;
-                                        cout <<'\n';
-
-                                        //si no cancela la suscripcion existente
+                                        bool activa = IS->VerificarSuscripcionActiva();
+                                        bool cancela=1;
+                                        
+                                        if (activa) { 
+                                                cout << "Usted tiene una suscripcion a dicho juego quiere cancelarla 1 para si, 0 para no: "<<'\n';
+                                                cin >> cancela;
+                                                cin.ignore();
+                                                cout <<'\n';
+                                        }
+                                         //si no cancela la suscripcion existente
                                         if(!cancela){
                                                 IS->Cancelar();
-                                        }
-
-                                        //nosi quiere cancela la suscripcion existente.
-                                        else{
+                                        
+                                        } else {
+                                        //quiere cancelar su suscripcion activa no vitalicia, o no tiene suscripcion activa
 
                                                 string tipoSusc;
-                                                cout << "Digite el tipo de suscripcion (mensual)(trimestral)(anual): "<<'\n';
-                                                cin.ignore();
+                                                cout << "Digite el tipo de suscripcion (mensual)(trimestral)(anual)(vitalicia): "<<'\n';
                                                 getline(cin,tipoSusc);
                                                 cout <<'\n';
 						
@@ -94,6 +97,7 @@ void menuParaJugador(IControladorUsuario* IU, IControladorVideojuego* IV, IContr
 					        DtPago formaPago;
                                                 cout << "seleccione Forma de Pago :  1-Tarjeta 2-Paypal "<<'\n';
 						cin >> e;
+                                                cin.ignore();
 						cout <<'\n';
 				
 						switch(e){
@@ -112,8 +116,8 @@ void menuParaJugador(IControladorUsuario* IU, IControladorVideojuego* IV, IContr
 
                                                 bool confirSus=0;
                                                 cout << "Confirmar suscripcion: 1 para si 0 para no "<<'\n';
-                                                cin.ignore();
                                                 cin >>confirSus;
+                                                cin.ignore();
                                                 cout <<'\n';
 
                                                 if(confirSus){
@@ -128,7 +132,7 @@ void menuParaJugador(IControladorUsuario* IU, IControladorVideojuego* IV, IContr
 
                                                 
                                 }
-                                //no puede siscribirse
+                                //no puede suscribirse
                                 else{
                                       IS->Finalizarproceso();
                                 }
@@ -173,7 +177,6 @@ void menuParaJugador(IControladorUsuario* IU, IControladorVideojuego* IV, IContr
 
                                 string NombreVj;
                                 cout << "Nombre del Vj del cual quiere iniciar una partida: "<<'\n';
-                                cin.ignore();
                                 getline(cin,NombreVj);
                                 cout <<'\n';
 
@@ -182,8 +185,8 @@ void menuParaJugador(IControladorUsuario* IU, IControladorVideojuego* IV, IContr
 
                                 bool TipoPartida;
                                 cout << "Presione 1 si quiere iniciar una partida multijugador 0 si induvidual: "<<'\n';
-                                cin.ignore();
                                 cin >> TipoPartida;
+                                cin.ignore();
                                 cout <<'\n';
 
                                 //si quiere iniciar una partida multijugador
@@ -191,8 +194,8 @@ void menuParaJugador(IControladorUsuario* IU, IControladorVideojuego* IV, IContr
 
                                         bool EsTransEnVivo;
                                         cout << "Presiona 1 si la partida es transmitida en vivo: "<<'\n';
-                                        cin.ignore();
                                         cin >> EsTransEnVivo;
+                                        cin.ignore();
                                         cout <<'\n';
 
                                         IP->ingresarPartidaMultijugador(EsTransEnVivo);
@@ -211,7 +214,6 @@ void menuParaJugador(IControladorUsuario* IU, IControladorVideojuego* IV, IContr
                                         while(agregarJugadores){
                                                 string nomJugadorAgregar;
                                                 cout << "Ingrese el nombre de un jugador a ingresar para agregarlo a la partida: "<<'\n';
-                                                cin.ignore();
                                                 getline(cin,nomJugadorAgregar);
                                                 cout <<'\n';
 
@@ -220,8 +222,8 @@ void menuParaJugador(IControladorUsuario* IU, IControladorVideojuego* IV, IContr
 
                                                 
                                                 cout << "Quiere ingresar mas jugadores, presione 1 para si, 0 para no: "<<'\n';
-                                                cin.ignore();
                                                 cin >> agregarJugadores;
+                                                cin.ignore();
                                                 cout <<'\n';
 
                                         }
@@ -232,8 +234,8 @@ void menuParaJugador(IControladorUsuario* IU, IControladorVideojuego* IV, IContr
 
                                         bool EsContinuacion;
                                         cout << "Presiona 1 si la partida es continuacion de otra: "<<'\n';
-                                        cin.ignore();
                                         cin >> EsContinuacion;
+                                        cin.ignore();
                                         cout <<'\n';
 
                                         IP->ingresarPartidaIndividual(EsContinuacion);
@@ -251,8 +253,8 @@ void menuParaJugador(IControladorUsuario* IU, IControladorVideojuego* IV, IContr
 
                                                 int codigoPartida;
                                                 cout << "Ingrese el codigo de la partida que quiere continuar: "<<'\n';
-                                                cin.ignore();
                                                 cin >> codigoPartida;
+                                                cin.ignore();
                                                 cout <<'\n';
 
                                                 IP->PartidaAcontinuar(codigoPartida);
@@ -263,8 +265,8 @@ void menuParaJugador(IControladorUsuario* IU, IControladorVideojuego* IV, IContr
 
                                 int Confirmarr;
                                 cout << "Presione 1 para confirmar 0 para cancelar el codigo de la partida que quiere continuar: "<<'\n';
-                                cin.ignore();
                                 cin >>Confirmarr;
+                                cin.ignore();
                                 cout <<'\n';
 
                                 if(Confirmarr){
@@ -289,8 +291,8 @@ void menuParaJugador(IControladorUsuario* IU, IControladorVideojuego* IV, IContr
 
                                 int codPartida;
                                 cout << "Ingrese le codigo de la partida que quiere abandonar: "<<'\n';
-                                cin.ignore();
                                 cin >> codPartida;
+                                cin.ignore();
                                 cout <<'\n';
                                 IP->abandonarPartida(codPartida);
 
@@ -308,8 +310,8 @@ void menuParaJugador(IControladorUsuario* IU, IControladorVideojuego* IV, IContr
 
                                 int codPartida;
                                 cout << "Ingrese le codigo de la partida que quiere finalizar: "<<'\n';
-                                cin.ignore();
                                 cin >> codPartida;
+                                cin.ignore();
                                 cout <<'\n';
                                 IP->finalizarPartida(codPartida);
 
@@ -327,7 +329,6 @@ void menuParaJugador(IControladorUsuario* IU, IControladorVideojuego* IV, IContr
 
                                 string nombreJuego;
                                 cout << "Seleccione un juego. (nombre) :"<<'\n';
-                                cin.ignore();
                                 getline(cin,nombreJuego);
                                 cout <<'\n';
 
@@ -367,8 +368,8 @@ void menuParaDesarollador(IControladorUsuario* IU, IControladorVideojuego* IV, I
                 cout << "7) Salir." << '\n';
                 int eleccion;
                 cin >> eleccion;
-                cout << '\n';
                 cin.ignore();
+                cout << '\n';
 
                 switch (eleccion) {
 
@@ -580,7 +581,6 @@ void menuParaDesarollador(IControladorUsuario* IU, IControladorVideojuego* IV, I
 
                                 string nomVJ;
                                 cout << "Ingrese nombre de la nueva categoria: "<<'\n';
-                                cin.ignore();
                                 getline(cin,nomVJ);
                                 cout <<'\n';
 
@@ -588,8 +588,8 @@ void menuParaDesarollador(IControladorUsuario* IU, IControladorVideojuego* IV, I
 
                                 bool conf = 0;
                                 cout << "Cofirmar eliminacion 1 para si, 0 para no :"<<'\n';
-                                cin.ignore();
                                 cin >> conf;
+                                cin.ignore();
                                 cout <<'\n';
 
                                 if(conf){
@@ -616,15 +616,14 @@ void menuParaDesarollador(IControladorUsuario* IU, IControladorVideojuego* IV, I
 
                                         string estadisticaNombre;
                                         cout << "Agrege una estadistica (nombre) :"<<'\n';
-                                        cin.ignore();
                                         getline(cin,estadisticaNombre);
                                         cout <<'\n';
 
                                         EstadisticasSeleccionadas.push_back(estadisticaNombre);
 
                                         cout << "Quiere seleccionar otra estadistica. 1 para si, 0 para no :"<<'\n';
-                                        cin.ignore();
                                         cin >> auxWhile;
+                                        cin.ignore();
                                         cout <<'\n';
 
                                 }
@@ -633,8 +632,8 @@ void menuParaDesarollador(IControladorUsuario* IU, IControladorVideojuego* IV, I
 
                                 bool confirmar;
                                 cout << "Confirmar. 1 para si 0 para no :"<<'\n';
-                                cin.ignore();
                                 cin >>confirmar;
+                                cin.ignore();
                                 cout <<'\n';
 
                                 if(confirmar){
@@ -659,7 +658,6 @@ void menuParaDesarollador(IControladorUsuario* IU, IControladorVideojuego* IV, I
 
                                 string nombreJuego;
                                 cout << "Seleccione un juego. (nombre) :"<<'\n';
-                                cin.ignore();
                                 getline(cin,nombreJuego);
                                 cout <<'\n';
 
@@ -682,7 +680,6 @@ void menuParaDesarollador(IControladorUsuario* IU, IControladorVideojuego* IV, I
 
                                 string nombreJuego;
                                 cout << "Seleccione un juego. (nombre) :"<<'\n';
-                                cin.ignore();
                                 getline(cin,nombreJuego);
                                 cout <<'\n';
 
@@ -708,7 +705,6 @@ void menuParaDesarollador(IControladorUsuario* IU, IControladorVideojuego* IV, I
 
 
 
-void menuParaJugador(){}
 
 int main() {
 
@@ -1043,30 +1039,67 @@ int main() {
                                 basura =IU->ingresarDatos("gamer@mail.com","123");
                                 IP->seleccionaVideoJuego("KingdomRush");
                                 IP->ingresarPartidaIndividual(false);
-                                Reloj::setFecha(2,6,21,9,0);
+                                Reloj::setFecha(2,6,2021,9,0);
                                 cod = IP->IniciarPartidaConCodigo();
-                                Reloj::setFecha(2,6,21,10,0);
+                                Reloj::setFecha(2,6,2021,10,0);
 
                                 basura =IU->ingresarDatos("gamer@mail.com","123");
                                 IP->seleccionaVideoJuego("KingdomRush");
                                 IP->ingresarPartidaIndividual(true);
                                 IP->PartidaAcontinuar(cod);
-                                Reloj::setFecha(3,6,21,15,0);
+                                Reloj::setFecha(3,6,2021,15,0);
                                 cod = IP->IniciarPartidaConCodigo();
-                                Reloj::setFecha(2,6,21,16,0);
+                                Reloj::setFecha(2,6,2021,16,0);
                                 IP->finalizarPartida(cod);
 
                                 basura =IU->ingresarDatos("ari@mail.com","123");
                                 IP->seleccionaVideoJuego("Minecraft");
                                 IP->ingresarPartidaIndividual(false);
-                                Reloj::setFecha(12,6,21,9,0);
+                                Reloj::setFecha(12,6,2021,9,0);
                                 IP->IniciarPartida();
                                
 
                                 //partidas multijugador
+                                basura =IU->ingresarDatos("gamer@mail.com","123");
+                                IP->seleccionaVideoJuego("Fortnite");
+                                IP->ingresarPartidaMultijugador(true);
+                                IP->AgregarJugador("ari");
+                                IP->AgregarJugador("ibai");
+                                Reloj::setFecha(5,6,2021,17,0);
+                                cod = IP->IniciarPartidaConCodigo();
+                                Reloj::setFecha(5,6,2021,19,0);
+                                IP->finalizarPartida(cod);
                                 
-                                if (basura){
-                                        
+                                basura =IU->ingresarDatos("gamer@mail.com","123");
+                                IP->seleccionaVideoJuego("Fortnite");
+                                IP->ingresarPartidaMultijugador(true);
+                                IP->AgregarJugador("ari");
+                                IP->AgregarJugador("ibai");
+                                Reloj::setFecha(6,6,2021,17,0);
+                                int cod2 = IP->IniciarPartidaConCodigo();
+                                Reloj::setFecha(6,6,2021,19,0);
+                                IP->finalizarPartida(cod);
+
+                                basura =IU->ingresarDatos("ari@mail.com","123");
+                                IP->seleccionaVideoJuego("Minecraft");
+                                IP->ingresarPartidaMultijugador(false);
+                                IP->AgregarJugador("ibai");
+                                Reloj::setFecha(12,6,2021,20,0);
+                                IP->IniciarPartida();
+                                
+                                
+                                //abandonas
+                                basura =IU->ingresarDatos("ari@mail.com","123");
+                                Reloj::setFecha(5,6,2021,18,0);
+                                IP->abandonarPartida(cod);
+
+                                basura =IU->ingresarDatos("ari@mail.com","123");
+                                Reloj::setFecha(6,6,2021,17,30);
+                                IP->abandonarPartida(cod2);
+
+
+                                // el compilador quiere que use la basura
+                                if (basura){     
                                 }
 
                                 /*

@@ -110,7 +110,7 @@ vector<DtSuscripcion*> Jugador::darSuscripcionesActivas() {
 	return res;
 }
 
-bool Jugador::tieneSuscripcionActiva(string nombrevid) { //como es la misma función que la sig no es una sobre carga?
+bool Jugador::tieneSuscripcionActiva(string nombrevid) {
 	long unsigned int i;
 	for (i = 0; i < sus.size() && !(sus[i]->esActiva(nombrevid)); i++);
 	return i < sus.size();
@@ -128,9 +128,11 @@ bool Jugador::tieneSuscripcionActiva(Videojuego *vid) {
 bool Jugador::tieneSuscripcionActivaVitalicia(Videojuego *vid) {
 	bool res = false;
     long unsigned int i = 0;
-	while (i != sus.size() && !res)
+	while (i != sus.size() && !res) { 
 		if (sus[i]->esActiva() && sus[i]->getVideojuegoAsociado() == vid && (dynamic_cast<SuscripcionVitalicia*>(sus[i]) != NULL))
 			res = true;
+		i++;
+	}
 	return res;
 }
 
