@@ -92,14 +92,14 @@ ostream& operator<<(ostream &o, DtVideojuego* s) {
 	o << "Costo Trimestral: " << s->getCostoTrimestral() << '\n';
 	o << "Costo Anual: " << s->getCostoAnual() << '\n';
 	o << "Costo Vitalicio: " << s->getCostoVitalicio() << '\n';
-	o << "Categoras: " ;
+	o << "Categorias: " ;
 	long unsigned int i = 0;
 	vector<string> :: iterator it;
 	for(it = s->categorias.begin(); it != s->categorias.end(); ++it){
         if ( i == s->categorias.size()){
             o << (*it) << '\n';
         }else{
-            o << (*it) << ", ";
+            o << (*it) << "  ";
         }
 	}
 	return o;
