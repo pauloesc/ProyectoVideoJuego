@@ -116,4 +116,11 @@ void ControladorEstadistica::CancelarSeleccionEstaditicas(){
     EstadisticasSeleccionadas.clear();
 }
 
-ControladorEstadistica::~ControladorEstadistica(){}
+ControladorEstadistica::~ControladorEstadistica(){
+
+    int max = EstadisticasDelSistema.size();
+    for(int i=0; i< max; i++ ){
+        delete EstadisticasDelSistema[i];
+    }
+    EstadisticasDelSistema.clear();
+}
