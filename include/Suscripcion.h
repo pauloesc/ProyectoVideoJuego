@@ -26,7 +26,7 @@ public:
     virtual DtSuscripcion  crearDtSuscripcion() = 0;
     bool esActiva();
     bool esActiva(string juego);
-    virtual void cancelarSuscripción()= 0;
+    virtual void cancelarSuscripcion()= 0;
 };
 
 
