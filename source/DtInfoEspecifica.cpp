@@ -80,7 +80,7 @@ ostream& operator<<(ostream &o, DtInfoEspecifica* s) {
             o << (*it) << ", ";
         }
 	}
-	o << "Empresa Desarrolladora: " << s->getEmpresa() << '\n';
+	o << '\n' << "Empresa Desarrolladora: " << s->getEmpresa() << '\n';
 	o << "Puntuacion promedio: " << s->getpromedio() << '\n';
 
 

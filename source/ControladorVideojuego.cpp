@@ -71,13 +71,13 @@ DtVideojuego* ControladorVideojuego::ObtenerInfoVideojuego(){
 }
 
 void ControladorVideojuego::ConfirmarAltavideoJuego(){
-    
+   
     Videojuego* nuevo=new Videojuego (nombreJuego, descrip, costoMensual, costoTrimestral, costoAnual, costoVitalicia);
-    int tamcats=cats.size();
-    int tamCol=Categorias.size();
+    long unsigned int tamcats=cats.size();
+    long unsigned int tamCol=Categorias.size();
 
-    for (int i=0; i<tamcats; i++){
-        int j=0;
+    for (long unsigned int i=0; i<tamcats; i++){
+        long unsigned int j=0;
         bool resu=false;
         while ((!resu) && (j<tamCol)){
             if ((Categorias[j]->getNombre())==cats[i]){ //Fijarse en categoria
@@ -86,7 +86,6 @@ void ControladorVideojuego::ConfirmarAltavideoJuego(){
             }
         j++;                      
         }
-        i++;
     }
     ControladorUsuario* cu;
     cu= ControladorUsuario::getInstance();
@@ -251,8 +250,8 @@ DtInfoEspecifica* ControladorVideojuego::SeleccionarVideojuego(string nombVJ){
             vector<string> cates;
             int tam=Categorias.size();
             for (int j=0; j<tam; j++){
-                if (Categorias[i]->esCategoriaDelVideojuego(vid))
-                    cates.push_back(Categorias[i]->getNombre());
+                if (Categorias[j]->esCategoriaDelVideojuego(vid))
+                    cates.push_back(Categorias[j]->getNombre());
             }
         
             nuevo= new DtInfoEspecifica(des, men, tri, anual, vit, cates, emp, promedio);
