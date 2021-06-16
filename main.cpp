@@ -395,18 +395,19 @@ void menuParaDesarollador(IControladorUsuario* IU, IControladorVideojuego* IV, I
                                 getline(cin,descCategoria);
                                 cout <<'\n';
                                 
+                                
                                 string tipoCategoria;
-                                cout << "Ingrese tipo de la nueva categoria: "<<'\n';
+                                cout << "Ingrese tipo de la nueva categoria: genero, plataforma u otro "<<'\n';
                                 cin.ignore();
                                 getline(cin,tipoCategoria);
                                 cout <<'\n';
                     
                                 //creo una categoria no en memoria dinamica
-                                DtCategoria nuevaCat(nomCategoria,descCategoria,tipoCategoria);
+                                DtCategoria* nuevaCat = new DtCategoria(nomCategoria,descCategoria,tipoCategoria);
                                 
                                 //creo un punero a es dt cat
-                                DtCategoria* catNuevaPuntero = &nuevaCat;
-                                IV->NuevaCategoria(catNuevaPuntero);
+                   
+                                IV->NuevaCategoria(nuevaCat);
 
                                 bool confirmar= 0;
                                 cout << "Confirmar creacion de categoria: 1 para si, 0 para no "<<'\n';
