@@ -54,7 +54,7 @@ vector<DtCategoria*> ControladorVideojuego::ObtenerCategoriaOtros(){
     vector<DtCategoria*> colotro; 
     int tamCol=Categorias.size();
     for (int i=0; i<tamCol; i++){
-        if(Categorias[i]->getTipo()=="otro"){  //mirarlo despues en categoria
+        if(Categorias[i]->getTipo()== "otro"){  //mirarlo despues en categoria
             colotro.push_back(Categorias[i]->ObtenerDataCategoria());
         }
     }
