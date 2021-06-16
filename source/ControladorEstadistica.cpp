@@ -92,9 +92,11 @@ void ControladorEstadistica::ConfirmarSeleccionEstaditicas(){
     vector<Estadistica*> VectorDePunterosAEstadisticasEspecificas;
 
 
-    for(int i=0; EstadisticasSeleccionadas.size(); i++ ){
+    int max1 = EstadisticasSeleccionadas.size();
+    for(int i=0; i < max1; i++ ){
 
-        for(int j=0; EstadisticasDelSistema.size(); j++ ){
+        int max2 = EstadisticasDelSistema.size();
+        for(int j=0; j < max2; j++ ){
 
             if( EstadisticasSeleccionadas[i] == EstadisticasDelSistema[j]->getNombre() ){
 
