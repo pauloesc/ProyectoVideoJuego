@@ -10,6 +10,15 @@ ControladorEstadistica* ControladorEstadistica::getInstance() {
  return instance;
 } 
 
+ControladorEstadistica::ControladorEstadistica() {
+
+    Estadistica* e1 = new TotalJugadoresSuscriptos("Total de jugadores suscriptos", "Calcula la cantidad de jugadores suscritos a un videojuego");
+    Estadistica* e2 = new TotalHorasJugadas("Total de horas jugadas", "Calcula la cantidad de horas que se juego a un determinado videojuego");
+
+    EstadisticasDelSistema.push_back(e1);
+    EstadisticasDelSistema.push_back(e2);
+} 
+
 
 vector<string> ControladorEstadistica::JuegosDelDesarollador(){
  
