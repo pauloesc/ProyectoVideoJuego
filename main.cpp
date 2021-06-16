@@ -369,6 +369,7 @@ void menuParaDesarollador(IControladorUsuario* IU, IControladorVideojuego* IV, I
                 int eleccion;
                 cin >> eleccion;
                 cout << '\n';
+                cin.ignore();
 
                 switch (eleccion) {
 
@@ -385,20 +386,19 @@ void menuParaDesarollador(IControladorUsuario* IU, IControladorVideojuego* IV, I
 
                                 string nomCategoria;
                                 cout << "Ingrese nombre de la nueva categoria: "<<'\n';
-                                cin.ignore();
+                               
                                 getline(cin,nomCategoria);
                                 cout <<'\n';
                                 
                                 string descCategoria;
                                 cout << "Ingrese descripcion de la nueva categoria: "<<'\n';
-                                cin.ignore();
+                            
                                 getline(cin,descCategoria);
                                 cout <<'\n';
                                 
                                 
                                 string tipoCategoria;
                                 cout << "Ingrese tipo de la nueva categoria: genero, plataforma u otro "<<'\n';
-                                cin.ignore();
                                 getline(cin,tipoCategoria);
                                 cout <<'\n';
                     
@@ -428,63 +428,63 @@ void menuParaDesarollador(IControladorUsuario* IU, IControladorVideojuego* IV, I
                         case 2: {
 
                                 string vJuego;
-                                cout << "Ingrese nombre del nuevo juego: "<<'\n';
-                                cin.ignore();
+                                cout << "Ingrese nombre del nuevo juego: "<<'\n';     
                                 getline(cin,vJuego);
-                                cout <<'\n';
+                                 cout <<'\n';
 
                                 string vDescripcion;
                                 cout << "Ingrese descripcion: "<<'\n';
-                                cin.ignore();
                                 getline(cin,vDescripcion);
                                 cout <<'\n';
 
-                                string vCostoMensual;
+                                float vCostoMensual;
                                 cout << "Ingrese costo mensual: "<<'\n';
-                                cin.ignore();
                                 cin >> vCostoMensual;
+                                cin.ignore();
                                 cout <<'\n';
 
-                                string vCostoTrimestral;
+                                float vCostoTrimestral;
                                 cout << "Ingrese costo trimestral: "<<'\n';
-                                cin.ignore();
                                 cin >> vCostoTrimestral;
+                                cin.ignore();
                                 cout <<'\n';
 
-                                string vCostoAnual;
+                                float vCostoAnual;
                                 cout << "Ingrese costo anual: "<<'\n';
-                                cin.ignore();
                                 cin >> vCostoAnual;
+                                cin.ignore();
                                 cout <<'\n';
 
-                                string vCostoVitalicio;
+                                float vCostoVitalicio;
                                 cout << "Ingrese costo vitalicio: "<<'\n';
-                                cin.ignore();
                                 cin >> vCostoVitalicio;
+                                cin.ignore();
                                 cout <<'\n';
                                 
+                                IV->datosVideojuego(vJuego, vDescripcion, vCostoMensual, vCostoTrimestral, vCostoAnual, vCostoVitalicio);
                                 vector<DtCategoria*> CategoriaPlataforma;
                                 CategoriaPlataforma = IV->ObtenerCategoriaPlataforma();
                               
                                 //imprimimos las categorias de tipo plataforma
+                                cout << "Categorías de tipo plataforma " << '\n';
                                 int max = CategoriaPlataforma.size();
                                 for( int i=0; i < max; i++ ){
                                         cout << CategoriaPlataforma[i] << endl;
                                 }
 
                                 bool auxWhileAgregarCat = 1;
-                                while( auxWhileAgregarCat ){
+                                
+                                while( auxWhileAgregarCat){
 
                                         string vNombreCategoria;
-                                        cout << "Agrege una categoria (nombre) :"<<'\n';
-                                        cin.ignore();
+                                        cout << "Agrege una categoria de tipo plataforma (nombre) :"<<'\n';
                                         getline(cin,vNombreCategoria);
                                         cout <<'\n';
                                         IV->agregarcategoria(vNombreCategoria);
                                         
                                         cout << "Desea agregar mas categorias: 1 para si 0 para no "<<'\n';
-                                        cin.ignore();
                                         cin >> auxWhileAgregarCat;
+                                        cin.ignore();
                                         cout <<'\n';
                                 }
 
@@ -494,7 +494,7 @@ void menuParaDesarollador(IControladorUsuario* IU, IControladorVideojuego* IV, I
                                 CategoriaGenero = IV->ObtenerCategoriaGenero();
                               
                                 //imprimimos las categorias de tipo genero
-
+                                cout << "Categorías de tipo genero " << '\n';
                                 //max ya esta definido
                                 int max1 = CategoriaGenero.size();
                                 for( int i=0; i < max1 ;i++ ){
@@ -506,15 +506,14 @@ void menuParaDesarollador(IControladorUsuario* IU, IControladorVideojuego* IV, I
                                 while( auxWhileAgregarCat ){
 
                                         string vNombreCategoria;
-                                        cout << "Agrege una categoria (nombre) :"<<'\n';
-                                        cin.ignore();
+                                        cout << "Agrege una categoria de tipo genero (nombre) :"<<'\n';
                                         getline(cin,vNombreCategoria);
                                         cout <<'\n';
                                         IV->agregarcategoria(vNombreCategoria);
                                         
                                         cout << "Desea agregar mas categorias: 1 para si 0 para no "<<'\n';
-                                        cin.ignore();
                                         cin >> auxWhileAgregarCat;
+                                        cin.ignore();
                                         cout <<'\n';
                                 }
 
@@ -523,29 +522,31 @@ void menuParaDesarollador(IControladorUsuario* IU, IControladorVideojuego* IV, I
                                 CategoriaGenero = IV->ObtenerCategoriaOtros();
                               
                                 //imprimimos las categorias de tipo otro
+                                cout << "Categorías de tipo otro " << '\n';
                                 max = CategoriaOtro.size();
                                 for( int i=0; i<max; i++ ){
                                         cout << CategoriaOtro[i] << endl;
                                 }
 
                                 auxWhileAgregarCat = 1;
-                                cout << "Desea agregar mas categorias: 1 para si 0 para no "<<'\n';
-                                cin.ignore();
+                                cout << "Desea agregar categorias de tipo otro: 1 para si 0 para no "<<'\n';
                                 cin >>auxWhileAgregarCat;
+                                cin.ignore();
                                 cout <<'\n';
 
                                 while( auxWhileAgregarCat ){
                                         string vNombrecCategoria;
                                         cout << "Agrege una categoria (nombre) :"<<'\n';
-                                        cin.ignore();
+                                        
                                         getline(cin,vNombrecCategoria);
                                         cout <<'\n';
 
                                        IV->agregarcategoria(vNombrecCategoria);
                                         
                                         cout << "Desea agregar mas categorias: 1 para si 0 para no "<<'\n';
-                                        cin.ignore();
+                                       
                                         cin >> auxWhileAgregarCat;
+                                        cin.ignore();
                                         cout <<'\n';
 
                                 }
@@ -553,7 +554,18 @@ void menuParaDesarollador(IControladorUsuario* IU, IControladorVideojuego* IV, I
                                 infoVideojuego = IV->ObtenerInfoVideojuego();
                                 cout << infoVideojuego << endl;
 
+                                bool confirmar = 0;
+                                cout << "Confirmar creacion de videojuego: 1 para si, 0 para no " << '\n';
+                                cin >> confirmar;
+                                cin.ignore();
+                                cout << '\n';
 
+                                if (confirmar) {
+                                    IV->ConfirmarAltavideoJuego();
+                                }
+                                else {
+                                    IV->CancelarAltavideoJuego();
+                                }
 
                         }
                         break;
