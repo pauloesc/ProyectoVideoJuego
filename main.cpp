@@ -148,14 +148,13 @@ void menuParaJugador(IControladorUsuario* IU, IControladorVideojuego* IV, IContr
 
                                 string NombreVj;
                                 cout << "Nombre del Vj: "<<'\n';
-                                cin.ignore();
                                 getline(cin,NombreVj);
                                 cout <<'\n';
 
                                 int puntaje=0;
                                 cout << "Ingrese puntaje : "<<'\n';
-                                cin.ignore();
                                 cin >> puntaje;
+                                cin.ignore();
                                 cout <<'\n';
 
                                 IV->AsignarPuntajeVJ(NombreVj,puntaje);
