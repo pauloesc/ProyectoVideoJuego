@@ -750,6 +750,11 @@ void menuParaDesarollador(IControladorUsuario* IU, IControladorVideojuego* IV, I
 
 int main() {
 
+        IControladorUsuario* IU = Fabrica::getIUsuario();
+        IControladorVideojuego* IV = Fabrica::getIVideojuego();
+        IControladorSuscripciones* IS = Fabrica::getISuscripcion();
+        IControladorPartida* IP = Fabrica::getIPartida();
+        IControladorEstadistica* IE = Fabrica::getIEstadistica();
 
         bool termina = 0;
         while (!termina) {
@@ -766,12 +771,6 @@ int main() {
                         cin >> eleccion;
                         cin.ignore();
                         cout << '\n';
-
-                        IControladorUsuario* IU = Fabrica::getIUsuario();
-                        IControladorVideojuego* IV = Fabrica::getIVideojuego();
-                        IControladorSuscripciones* IS = Fabrica::getISuscripcion();
-                        IControladorPartida* IP = Fabrica::getIPartida();
-                        IControladorEstadistica* IE = Fabrica::getIEstadistica();
 
                         switch (eleccion) {
 
@@ -1168,6 +1167,11 @@ int main() {
                 }
         }
 
+        delete IU;
+        delete IV;
+        delete IS;
+        delete IP;
+        delete IE;
 
         return 0;
 
