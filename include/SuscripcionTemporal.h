@@ -21,7 +21,7 @@ public:
     int getValidez();
     bool getCancelada();
     DtSuscripcion  crearDtSuscripcion();
-    void cancelarSuscripción();
+    void cancelarSuscripcion();
 };
 
 
