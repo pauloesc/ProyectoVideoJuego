@@ -28,10 +28,10 @@ private:
 	static ControladorPartida* instance;
 	
 	string nombrevid;
-	Videojuego* vid;
+	Videojuego* vid = 0;
 	bool individual;
 	bool continuacion;
-	Partida* Pcont;
+	Partida* Pcont = 0;
 	int codigoAnterior;
 	bool TransmitidaenVivo;
 	vector<string> jugadoresUnidos;
