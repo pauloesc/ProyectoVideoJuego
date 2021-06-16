@@ -456,7 +456,7 @@ void menuParaDesarollador(IControladorUsuario* IU, IControladorVideojuego* IV, I
                                        IV->ConfirmarCategoria();
                                 }
                                 else{
-                                        IV->ConfirmarCategoria();
+                                        IV->CancelarCategoria();
                                 }
 
                         }
@@ -556,7 +556,7 @@ void menuParaDesarollador(IControladorUsuario* IU, IControladorVideojuego* IV, I
 
 
                                 vector<DtCategoria*> CategoriaOtro;
-                                CategoriaGenero = IV->ObtenerCategoriaOtros();
+                                CategoriaOtro = IV->ObtenerCategoriaOtros();
                               
                                 //imprimimos las categorias de tipo otro
                                 cout << "Categorías de tipo otro " << '\n';
