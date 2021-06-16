@@ -18,6 +18,40 @@ using namespace std;
 #include "include/DtPago.h"
 #include "include/Reloj.h"
 
+void cambiarFechaSistema() {
+        
+        int an, me, di, ho, mi;
+
+        cout << "Es necesario ingresar la fecha y hora del sistema" << '\n';
+
+        cout << "ingrese el año: ";
+        cin >> an;
+        cin.ignore();
+        cout << '\n';
+
+        cout << "ingrese el mes: ";
+        cin >> me;
+        cin.ignore();
+        cout << '\n';
+
+        cout << "ingrese el dia: ";
+        cin >> di;
+        cin.ignore();
+        cout << '\n';
+
+        cout << "ingrese la hora: ";
+        cin >> ho;
+        cin.ignore();
+        cout << '\n';
+
+        cout << "ingrese el minuto: ";
+        cin >> mi;
+        cin.ignore();
+        cout << '\n';
+                                
+        Reloj::setFecha(di,me,an,ho,mi);
+
+}
 
 void menuParaJugador(IControladorUsuario* IU, IControladorVideojuego* IV, IControladorSuscripciones* IS, IControladorPartida* IP, IControladorEstadistica* IE){
 
@@ -31,7 +65,8 @@ void menuParaJugador(IControladorUsuario* IU, IControladorVideojuego* IV, IContr
                 cout << "4) Abandonar partida multijugador." << '\n';
                 cout << "5) Finalizar partida." << '\n';
                 cout << "6) Ver informaciÃ³n de videojuego." << '\n';
-                cout << "7) Salir." << '\n';
+                cout << "7) Cambiar fecha del sistema." << '\n';
+                cout << "8) Salir." << '\n';
                 int eleccion;
                 cin >> eleccion;
                 cin.ignore();
@@ -338,19 +373,20 @@ void menuParaJugador(IControladorUsuario* IU, IControladorVideojuego* IV, IContr
 
                         }
                         break;
+                       
                         case 7: {
-                        termina = 1;
+                                cambiarFechaSistema();
+                        }
+                        break;
+               
+                        case 8: {
+                                termina = true;
                         }
                         break;
                 }
         }
 };
 
-/*
-paulo
-paulo
-paulo
-*/
 
 void menuParaDesarollador(IControladorUsuario* IU, IControladorVideojuego* IV, IControladorSuscripciones* IS, IControladorPartida* IP, IControladorEstadistica* IE){
 
@@ -363,9 +399,10 @@ void menuParaDesarollador(IControladorUsuario* IU, IControladorVideojuego* IV, I
                 cout << "2) Publicar videojuego." << '\n';
                 cout << "3) Eliminar videojuego." << '\n';
                 cout << "4) Seleccionar estadisticas." << '\n';
-                cout << "5) Consultar estadÃ­sticas." << '\n';
+                cout << "5) Consultar estadi­sticas." << '\n';
                 cout << "6) Ver iformacion del videojuego." << '\n';
-                cout << "7) Salir." << '\n';
+                cout << "7) Cambiar fecha del sistema." << '\n';
+                cout << "8) Salir." << '\n';
                 int eleccion;
                 cin >> eleccion;
                 cin.ignore();
@@ -695,9 +732,13 @@ void menuParaDesarollador(IControladorUsuario* IU, IControladorVideojuego* IV, I
                         }
                         break;
                         case 7: {
-                                termina = 1;
+                                cambiarFechaSistema();
                         }
                         break;
+               
+                        case 8: {
+                                termina = true;
+                        }
                 }
         }
 };
@@ -1102,32 +1143,6 @@ int main() {
                                 // el compilador quiere que use la basura
                                 if (basura){     
                                 }
-
-                                /*
-                                int an, me, di, ho, mi;
-
-                                cout << "Es necesario ingresar la fecha y hora del sistema" << '\n';
-
-                                cout << "ingrese el aÃ±o: ";
-                                cin >> an;
-                                cout << '\n';
-
-                                cout << "ingrese el mes: ";
-                                cin >> me;
-                                cout << '\n';
-
-                                cout << "ingrese el dia: ";
-                                cin >> di;
-                                cout << '\n';
-
-                                cout << "ingrese la hora: ";
-                                cin >> ho;
-                                cout << '\n';
-
-                                cout << "ingrese el minuto: ";
-                                cin >> mi;
-                                cout << '\n';
-                                */
 
                         }
                         break;
