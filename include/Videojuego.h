@@ -33,7 +33,7 @@ private:
     vector<Puntaje*> VectorDeObjetosPuntaje;
 	
 public:
-	Videojuego(string Nombre, string Descripcion, float CostoVitalicio, float CostoMensual, float CostoTrimestral, float CostoAnual);
+	Videojuego(string Nombre, string Descripcion, float CostoMensual, float CostoTrimestral, float CostoAnual, float CostoVitalicio);
 
     string getNombre();
     string getDescripcion();
