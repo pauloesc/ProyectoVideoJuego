@@ -1173,6 +1173,8 @@ int main() {
         delete IP;
         delete IE;
 
+        Reloj::Destructor();
+
         return 0;
 
 
