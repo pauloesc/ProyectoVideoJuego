@@ -37,6 +37,10 @@ vector<string> DtPartidaMultijugador::getNicknameJugadoresUnidos(){
 	return nicknameJugadoresUnidos;
 }
 
+void DtPartidaMultijugador::imprimir() {
+	cout << this;
+}
+
 ostream& operator<<(ostream &o, DtPartidaMultijugador* d) {
 	
 	o << "Partida del videojuego: " << d->getNombreVid() << '\n' << "Codigo: " << d->getCodigo() << '\n' << "Transmitida en vivo: ";

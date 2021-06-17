@@ -15,8 +15,8 @@ DtPartida::DtPartida() {
 DtPartida::DtPartida(DtFecha* Sfecha, float duracionPartida, int codigo, bool enCurso){
 	fechaIniciada = Sfecha;
 	duracion = duracionPartida;
-	codigo = codigo;
-	enCurso = enCurso;
+	this->codigo = codigo;
+	this->enCurso = enCurso;
 }
 
 DtFecha* DtPartida::getFecha(){
@@ -48,7 +48,10 @@ void DtPartida::setCodigo(int codigo){
 void DtPartida::setEnCurso(bool enCurso){
     this->enCurso = enCurso;
 }
-
+ostream& operator<<(ostream &o, DtPartida* s) {
+	s->imprimir();
+	return o;
+}
 
 DtPartida::~DtPartida(){
 

@@ -26,6 +26,10 @@ DtPartidaIndividual::~DtPartidaIndividual(){
 
 }
 
+void DtPartidaIndividual::imprimir() {
+	cout << this;
+}
+
 ostream& operator<<(ostream &o, DtPartidaIndividual *s) {
     o << "Partida Individual: "<< s->getFecha();
     o << "Código: " << s->getCodigo() <<'\n';
