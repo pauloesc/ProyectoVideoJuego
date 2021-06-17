@@ -268,7 +268,7 @@ void menuParaJugador(IControladorUsuario* IU, IControladorVideojuego* IV, IContr
                                 else{
 
                                         bool EsContinuacion;
-                                        cout << "Presiona 1 si la partida es continuacion de otra: "<<'\n';
+                                        cout << "Presiona 1 si la partida es continuacion de otra, y 0 si no: "<<'\n';
                                         cin >> EsContinuacion;
                                         cin.ignore();
                                         cout <<'\n';
@@ -299,7 +299,7 @@ void menuParaJugador(IControladorUsuario* IU, IControladorVideojuego* IV, IContr
                                 }
 
                                 int Confirmarr;
-                                cout << "Presione 1 para confirmar 0 para cancelar el codigo de la partida que quiere continuar: "<<'\n';
+                                cout << "Presione 1-confirmar o  0-cancelar: "<<'\n';
                                 cin >>Confirmarr;
                                 cin.ignore();
                                 cout <<'\n';
@@ -1083,6 +1083,7 @@ int main() {
                                 Reloj::setFecha(2,6,2021,9,0);
                                 cod = IP->IniciarPartidaConCodigo();
                                 Reloj::setFecha(2,6,2021,10,0);
+                                IP->finalizarPartida(cod);
 
                                 basura =IU->ingresarDatos("gamer@mail.com","123");
                                 IP->seleccionaVideoJuego("KingdomRush");

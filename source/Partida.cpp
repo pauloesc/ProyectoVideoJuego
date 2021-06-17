@@ -89,7 +89,7 @@ Videojuego* Partida::getVideojuego() {
 
 bool Partida::esPartidaIndividualFinalizadaDelJuego(string nombrevid) {
 	string nom = pertenece->getNombre();
-	return ((nom == nombrevid) and (enCurso));
+	return ((nom == nombrevid) and (!enCurso));
 }
 
 
