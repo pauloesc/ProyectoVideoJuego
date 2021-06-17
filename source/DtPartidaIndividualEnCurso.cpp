@@ -31,7 +31,7 @@ void DtPartidaIndividualEnCurso::imprimir() {
 }
 
 ostream& operator<<(ostream &o, DtPartidaIndividualEnCurso *s) {
-    o << "Partida Individual: "<< s->getFecha()<<'\n';
+    o << "Partida Individual: "<< s->getFecha();
     o << "Código: " << s->getCodigo() <<'\n';
     o << "Nombre del Videojuego: " << s->getNombreVideojuego() <<'\n';
     o << "Continuación de la partida anterior: ";

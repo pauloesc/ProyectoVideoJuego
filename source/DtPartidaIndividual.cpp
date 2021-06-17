@@ -27,7 +27,7 @@ DtPartidaIndividual::~DtPartidaIndividual(){
 }
 
 ostream& operator<<(ostream &o, DtPartidaIndividual *s) {
-    o << "Partida Individual: "<< s->getFecha()<<'\n';
+    o << "Partida Individual: "<< s->getFecha();
     o << "Código: " << s->getCodigo() <<'\n';
     o << "Duración: " << s->getDuracion() <<'\n';
          

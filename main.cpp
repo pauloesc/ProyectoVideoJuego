@@ -228,7 +228,7 @@ void menuParaJugador(IControladorUsuario* IU, IControladorVideojuego* IV, IContr
                                 if(TipoPartida){
 
                                         bool EsTransEnVivo;
-                                        cout << "Presiona 1 si la partida es transmitida en vivo: "<<'\n';
+                                        cout << "Presiona 1 si la partida es transmitida en vivo, 0 si no: "<<'\n';
                                         cin >> EsTransEnVivo;
                                         cin.ignore();
                                         cout <<'\n';
@@ -266,36 +266,45 @@ void menuParaJugador(IControladorUsuario* IU, IControladorVideojuego* IV, IContr
                                 }
                                 //si quiere iniciar una partida individual
                                 else{
+                                        bool puede = false;
+                                        while (!puede) { 
 
-                                        bool EsContinuacion;
-                                        cout << "Presiona 1 si la partida es continuacion de otra, y 0 si no: "<<'\n';
-                                        cin >> EsContinuacion;
-                                        cin.ignore();
-                                        cout <<'\n';
-
-                                        IP->ingresarPartidaIndividual(EsContinuacion);
-
-                                        //si quiere iniciar una partida continuacion de otra
-                                        if(EsContinuacion){
-                                                
-                                                vector<DtPartidaIndividual*> HistorialPartidaIndiv;
-                                                HistorialPartidaIndiv = IP->HistorialDePartidasIndividualesFinalizadas();
-
-                                                int max = HistorialPartidaIndiv.size();
-                                                for(int i = 0; i< max; i++ ){
-                                                        cout << HistorialPartidaIndiv[i] << endl;
-                                                }
-
-                                                int codigoPartida;
-                                                cout << "Ingrese el codigo de la partida que quiere continuar: "<<'\n';
-                                                cin >> codigoPartida;
+                                                bool EsContinuacion;
+                                                cout << "Presiona 1 si la partida es continuacion de otra, y 0 si no: "<<'\n';
+                                                cin >> EsContinuacion;
                                                 cin.ignore();
                                                 cout <<'\n';
 
-                                                IP->PartidaAcontinuar(codigoPartida);
+                                                IP->ingresarPartidaIndividual(EsContinuacion);
 
+                                                //si quiere iniciar una partida continuacion de otra
+                                                if(EsContinuacion){
+
+                                                        vector<DtPartidaIndividual*> HistorialPartidaIndiv;
+                                                        HistorialPartidaIndiv = IP->HistorialDePartidasIndividualesFinalizadas();
+
+                                                        int max = HistorialPartidaIndiv.size();
+                                                        for(int i = 0; i< max; i++ ){
+                                                                cout << HistorialPartidaIndiv[i] << endl;
+                                                        }
+
+                                                        if (max != 0) { 
+                                                                int codigoPartida;
+                                                                cout << "Ingrese el codigo de la partida que quiere continuar: "<<'\n';
+                                                                cin >> codigoPartida;
+                                                                cin.ignore();
+                                                                cout <<'\n';
+
+                                                                IP->PartidaAcontinuar(codigoPartida);
+                                                                puede = true;
+                                                        } else {
+                                                                cout << "Error, no hay partidas individuales finalizadas para este videojuego "<<'\n';
+                                                               
+                                                        }
+                                                } else {
+                                                        puede = true;
+                                                }
                                         }
-
                                 }
 
                                 int Confirmarr;
@@ -342,14 +351,17 @@ void menuParaJugador(IControladorUsuario* IU, IControladorVideojuego* IV, IContr
                                 for(int i = 0; i < max ; i++ ){
                                         cout << PartidaEnCursoDelJugador[i] << endl;
                                 }
-
-                                int codPartida;
-                                cout << "Ingrese le codigo de la partida que quiere finalizar: "<<'\n';
-                                cin >> codPartida;
-                                cin.ignore();
-                                cout <<'\n';
-                                IP->finalizarPartida(codPartida);
-
+                                if (max==0){
+                                    cout << "No hay partidas que pueda finalizar "<<'\n';
+                                }
+                                else{
+                                    int codPartida;
+                                    cout << "Ingrese le codigo de la partida que quiere finalizar: "<<'\n';
+                                    cin >> codPartida;
+                                     cin.ignore();
+                                    cout <<'\n';
+                                    IP->finalizarPartida(codPartida);
+                                }
                         }
                         break;
                         case 6: {
@@ -979,6 +991,29 @@ int main() {
                                 IV->ConfirmarCategoria();
 
                                 c = new DtCategoria("E","Su contenido esta dirigido para todo público","otro");
+                                IV->NuevaCategoria(c);
+                                IV->ConfirmarCategoria();
+
+
+
+
+                                c = new DtCategoria("Accion","Sin descripcion","Genero");
+                                IV->NuevaCategoria(c);
+                                IV->ConfirmarCategoria();
+
+                                c = new DtCategoria("Aventura","Sin descripcion","Genero");
+                                IV->NuevaCategoria(c);
+                                IV->ConfirmarCategoria();
+
+                                c = new DtCategoria("Switch","Sin descripcion","Plataforma");
+                                IV->NuevaCategoria(c);
+                                IV->ConfirmarCategoria();
+
+                                c = new DtCategoria("Xbox X","Sin descripcion","Plataforma");
+                                IV->NuevaCategoria(c);
+                                IV->ConfirmarCategoria();
+
+                                c = new DtCategoria("PS5","Sin descripcion","Plataforma");
                                 IV->NuevaCategoria(c);
                                 IV->ConfirmarCategoria();
 

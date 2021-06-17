@@ -75,7 +75,7 @@ void DtPartidaMultijugadorEnCurso::imprimir() {
 
 ostream& operator<<(ostream &o, DtPartidaMultijugadorEnCurso *s) {
     
-    o << "Partida Multijugador"<< s->getFecha()<<'\n';
+    o << "Partida Multijugador"<< s->getFecha();
     o << "Código: " << s->getCodigo() <<'\n';
     o << "Nombre del Videojuego: " << s->getNombreVideojuego() <<'\n';
     o << "Transmitida en vivo: ";
