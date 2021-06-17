@@ -1,6 +1,6 @@
 #include "../include/Videojuego.h"
 
-Videojuego::Videojuego(string Nombre, string Descripcion, float CostoVitalicio, float CostoMensual, float CostoTrimestral, float CostoAnual){
+Videojuego::Videojuego(string Nombre, string Descripcion, float CostoMensual, float CostoTrimestral, float CostoAnual, float CostoVitalicio){
     this->Nombre = Nombre;
     this->Descripcion = Descripcion;
     this->CostoVitalicio = CostoVitalicio;
