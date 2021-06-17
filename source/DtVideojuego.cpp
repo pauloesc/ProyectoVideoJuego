@@ -96,10 +96,11 @@ ostream& operator<<(ostream &o, DtVideojuego* s) {
 	long unsigned int i = 0;
 	vector<string> :: iterator it;
 	for(it = s->categorias.begin(); it != s->categorias.end(); ++it){
-        if ( i == s->categorias.size()){
+        if ( i == (s->categorias.size()-1)){
             o << (*it) << '\n';
         }else{
-            o << (*it) << "  ";
+            o << (*it) << ", ";
+            i++;
         }
 	}
 	return o;
