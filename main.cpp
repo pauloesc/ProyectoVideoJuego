@@ -400,7 +400,7 @@ void menuParaDesarollador(IControladorUsuario* IU, IControladorVideojuego* IV, I
                 cout << "3) Eliminar videojuego." << '\n';
                 cout << "4) Seleccionar estadisticas." << '\n';
                 cout << "5) Consultar estadi­sticas." << '\n';
-                cout << "6) Ver iformacion del videojuego." << '\n';
+                cout << "6) Ver informacion del videojuego." << '\n';
                 cout << "7) Cambiar fecha del sistema." << '\n';
                 cout << "8) Salir." << '\n';
                 int eleccion;
@@ -617,7 +617,7 @@ void menuParaDesarollador(IControladorUsuario* IU, IControladorVideojuego* IV, I
                                 }
 
                                 string nomVJ;
-                                cout << "Ingrese nombre de la nueva categoria: "<<'\n';
+                                cout << "Ingrese nombre de la el videojuego a eliminar: "<<'\n';
                                 getline(cin,nomVJ);
                                 cout <<'\n';
 

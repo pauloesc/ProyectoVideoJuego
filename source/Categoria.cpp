@@ -33,17 +33,18 @@ void Categoria::desvincularVideoJuego(Videojuego* vj){
     long unsigned int i=0;
     bool NoEncontrado = 1;
 
-    while( (i < VectorDePunterosVideojuegos.size()) && NoEncontrado){
+    while( NoEncontrado && (i < VectorDePunterosVideojuegos.size())){
 
         if ( (*VectorDePunterosVideojuegos[i]).getNombre() == (*vj).getNombre() ){
             NoEncontrado = 0;
+            VectorDePunterosVideojuegos.erase(VectorDePunterosVideojuegos.begin() + i);
         }
         else{
             i=i+1;
         }
     }
     //elimino la posicion donde esta ese puntero;
-    VectorDePunterosVideojuegos.erase(VectorDePunterosVideojuegos.begin() + i);
+    
 }
 
 bool Categoria::esCategoriaDelVideojuego(Videojuego* v){
