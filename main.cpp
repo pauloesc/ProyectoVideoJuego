@@ -1136,7 +1136,8 @@ int main() {
                                 IP->IniciarPartida();
                                
 
-                                //partidas multijugador
+                                //partidas multijugador y abandonas
+                                //p1
                                 basura =IU->ingresarDatos("gamer@mail.com","123");
                                 IP->seleccionaVideoJuego("Fortnite");
                                 IP->ingresarPartidaMultijugador(true);
@@ -1144,9 +1145,18 @@ int main() {
                                 IP->AgregarJugador("ibai");
                                 Reloj::setFecha(5,6,2021,17,0);
                                 cod = IP->IniciarPartidaConCodigo();
+                               
+                                //un abandona
+                                basura =IU->ingresarDatos("ari@mail.com","123");
+                                Reloj::setFecha(5,6,2021,18,0);
+                                IP->abandonarPartida(cod);
+                               
+                                basura =IU->ingresarDatos("gamer@mail.com","123");
                                 Reloj::setFecha(5,6,2021,19,0);
                                 IP->finalizarPartida(cod);
                                 
+
+                                //p2
                                 basura =IU->ingresarDatos("gamer@mail.com","123");
                                 IP->seleccionaVideoJuego("Fortnite");
                                 IP->ingresarPartidaMultijugador(true);
@@ -1154,9 +1164,18 @@ int main() {
                                 IP->AgregarJugador("ibai");
                                 Reloj::setFecha(6,6,2021,17,0);
                                 int cod2 = IP->IniciarPartidaConCodigo();
+
+                                //un abandona
+                                basura =IU->ingresarDatos("ari@mail.com","123");
+                                Reloj::setFecha(6,6,2021,17,30);
+                                IP->abandonarPartida(cod2);
+
+                                basura =IU->ingresarDatos("gamer@mail.com","123");
                                 Reloj::setFecha(6,6,2021,19,0);
                                 IP->finalizarPartida(cod2);
 
+
+                                //p3
                                 basura =IU->ingresarDatos("ari@mail.com","123");
                                 IP->seleccionaVideoJuego("Minecraft");
                                 IP->ingresarPartidaMultijugador(false);
@@ -1165,14 +1184,9 @@ int main() {
                                 IP->IniciarPartida();
                                 
                                 
-                                //abandonas
-                                basura =IU->ingresarDatos("ari@mail.com","123");
-                                Reloj::setFecha(5,6,2021,18,0);
-                                IP->abandonarPartida(cod);
+                               
 
-                                basura =IU->ingresarDatos("ari@mail.com","123");
-                                Reloj::setFecha(6,6,2021,17,30);
-                                IP->abandonarPartida(cod2);
+                               
 
 
                                 // el compilador quiere que use la basura
