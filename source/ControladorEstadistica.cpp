@@ -56,10 +56,12 @@ vector<DtEstadisticaDeSegundoTipo*> ControladorEstadistica::SeleccionEstadistica
     vj = ControlVideojuego->darVideojuego(nombreJuego);
     
     vector<DtEstadisticaDeSegundoTipo*> vectorRetornar;
-    vectorRetornar = InstanciaDesarollador->DarEstadisticas(vj);
+
+    if( vj != 0){
+        vectorRetornar = InstanciaDesarollador->DarEstadisticas(vj);
+    }
     
     return vectorRetornar;
-    
 }
 
 vector<DataEstadistica> ControladorEstadistica::TiposDeEstadistica(){
