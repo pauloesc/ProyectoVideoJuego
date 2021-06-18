@@ -44,7 +44,7 @@ void DtSuscripcion::setTipoSuscripcion(string tipoSuscripcion){
 ostream& operator<<(ostream &o, DtSuscripcion *s) {
 	o << "Nombre: " << s->getNombre() << '\n';
 	o << "Costo: " << s->getCosto() << '\n';
-	o << "Tipo Suscripción: " << s->getTipoSuscripcion() << '\n';
+	o << "Tipo SuscripciÃ³n: " << s->getTipoSuscripcion() << '\n';
 	return o;
 }
 

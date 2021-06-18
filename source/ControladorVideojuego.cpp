@@ -119,8 +119,11 @@ vector<string> ControladorVideojuego::obtenerVideoJuegosConTodasLasPartidasFinal
     vector<string> parfin;
     int tamCol=Videojuegos.size();
 
+    ControladorUsuario* CU = ControladorUsuario::getInstance();
+    Desarrollador* des = CU->darDesarrollador();
+
     for (int i=0; i<tamCol; i++){
-        if (Videojuegos[i]->TodasFinalizadas()){
+        if (Videojuegos[i]->TodasFinalizadas() and (des == Videojuegos[i]->getDesarrolador())){
             parfin.push_back(Videojuegos[i]->getNombre());
         }
     }

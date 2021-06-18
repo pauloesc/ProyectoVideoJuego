@@ -56,14 +56,17 @@ bool Videojuego::esDesarrolador(string email){
 
 bool Videojuego::TodasFinalizadas(){
     
-    bool Todasfinalizadas = 1;
+    bool todasfinalizadas = 1;
     long unsigned int i = 0;
-    while( Todasfinalizadas && ( i < VectorDePunterosPartidasDelVideojuego.size() ) ){
-        
-        Todasfinalizadas = (*VectorDePunterosPartidasDelVideojuego[i]).getenCurso();
-        i=i+1;
+    
+    while (i < VectorDePunterosPartidasDelVideojuego.size()) {
+        if (VectorDePunterosPartidasDelVideojuego[i]->getenCurso()) {
+            todasfinalizadas = false;
+        }
+        i++;
     }
-    return Todasfinalizadas;
+
+    return todasfinalizadas;
 }
 
 void Videojuego::EliminarPartidas(){

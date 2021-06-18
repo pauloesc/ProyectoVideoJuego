@@ -85,6 +85,7 @@ void menuParaJugador(IControladorUsuario* IU, IControladorVideojuego* IV, IContr
 
                                 }
 
+                                cout << '\n' << '\n';
                                 cout << "Sus suscripciones no activas:" << '\n';
                                 vector<DtSuscripcion*> SuscripcionesNoActivas;
                                 SuscripcionesNoActivas = IS->obtenerSuscripcionesNoActivas();
@@ -211,7 +212,7 @@ void menuParaJugador(IControladorUsuario* IU, IControladorVideojuego* IV, IContr
                                 }
 
                                 string NombreVj;
-                                cout << "Nombre del Vj del cual quiere iniciar una partida: "<<'\n';
+                                cout << "Nombre del videojuego del cual quiere iniciar una partida: "<<'\n';
                                 getline(cin,NombreVj);
                                 cout <<'\n';
 
@@ -624,29 +625,37 @@ void menuParaDesarollador(IControladorUsuario* IU, IControladorVideojuego* IV, I
                                 VideojuegosParaEliminar = IV->obtenerVideoJuegosConTodasLasPartidasFinalizadas();
 
                                 int max = VideojuegosParaEliminar.size();
-                                for( int i = 0; i< max; i++ ){
-                                        cout << VideojuegosParaEliminar[i] << endl;
-                                }
+                                
+                                if (max != 0) { 
 
-                                string nomVJ;
-                                cout << "Ingrese nombre de la el videojuego a eliminar: "<<'\n';
-                                getline(cin,nomVJ);
-                                cout <<'\n';
+                                        for( int i = 0; i< max; i++ ){
+                                                cout << VideojuegosParaEliminar[i] << endl;
+                                        }
 
-                                IV->seleccionarVideoJuego(nomVJ);
+                                        string nomVJ;
+                                        cout << "Ingrese nombre de la el videojuego a eliminar: "<<'\n';
+                                        getline(cin,nomVJ);
+                                        cout <<'\n';
 
-                                bool conf = 0;
-                                cout << "Cofirmar eliminacion 1 para si, 0 para no :"<<'\n';
-                                cin >> conf;
-                                cin.ignore();
-                                cout <<'\n';
+                                        IV->seleccionarVideoJuego(nomVJ);
 
-                                if(conf){
-                                        IV->eliminarVideoJuego();
-                                }
-                                else{
+                                        bool conf = 0;
+                                        cout << "Confirmar eliminacion 1 para si, 0 para no :"<<'\n';
+                                        cin >> conf;
+                                        cin.ignore();
+                                        cout <<'\n';
+
+                                        if(conf){
+                                                IV->eliminarVideoJuego();
+                                        }
+                                        else{
+                                                IV->cancelarLaEliminacion();
+                                        }
+                                } else {
+                                        cout << "No hay videojuegos que pueda eliminar" <<'\n';
                                         IV->cancelarLaEliminacion();
                                 }
+                       
                         }
                         break;
                         case 4: {
@@ -796,7 +805,7 @@ int main() {
                                 cout << '\n';
 
                                 string vpassword;
-                                cout << "ingrese contrasenia:" << '\n';
+                                cout << "ingrese contraseña:" << '\n';
                                 getline(cin,vpassword);
                                 cout << '\n';
 
@@ -1183,11 +1192,7 @@ int main() {
                                 Reloj::setFecha(12,6,2021,20,0);
                                 IP->IniciarPartida();
                                 
-                                
-                               
-
-                               
-
+                     
 
                                 // el compilador quiere que use la basura
                                 if (basura){     
