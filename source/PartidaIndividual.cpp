@@ -41,7 +41,7 @@ float PartidaIndividual::tiempoTotal() {
 
 DtPartidaIndividual* PartidaIndividual::darDatosPartida() {
 	DtFecha* f = this->getFecha();
-	DtPartidaIndividual* dt = new DtPartidaIndividual(*f,this->getduracion(),this->getcodigo(),this->getenCurso(),this->getcontinuacion());
+	DtPartidaIndividual* dt = new DtPartidaIndividual(f,this->getduracion(),this->getcodigo(),this->getenCurso(),this->getcontinuacion());
 	return dt;
 }
 

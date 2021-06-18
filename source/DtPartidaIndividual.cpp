@@ -13,6 +13,9 @@ DtPartidaIndividual::DtPartidaIndividual(DtFecha fecha, float duracion, int codi
 	this->continuarPartidaAnterior = continuarPartidaAnterior;
 }
 
+DtPartidaIndividual::DtPartidaIndividual(DtFecha* fecha, float duracion, int codigo, bool enCurso, bool continuarPartidaAnterior): DtPartida(fecha, duracion, codigo, enCurso) {
+	this->continuarPartidaAnterior = continuarPartidaAnterior;
+}
 
 bool DtPartidaIndividual::getContinuaPartidaAnterior() {
 	return this->continuarPartidaAnterior;

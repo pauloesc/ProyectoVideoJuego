@@ -25,7 +25,7 @@ vector<DtPartidaIndividual *> Jugador::darPartidasIndividualesFinalizadas(string
     for (long unsigned int i = 0; i < partidas.size(); i++) {
         if (partidas[i]->esPartidaIndividualFinalizadaDelJuego(nombrevid)) {
             pi = dynamic_cast<PartidaIndividual*>(partidas[i]);
-            res.push_back(pi->darDatosPartida());
+			res.push_back(pi->darDatosPartida());
         }
     }
 	return res;
