@@ -138,6 +138,17 @@ DtPartidaEnCurso* PartidaMultijugador::getDtPartida() {
 	return p;
 }
 
+void PartidaMultijugador::eliminarPartida() {
+	set<Abandona*>::iterator it;
+	for (it=abandonados.begin(); it!=abandonados.end(); ++it) { 
+    	delete *it;
+  	}
+
+  	abandonados.clear();
+  	jugadoresUnidos.clear();
+  	Partida::quitarCodigo(this->getcodigo());
+}
+
 PartidaMultijugador::~PartidaMultijugador(){
 	set<Abandona*>::iterator it;
 	for (it=abandonados.begin(); it!=abandonados.end(); ++it) { 

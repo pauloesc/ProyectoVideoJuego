@@ -23,6 +23,7 @@ public:
 	void jugadorSeVa(Jugador* jug);
 	bool esJugadorUnido(Jugador* jug);
 	DtPartidaMultijugador* getDtPartidaMultijugador(string ini);
+	void eliminarPartida();
 	void finalizar();
  	float tiempoTotal();
 
