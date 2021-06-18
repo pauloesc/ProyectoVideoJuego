@@ -64,7 +64,7 @@ void menuParaJugador(IControladorUsuario* IU, IControladorVideojuego* IV, IContr
                 cout << "3) Iniciar partida." << '\n';
                 cout << "4) Abandonar partida multijugador." << '\n';
                 cout << "5) Finalizar partida." << '\n';
-                cout << "6) Ver informaciÃ³n de videojuego." << '\n';
+                cout << "6) Ver información de videojuego." << '\n';
                 cout << "7) Cambiar fecha del sistema." << '\n';
                 cout << "8) Salir." << '\n';
                 int eleccion;
