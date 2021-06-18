@@ -1,10 +1,10 @@
 #ifndef PARTIDAINDIVIDUAL
 #define PARTIDAINDIVIDUAL
 
-#include "Partida.h"
+
 
 #include "DtPartidaIndividual.h"
-
+#include "../include/Videojuego.h"
 
 
 
@@ -27,13 +27,12 @@ public:
  	DtPartidaIndividual* darDatosPartida();
 	DtPartidaEnCurso* getDtPartida(); //*DtPartidaIndividualEnCurso
     
-    //no hace nada pero tiene que estar
     ~PartidaIndividual();
     
 
     
 };
 
-
+#include "Partida.h"
 
 #endif

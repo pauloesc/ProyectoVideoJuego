@@ -4,9 +4,8 @@
 #include <vector>
 
 #include "Usuario.h"
-#include "Videojuego.h"
 #include "DtEstadisticaDeSegundoTipo.h"
-#include "Estadistica.h"
+
 
 class Estadistica;
 class Videojuego;
@@ -25,5 +24,7 @@ class Desarrollador : public Usuario {
 		~Desarrollador();
 };
 
+#include "Estadistica.h"
+#include "Videojuego.h"
 
 #endif

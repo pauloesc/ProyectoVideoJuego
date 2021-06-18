@@ -4,7 +4,7 @@
 #include <string>
 #include "DtCategoria.h"
 #include "vector"
-#include "Videojuego.h"
+
 using namespace std;
 
 class Videojuego;
@@ -34,5 +34,6 @@ public:
     ~Categoria();
 };
 
+#include "Videojuego.h"
 
 #endif

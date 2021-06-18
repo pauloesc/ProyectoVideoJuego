@@ -1,7 +1,7 @@
 #ifndef PUNTAJE
 #define PUNTAJE
 
-#include "Jugador.h"
+
 
 class Jugador;
 
@@ -25,4 +25,6 @@ public:
     ~Puntaje();
     
 };
+
+#include "Jugador.h"
 #endif

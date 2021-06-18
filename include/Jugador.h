@@ -6,8 +6,7 @@
 
 
 #include "Usuario.h"
-#include "PartidaMultijugador.h"
-#include "PartidaIndividual.h"
+
 #include "Suscripcion.h"
 #include "SuscripcionVitalicia.h"
 
@@ -56,5 +55,8 @@ class Jugador : public Usuario {
 		~Jugador();
 };
 
+#include "Suscripcion.h"
+#include "PartidaMultijugador.h"
+#include "PartidaIndividual.h"
 
 #endif

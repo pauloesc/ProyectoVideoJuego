@@ -1,9 +1,4 @@
 #include "../include/Partida.h"
-#include "../include/Videojuego.h"
-#include "../include/Abandona.h"
-
-
-
 using namespace std;
 
 // hay que "inicializar" los atributos static

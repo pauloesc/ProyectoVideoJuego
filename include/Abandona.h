@@ -1,7 +1,7 @@
 #ifndef ABANDONA
 #define ABANDONA
 
-#include "Jugador.h"
+
 #include "DtFecha.h"
 #include "Reloj.h"
 
@@ -18,7 +18,7 @@ public:
 	DtFecha* getFecha();
 };
 
-
+#include "Jugador.h"
 
 
 #endif

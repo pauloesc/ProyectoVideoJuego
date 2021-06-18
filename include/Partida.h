@@ -1,11 +1,8 @@
 #ifndef PARTIDA
 #define PARTIDA
 
-//#include "Videojuego.h"    // si se descomenta esto salta un error terrible
-//#include "Abandona.h"
+
 #include "Reloj.h"
-
-
 #include "DtPartidaMultijugador.h"
 #include "DtFecha.h"
 #include "DtPartidaEnCurso.h"
@@ -26,8 +23,6 @@ class Abandona;
 
 class Partida {
 private:
-	// es necesario llevar un set  de codigos para no crear uno repetido
-	// el set es completamente interno, no hace falta pasarlo a vector
 	static set<int> setCodigos;
 
 	DtFecha* fecha;
@@ -58,9 +53,9 @@ public:
 
 	virtual bool esIndividual() = 0;
     
-    //no hace nada pero tiene que estar
     virtual ~Partida();
 };
-
+#include "Videojuego.h"    
+#include "Abandona.h"
 
 #endif

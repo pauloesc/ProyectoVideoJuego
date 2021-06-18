@@ -1,5 +1,4 @@
 #include "../include/PartidaIndividual.h"
-#include "../include/Videojuego.h"
 
 
 using namespace std;

@@ -1,9 +1,6 @@
 #ifndef VIDEOJUEGO
 #define VIDEOJUEGO
 
-#include "Desarrollador.h"
-//#include "Partida.h"
-#include "Puntaje.h"
 
 #include "DtSuscripcion.h"
 
@@ -59,4 +56,8 @@ public:
     ~Videojuego();
     
 };
+
+#include "Desarrollador.h"
+#include "Partida.h"
+#include "Puntaje.h"
 #endif

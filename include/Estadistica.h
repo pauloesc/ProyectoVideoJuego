@@ -1,7 +1,7 @@
 #ifndef ESTADISTICA
 #define ESTADISTICA
 
-#include "Videojuego.h"
+
 #include "DtEstadisticaDeSegundoTipo.h"
 
 #include <string>
@@ -26,5 +26,6 @@ public:
     virtual ~Estadistica() = 0;
 };
 
+#include "Videojuego.h"
 
 #endif

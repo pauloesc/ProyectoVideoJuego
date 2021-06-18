@@ -1,7 +1,7 @@
 #ifndef PARTIDAMULTIJUGADOR
 #define PARTIDAMULTIJUGADOR
 
-#include "Jugador.h"
+
 #include "Abandona.h"
 #include "Partida.h"
 
@@ -36,6 +36,6 @@ public:
     
 };
 
-
+#include "Jugador.h"
 
 #endif
