@@ -48,7 +48,10 @@ void DtPartida::setCodigo(int codigo){
 void DtPartida::setEnCurso(bool enCurso){
     this->enCurso = enCurso;
 }
-
+ostream& operator<<(ostream &o, DtPartida* s) {
+	s->imprimir();
+	return o;
+}
 
 DtPartida::~DtPartida(){
 

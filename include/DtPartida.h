@@ -29,6 +29,8 @@ class DtPartida {
         void setEnCurso(bool enCurso);
 
 
+		virtual void imprimir() = 0;
+
 		virtual ~DtPartida();
 		friend ostream& operator<<(ostream &o, DtPartida *s);
 };

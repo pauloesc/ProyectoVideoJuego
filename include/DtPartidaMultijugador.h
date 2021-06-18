@@ -32,7 +32,7 @@ public:
 	vector<string> getNicknameJugadoresUnidos();
 
 	friend ostream& operator<<(ostream &o, DtPartidaMultijugador* d);
-
+	void imprimir();
 	~DtPartidaMultijugador();
 
 };
