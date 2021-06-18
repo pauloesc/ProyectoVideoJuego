@@ -100,16 +100,16 @@ float PartidaMultijugador::tiempoTotal() {
 	tiempo = tiempo*(jugadoresUnidos.size());
 
 	DtFecha* f;
-	DtFecha* actual = Reloj::getFecha();
+	DtFecha* inicio = this->getFecha();
 	set<Abandona*>::iterator it;
 	for (it=abandonados.begin(); it!=abandonados.end(); ++it) { 
     	f = (*it)->getFecha();
     	
-		int a = actual->getAnio() - f->getAnio();
-		int m = actual->getMes() - f->getMes();
-		int d = actual->getDia() - f->getDia();
-		int h = actual->getHora() - f->getHora();
-		int min = actual->getMinuto() - f->getMinuto();
+		int a = f->getAnio() - inicio->getAnio();
+		int m =f->getMes() - inicio->getMes();
+		int d =f->getDia() - inicio->getDia();
+		int h = f->getHora() - inicio->getHora();
+		int min = f->getMinuto() - inicio->getMinuto();
 		tiempo = tiempo + min + 60*h + 60*24*d + 60*24*30*m + 365*24*60*a;
   	}
 

@@ -1140,13 +1140,13 @@ int main() {
                                 IP->PartidaAcontinuar(cod);
                                 Reloj::setFecha(3,6,2021,15,0);
                                 cod = IP->IniciarPartidaConCodigo();
-                                Reloj::setFecha(2,6,2021,16,0);
+                                Reloj::setFecha(3,6,2021,16,0);
                                 IP->finalizarPartida(cod);
 
                                 basura =IU->ingresarDatos("ari@mail.com","123");
                                 IP->seleccionaVideoJuego("Minecraft");
                                 IP->ingresarPartidaIndividual(false);
-                                Reloj::setFecha(12,6,2021,9,0);
+                                Reloj::setFecha(12,6,2021,16,0);
                                 IP->IniciarPartida();
                                
 

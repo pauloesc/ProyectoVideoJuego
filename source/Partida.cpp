@@ -64,7 +64,8 @@ float Partida::getduracion(){
 		int d = actual->getDia() - fecha->getDia();
 		int h = actual->getHora() - fecha->getHora();
 		int min = actual->getMinuto() - fecha->getMinuto();
-		return (min + 60*h + 60*24*d + 60*24*30*m + 365*24*60*a);
+		int res = (min + 60*h + 60*24*d + 60*24*30*m + 365*24*60*a);
+		return res;
 	}
 };
 
