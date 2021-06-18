@@ -100,7 +100,7 @@ void ControladorVideojuego::CancelarAltavideoJuego(){//puedo volver todos a cero
 }
 
 Videojuego* ControladorVideojuego::darVideojuego(string Juego){
-    Videojuego* vid;
+    Videojuego* vid = 0;
     int tamCol=Videojuegos.size();
     int i=0;
     bool resu=false;
