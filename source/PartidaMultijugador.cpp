@@ -91,18 +91,6 @@ void PartidaMultijugador::finalizar() {
   	jugadoresUnidos.clear();
 }
 
-//aclaracion: no es un destructor, para eliminar toda la memoria de 
-// Partida* p hay que hacer p->eliminarPartida() y delete p
-void PartidaMultijugador::eliminarPartida() {
-	set<Abandona*>::iterator it;
-	for (it=abandonados.begin(); it!=abandonados.end(); ++it) { 
-    	delete *it;
-  	}
-
-  	abandonados.clear();
-  	jugadoresUnidos.clear();
-  	Partida::quitarCodigo(this->getcodigo());
-}
 
 
 float PartidaMultijugador::tiempoTotal() {
@@ -151,4 +139,12 @@ DtPartidaEnCurso* PartidaMultijugador::getDtPartida() {
 }
 
 PartidaMultijugador::~PartidaMultijugador(){
+	set<Abandona*>::iterator it;
+	for (it=abandonados.begin(); it!=abandonados.end(); ++it) { 
+    	delete *it;
+  	}
+
+  	abandonados.clear();
+  	jugadoresUnidos.clear();
+  	Partida::quitarCodigo(this->getcodigo());
 }

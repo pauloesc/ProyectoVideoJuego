@@ -115,10 +115,18 @@ void Videojuego::asignar(Puntaje* punt){
 
 Videojuego::~Videojuego(){
 
-    for(long unsigned int i = 0; i< VectorDeObjetosPuntaje.size(); i++ ){
-        Puntaje* eliminar = VectorDeObjetosPuntaje[i];
-        delete eliminar;
+        for (long unsigned int i = 0; i< VectorDePunterosPartidasDelVideojuego.size(); i++ ){
+            Partida* eliminar= VectorDePunterosPartidasDelVideojuego[i];
+            delete eliminar;
         }
+
+        for(long unsigned int i = 0; i< VectorDeObjetosPuntaje.size(); i++ ){
+            Puntaje* eliminar = VectorDeObjetosPuntaje[i];
+            delete eliminar;
+        }
+
+        VectorDePunterosPartidasDelVideojuego.clear();
+        VectorDeObjetosPuntaje.clear();
 
 }
 

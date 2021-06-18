@@ -24,12 +24,11 @@ public:
 	bool esJugadorUnido(Jugador* jug);
 	DtPartidaMultijugador* getDtPartidaMultijugador(string ini);
 	void finalizar();
-	void eliminarPartida();
  	float tiempoTotal();
 
 	DtPartidaEnCurso* getDtPartida(); //*DtPartidaMultijugadorEnCurso
     
-    //no hace nada pero tiene que estar
+    
     ~PartidaMultijugador();
     
 
