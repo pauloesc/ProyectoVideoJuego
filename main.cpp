@@ -722,7 +722,12 @@ void menuParaDesarollador(IControladorUsuario* IU, IControladorVideojuego* IV, I
                                 //podria no ser un vector
                                 vector<DtEstadisticaDeSegundoTipo*> datos;
                                 datos = IE->SeleccionEstadisticasDeCiertoJuego(nombreJuego);
-                                cout << datos[0] << endl;
+
+                                max = datos.size();
+                                for (int i = 0; i < max; i++)
+                                {
+                                        cout << datos[i] << endl;
+                                }
 
                         }
                         break;
