@@ -15,8 +15,8 @@ DtPartida::DtPartida() {
 DtPartida::DtPartida(DtFecha* Sfecha, float duracionPartida, int codigo, bool enCurso){
 	fechaIniciada = Sfecha;
 	duracion = duracionPartida;
-	codigo = codigo;
-	enCurso = enCurso;
+	this->codigo = codigo;
+	this->enCurso = enCurso;
 }
 
 DtFecha* DtPartida::getFecha(){
