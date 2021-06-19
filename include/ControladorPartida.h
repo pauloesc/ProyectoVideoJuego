@@ -1,4 +1,4 @@
-//falta revisar posibles funcines faltantes en todos los casos de uso.
+
 #ifndef CONTROLADORPARTIDA
 #define CONTROLADORPARTIDA
 
