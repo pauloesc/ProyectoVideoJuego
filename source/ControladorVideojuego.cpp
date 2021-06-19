@@ -293,13 +293,18 @@ void ControladorVideojuego::AsignarPuntajeVJ(string nomVJ, int puntaje){
     int tamCol=Videojuegos.size();
     int i=0;
     bool resu=false;
-
+    Videojuego* vj = 0;
     while ((!resu)&& (i<tamCol)){
         if (Videojuegos[i]->getNombre()==nomVJ){
             resu=true;
             Videojuegos[i]->asignar(punt);
+            vj = Videojuegos[i];
         }
-    i++;
+        i++;
+    }
+    //no se encontro el videojuego
+    if( vj==0 ){
+        delete punt;
     }
 
 }
