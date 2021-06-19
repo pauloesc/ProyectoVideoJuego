@@ -1,5 +1,4 @@
-// para pedir una interfaz: Fabrica::getITipoInterfaz()
-// NO HACER delete a la interfaz, hacer Fabrica::destruirFabrica() al final del programa
+
 #ifndef FABRICA
 #define FABRICA
 
