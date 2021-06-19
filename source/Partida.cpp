@@ -53,7 +53,7 @@ void Partida::terminar() {
 DtFecha* Partida::getFecha() {
     return fecha;
 }
-
+/*
 float Partida::getduracion(){
 	if (!enCurso) {
 		return duracion;
@@ -68,6 +68,16 @@ float Partida::getduracion(){
 		return res;
 	}
 };
+*/
+
+float Partida::getduracion(){
+	if (!enCurso) {
+		return duracion;
+	} else {
+		return 0;
+	}
+};
+
 
 bool Partida::getenCurso() {
 	return enCurso;
