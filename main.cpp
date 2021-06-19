@@ -247,14 +247,14 @@ void menuParaJugador(IControladorUsuario* IU, IControladorVideojuego* IV, IContr
 
 
                                         bool agregarJugadores = 1;
+                                        
                                         while(agregarJugadores){
                                                 string nomJugadorAgregar;
                                                 cout << "Ingrese el nombre de un jugador a ingresar para agregarlo a la partida: "<<'\n';
                                                 getline(cin,nomJugadorAgregar);
                                                 cout <<'\n';
 
-                                                //no se a que controlador pertenece
-                                                //AgregarJugador(nomJugadorAgregar);
+                                                IP->AgregarJugador(nomJugadorAgregar);
 
                                                 
                                                 cout << "Quiere ingresar mas jugadores, presione 1 para si, 0 para no: "<<'\n';
