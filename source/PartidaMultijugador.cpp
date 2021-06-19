@@ -92,7 +92,7 @@ void PartidaMultijugador::finalizar() {
 }
 
 
-
+/*
 float PartidaMultijugador::tiempoTotal() {
 	Partida* p = dynamic_cast<Partida*>(this);
 	float tiempo = p->getduracion();
@@ -114,6 +114,36 @@ float PartidaMultijugador::tiempoTotal() {
   	}
 
   	return tiempo;
+}
+*/
+
+float PartidaMultijugador::tiempoTotal() {
+
+	float tiempoTotal=0;
+
+	//si el jugador que inicio la partida no la finalizo aporta 0
+	tiempoTotal = tiempoTotal + this->getduracion();
+
+	DtFecha* InicioPartida = getFecha();
+	DtFecha* FinPartidaDeUnIntegrate = 0;
+
+	set<Abandona*>::iterator it;
+	for (it=abandonados.begin(); it!=abandonados.end(); ++it) 
+	{
+		//pido la fecha en que un determinado integrate finalizo su participacion
+		FinPartidaDeUnIntegrate = (*it)->getFecha();
+
+		int a = FinPartidaDeUnIntegrate->getAnio() - InicioPartida->getAnio();
+		int min = FinPartidaDeUnIntegrate->getMes() - InicioPartida->getMes();
+		int d = FinPartidaDeUnIntegrate->getDia() - InicioPartida->getDia();
+		int h = FinPartidaDeUnIntegrate->getHora() - InicioPartida->getHora();
+		int m = FinPartidaDeUnIntegrate->getMinuto() - InicioPartida->getMinuto();
+
+		tiempoTotal = tiempoTotal + min + 60*h + 60*24*d + 60*24*30*m + 365*24*60*a;
+	}
+		
+	return tiempoTotal;
+
 }
 
 DtPartidaEnCurso* PartidaMultijugador::getDtPartida() {
