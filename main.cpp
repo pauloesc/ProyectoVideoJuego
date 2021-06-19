@@ -1012,23 +1012,23 @@ int main() {
 
 
 
-                                c = new DtCategoria("Accion","Sin descripcion","Genero");
+                                c = new DtCategoria("Accion","Sin descripcion","genero");
                                 IV->NuevaCategoria(c);
                                 IV->ConfirmarCategoria();
 
-                                c = new DtCategoria("Aventura","Sin descripcion","Genero");
+                                c = new DtCategoria("Aventura","Sin descripcion","genero");
                                 IV->NuevaCategoria(c);
                                 IV->ConfirmarCategoria();
 
-                                c = new DtCategoria("Switch","Sin descripcion","Plataforma");
+                                c = new DtCategoria("Switch","Sin descripcion","plataforma");
                                 IV->NuevaCategoria(c);
                                 IV->ConfirmarCategoria();
 
-                                c = new DtCategoria("Xbox X","Sin descripcion","Plataforma");
+                                c = new DtCategoria("Xbox X","Sin descripcion","plataforma");
                                 IV->NuevaCategoria(c);
                                 IV->ConfirmarCategoria();
 
-                                c = new DtCategoria("PS5","Sin descripcion","Plataforma");
+                                c = new DtCategoria("PS5","Sin descripcion","plataforma");
                                 IV->NuevaCategoria(c);
                                 IV->ConfirmarCategoria();
 
