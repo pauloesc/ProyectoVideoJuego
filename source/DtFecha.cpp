@@ -51,5 +51,43 @@ ostream& operator<<(ostream &o, DtFecha d) {
   return o;
 }
 
+// retorna true si a es una fecha menor que b
+bool AmenorB(DtFecha* a, DtFecha* b){
+    bool res;
+    if (a->getAnio() < b->getAnio()) {
+        res = true;
+    } else if (a->getAnio() > b->getAnio()) {
+        res = false;
+    } else {
 
+        if (a->getMes() < b->getMes()) {
+            res = true;
+        } else if (a->getMes() > b->getMes()) {
+            res = false;
+        } else {
+
+            if (a->getDia() < b->getDia()) {
+                res = true;
+            } else if (a->getDia() > b->getDia()) {
+                res = false;
+            } else {
+
+                 if (a->getHora() < b->getHora()) {
+                    res = true;
+                } else if (a->getHora() > b->getHora()) {
+                    res = false;
+                } else {
+
+                     if (a->getMinuto() < b->getMinuto()) {
+                        res = true;
+                    } else {
+                        res = false;
+                    } 
+                }
+            }
+        }
+
+    }
+    return res;
+}
 

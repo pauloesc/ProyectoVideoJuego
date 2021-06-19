@@ -88,12 +88,13 @@ Desarrollador* ControladorUsuario::darDesarrollador(){
 vector<string> ControladorUsuario::darNombreJugadoresConSuscripcionActiva(string nombrevid){
        vector<string> jug;
        vector<Usuario*>::iterator it;
+       Jugador* JqueInicia = this->darJugador();
        Jugador* j;
 
        for (it = Usuarios.begin(); it!=Usuarios.end(); ++it){
               j = dynamic_cast<Jugador*>(*it);
               if (j!=NULL){
-                if (j->tieneSuscripcionActiva(nombrevid))
+                if (j->tieneSuscripcionActiva(nombrevid) and (j != JqueInicia))
                    jug.push_back(j->getnickname());
               }
        }

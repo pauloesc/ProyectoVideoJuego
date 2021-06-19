@@ -25,9 +25,30 @@ vector<DtPartidaIndividual *> Jugador::darPartidasIndividualesFinalizadas(string
     for (long unsigned int i = 0; i < partidas.size(); i++) {
         if (partidas[i]->esPartidaIndividualFinalizadaDelJuego(nombrevid)) {
             pi = dynamic_cast<PartidaIndividual*>(partidas[i]);
-			res.push_back(pi->darDatosPartida());
-        }
+			//res.push_back(pi->darDatosPartida());
+	
+			// hay que retornar el set en orden cronologico
+			bool encontrado = false;
+			long unsigned int j = 0;
+			vector<DtPartidaIndividual*>::iterator it;
+			DtPartida* d;
+
+			while (!encontrado and (j < res.size())) {
+				d = dynamic_cast<DtPartida*>(res[j]);
+				if (!AmenorB(partidas[i]->getFecha(), d->getFecha())) {   //avanza en el set mientras la fecha a ingresar sea mas chica
+					encontrado = true;
+				} else {
+					j++;
+				}
+			}
+
+			it = res.insert(res.begin()+j,pi->darDatosPartida());   //inserto el elemento en la posicion encontrada
+
+		}
     }
+	
+	
+	
 	return res;
 }
 

@@ -27,7 +27,7 @@ public:
 
 };
 
-
+bool AmenorB(DtFecha* a, DtFecha* b);
 
 
 

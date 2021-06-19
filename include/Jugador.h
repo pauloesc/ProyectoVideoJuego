@@ -12,6 +12,7 @@
 
 
 #include "DtSuscripcion.h"
+#include "DtFecha.h"
 #include "DtPartidaIndividual.h"
 #include "DtPartidaEnCurso.h"
 #include "DtPartidaMultijugador.h"
