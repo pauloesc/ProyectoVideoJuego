@@ -155,13 +155,16 @@ string Videojuego::darEmpresaDesarroladora(){
     }
 
 float Videojuego::darPromedioPuntaje(){
-
+        float resu;
         float suma= 0;
         long unsigned int cant= 0;
 
         for(cant=0; cant < VectorDeObjetosPuntaje.size(); cant++ ){
             suma = suma + VectorDeObjetosPuntaje[cant]->getPuntos();
         }
-
-        return suma/cant;
+        if (suma == 0)
+            resu = 0;
+        else
+            resu= suma/cant;
+        return resu;
 }
