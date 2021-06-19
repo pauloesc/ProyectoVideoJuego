@@ -1,0 +1,153 @@
+                                //desarrolladores
+                                IU->IngresardatosUsuario("d1","d1");
+                                IU->IngresardatosDesarrollador("EmpresaD1");
+                                IU->ConfirmarAltaUsuario();
+
+                                IU->IngresardatosUsuario("d2","d2");
+                                IU->IngresardatosDesarrollador("EmpresaD2");
+                                IU->ConfirmarAltaUsuario();
+
+                                //jugadores
+                                IU->IngresardatosUsuario("j1","j1");
+                                IU->IngresardatosJugador("gamer","");
+                                IU->ConfirmarAltaUsuario();
+
+                                IU->IngresardatosUsuario("j2","j2");
+                                IU->IngresardatosJugador("ari","");
+                                IU->ConfirmarAltaUsuario();
+
+                                //categorias
+                                DtCategoria* c;
+
+                                c = new DtCategoria("PC","Juegos de pc","plataforma");
+                                IV->NuevaCategoria(c);
+                                IV->ConfirmarCategoria();
+
+                                c = new DtCategoria("Estrategia","Juegos de Estrategia","genero");
+                                IV->NuevaCategoria(c);
+                                IV->ConfirmarCategoria();
+
+                                c = new DtCategoria("E","Su contenido esta dirigido para todo público","otro");
+                                IV->NuevaCategoria(c);
+                                IV->ConfirmarCategoria();
+
+
+                                //videojuegos
+                                bool basura;
+                                
+                                basura = IU->ingresarDatos("d1","d1");
+                                IV->datosVideojuego("Juego del d1","des1",1.f,2.f,7.f,14.f);
+                                IV->agregarcategoria("PC");
+                                IV->agregarcategoria("Estrategia");
+                                IV->agregarcategoria("E");
+                                IV->ConfirmarAltavideoJuego();
+
+                                basura = IU->ingresarDatos("d2","d2");
+                                IV->datosVideojuego("Juego del d2","des1",10.f,20.f,70.f,140.f);
+                                IV->agregarcategoria("PC");
+                                IV->agregarcategoria("Estrategia");
+                                IV->agregarcategoria("E");
+                                IV->ConfirmarAltavideoJuego();
+
+                                //suscripciones
+                                DtFecha* f;
+
+
+
+
+
+                                basura =IU->ingresarDatos("j1","j1");
+                                IS->SeleccionarVideojuego("Juego del d1");
+                                IS->IngresarDatosSuscripcion("trimestral",paypal);
+                                f = new DtFecha(1,1,2020,0,0);
+                                IS->ConfirmarSuscripcion(f);
+
+                                basura =IU->ingresarDatos("j2","j2");
+                                IS->SeleccionarVideojuego("Juego del d1");
+                                IS->IngresarDatosSuscripcion("trimestral",paypal);
+                                f = new DtFecha(1,1,2020,0,0);
+                                IS->ConfirmarSuscripcion(f);
+
+                                basura =IU->ingresarDatos("j1","j1");
+                                IS->SeleccionarVideojuego("Juego del d2");
+                                IS->IngresarDatosSuscripcion("anual",paypal);
+                                f = new DtFecha(1,1,2020,0,0);
+                                IS->ConfirmarSuscripcion(f);
+
+                                basura =IU->ingresarDatos("j2","j2");
+                                IS->SeleccionarVideojuego("Juego del d2");
+                                IS->IngresarDatosSuscripcion("anual",paypal);
+                                f = new DtFecha(1,1,2020,0,0);
+                                IS->ConfirmarSuscripcion(f);
+
+                                
+                                
+                                //puntajes para el juego del d1
+                                basura =IU->ingresarDatos("j1","j1");
+                                IV->AsignarPuntajeVJ("Juego del d1",5);
+                                basura =IU->ingresarDatos("j2","j2");
+                                IV->AsignarPuntajeVJ("Juego del d1",3);
+
+
+                                //puntajes para el juego del d2
+                                basura =IU->ingresarDatos("j1","j1");
+                                IV->AsignarPuntajeVJ("Juego del d2",2);
+                                basura =IU->ingresarDatos("j2","j2");
+                                IV->AsignarPuntajeVJ("Juego del d2",2);
+
+
+                                
+                                
+                                
+                                //partidas individuales
+                                int cod;
+
+                                
+                                
+                                
+                                
+                                //j1 tiene una partida de el juego del d1 que la finalizo antes de que se le venciera
+                                basura =IU->ingresarDatos("j1","j1");
+                                IP->seleccionaVideoJuego("Juego del d1");
+                                IP->ingresarPartidaIndividual(false);
+                                Reloj::setFecha(1,1,2020,0,0);
+                                cod = IP->IniciarPartidaConCodigo();
+                                Reloj::setFecha(1,1,2020,1,0);
+                                IP->finalizarPartida(cod);
+
+                                //j4 tiene una partida de el juego del d1
+                                // que no la finaliza nunca entonces
+                                //nunca suma a la estadistica de cant horas jugadas
+                                basura =IU->ingresarDatos("j2","j2");
+                                IP->seleccionaVideoJuego("Juego del d1");
+                                IP->ingresarPartidaIndividual(false);
+                                Reloj::setFecha(1,1,2020,0,0);
+                                cod = IP->IniciarPartidaConCodigo();
+
+                                /*
+                                Reloj::setFecha(1,1,2020,2,0);
+                                IP->finalizarPartida(cod);
+                                */
+
+
+
+
+
+
+                                //partidas multijugador
+                                
+                                basura =IU->ingresarDatos("j1","j1");
+                                IP->seleccionaVideoJuego("Juego del d2");
+                                IP->ingresarPartidaMultijugador(true);
+                                IP->AgregarJugador("ari");
+                                Reloj::setFecha(1,1,2020,0,0);
+                                cod = IP->IniciarPartidaConCodigo();
+                               
+                                //un abandona
+                                basura =IU->ingresarDatos("j2","j2");
+                                Reloj::setFecha(1,1,2020,2,0);
+                                IP->abandonarPartida(cod);
+                               
+                                basura =IU->ingresarDatos("j1","j1");
+                                Reloj::setFecha(1,1,2020,5,0);
+                                IP->finalizarPartida(cod);
