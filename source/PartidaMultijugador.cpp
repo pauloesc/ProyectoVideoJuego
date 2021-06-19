@@ -139,7 +139,7 @@ float PartidaMultijugador::tiempoTotal() {
 		int h = FinPartidaDeUnIntegrate->getHora() - InicioPartida->getHora();
 		int m = FinPartidaDeUnIntegrate->getMinuto() - InicioPartida->getMinuto();
 
-		tiempoTotal = tiempoTotal + min + 60*h + 60*24*d + 60*24*30*m + 365*24*60*a;
+		tiempoTotal = tiempoTotal + (min/60) + h + 24*d + 24*30*m + 365*24*a;
 	}
 		
 	return tiempoTotal;
