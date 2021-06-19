@@ -33,17 +33,23 @@ int DtFecha::getMinuto(){
 };
 
 
-
 ostream& operator<<(ostream &o, DtFecha* d) {
-  o << "Fecha partida: " << d->getDia() << "/" << d->getMes() << "/" << d->getAnio() << " " << d->getHora() << ":" << d->getMinuto() <<'\n';
-
+  o << "Fecha partida: " << d->getDia() << "/" << d->getMes() << "/" << d->getAnio() << " " << d->getHora() << ":";
+  if ((d->getMinuto())>9)
+      o << d->getMinuto() <<'\n';
+  else 
+      o << "0" << d->getMinuto() <<'\n';
   return o;
 }
 
 ostream& operator<<(ostream &o, DtFecha d) {
-  o << "Fecha partida: " << d.getDia() << "/" << d.getMes() << "/" << d.getAnio() << " " << d.getHora() << ":" << d.getMinuto() <<'\n';
-
+  o << "Fecha partida: " << d.getDia() << "/" << d.getMes() << "/" << d.getAnio() << " " << d.getHora() << ":";
+  if ((d.getMinuto()) > 9)
+      o << d.getMinuto() <<'\n';
+  else
+      o << "0" << d.getMinuto() <<'\n';
   return o;
 }
+
 
 
