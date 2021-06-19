@@ -134,10 +134,10 @@ float PartidaMultijugador::tiempoTotal() {
 		FinPartidaDeUnIntegrate = (*it)->getFecha();
 
 		int a = FinPartidaDeUnIntegrate->getAnio() - InicioPartida->getAnio();
-		int min = FinPartidaDeUnIntegrate->getMes() - InicioPartida->getMes();
+		int m = FinPartidaDeUnIntegrate->getMes() - InicioPartida->getMes();
 		int d = FinPartidaDeUnIntegrate->getDia() - InicioPartida->getDia();
 		int h = FinPartidaDeUnIntegrate->getHora() - InicioPartida->getHora();
-		int m = FinPartidaDeUnIntegrate->getMinuto() - InicioPartida->getMinuto();
+		float min = FinPartidaDeUnIntegrate->getMinuto() - InicioPartida->getMinuto();
 
 		tiempoTotal = tiempoTotal + (min/60) + h + 24*d + 24*30*m + 365*24*a;
 	}
