@@ -81,7 +81,7 @@ void AsignarPuntajeVJ(string nomVJ, int puntaje);
 vector<DtSuscripcion*> costosDeTodosLosVideojuegos(); // caso de uso suscribirse a videojuego
 
 ~ControladorVideojuego();
-//string getTipo(); //de donde es?
+
 };
 
 #endif
