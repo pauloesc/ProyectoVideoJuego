@@ -7,7 +7,7 @@ SuscripcionVitalicia::SuscripcionVitalicia(DtFecha* fecha, DtPago medioDePago, f
 }
 
 DtSuscripcion* SuscripcionVitalicia::crearDtSuscripcion(){
-    DtSuscripcion* dtsus = new DtSuscripcion(this->getVideojuegoAsociado()->getNombre(),this->getCosto(),"temporal");
+    DtSuscripcion* dtsus = new DtSuscripcion(this->getVideojuegoAsociado()->getNombre(),this->getCosto(),"vitalicia");
 	return dtsus;
 }
 

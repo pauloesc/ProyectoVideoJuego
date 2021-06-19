@@ -20,7 +20,15 @@ bool SuscripcionTemporal::getCancelada(){
 }
 
 DtSuscripcion* SuscripcionTemporal::crearDtSuscripcion(){
-    DtSuscripcion* dtsus = new DtSuscripcion(this->getVideojuegoAsociado()->getNombre(),this->getCosto(),"temporal");
+	DtSuscripcion* dtsus;
+	if (this->getVideojuegoAsociado()->getCostoMensual()== this->getCosto())
+        dtsus = new DtSuscripcion(this->getVideojuegoAsociado()->getNombre(),this->getCosto(),"mensual");
+	else {
+		if (this->getVideojuegoAsociado()->getCostoTrimestral() == this->getCosto())
+			dtsus = new DtSuscripcion(this->getVideojuegoAsociado()->getNombre(), this->getCosto(), "trimestral");
+		else
+			dtsus = new DtSuscripcion(this->getVideojuegoAsociado()->getNombre(), this->getCosto(), "anual");
+		}
 	return dtsus;
 }
 
