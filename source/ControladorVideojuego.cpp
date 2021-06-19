@@ -264,8 +264,8 @@ DtInfoEspecifica* ControladorVideojuego::SeleccionarVideojuego(string nombVJ){
    return nuevo;
 }
 
-int ControladorVideojuego::MostrarHorasTotalJugadas(){
-    int resu=vid->totalHorasJugadas();
+float ControladorVideojuego::MostrarHorasTotalJugadas(){
+    float resu=vid->totalHorasJugadas();
     
     vid=NULL;
     

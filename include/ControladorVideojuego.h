@@ -73,7 +73,7 @@ void CancelarCategoria();
 vector<string> ObtenerVideoJuegosString(); //caso uso ver info de videojuego
 
 DtInfoEspecifica* SeleccionarVideojuego(string nombVJ);
-int MostrarHorasTotalJugadas();
+float MostrarHorasTotalJugadas();
 
 vector<DtVideojuegoResumido*> ObtenerVideoJuegos(); //asignar puntaje
 void AsignarPuntajeVJ(string nomVJ, int puntaje);

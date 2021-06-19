@@ -45,7 +45,7 @@ virtual void CancelarCategoria()=0;
 virtual vector<string> ObtenerVideoJuegosString()=0; //caso uso ver info de videojuego
 
 virtual DtInfoEspecifica* SeleccionarVideojuego(string nombVJ)=0;
-virtual int MostrarHorasTotalJugadas()=0;
+virtual float MostrarHorasTotalJugadas()=0;
 
 virtual vector<DtVideojuegoResumido*> ObtenerVideoJuegos()=0; //asignar puntaje
 virtual void AsignarPuntajeVJ(string nomVJ, int puntaje)=0;
