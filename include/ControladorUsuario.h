@@ -20,7 +20,7 @@ class ControladorUsuario : public IControladorUsuario {
 
 private:
 static ControladorUsuario* instance;
-ControladorUsuario(); //tiene que ir protected?
+ControladorUsuario(); 
 vector<Usuario*> Usuarios;
 string email;
 string contrasenia;
@@ -56,7 +56,6 @@ bool esUsuarioEnLineaJugador(); //sirve para ver info videojuego
 
 ~ControladorUsuario();
 
-//paulo agregue lo siguente 
 void asignarEstadisticas( vector<Estadistica*> VectorDePunterosAEstadisticasEspecificas );
 
 };
