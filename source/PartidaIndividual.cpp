@@ -34,8 +34,13 @@ void PartidaIndividual::eliminarPartida() {
 }
 
 float PartidaIndividual::tiempoTotal() {
-	Partida* p = dynamic_cast<Partida*>(this);
-	return p->getduracion();
+
+	if (this->getenCurso()){
+		return 0;
+	}
+	else{
+		return this->getduracion();
+	}
 }
 
 DtPartidaIndividual* PartidaIndividual::darDatosPartida() {
