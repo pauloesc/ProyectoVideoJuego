@@ -47,7 +47,7 @@ void Partida::terminar() {
 	int d = actual->getDia() - fecha->getDia();
 	int h = actual->getHora() - fecha->getHora();
 	int min = actual->getMinuto() - fecha->getMinuto();
-	this->duracion = (min + 60*h + 60*24*d + 60*24*30*m + 365*24*60*a);
+	this->duracion = ( (min/60) + h + 24*d + 24*30*m + 365*24*a);
 }
 
 DtFecha* Partida::getFecha() {
