@@ -42,7 +42,7 @@ class ControladorSuscripciones : public IControladorSuscripciones {
         bool VerificarSuscripcionActiva();
         void IngresarDatosSuscripcion(string tiposuscripcion, DtPago pag);
         void SeleccionarVideojuego(string Juego);
-        void Finalizarproceso(); //falta implementar
+        void Finalizarproceso(); 
         void ConfirmarSuscripcion();
         void ConfirmarSuscripcion(DtFecha* d);
         void Cancelar();
