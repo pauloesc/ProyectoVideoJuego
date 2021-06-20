@@ -131,38 +131,6 @@ void ControladorSuscripciones::ConfirmarSuscripcion() {
 
 }
 
-void ControladorSuscripciones::ConfirmarSuscripcion(DtFecha* d) {
-    ControladorUsuario* cu = ControladorUsuario::getInstance();
-    Jugador* jug = cu->darJugador();
-    jug->cancelarSuscripcionActiva(this->nomJ);
-    
-    
-    Suscripcion* sus;
-
-    if (tiposus == "vitalicia") {
-        sus = new SuscripcionVitalicia(Reloj::getFecha(),pago,vj->getCostoVitalicio(),vj,jug);
-    } else {
-        float cos;
-        int val;
-        
-        if (tiposus == "mensual") {
-            cos = vj->getCostoMensual();
-            val = 30;
-        } else if (tiposus == "trimestral") {
-            cos = vj->getCostoTrimestral();
-            val = 90;
-        } else {
-            cos = vj->getCostoAnual();
-            val = 365;
-        }
-   
-        sus = new SuscripcionTemporal(d,pago,cos,vj,jug,true,val,false);
-    }
-
-    jug->asociarSuscripcion(sus); 
-
-
-}
 
 void ControladorSuscripciones::Finalizarproceso(){}
  

@@ -8,7 +8,34 @@ SuscripcionTemporal::SuscripcionTemporal(DtFecha* fecha, DtPago medioDePago, flo
 }
 
 bool SuscripcionTemporal::getActiva() {
-	return this->activa;
+	
+	if (this->cancelada) {
+		return false;
+	} else {
+		DtFecha* act = this->getFecha();
+		DtFecha* fValida;
+
+		if (this->validez == 30) {
+			if (act->getMes() == 12) {
+				fValida = new DtFecha(act->getDia(), 1, act->getAnio()+1, act->getHora(), act->getMinuto());
+			} else {
+				fValida = new DtFecha(act->getDia(), act->getMes() + 1, act->getAnio(), act->getHora(), act->getMinuto());
+			}
+
+		} else if (this->validez == 90) {
+			if (act->getMes() + 3 > 12) {
+				fValida = new DtFecha(act->getDia(), (act->getMes()+3)%12, act->getAnio()+1, act->getHora(), act->getMinuto());
+			} else {
+				fValida = new DtFecha(act->getDia(), act->getMes()+3, act->getAnio(), act->getHora(), act->getMinuto());
+			}
+
+		} else {
+			fValida = new DtFecha(act->getDia(), act->getMes(), act->getAnio()+1, act->getHora(), act->getMinuto());
+		}
+	
+		return AmenorB(Reloj::getFecha(),fValida); // retorna true si fValida > FechaActual
+	}
+	
 }
 
 int SuscripcionTemporal::getValidez() {

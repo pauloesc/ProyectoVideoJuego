@@ -44,7 +44,6 @@ class ControladorSuscripciones : public IControladorSuscripciones {
         void SeleccionarVideojuego(string Juego);
         void Finalizarproceso(); 
         void ConfirmarSuscripcion();
-        void ConfirmarSuscripcion(DtFecha* d);
         void Cancelar();
         ~ControladorSuscripciones();
 };

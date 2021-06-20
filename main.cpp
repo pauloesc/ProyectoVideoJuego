@@ -1071,43 +1071,42 @@ int main() {
 
 
                                 //suscripciones
-                                DtFecha* f;
 
                                 basura =IU->ingresarDatos("gamer@mail.com","123");
                                 IS->SeleccionarVideojuego("KingdomRush");
                                 IS->IngresarDatosSuscripcion("trimestral",paypal);
-                                f = new DtFecha(1,6,2021,9,0);
-                                IS->ConfirmarSuscripcion(f);
+                                Reloj::setFecha(1,6,2021,9,0);
+                                IS->ConfirmarSuscripcion();
 
                                 basura =IU->ingresarDatos("gamer@mail.com","123");
                                 IS->SeleccionarVideojuego("Fortnite");
                                 IS->IngresarDatosSuscripcion("trimestral",tarjeta);
-                                f = new DtFecha(2,6,2021,11,0);
-                                IS->ConfirmarSuscripcion(f);
+                                Reloj::setFecha(2,6,2021,11,0);
+                                IS->ConfirmarSuscripcion();
 
                                 basura =IU->ingresarDatos("ari@mail.com","123");
                                 IS->SeleccionarVideojuego("Fortnite");
                                 IS->IngresarDatosSuscripcion("mensual",paypal);
-                                f = new DtFecha(4,6,2021,9,0);
-                                IS->ConfirmarSuscripcion(f);
+                                Reloj::setFecha(4,6,2021,9,0);
+                                IS->ConfirmarSuscripcion();
 
                                 basura =IU->ingresarDatos("ari@mail.com","123");
                                 IS->SeleccionarVideojuego("Minecraft");
                                 IS->IngresarDatosSuscripcion("anual",tarjeta);
-                                f = new DtFecha(11,6,2021,9,0);
-                                IS->ConfirmarSuscripcion(f);
+                                Reloj::setFecha(11,6,2021,9,0);
+                                IS->ConfirmarSuscripcion();
 
                                 basura =IU->ingresarDatos("ibai@mail.com","123");
                                 IS->SeleccionarVideojuego("Fortnite");
                                 IS->IngresarDatosSuscripcion("mensual",tarjeta);
-                                f = new DtFecha(3,6,2021,7,0);
-                                IS->ConfirmarSuscripcion(f);
+                                Reloj::setFecha(3,6,2021,7,0);
+                                IS->ConfirmarSuscripcion();
 
                                 basura =IU->ingresarDatos("ibai@mail.com","123");
                                 IS->SeleccionarVideojuego("Minecraft");
                                 IS->IngresarDatosSuscripcion("vitalicia",tarjeta);
-                                f = new DtFecha(21,12,2020,15,0);
-                                IS->ConfirmarSuscripcion(f);
+                                Reloj::setFecha(21,12,2020,15,0);
+                                IS->ConfirmarSuscripcion();
 
 
                                 //puntajes
