@@ -223,7 +223,7 @@ void menuParaJugador(IControladorUsuario* IU, IControladorVideojuego* IV, IContr
                         }
                         break;
                         case 3: {
-
+                                vector<DtPartidaIndividual*> HistorialPartidaIndiv;
                                 vector<string> ListaVJConSuscrActiva;
                                 ListaVJConSuscrActiva = IP->listarVideojuegosConSuscripcionActiva();
 
@@ -341,6 +341,13 @@ void menuParaJugador(IControladorUsuario* IU, IControladorVideojuego* IV, IContr
                                 else{
                                         IP->CancelarPartida();
                                 }
+
+                                //borrado de memoria de datatypes
+                                int maxuu = HistorialPartidaIndiv.size();
+                                for(int i=0; i < maxuu; i++){
+                                        delete HistorialPartidaIndiv[i];
+                                }
+                                HistorialPartidaIndiv.clear();
 
                         }
                         break;
