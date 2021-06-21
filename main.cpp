@@ -369,6 +369,13 @@ void menuParaJugador(IControladorUsuario* IU, IControladorVideojuego* IV, IContr
                                 cout <<'\n';
                                 IP->abandonarPartida(codPartida);
 
+                                //borrado de memoria de datatypes
+                                int maxuu = Info.size();
+                                for(int i=0; i < maxuu; i++){
+                                        delete Info[i];
+                                }
+                                Info.clear();
+
                         }
                         break;
                         case 5: {
