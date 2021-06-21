@@ -398,6 +398,14 @@ void menuParaJugador(IControladorUsuario* IU, IControladorVideojuego* IV, IContr
                                     cout <<'\n';
                                     IP->finalizarPartida(codPartida);
                                 }
+
+                                //borrado de memoria de datatypes
+                                int maxuu = PartidaEnCursoDelJugador.size();
+                                for(int i=0; i < maxuu; i++){
+                                        delete PartidaEnCursoDelJugador[i];
+                                }
+                                PartidaEnCursoDelJugador.clear();
+
                         }
                         break;
                         case 6: {
