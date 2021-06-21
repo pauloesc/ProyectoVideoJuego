@@ -523,6 +523,10 @@ void menuParaDesarollador(IControladorUsuario* IU, IControladorVideojuego* IV, I
                                         IV->CancelarCategoria();
                                 }
 
+                                //borrado de memoria de datatypes
+                                nombreCategorias.clear();
+
+
                         }
                         break;
 
