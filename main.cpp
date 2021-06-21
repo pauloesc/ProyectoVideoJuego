@@ -845,6 +845,17 @@ void menuParaDesarollador(IControladorUsuario* IU, IControladorVideojuego* IV, I
                                 cout << VMostarTotalHorasJugadas << endl;
                                 cout << endl;
 
+
+                                //borrado de memoria de datatypes
+                                int maxuu = VideojuegosEnSistema.size();
+                                for(int i=0; i < maxuu; i++){
+                                        delete VideojuegosEnSistema[i];
+                                }
+                                VideojuegosEnSistema.clear();
+
+                                delete datosVj;
+
+
                         }
                         break;
                         case 7: {
