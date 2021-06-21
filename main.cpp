@@ -809,6 +809,13 @@ void menuParaDesarollador(IControladorUsuario* IU, IControladorVideojuego* IV, I
                                         cout << datos[i] << endl;
                                 }
 
+                                //borrado de memoria de datatypes
+                                int maxuu = datos.size();
+                                for(int i=0; i < maxuu; i++){
+                                        delete datos[i];
+                                }
+                                datos.clear();
+
                                 JuegosDelDesarollador.clear();
 
                         }
