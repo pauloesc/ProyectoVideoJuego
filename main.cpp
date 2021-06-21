@@ -427,6 +427,14 @@ void menuParaJugador(IControladorUsuario* IU, IControladorVideojuego* IV, IContr
                                 datosVj = IV->SeleccionarVideojuego(nombreJuego);
                                 cout << datosVj;
 
+
+                                //borrado de memoria de datatypes
+                                int maxuu = VideojuegosEnSistema.size();
+                                for(int i=0; i < maxuu; i++){
+                                        delete VideojuegosEnSistema[i];
+                                }
+                                VideojuegosEnSistema.clear();
+
                         }
                         break;
                        
