@@ -212,6 +212,14 @@ void menuParaJugador(IControladorUsuario* IU, IControladorVideojuego* IV, IContr
 
                                 IV->AsignarPuntajeVJ(NombreVj,puntaje);
 
+
+                                //borrado de memoria de datatypes
+                                int maxuu = VideojuegosDatos.size();
+                                for(int i=0; i < maxuu; i++){
+                                        delete VideojuegosDatos[i];
+                                }
+                                VideojuegosDatos.clear();
+
                         }
                         break;
                         case 3: {
