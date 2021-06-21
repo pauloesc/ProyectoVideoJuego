@@ -779,6 +779,8 @@ void menuParaDesarollador(IControladorUsuario* IU, IControladorVideojuego* IV, I
                                         IE->CancelarSeleccionEstaditicas();
                                 }
 
+                                EstadisticasEnElSistema.clear();
+
                         }
                         break;
                         case 5: {
