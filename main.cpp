@@ -809,6 +809,8 @@ void menuParaDesarollador(IControladorUsuario* IU, IControladorVideojuego* IV, I
                                         cout << datos[i] << endl;
                                 }
 
+                                JuegosDelDesarollador.clear();
+
                         }
                         break;
                         case 6: {
