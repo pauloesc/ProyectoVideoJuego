@@ -732,6 +732,8 @@ void menuParaDesarollador(IControladorUsuario* IU, IControladorVideojuego* IV, I
                                         IV->cancelarLaEliminacion();
                                 }
                        
+                                VideojuegosParaEliminar.clear();
+
                         }
                         break;
                         case 4: {
