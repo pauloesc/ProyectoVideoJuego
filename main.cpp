@@ -173,6 +173,19 @@ void menuParaJugador(IControladorUsuario* IU, IControladorVideojuego* IV, IContr
                                       IS->Finalizarproceso();
                                 }
 
+                                //borrado de memoria de datatypes
+                                int maxuu = SuscripcionesActivas.size();
+                                for(int i=0; i < maxuu; i++){
+                                        delete SuscripcionesActivas[i];
+                                }
+                                
+                                maxuu = SuscripcionesNoActivas.size();
+                                for(int i=0; i < maxuu; i++){
+                                        delete SuscripcionesNoActivas[i];
+                                }
+
+                                SuscripcionesActivas.clear();
+                                SuscripcionesNoActivas.clear();
 
                         }
                         break;
