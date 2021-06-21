@@ -672,6 +672,27 @@ void menuParaDesarollador(IControladorUsuario* IU, IControladorVideojuego* IV, I
                                     IV->CancelarAltavideoJuego();
                                 }
 
+                                //borrado de memoria de datatypes
+                                int maxuu = CategoriaPlataforma.size();
+                                for(int i=0; i < maxuu; i++){
+                                        delete CategoriaPlataforma[i];
+                                }
+                                CategoriaPlataforma.clear();
+
+                                //borrado de memoria de datatypes
+                                maxuu = CategoriaGenero.size();
+                                for(int i=0; i < maxuu; i++){
+                                        delete CategoriaGenero[i];
+                                }
+                                CategoriaGenero.clear();
+
+                                //borrado de memoria de datatypes
+                                maxuu = CategoriaOtro.size();
+                                for(int i=0; i < maxuu; i++){
+                                        delete CategoriaOtro[i];
+                                }
+                                CategoriaOtro.clear();
+
                         }
                         break;
                         case 3: {
