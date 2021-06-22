@@ -112,6 +112,7 @@ void ControladorPartida::IniciarPartida() {
 
 	this->jugadoresUnidos.clear();
 
+	this->Pcont = 0;
 }
 
 int ControladorPartida::IniciarPartidaConCodigo() {
@@ -139,6 +140,7 @@ int ControladorPartida::IniciarPartidaConCodigo() {
 
 void ControladorPartida::CancelarPartida() {
 	this->jugadoresUnidos.clear();
+	this->Pcont = 0;
 }
 
 ControladorPartida::~ControladorPartida(){}
